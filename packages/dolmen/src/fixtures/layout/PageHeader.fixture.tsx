@@ -1,11 +1,11 @@
-import { Button, ButtonGroup, PageHeader, Spacer } from '../../components';
+import { Button, PageHeader, Spacer } from '../../components';
 import { layoutStyle } from './layout.css';
 
 function PageHeaderDemo() {
   return (
     <div class={layoutStyle}>
       <PageHeader>
-        Header Demo
+        Page Header
         <Spacer />
         <Button icon round>
           X
