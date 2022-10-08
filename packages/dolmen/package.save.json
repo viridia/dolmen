@@ -1,0 +1,44 @@
+{
+  "name": "dolmen",
+  "version": "0.0.1",
+  "author": "Talin",
+  "license": "MIT",
+  "description": "A UI component library that works with Solid SSR",
+  "scripts": {
+    "build": "rollup --config rollup.config.js src/index.ts",
+    "format": "prettier --write ."
+  },
+  "source": "src/index.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/lib/index.d.ts",
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "types": "./dist/lib/index.d.ts",
+      "default": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "browser": "./dist/index.cjs",
+      "solid": "./src/index.ts"
+    }
+  },
+  "type": "module",
+  "devDependencies": {
+    "@vanilla-extract/rollup-plugin": "^1.2.0",
+    "@vanilla-extract/vite-plugin": "^3.6.1",
+    "rollup": "^2.79.1",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-preset-solid": "^1.4.0",
+    "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "@solidjs/router": "^0.4.3",
+    "@vanilla-extract/css": "^1.9.1",
+    "@vanilla-extract/recipes": "^0.2.5",
+    "@vanilla-extract/sprinkles": "^1.5.0",
+    "solid-js": "^1.5.7"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
