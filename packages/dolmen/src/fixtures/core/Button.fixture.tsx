@@ -1,4 +1,4 @@
-import { Button, Group } from '../components';
+import { Button, Group } from '../../components';
 
 function ButtonSizes() {
   return (

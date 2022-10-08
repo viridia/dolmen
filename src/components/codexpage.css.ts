@@ -5,5 +5,9 @@ export const canvasSectionStyle = style({
 });
 
 export const canvasPaneStyle = style({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'start',
   padding: 8,
+  flex: 1,
 });
