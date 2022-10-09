@@ -1,7 +1,12 @@
+import { style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 import { remHeight, SizeVariant } from '../../styles/sizes';
 import { theme } from '../../styles/theme.css';
-import { buttonGroupStyle } from './buttongroup.css';
+
+export const buttonGroupStyle = style({
+  display: 'flex',
+  flexDirection: 'row',
+});
 
 const buttonSize = (base: SizeVariant) => ({
   height: `${remHeight[base]}rem`,
@@ -43,6 +48,10 @@ export const buttonStyle = recipe({
     fontWeight: '350',
     outline: 'none',
     justifyContent: 'center',
+
+    vars: {
+      '--icon-color': theme.button.default.textColor,
+    },
 
     ':focus': {
       boxShadow: `0 0 0 3px ${theme.focusColor}`,
@@ -112,7 +121,5 @@ export const buttonStyle = recipe({
     },
   },
 });
-
-// import typography from '../typography';
 
 export type ButtonStyleProps = RecipeVariants<typeof buttonStyle>;

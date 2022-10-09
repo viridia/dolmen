@@ -6,6 +6,7 @@
   "description": "A UI component library that works with Solid SSR",
   "scripts": {
     "build": "rollup --config rollup.config.js src/index.ts",
+    "build:svg": "svgr --template ./scripts/svg-template.cjs --typescript iconsrc/ -d src/icons/",
     "format": "prettier --write ."
   },
   "source": "src/index.ts",
@@ -26,6 +27,7 @@
   },
   "type": "module",
   "devDependencies": {
+    "@svgr/cli": "^6.4.0",
     "@vanilla-extract/rollup-plugin": "^1.2.0",
     "@vanilla-extract/vite-plugin": "^3.6.1",
     "rollup": "^2.79.1",

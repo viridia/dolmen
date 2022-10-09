@@ -1,10 +1,18 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { stackStyle, StackStyleProps } from './stack.css';
+import { stackStyle, layoutStyle, LayoutStyleProps } from './layout.css';
 
 export const Stack: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & StackStyleProps
+  JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
 > = props => {
-  const [local, rest] = splitProps(props, ['gap', 'alignItems', 'class', 'classList', 'children']);
+  const [local, rest] = splitProps(props, [
+    'gap',
+    'alignItems',
+    'justifyContent',
+    'flexDirection',
+    'class',
+    'classList',
+    'children',
+  ]);
 
   return (
     <div
@@ -12,10 +20,13 @@ export const Stack: ParentComponent<
       classList={{
         ...local.classList,
         [local.class]: true,
-        [stackStyle({
+        [stackStyle]: true,
+        [layoutStyle({
           gap: local.gap,
           alignItems: local.alignItems,
-        })]: true,
+          flexDirection: local.flexDirection,
+          justifyContent: local.justifyContent,
+        })]: Boolean(local.gap || local.alignItems || local.flexDirection || local.justifyContent),
       }}
     >
       {local.children}

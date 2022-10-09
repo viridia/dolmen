@@ -1,10 +1,18 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { asideStyle, AsideStyleProps } from './aside.css';
+import { asideStyle, layoutStyle, LayoutStyleProps } from './layout.css';
 
 export const Aside: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & AsideStyleProps
+  JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
 > = props => {
-  const [local, rest] = splitProps(props, ['gap', 'class', 'classList', 'children']);
+  const [local, rest] = splitProps(props, [
+    'gap',
+    'alignItems',
+    'justifyContent',
+    'flexDirection',
+    'class',
+    'classList',
+    'children',
+  ]);
 
   return (
     <aside
@@ -12,9 +20,13 @@ export const Aside: ParentComponent<
       classList={{
         ...local.classList,
         [local.class]: true,
-        [asideStyle({
+        [asideStyle]: true,
+        [layoutStyle({
           gap: local.gap,
-        })]: true,
+          alignItems: local.alignItems,
+          flexDirection: local.flexDirection,
+          justifyContent: local.justifyContent,
+        })]: Boolean(local.gap || local.alignItems || local.flexDirection || local.justifyContent),
       }}
     >
       {local.children}

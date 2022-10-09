@@ -22,6 +22,17 @@ export const theme = createThemeContract({
     danger: buttonColorContract,
     subtle: buttonColorContract,
   },
+
+  input: {
+    bgColor: '',
+    textColor: '',
+    iconColor: '',
+    borderColor: '',
+    hoverBorderColor: '',
+    selectionBgColor: '',
+    selectionTextColor: '',
+  },
+
   font: {
     body: '',
     title: '',

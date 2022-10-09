@@ -3,6 +3,8 @@ import { mix } from '../../lib/mix';
 import { palette } from '../palette';
 import { theme } from '../theme.css';
 
+const textHighlight = '#afafff';
+
 export const light = createTheme(theme, {
   pageColor: palette.gray[100],
   focusColor: palette.gray[200],
@@ -37,9 +39,19 @@ export const light = createTheme(theme, {
       bgColor: 'transparent',
       textColor: palette.gray[700],
       borderColor: palette.gray[50],
-      hoverBgColor: palette.gray[150],
-      activeBgColor: palette.gray[200],
+      hoverBgColor: palette.gray[250],
+      activeBgColor: palette.gray[300],
     },
+  },
+
+  input: {
+    bgColor: palette.gray[150],
+    textColor: palette.gray[800],
+    iconColor: palette.gray[550],
+    borderColor: palette.gray[200],
+    hoverBorderColor: palette.gray[200],
+    selectionBgColor: textHighlight,
+    selectionTextColor: palette.gray[900],
   },
 
   font: {

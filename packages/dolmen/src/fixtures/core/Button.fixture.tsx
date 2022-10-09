@@ -1,4 +1,5 @@
 import { Button, Group } from '../../components';
+import { Cancel } from '../../icons';
 
 function ButtonSizes() {
   return (
@@ -30,16 +31,18 @@ function ButtonVariants() {
     <Group gap="md">
       <Button>Regular</Button>
       <Button round>Rounded</Button>
-      <Button icon>IC</Button>
+      <Button icon>
+        <Cancel />
+      </Button>
       <Button icon round>
-        R
+        <Cancel />
       </Button>
     </Group>
   );
 }
 
 export default {
-  'Button sizes': () => <ButtonSizes />,
-  'Button colors': () => <ButtonColors />,
-  'Button variants': () => <ButtonVariants />,
+  Sizes: () => <ButtonSizes />,
+  Colors: () => <ButtonColors />,
+  Variants: () => <ButtonVariants />,
 };

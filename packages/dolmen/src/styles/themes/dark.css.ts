@@ -41,6 +41,16 @@ export const dark = createTheme(theme, {
     },
   },
 
+  input: {
+    bgColor: '',
+    textColor: '',
+    iconColor: '',
+    borderColor: '',
+    hoverBorderColor: '',
+    selectionBgColor: '',
+    selectionTextColor: '',
+  },
+
   font: {
     body: 'Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
     title: 'Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',

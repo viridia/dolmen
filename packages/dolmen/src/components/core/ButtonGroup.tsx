@@ -1,5 +1,5 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { buttonGroupStyle } from './buttongroup.css';
+import { buttonGroupStyle } from './button.css';
 
 export const ButtonGroup: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', 'children']);

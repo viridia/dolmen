@@ -1,10 +1,18 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { groupStyle, GroupStyleProps } from './group.css';
+import { groupStyle, layoutStyle, LayoutStyleProps } from './layout.css';
 
 export const Group: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & GroupStyleProps
+  JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
 > = props => {
-  const [local, rest] = splitProps(props, ['gap', 'alignItems', 'class', 'classList', 'children']);
+  const [local, rest] = splitProps(props, [
+    'gap',
+    'alignItems',
+    'justifyContent',
+    'flexDirection',
+    'class',
+    'classList',
+    'children',
+  ]);
 
   return (
     <div
@@ -12,10 +20,13 @@ export const Group: ParentComponent<
       classList={{
         ...local.classList,
         [local.class]: true,
-        [groupStyle({
+        [groupStyle]: true,
+        [layoutStyle({
           gap: local.gap,
           alignItems: local.alignItems,
-        })]: true,
+          flexDirection: local.flexDirection,
+          justifyContent: local.justifyContent,
+        })]: Boolean(local.gap || local.alignItems || local.flexDirection || local.justifyContent),
       }}
     >
       {local.children}
