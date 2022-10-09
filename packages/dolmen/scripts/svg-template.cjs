@@ -1,5 +1,4 @@
-// import type { Template } from './types';
-
+// Custom template for svgr to convert icons to Solid components.
 module.exports = (variables, { tpl }) => {
   return tpl`
 import { JSX } from 'solid-js';

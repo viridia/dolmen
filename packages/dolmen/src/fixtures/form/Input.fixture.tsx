@@ -1,6 +1,8 @@
 import { Button, Input, PageHeader, Stack } from '../../components';
 import { Cancel } from '../../icons';
 
+export const $category = 'form';
+
 export default {
   Variants: () => (
     <Stack gap="md" style={{ width: '20rem' }}>

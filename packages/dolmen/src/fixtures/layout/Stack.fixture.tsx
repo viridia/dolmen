@@ -1,4 +1,6 @@
-import { Button, Stack, PageHeader, Spacer, Group } from '../../components';
+import { Button, Stack, Group } from '../../components';
+
+export const $category = 'layout';
 
 function StackDemo() {
   return (

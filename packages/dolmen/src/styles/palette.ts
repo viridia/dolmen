@@ -93,34 +93,6 @@ export const palette = {
 //   --scrollbar-thumb: rgba(0, 0, 0, 0.2);
 //   --scrollbar-thumb-inactive: rgba(0, 0, 0, 0.1);
 
-//   --button-primary-bg: #{$primaryDark};
-//   --button-primary-text: #{$g0};
-//   --button-primary-hover-bg: #{darken($primaryDark, 5%)};
-//   --button-primary-hover-text: #{$g0};
-//   --button-primary-active-bg: #{darken($primaryDark, 10%)};
-//   --button-primary-active-text: #{$g0};
-
-//   --button-secondary-bg: #{$secondaryDark};
-//   --button-secondary-text: #{$g0};
-//   --button-secondary-hover-bg: #{darken($secondaryDark, 5%)};
-//   --button-secondary-hover-text: #{$g0};
-//   --button-secondary-active-bg: #{darken($secondaryDark, 10%)};
-//   --button-secondary-active-text: #{$g0};
-
-//   --button-danger-bg: #{$danger};
-//   --button-danger-text: #{$g0};
-//   --button-danger-hover-bg: #{darken($dangerDark, 5%)};
-//   --button-danger-hover-text: #{$g0};
-//   --button-danger-active-bg: #{darken($dangerDark, 10%)};
-//   --button-danger-active-text: #{$g0};
-
-//   --button-subtle-bg: transparent;
-//   --button-subtle-text: #{$cg40};
-//   --button-subtle-hover-bg: rgba(255, 255, 255, 0.1);
-//   --button-subtle-hover-text: #{$g30};
-//   --button-subtle-active-bg: rgba(255, 255, 255, 0.2);
-//   --button-subtle-active-text: #{$g30};
-
 //   --input-bg: #{$cg90};
 //   --input-text: #{$cg20};
 //   --input-border: #000;

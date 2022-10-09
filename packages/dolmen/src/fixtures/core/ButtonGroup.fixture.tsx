@@ -1,5 +1,7 @@
 import { Button, ButtonGroup } from '../../components';
 
+export const $category = 'core';
+
 function ButtonGroupDemo() {
   return (
     <ButtonGroup>

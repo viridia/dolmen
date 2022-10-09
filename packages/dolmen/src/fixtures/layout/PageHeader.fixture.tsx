@@ -1,6 +1,8 @@
 import { Button, PageHeader, Spacer } from '../../components';
 import { layoutStyle } from './layout.css';
 
+export const $category = 'layout';
+
 function PageHeaderDemo() {
   return (
     <div class={layoutStyle}>

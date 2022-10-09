@@ -1,6 +1,8 @@
 import { Aside, Button, PageHeader, Spacer } from '../../components';
 import { layoutStyle } from './layout.css';
 
+export const $category = 'layout';
+
 function AsideDemo() {
   return (
     <div class={layoutStyle} style={{ 'flex-direction': 'row' }}>

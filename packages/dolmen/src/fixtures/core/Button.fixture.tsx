@@ -1,6 +1,8 @@
 import { Button, Group } from '../../components';
 import { Cancel } from '../../icons';
 
+export const $category = 'core';
+
 function ButtonSizes() {
   return (
     <Group gap="md">

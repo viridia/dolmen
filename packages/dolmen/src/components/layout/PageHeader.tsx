@@ -1,10 +1,18 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { pageHeaderStyle, AppHeaderStyleProps } from './pageheader.css';
+import { pageHeaderStyle, layoutStyle, LayoutStyleProps } from './layout.css';
 
 export const PageHeader: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & AppHeaderStyleProps
+  JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
 > = props => {
-  const [local, rest] = splitProps(props, ['gap', 'class', 'classList', 'children']);
+  const [local, rest] = splitProps(props, [
+    'gap',
+    'alignItems',
+    'justifyContent',
+    'flexDirection',
+    'class',
+    'classList',
+    'children',
+  ]);
 
   return (
     <header
@@ -12,9 +20,13 @@ export const PageHeader: ParentComponent<
       classList={{
         ...local.classList,
         [local.class]: true,
-        [pageHeaderStyle({
+        [pageHeaderStyle]: true,
+        [layoutStyle({
           gap: local.gap,
-        })]: true,
+          alignItems: local.alignItems,
+          flexDirection: local.flexDirection,
+          justifyContent: local.justifyContent,
+        })]: Boolean(local.gap || local.alignItems || local.flexDirection || local.justifyContent),
       }}
     >
       {local.children}

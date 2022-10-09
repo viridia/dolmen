@@ -1,5 +1,7 @@
 import { FieldValidation, Input, Stack } from '../../components';
 
+export const $category = 'form';
+
 export default () => (
   <Stack gap="xl" style={{ width: '20rem' }}>
     <FieldValidation>

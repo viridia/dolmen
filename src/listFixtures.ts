@@ -1,49 +1,47 @@
 // @refresh reload
 import { JSX } from 'solid-js';
 
-const fixtureModules = import.meta.glob('dolmen/**/*.fixture.tsx', {
-  import: 'default',
-});
+const fixtureModules = import.meta.glob('dolmen/**/*.fixture.tsx');
 
 export interface IFixtureGroup {
   name: string;
   path: string;
   key?: string;
-  children?: IFixtureGroup[];
+  category: string[];
 }
 
-type FixtureModule =
-  | JSX.Element
-  | (() => JSX.Element)
-  | Record<string, JSX.Element | (() => JSX.Element)>;
+type FixtureFn = () => JSX.Element;
+
+interface FixtureModule {
+  default: FixtureFn | Record<string, FixtureFn>;
+  $category?: string;
+}
 
 export async function listFixtures() {
   const result: IFixtureGroup[] = [];
   for (const path of Object.keys(fixtureModules)) {
     const mod = (await fixtureModules[path]()) as FixtureModule;
+    const factory = mod.default;
+    const category = mod.$category?.split('/') ?? [];
     let name = path;
     const m = /.*\/(.*?)\.fixture\.tsx/.exec(name);
     if (m) {
       name = m[1];
     }
-    if (typeof mod === 'object') {
-      const group: IFixtureGroup = {
-        name,
-        path,
-        children: [],
-      };
-      Object.keys(mod).forEach(submod => {
-        group.children.push({
+    if (typeof factory === 'object') {
+      Object.keys(factory).forEach(submod => {
+        result.push({
           name: submod,
           key: submod,
+          category: [...category, name],
           path,
         });
       });
-      result.push(group);
-    } else if (typeof mod === 'function') {
+    } else if (typeof factory === 'function') {
       result.push({
         name,
         path,
+        category,
       });
     }
   }

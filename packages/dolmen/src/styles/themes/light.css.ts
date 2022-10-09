@@ -3,6 +3,8 @@ import { mix } from '../../lib/mix';
 import { palette } from '../palette';
 import { theme } from '../theme.css';
 
+const primaryColor = '#6469ff';
+const dangerColor = '#992ca9';
 const textHighlight = '#afafff';
 
 export const light = createTheme(theme, {
@@ -15,11 +17,11 @@ export const light = createTheme(theme, {
 
   button: {
     primary: {
-      bgColor: '#6469ff',
+      bgColor: primaryColor,
       textColor: palette.white,
-      borderColor: mix('#6469ff', '#000000', 0.1),
-      hoverBgColor: mix('#6469ff', '#000000', 0.1),
-      activeBgColor: mix('#6469ff', '#000000', 0.2),
+      borderColor: mix(primaryColor, '#000000', 0.1),
+      hoverBgColor: mix(primaryColor, '#000000', 0.1),
+      activeBgColor: mix(primaryColor, '#000000', 0.2),
     },
     default: {
       bgColor: palette.gray[300],
@@ -29,17 +31,17 @@ export const light = createTheme(theme, {
       activeBgColor: mix(palette.gray[300], '#000000', 0.2),
     },
     danger: {
-      bgColor: '#992ca9',
+      bgColor: dangerColor,
       textColor: palette.white,
-      borderColor: mix('#992ca9', '#000000', 0.1),
-      hoverBgColor: mix('#992ca9', '#000000', 0.1),
-      activeBgColor: mix('#992ca9', '#000000', 0.2),
+      borderColor: mix(dangerColor, '#000000', 0.1),
+      hoverBgColor: mix(dangerColor, '#000000', 0.1),
+      activeBgColor: mix(dangerColor, '#000000', 0.2),
     },
     subtle: {
       bgColor: 'transparent',
       textColor: palette.gray[700],
       borderColor: palette.gray[50],
-      hoverBgColor: palette.gray[250],
+      hoverBgColor: palette.gray[200],
       activeBgColor: palette.gray[300],
     },
   },

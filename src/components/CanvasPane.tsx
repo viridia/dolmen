@@ -1,9 +1,9 @@
 import { Accessor, createResource } from 'solid-js';
 import { Show, VoidComponent } from 'solid-js';
-import { IFixtureGroup } from '../listFixtures';
 import { canvasPaneStyle } from './codexpage.css';
+import { IFixtureTreeNode } from './node';
 
-function FixtureDisplay(props: { fixture: IFixtureGroup }) {
+function FixtureDisplay(props: { fixture: IFixtureTreeNode }) {
   const [module] = createResource(props.fixture, async fixture => {
     const { path, key } = fixture;
     let component = (await import(path /* @vite-ignore */ )).default;
@@ -24,7 +24,7 @@ function FixtureDisplay(props: { fixture: IFixtureGroup }) {
   );
 }
 
-export const CanvasPane: VoidComponent<{ fixture: Accessor<IFixtureGroup | null> }> = props => {
+export const CanvasPane: VoidComponent<{ fixture: Accessor<IFixtureTreeNode | null> }> = props => {
   return (
     <div class={canvasPaneStyle}>
       <Show when={props.fixture()} keyed>
