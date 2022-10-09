@@ -1,11 +1,15 @@
 import { style } from '@vanilla-extract/css';
-import { palette, theme } from 'dolmen';
+import { palette, scrollbars, theme } from 'dolmen';
 
 export const catalogPaneStyle = style({
-  backgroundColor: theme.pageColor,
+  boxShadow: `0 0 3px 0 black`,
   alignItems: 'stretch',
   color: theme.textColor,
+  overflowY: 'auto',
   width: 300,
+  zIndex: 2,
+
+  selectors: scrollbars
 });
 
 export const catalogRootGroup = style({

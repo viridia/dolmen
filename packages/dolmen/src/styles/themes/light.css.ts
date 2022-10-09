@@ -9,11 +9,14 @@ const textHighlight = '#afafff';
 
 export const light = createTheme(theme, {
   pageColor: palette.gray[100],
-  focusColor: palette.gray[200],
+  focusColor: '#aaaaff',
   textColor: palette.gray[800],
+  shadowColor: palette.gray[400],
+
+  scrollbarColor: 'rgba(0, 0, 0, 0.2)',
+  scrollbarInactiveColor: 'rgba(0, 0, 0, 0.1)',
 
   pageHeaderBg: palette.white,
-  pageHeaderShadow: palette.gray[400],
 
   button: {
     primary: {
@@ -24,11 +27,11 @@ export const light = createTheme(theme, {
       activeBgColor: mix(primaryColor, '#000000', 0.2),
     },
     default: {
-      bgColor: palette.gray[300],
+      bgColor: palette.gray[250],
       textColor: palette.gray[800],
-      borderColor: mix(palette.gray[300], '#000000', 0.1),
-      hoverBgColor: mix(palette.gray[300], '#000000', 0.1),
-      activeBgColor: mix(palette.gray[300], '#000000', 0.2),
+      borderColor: palette.gray[350],
+      hoverBgColor: palette.gray[300],
+      activeBgColor: palette.gray[350],
     },
     danger: {
       bgColor: dangerColor,
@@ -44,6 +47,12 @@ export const light = createTheme(theme, {
       hoverBgColor: palette.gray[200],
       activeBgColor: palette.gray[300],
     },
+
+    groupBorderColor: palette.gray[400],
+  },
+
+  card: {
+    bgColor: palette.white,
   },
 
   input: {
@@ -57,7 +66,7 @@ export const light = createTheme(theme, {
   },
 
   font: {
-    body: 'Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
-    title: 'Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
+    body: '"Open Sans", Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
+    title: '"Open Sans", Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
   },
 });

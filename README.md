@@ -3,19 +3,29 @@
 Dolmen is a themeable UI component library designed to work with Solid.js and optimized for SSR
 (Server-side rendering). It provides a broad selection of UI components with minimal overhead.
 
+## Themes
+
+Themes are implemented using [vanilla-extract](https://vanilla-extract.style/) and CSS variables.
+Once a theme has been defined, you can add it to any element (and it's descendants) by adding
+the theme's class to that element. There is no need for a theme provider or context.
+
+Multiple themes are supported, so you can have (for example) a sidebar with a different color
+scheme than the main page.
+
 ## Limitations of SSR
 
 An important consideration when rendering HTML on the server is avoiding the ugly "Flash of
 Unstyled Content" (FOUC) when the HTML is displayed before the CSS is loaded. This requires that
-all of the CSS needs to be statically generated ahead of time, rather than generated in JavaScript.
-This means that many of the popular CSS-in-JS frameworks, such as [emotion](https://emotion.sh/) or
-[styled-components](https://styled-components.com/) cannot be used.
+all of the CSS needs to be statically generated ahead of time, rather than generated in JavaScript
+on the client. This means that many of the popular CSS-in-JS frameworks, such as
+[emotion](https://emotion.sh/) or [styled-components](https://styled-components.com/) cannot
+be used.
 
 Instead, Dolmen uses the [vanilla-extract](https://vanilla-extract.style/) package to generate
-CSS from JavaScript at build time. This is consistent with Dolmen's goal of being a
+CSS stylesheets from JavaScript on the server. This is consistent with Dolmen's goal of being a
 framework with minimal overhead.
 
-One limitation of this approach is that the pregenerated CSS is not quite as dynamic as CSS
+One limitation of this approach is that the server-generated CSS is not quite as dynamic as CSS
 that is generated on the client. With CSS-in-JS it is possible to create styles algorithmically,
 but with pregenerated CSS this can cause a combinatorial explosion of stylesheets unless care is
 taken to limit the number of combinations.
@@ -56,16 +66,16 @@ applying a conventional stylesheet:
 }
 ```
 
-In general, this means that when using the styling properties in the component API, one should
-not expect that every possible CSS property will be available, but rather only the most popular
-ones. Since these style properties are all known TypeScript types, auto-complete in your editor
-can help you to discover which properties are available and what their allowed values are.
-
 Dolmen does not put any restriction on what kind of stylesheets you use - it will work with
 [SASS](https://sass-lang.com/), [vanilla-extract](https://vanilla-extract.style/),
 [Tailwind](https://tailwindcss.com/), or any other CSS technology out there. You can also use
 CSS-in-JS frameworks if you want, bearing in mind that you may be subject to FOUC issues unless
 you have a means to generate the stylesheet at build time.
+
+Bottom line, what this means is that when using the styling properties in the component APIs, one
+should not expect that every possible CSS property will be available, but rather only the most
+popular ones. Since these style properties are all known TypeScript types, auto-complete in your
+editor can help you to discover which properties are available and what their allowed values are.
 
 ## Developing
 

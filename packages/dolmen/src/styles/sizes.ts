@@ -16,6 +16,7 @@ export const spacing = {
   md: '4px',
   sm: '2px',
   xs: '1px',
+  none: '0',
 };
 
 export type SizeVariant = keyof typeof remHeight;

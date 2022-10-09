@@ -9,11 +9,14 @@ const textHighlight = '#afafff';
 
 export const dark = createTheme(theme, {
   pageColor: palette.coolgray[900],
-  focusColor: '#313368',
+  focusColor: '#616398',
   textColor: palette.coolgray[200],
+  shadowColor: palette.black,
+
+  scrollbarColor: 'rgba(255, 255, 255, 0.3)',
+  scrollbarInactiveColor: 'rgba(255, 255, 255, 0.15)',
 
   pageHeaderBg: palette.coolgray[850],
-  pageHeaderShadow: palette.black,
 
   button: {
     primary: {
@@ -25,7 +28,7 @@ export const dark = createTheme(theme, {
     },
     default: {
       bgColor: palette.coolgray[800],
-      textColor: palette.coolgray[200],
+      textColor: palette.coolgray[300],
       borderColor: palette.coolgray[750],
       hoverBgColor: palette.coolgray[750],
       activeBgColor: palette.coolgray[700],
@@ -44,6 +47,12 @@ export const dark = createTheme(theme, {
       hoverBgColor: palette.coolgray[800],
       activeBgColor: palette.coolgray[750],
     },
+
+    groupBorderColor: palette.coolgray[900],
+  },
+
+  card: {
+    bgColor: palette.coolgray[850],
   },
 
   input: {
@@ -52,7 +61,7 @@ export const dark = createTheme(theme, {
     iconColor: '',
     borderColor: '',
     hoverBorderColor: '',
-    selectionBgColor: '',
+    selectionBgColor: textHighlight,
     selectionTextColor: '',
   },
 
@@ -61,13 +70,6 @@ export const dark = createTheme(theme, {
     title: 'Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
   },
 });
-
-
-//   --page-bg: #{$cg90};
-//   --focus-color: #{$focusDark};
-
-//   --navbar-bg: #{$cg80};
-//   --navbar-shadow: #000;
 
 //   --scrollbar-thumb: rgba(0, 0, 0, 0.2);
 //   --scrollbar-thumb-inactive: rgba(0, 0, 0, 0.1);

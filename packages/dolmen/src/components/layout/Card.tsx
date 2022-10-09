@@ -1,30 +1,26 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { asideStyle, LayoutStyleProps } from './layout.css';
+import { cardStyle, LayoutStyleProps } from './layout.css';
 import { withLayoutStyle } from './withLayoutStyle';
 
-export const Aside: ParentComponent<
+export const Card: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
 > = props => {
   const [layoutStyle, nprops] = withLayoutStyle(props);
-  const [local, rest] = splitProps(nprops, [
-    'class',
-    'classList',
-    'children',
-  ]);
+  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (
-    <aside
+    <section
       {...rest}
       classList={{
         ...local.classList,
         ...layoutStyle,
         [local.class]: true,
-        [asideStyle]: true,
+        [cardStyle]: true,
       }}
     >
       {local.children}
-    </aside>
+    </section>
   );
 };
 
-export default Aside;
+export default Card;

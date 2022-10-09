@@ -1,5 +1,7 @@
 import { Stack, Title } from '../../components';
 
+export const $category = 'text';
+
 function TextStyles() {
   return (
     <Stack gap="lg" alignItems="start">

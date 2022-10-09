@@ -12,15 +12,28 @@ export const theme = createThemeContract({
   pageColor: '',
   focusColor: '',
   textColor: '',
+  shadowColor: '',
+
+  scrollbarColor: '',
+  scrollbarInactiveColor: '',
 
   pageHeaderBg: '',
-  pageHeaderShadow: '',
+
+  font: {
+    body: '',
+    title: '',
+  },
 
   button: {
     primary: buttonColorContract,
     default: buttonColorContract,
     danger: buttonColorContract,
     subtle: buttonColorContract,
+    groupBorderColor: '',
+  },
+
+  card: {
+    bgColor: '',
   },
 
   input: {
@@ -31,10 +44,5 @@ export const theme = createThemeContract({
     hoverBorderColor: '',
     selectionBgColor: '',
     selectionTextColor: '',
-  },
-
-  font: {
-    body: '',
-    title: '',
   },
 });

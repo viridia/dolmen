@@ -1,5 +1,5 @@
 // @refresh reload
-import { createResource, createSignal, Suspense } from 'solid-js';
+import { createResource, Suspense } from 'solid-js';
 import { ErrorBoundary } from 'solid-start/error-boundary';
 import { Body, Head, Html, Meta, Scripts, Title } from 'solid-start';
 import { light, dark } from 'dolmen';

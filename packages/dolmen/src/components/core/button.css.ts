@@ -6,6 +6,7 @@ import { theme } from '../../styles/theme.css';
 export const buttonGroupStyle = style({
   display: 'flex',
   flexDirection: 'row',
+  borderRadius: 3,
 });
 
 const buttonSize = (base: SizeVariant) => ({
@@ -45,7 +46,7 @@ export const buttonStyle = recipe({
     borderStyle: 'solid',
     display: 'flex',
     flexDirection: 'row',
-    fontWeight: '350',
+    fontWeight: '500',
     outline: 'none',
     justifyContent: 'center',
 
@@ -54,7 +55,7 @@ export const buttonStyle = recipe({
     },
 
     ':focus': {
-      boxShadow: `0 0 0 3px ${theme.focusColor}`,
+      boxShadow: `0 0 3px 2px ${theme.focusColor}`,
       zIndex: 1,
     },
 
@@ -75,7 +76,7 @@ export const buttonStyle = recipe({
         borderRadius: 0,
         borderRightWidth: 1,
         borderRightStyle: 'solid',
-        borderRightColor: theme.button.default.hoverBgColor,
+        borderRightColor: theme.button.groupBorderColor,
       },
 
       [`${buttonGroupStyle} > &:first-child`]: {
@@ -84,7 +85,7 @@ export const buttonStyle = recipe({
 
       [`${buttonGroupStyle} > &:last-child`]: {
         borderRadius: '0 3px 3px 0',
-        // borderRightWidth: 0,
+        borderRightWidth: 0,
       },
     },
   },
