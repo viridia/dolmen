@@ -5,7 +5,7 @@ import { Body, Head, Html, Meta, Scripts, Title } from 'solid-start';
 import { light, dark } from 'dolmen';
 import { listFixtures } from './listFixtures';
 import { CodexPage } from './components/CodexPage';
-import { darkMode } from './darkMode';
+import { settings } from './settings';
 
 export default function Root() {
   const [fixtures] = createResource(listFixtures, {
@@ -13,7 +13,7 @@ export default function Root() {
   });
 
   return (
-    <Html lang="en" class={darkMode() ? dark : light}>
+    <Html lang="en" class={settings.theme === 'dark' ? dark : light}>
       <Head>
         <Title>SolidStart - With MDX</Title>
         <Meta charset="utf-8" />

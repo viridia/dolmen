@@ -7,7 +7,9 @@ export const codeStyle = recipe({
 
   variants: {
     block: {
-      whitespace: 'pre',
+      true: {
+        whiteSpace: 'pre',
+      },
     },
   },
 });

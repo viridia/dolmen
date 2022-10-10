@@ -1,14 +1,14 @@
-import { PageHeader, Page, Stack, Spacer, Button, ButtonGroup } from 'dolmen';
+import { PageHeader, Page, Stack, Spacer, Button, ButtonGroup, theme } from 'dolmen';
 import { DarkMode, LightMode } from 'dolmen/icons';
-import { createSignal, Match, Resource, Show, Switch } from 'solid-js';
+import { createEffect, createSignal, Match, Resource, Show, Switch } from 'solid-js';
 import { VoidComponent } from 'solid-js';
-import { darkMode, setDarkMode } from '../darkMode';
 import { IFixtureGroup } from '../listFixtures';
 import { CanvasPane } from './CanvasPane';
 import { CatalogPane } from './CatalogPane';
 import { canvasSectionStyle } from './styles.css';
 import { IFixtureTreeNode } from './node';
 import { SourcePane } from './SourcePane';
+import { settings, setSettings } from '../settings';
 
 export const CodexPage: VoidComponent<{ fixtures: Resource<IFixtureGroup[]> }> = ({ fixtures }) => {
   const selected = createSignal<IFixtureTreeNode | null>(null);
@@ -44,10 +44,10 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixtureGroup[]> }> =
             icon
             color="subtle"
             onClick={() => {
-              setDarkMode(mode => !mode);
+              setSettings('theme', settings.theme === 'dark' ? 'light' : 'dark');
             }}
           >
-            <Show when={darkMode()} fallback={<LightMode />}>
+            <Show when={settings.theme === 'dark'} fallback={<LightMode />}>
               <DarkMode />
             </Show>
           </Button>

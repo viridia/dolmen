@@ -12,6 +12,8 @@ export const canvasPaneStyle = style({
   justifyContent: 'start',
   padding: 8,
   flex: 1,
+  overflowY: 'auto',
+  selectors: scrollbars
 });
 
 export const sourcePaneStyle = style({
@@ -20,6 +22,8 @@ export const sourcePaneStyle = style({
   justifyContent: 'start',
   padding: 8,
   flex: 1,
+  overflowY: 'auto',
+  selectors: scrollbars
 });
 
 export const catalogPaneStyle = style({
