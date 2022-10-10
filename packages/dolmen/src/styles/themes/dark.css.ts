@@ -55,6 +55,13 @@ export const dark = createTheme(theme, {
     bgColor: palette.coolgray[850],
   },
 
+  checkbox: {
+    bgColor: palette.gray[800],
+    borderColor: palette.gray[700],
+    checkedBgColor: primaryColor,
+    markColor: palette.white,
+  },
+
   input: {
     bgColor: '',
     textColor: '',

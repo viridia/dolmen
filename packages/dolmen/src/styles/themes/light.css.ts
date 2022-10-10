@@ -55,6 +55,13 @@ export const light = createTheme(theme, {
     bgColor: palette.white,
   },
 
+  checkbox: {
+    bgColor: palette.gray[150],
+    borderColor: palette.gray[500],
+    checkedBgColor: primaryColor,
+    markColor: palette.white,
+  },
+
   input: {
     bgColor: palette.gray[150],
     textColor: palette.gray[800],

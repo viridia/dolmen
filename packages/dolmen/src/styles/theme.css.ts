@@ -36,6 +36,13 @@ export const theme = createThemeContract({
     bgColor: '',
   },
 
+  checkbox: {
+    bgColor: '',
+    borderColor: '',
+    checkedBgColor: '',
+    markColor: '',
+  },
+
   input: {
     bgColor: '',
     textColor: '',
