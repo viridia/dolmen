@@ -1,12 +1,11 @@
 import withSolid from 'rollup-preset-solid';
 import { vanillaExtractPlugin } from '@vanilla-extract/rollup-plugin';
-// import dts from "rollup-plugin-dts";
 
 export default withSolid([
   {
     input: 'src/index.ts',
     plugins: [vanillaExtractPlugin()],
-    mappingName: 'lib',
+    mappingName: 'mjs',
     output: {
       file: './dist/index.mjs',
       format: 'module',
@@ -15,7 +14,7 @@ export default withSolid([
   {
     input: 'src/index.ts',
     plugins: [vanillaExtractPlugin()],
-    mappingName: 'lib',
+    mappingName: 'cjs',
     solidOptions: {
       generate: 'ssr',
       hydratable: false,

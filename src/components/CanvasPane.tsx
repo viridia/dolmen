@@ -1,6 +1,6 @@
 import { Accessor, createResource } from 'solid-js';
 import { Show, VoidComponent } from 'solid-js';
-import { canvasPaneStyle } from './codexpage.css';
+import { canvasPaneStyle } from './styles.css';
 import { IFixtureTreeNode } from './node';
 
 function FixtureDisplay(props: { fixture: IFixtureTreeNode }) {
@@ -8,7 +8,7 @@ function FixtureDisplay(props: { fixture: IFixtureTreeNode }) {
     const { path, key } = fixture;
     let component = (await import(path /* @vite-ignore */ )).default;
     if (!component) {
-      console.log(`No default export: ${path}`);
+      console.error(`No default export: ${path}`);
       return null;
     }
     if (key) {

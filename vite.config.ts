@@ -12,6 +12,9 @@ export default defineConfig({
       extensions: ['.mdx', '.md'],
     }),
   ],
+  // optimizeDeps: {
+  //   exclude: [path.resolve(__dirname, './packages/dolmen/dist/')],
+  // },
   resolve: {
     alias: {
       dolmen: path.resolve(__dirname, './packages/dolmen/src'),

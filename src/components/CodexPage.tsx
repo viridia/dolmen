@@ -1,16 +1,18 @@
-import { PageHeader, Page, Stack, Spacer, Button } from 'dolmen';
+import { PageHeader, Page, Stack, Spacer, Button, ButtonGroup } from 'dolmen';
 import { DarkMode, LightMode } from 'dolmen/icons';
-import { createSignal, Resource, Show, Switch } from 'solid-js';
+import { createSignal, Match, Resource, Show, Switch } from 'solid-js';
 import { VoidComponent } from 'solid-js';
 import { darkMode, setDarkMode } from '../darkMode';
 import { IFixtureGroup } from '../listFixtures';
 import { CanvasPane } from './CanvasPane';
 import { CatalogPane } from './CatalogPane';
-import { canvasSectionStyle } from './codexpage.css';
+import { canvasSectionStyle } from './styles.css';
 import { IFixtureTreeNode } from './node';
+import { SourcePane } from './SourcePane';
 
 export const CodexPage: VoidComponent<{ fixtures: Resource<IFixtureGroup[]> }> = ({ fixtures }) => {
   const selected = createSignal<IFixtureTreeNode | null>(null);
+  const [displayMode, setDisplayMode] = createSignal<'canvas' | 'source'>('canvas');
 
   return (
     <Page flexDirection="row">
@@ -21,6 +23,22 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixtureGroup[]> }> =
             {fix => fix.name}
           </Show>
           <Spacer />
+          <ButtonGroup>
+            <Button
+              onClick={e => {
+                setDisplayMode('canvas');
+              }}
+            >
+              Canvas
+            </Button>
+            <Button
+              onClick={e => {
+                setDisplayMode('source');
+              }}
+            >
+              Source
+            </Button>
+          </ButtonGroup>
           <Button
             round
             icon
@@ -34,7 +52,14 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixtureGroup[]> }> =
             </Show>
           </Button>
         </PageHeader>
-        <CanvasPane fixture={selected[0]}></CanvasPane>
+        <Switch>
+          <Match when={displayMode() === 'canvas'}>
+            <CanvasPane fixture={selected[0]}></CanvasPane>
+          </Match>
+          <Match when={displayMode() === 'source'}>
+            <SourcePane fixture={selected[0]}></SourcePane>
+          </Match>
+        </Switch>
       </Stack>
     </Page>
   );

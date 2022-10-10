@@ -18,11 +18,18 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/lib/index.d.ts",
-      "default": "./dist/index.mjs",
-      "require": "./dist/index.cjs",
-      "browser": "./dist/index.cjs",
+      "types": "./dist/mjs/index.d.ts",
+      "default": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js",
+      "browser": "./dist/cjs/index.js",
       "solid": "./src/index.ts"
+    },
+    "./icons": {
+      "types": "./dist/mjs/icons/index.d.ts",
+      "default": "./dist/mjs/icons/",
+      "require": "./dist/cjs/icons/",
+      "browser": "./dist/cjs/icons/",
+      "solid": "./src/icons/"
     }
   },
   "type": "module",

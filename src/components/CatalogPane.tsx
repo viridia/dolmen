@@ -9,7 +9,8 @@ import {
   catalogRootGroup,
   catalogGroup,
   catalogEntryName,
-} from './catalogpane.css';
+  selectableEntryName,
+} from './styles.css';
 import { IFixtureTreeNode } from './node';
 
 interface ItemProps {
@@ -25,10 +26,18 @@ const CatalogItem: VoidComponent<ItemProps> = props => {
       onClick={e => {
         e.preventDefault();
         e.stopPropagation();
-        setSelected(props.fixture);
+        if (props.fixture.path) {
+          setSelected(props.fixture);
+        }
       }}
     >
-      <div classList={{ [catalogEntryName]: true, selected: selected() === props.fixture }}>
+      <div
+        classList={{
+          [catalogEntryName]: true,
+          [selectableEntryName]: !!props.fixture.path,
+          selected: selected() === props.fixture,
+        }}
+      >
         {props.fixture.name}
       </div>
       <Show when={props.fixture.children} keyed>
@@ -83,7 +92,7 @@ export const CatalogPane: VoidComponent<CatalogProps> = ({ fixtures, selected })
         parent.push(fix);
       }
 
-      // Sort
+      // Sort nodes
       for (const dir of toSort) {
         dir.sort(compareNodes);
       }
