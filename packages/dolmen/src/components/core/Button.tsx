@@ -9,6 +9,7 @@ export const Button: ParentComponent<ButtonProps & ButtonStyleProps> = props => 
     'color',
     'round',
     'icon',
+    'selected',
     'class',
     'classList',
     'children',
@@ -23,6 +24,7 @@ export const Button: ParentComponent<ButtonProps & ButtonStyleProps> = props => 
           size: local.size,
           color: local.color,
           round: local.round,
+          selected: local.selected,
           icon: local.icon,
         })]: true,
       }}

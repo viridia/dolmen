@@ -30,7 +30,7 @@ const buttonColor = (colorVariant: string) => ({
 
   vars: {
     // The variable `--icon-color` is referenced within the SVG files for icons.
-    '--icon-color': theme.button[colorVariant].textColor,
+    '--icon-color': theme.button[colorVariant].iconColor,
   },
 });
 
@@ -41,21 +41,23 @@ export const buttonStyle = recipe({
     color: theme.button.default.textColor,
     alignItems: 'center',
     appearance: 'none',
+    borderColor: theme.button.default.borderColor,
     borderRadius: 3,
     borderWidth: 0,
     borderStyle: 'solid',
     display: 'flex',
     flexDirection: 'row',
     fontWeight: '500',
+    gap: '0.5rem',
     outline: 'none',
     justifyContent: 'center',
 
     vars: {
-      '--icon-color': theme.button.default.textColor,
+      '--icon-color': theme.button.default.iconColor,
     },
 
     ':focus': {
-      boxShadow: `0 0 3px 2px ${theme.focusColor}`,
+      boxShadow: `inset 0 0 1px 3px ${theme.focusColor}`,
       zIndex: 1,
     },
 
@@ -76,7 +78,6 @@ export const buttonStyle = recipe({
         borderRadius: 0,
         borderRightWidth: 1,
         borderRightStyle: 'solid',
-        borderRightColor: theme.button.groupBorderColor,
       },
 
       [`${buttonGroupStyle} > &:first-child`]: {
@@ -120,7 +121,43 @@ export const buttonStyle = recipe({
         aspectRatio: '1',
       },
     },
+
+    selected: {
+      true: {
+        backgroundColor: theme.button.default.activeBgColor,
+      },
+    },
   },
+
+  compoundVariants: [
+    {
+      variants: {
+        selected: true,
+        color: 'primary',
+      },
+      style: {
+        backgroundColor: theme.button.primary.activeBgColor,
+      },
+    },
+    {
+      variants: {
+        selected: true,
+        color: 'danger',
+      },
+      style: {
+        backgroundColor: theme.button.danger.activeBgColor,
+      },
+    },
+    {
+      variants: {
+        selected: true,
+        color: 'subtle',
+      },
+      style: {
+        backgroundColor: theme.button.subtle.activeBgColor,
+      },
+    },
+  ],
 });
 
 export type ButtonStyleProps = RecipeVariants<typeof buttonStyle>;

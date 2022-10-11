@@ -3,6 +3,7 @@ import { createThemeContract } from '@vanilla-extract/css';
 const buttonColorContract = {
   bgColor: '',
   textColor: '',
+  iconColor: '',
   borderColor: '',
   hoverBgColor: '',
   activeBgColor: '',
@@ -29,7 +30,6 @@ export const theme = createThemeContract({
     default: buttonColorContract,
     danger: buttonColorContract,
     subtle: buttonColorContract,
-    groupBorderColor: '',
   },
 
   card: {
@@ -37,6 +37,13 @@ export const theme = createThemeContract({
   },
 
   checkbox: {
+    bgColor: '',
+    borderColor: '',
+    checkedBgColor: '',
+    markColor: '',
+  },
+
+  toggleswitch: {
     bgColor: '',
     borderColor: '',
     checkedBgColor: '',

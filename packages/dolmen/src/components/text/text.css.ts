@@ -3,7 +3,10 @@ import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 import { theme } from '../../styles';
 
 export const codeStyle = recipe({
-  base: {},
+  base: {
+    fontFamily: 'monospace',
+    fontSize: '1rem',
+  },
 
   variants: {
     block: {

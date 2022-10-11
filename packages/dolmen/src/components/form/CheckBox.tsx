@@ -1,5 +1,5 @@
 import { JSX, splitProps, ParentComponent } from 'solid-js';
-import { checkboxInnerStyle, checkboxLabelStyle } from './form.css';
+import { checkboxCtrlStyle, checkboxLabelStyle } from './form.css';
 
 interface CheckBoxProps extends JSX.InputHTMLAttributes<HTMLInputElement> {}
 
@@ -18,7 +18,7 @@ export const CheckBox: ParentComponent<CheckBoxProps> = props => {
         disabled: props.disabled,
       }}
     >
-      <input {...rest} class={checkboxInnerStyle} type="checkbox" />
+      <input {...rest} class={checkboxCtrlStyle} type="checkbox" />
       {local.children}
     </label>
   );

@@ -16,19 +16,21 @@ export const light = createTheme(theme, {
   scrollbarColor: 'rgba(0, 0, 0, 0.2)',
   scrollbarInactiveColor: 'rgba(0, 0, 0, 0.1)',
 
-  pageHeaderBg: palette.white,
+  pageHeaderBg: palette.gray[50],
 
   button: {
     primary: {
       bgColor: primaryColor,
       textColor: palette.white,
+      iconColor: mix(primaryColor, '#ffffff', 0.5),
       borderColor: mix(primaryColor, '#000000', 0.1),
       hoverBgColor: mix(primaryColor, '#000000', 0.1),
-      activeBgColor: mix(primaryColor, '#000000', 0.2),
+      activeBgColor: mix(primaryColor, '#000000', 0.3),
     },
     default: {
-      bgColor: palette.gray[250],
-      textColor: palette.gray[800],
+      bgColor: palette.gray[200],
+      textColor: palette.gray[750],
+      iconColor: palette.gray[600],
       borderColor: palette.gray[350],
       hoverBgColor: palette.gray[300],
       activeBgColor: palette.gray[350],
@@ -36,6 +38,7 @@ export const light = createTheme(theme, {
     danger: {
       bgColor: dangerColor,
       textColor: palette.white,
+      iconColor: mix(dangerColor, '#ffffff', 0.5),
       borderColor: mix(dangerColor, '#000000', 0.1),
       hoverBgColor: mix(dangerColor, '#000000', 0.1),
       activeBgColor: mix(dangerColor, '#000000', 0.2),
@@ -43,12 +46,11 @@ export const light = createTheme(theme, {
     subtle: {
       bgColor: 'transparent',
       textColor: palette.gray[700],
-      borderColor: palette.gray[50],
+      iconColor: palette.gray[450],
+      borderColor: palette.gray[200],
       hoverBgColor: palette.gray[200],
       activeBgColor: palette.gray[300],
     },
-
-    groupBorderColor: palette.gray[400],
   },
 
   card: {
@@ -70,6 +72,13 @@ export const light = createTheme(theme, {
     hoverBorderColor: palette.gray[200],
     selectionBgColor: textHighlight,
     selectionTextColor: palette.gray[900],
+  },
+
+  toggleswitch: {
+    bgColor: palette.gray[200],
+    borderColor: palette.gray[500],
+    checkedBgColor: '#99dd99',
+    markColor: palette.gray[600],
   },
 
   font: {

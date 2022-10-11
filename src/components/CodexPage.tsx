@@ -19,15 +19,18 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixtureGroup[]> }> =
       <CatalogPane fixtures={fixtures} selected={selected}></CatalogPane>
       <Stack class={canvasSectionStyle} alignItems="stretch">
         <PageHeader>
-          <Show when={selected[0]?.()} fallback={<span>Nothing selected</span>} keyed>
-            {fix => fix.name}
-          </Show>
+          <PageHeader.Title>
+            <Show when={selected[0]?.()} fallback={<i>Nothing selected</i>} keyed>
+              {fix => fix.name}
+            </Show>
+          </PageHeader.Title>
           <Spacer />
           <ButtonGroup>
             <Button
               onClick={e => {
                 setDisplayMode('canvas');
               }}
+              selected={displayMode() === 'canvas'}
             >
               Canvas
             </Button>
@@ -35,6 +38,7 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixtureGroup[]> }> =
               onClick={e => {
                 setDisplayMode('source');
               }}
+              selected={displayMode() === 'source'}
             >
               Source
             </Button>

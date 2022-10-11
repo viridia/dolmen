@@ -1,4 +1,4 @@
-import { Stack, Title } from '../../components';
+import { Code, Stack, Title } from '../../components';
 
 export const $category = 'text';
 
@@ -12,6 +12,8 @@ function TextStyles() {
       <Title as="h3">Title (h3)</Title>
       <Title as="h4">Title (h4)</Title>
       <Title as="h5">Title (h5)</Title>
+      <Code>code{'\n'}(inline)</Code>
+      <Code block>code{'\n'}(block)</Code>
     </Stack>
   );
 }

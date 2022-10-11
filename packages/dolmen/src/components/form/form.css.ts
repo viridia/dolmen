@@ -27,7 +27,7 @@ export const inputFrameStyle = recipe({
     padding: '0 6px',
 
     ':focus': {
-      boxShadow: `0 0 0 3px ${theme.focusColor}`,
+      boxShadow: `0 0 3px 2px ${theme.focusColor}`,
       zIndex: 1,
     },
 
@@ -118,7 +118,7 @@ export const adornRightStyle = style([
 ]);
 
 export const checkboxLabelStyle = style({
-  color: theme.input.textColor,
+  color: theme.textColor,
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
@@ -136,7 +136,7 @@ export const checkboxLabelStyle = style({
   },
 });
 
-export const checkboxInnerStyle = style({
+export const checkboxCtrlStyle = style({
   appearance: 'none',
   backgroundColor: theme.checkbox.bgColor,
   borderWidth: '1px',
@@ -155,7 +155,7 @@ export const checkboxInnerStyle = style({
 
   selectors: {
     '&:focus-within': {
-      boxShadow: `0 0 2px 3px ${theme.focusColor}`,
+      boxShadow: `0 0 1px 3px ${theme.focusColor}`,
       zIndex: 1,
     },
 
@@ -175,6 +175,70 @@ export const checkboxInnerStyle = style({
       top: '0',
       transform: 'rotate(40deg)',
       width: '5px',
+    },
+  },
+});
+
+export const toggleSwitchLabelStyle = style({
+  alignItems: 'center',
+  borderRadius: '500px',
+  color: theme.textColor,
+  cursor: 'pointer',
+  display: 'flex',
+  flex: 1,
+  fontFamily: theme.font.body,
+  fontSize: 'inherit',
+  justifyContent: 'start',
+  outline: 'none',
+
+  selectors: {
+    '&.disabled': {
+      cursor: 'default',
+      opacity: 0.5,
+    },
+  },
+});
+
+export const toggleSwitchCtrlStyle = style({
+  appearance: 'none',
+  backgroundColor: theme.toggleswitch.bgColor,
+  border: `2px solid ${theme.toggleswitch.borderColor}`,
+  borderRadius: 10,
+  color: theme.checkbox.markColor,
+  cursor: 'inherit',
+  height: '20px',
+  fontFamily: theme.font.body,
+  fontSize: 'inherit',
+  marginRight: '6px',
+  outline: 'none',
+  position: 'relative',
+  transition: 'background-color 0.3s ease',
+  width: '36px',
+
+  selectors: {
+    '&:focus-within': {
+      boxShadow: `0 0 1px 3px ${theme.focusColor}`,
+      zIndex: 1,
+    },
+
+    '&:checked': {
+      backgroundColor: theme.toggleswitch.checkedBgColor,
+    },
+
+    '&::after': {
+      backgroundColor: theme.toggleswitch.markColor,
+      borderRadius: '50%',
+      content: '',
+      height: '12px',
+      left: '2px',
+      position: 'absolute',
+      top: '2px',
+      transition: 'transform 0.3s ease',
+      width: '12px',
+    },
+
+    '&:checked::after': {
+      transform: 'translateX(16px)',
     },
   },
 });

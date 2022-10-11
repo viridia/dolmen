@@ -133,6 +133,16 @@ export const pageHeaderStyle = style({
   zIndex: 1,
 });
 
+export const pageHeaderTitleStyle = style({
+  alignItems: 'center',
+  display: 'flex',
+  flexDirection: 'row',
+  fontFamily: theme.font.title,
+  fontWeight: 600,
+  justifyContent: 'start',
+  padding: `0 ${spacing.xl}`,
+});
+
 // Note: order matters. This needs to come last.
 export const layoutStyle = recipe({
   base: {},

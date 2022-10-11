@@ -29,7 +29,7 @@ export interface ColorSpread {
 export function createColorSpread(base: string): ColorSpread {
   const result: ColorSpread = {} as ColorSpread;
   for (let i = 50; i < 1000; i += 50) {
-    let theta = Math.pow(i / 1000, 1.2); // Gamma correction so that colors look evenly spaced
+    let theta = i / 1000;
     if (theta < 0.5) {
       // Mix with white
       result[i] = mix(base, '#ffffff', 1 - theta * 2);

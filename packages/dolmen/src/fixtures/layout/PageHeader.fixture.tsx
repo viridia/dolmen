@@ -7,7 +7,7 @@ function PageHeaderDemo() {
   return (
     <div class={layoutStyle}>
       <PageHeader>
-        Page Header
+        <PageHeader.Title>Page Title</PageHeader.Title>
         <Spacer />
         <Button icon round>
           X

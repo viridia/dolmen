@@ -1,6 +1,5 @@
 # Components
 
-* Toggle
 * Dialog
 * Slider
 * Knob

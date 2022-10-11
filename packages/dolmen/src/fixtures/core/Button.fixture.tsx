@@ -1,4 +1,4 @@
-import { Button, Group } from '../../components';
+import { Button, Group, Stack } from '../../components';
 import { Cancel } from '../../icons';
 
 export const $category = 'core';
@@ -19,12 +19,20 @@ function ButtonSizes() {
 
 function ButtonColors() {
   return (
-    <Group gap="md">
-      <Button color="default">Default</Button>
-      <Button color="primary">Primary</Button>
-      <Button color="danger">Danger</Button>
-      <Button color="subtle">Subtle</Button>
-    </Group>
+    <Stack gap="xl">
+      <Group gap="md">
+        <Button color="default">Default</Button>
+        <Button color="primary">Primary</Button>
+        <Button color="danger">Danger</Button>
+        <Button color="subtle">Subtle</Button>
+      </Group>
+      <Group gap="md">
+        <Button color="default">Default<Cancel/></Button>
+        <Button color="primary">Primary<Cancel/></Button>
+        <Button color="danger">Danger<Cancel/></Button>
+        <Button color="subtle">Subtle<Cancel/></Button>
+      </Group>
+    </Stack>
   );
 }
 
