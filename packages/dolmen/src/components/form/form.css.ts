@@ -203,6 +203,7 @@ export const toggleSwitchCtrlStyle = style({
   appearance: 'none',
   backgroundColor: theme.toggleswitch.bgColor,
   border: `2px solid ${theme.toggleswitch.borderColor}`,
+  boxShadow: `inset 0 1px 3px 1px #000000cc`,
   borderRadius: 10,
   color: theme.checkbox.markColor,
   cursor: 'inherit',
@@ -217,7 +218,7 @@ export const toggleSwitchCtrlStyle = style({
 
   selectors: {
     '&:focus-within': {
-      boxShadow: `0 0 1px 3px ${theme.focusColor}`,
+      boxShadow: `0 0 1px 3px ${theme.focusColor}, inset 0 1px 3px 1px #000000cc`,
       zIndex: 1,
     },
 
@@ -226,7 +227,8 @@ export const toggleSwitchCtrlStyle = style({
     },
 
     '&::after': {
-      backgroundColor: theme.toggleswitch.markColor,
+      background: theme.toggleswitch.markBg,
+      boxShadow: `0 0 2px 1px ${theme.toggleswitch.markBorderColor}, 0 0.5px 2px 1px ${theme.toggleswitch.markBorderColor}`,
       borderRadius: '50%',
       content: '',
       height: '12px',

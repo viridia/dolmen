@@ -47,7 +47,8 @@ export const theme = createThemeContract({
     bgColor: '',
     borderColor: '',
     checkedBgColor: '',
-    markColor: '',
+    markBg: '',
+    markBorderColor: '',
   },
 
   input: {

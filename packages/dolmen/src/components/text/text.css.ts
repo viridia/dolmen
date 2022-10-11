@@ -1,23 +1,10 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 import { theme } from '../../styles';
 
-export const codeStyle = recipe({
-  base: {
-    fontFamily: 'monospace',
-    fontSize: '1rem',
-  },
-
-  variants: {
-    block: {
-      true: {
-        whiteSpace: 'pre',
-      },
-    },
-  },
+export const codeStyle = style({
+  fontFamily: 'monospace',
+  fontSize: '1rem',
 });
-
-export type CodeStyleProps = RecipeVariants<typeof codeStyle>;
 
 export const titleStyle = style({
   fontFamily: theme.font.title,

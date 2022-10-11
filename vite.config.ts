@@ -9,7 +9,7 @@ export default defineConfig({
       // identifiers: "short",
     }),
     solid({
-      extensions: ['.mdx', '.md'],
+      // extensions: ['.mdx', '.md'],
     }),
   ],
   // optimizeDeps: {

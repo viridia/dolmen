@@ -9,7 +9,7 @@ const textHighlight = '#afafff';
 
 export const light = createTheme(theme, {
   pageColor: palette.gray[100],
-  focusColor: '#aaaaff',
+  focusColor: '#00006633',
   textColor: palette.gray[800],
   shadowColor: palette.gray[400],
 
@@ -75,10 +75,11 @@ export const light = createTheme(theme, {
   },
 
   toggleswitch: {
-    bgColor: palette.gray[200],
-    borderColor: palette.gray[500],
-    checkedBgColor: '#99dd99',
-    markColor: palette.gray[600],
+    bgColor: palette.gray[150],
+    borderColor: palette.gray[400],
+    checkedBgColor: '#77dd77',
+    markBg: `linear-gradient(to bottom, ${palette.gray[50]} 0%, ${palette.gray[350]} 100%)`,
+    markBorderColor: `#00000044`,
   },
 
   font: {

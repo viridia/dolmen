@@ -23,9 +23,15 @@ function SourceDisplay(props: { fixture: IFixtureTreeNode }) {
     return text.slice(startIndex, endIndex).split('\\n').join('\n').replaceAll('\\"', '"');
   });
 
+  let ref: HTMLDivElement | null;
+
   return (
     <Show when={source.state === 'ready'} keyed>
-      {() => <Code block>{source()}</Code>}
+      {() => (
+        <Code block class="language-tsx" ref={ref}>
+          {source()}
+        </Code>
+      )}
     </Show>
   );
 }

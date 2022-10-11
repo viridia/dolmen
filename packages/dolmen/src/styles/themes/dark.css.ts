@@ -75,10 +75,11 @@ export const dark = createTheme(theme, {
   },
 
   toggleswitch: {
-    bgColor: palette.gray[800],
-    borderColor: palette.gray[650],
-    checkedBgColor: '#115511',
-    markColor: palette.gray[400],
+    bgColor: palette.coolgray[800],
+    borderColor: palette.coolgray[650],
+    checkedBgColor: '#118811',
+    markBg: `linear-gradient(to bottom, ${palette.gray[100]} 0%, ${palette.gray[550]} 100%)`,
+    markBorderColor: `#00000088`,
   },
 
   font: {

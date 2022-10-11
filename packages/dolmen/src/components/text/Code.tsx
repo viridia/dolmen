@@ -1,19 +1,35 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { Dynamic } from 'solid-js/web';
-import { codeStyle, CodeStyleProps } from './text.css';
+import { codeStyle } from './text.css';
 
-export const Code: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & CodeStyleProps> = props => {
+interface CodeProps {
+  block?: boolean;
+}
+
+export const Code: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & CodeProps> = props => {
   const [local, rest] = splitProps(props, ['block', 'class', 'classList', 'children']);
 
-  return (
+  // Note: Prism requires that the <pre> element be a separate, surrounding element.
+  // We can't just add a "whitespace: pre" style to the <code> element.
+  return local.block ? (
+    <pre>
+      <code
+        {...rest}
+        classList={{
+          ...local.classList,
+          [local.class]: true,
+          [codeStyle]: true,
+        }}
+      >
+        {local.children}
+      </code>
+    </pre>
+  ) : (
     <code
       {...rest}
       classList={{
         ...local.classList,
         [local.class]: true,
-        [codeStyle({
-          block: local.block,
-        })]: true,
+        [codeStyle]: true,
       }}
     >
       {local.children}
