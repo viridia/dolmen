@@ -2,6 +2,7 @@ import { createTheme } from '@vanilla-extract/css';
 import { mix } from '../../lib';
 import { palette } from '../palette';
 import { theme } from '../theme.css';
+import { colord } from 'colord';
 
 const primaryColor = '#3f45d4';
 const dangerColor = '#7d248a';
@@ -22,10 +23,10 @@ export const dark = createTheme(theme, {
     primary: {
       bgColor: primaryColor,
       textColor: palette.coolgray[100],
-      iconColor: mix(primaryColor, '#000000', 0.1),
+      iconColor: colord(primaryColor).lighten(0.25).toHex(),
       borderColor: mix(primaryColor, '#ffffff', 0.1),
-      hoverBgColor: mix(primaryColor, '#ffffff', 0.1),
-      activeBgColor: mix(primaryColor, '#ffffff', 0.3),
+      hoverBgColor: colord(primaryColor).darken(0.05).toHex(),
+      activeBgColor: colord(primaryColor).darken(0.1).toHex(),
     },
     default: {
       bgColor: palette.coolgray[800],
@@ -38,10 +39,10 @@ export const dark = createTheme(theme, {
     danger: {
       bgColor: dangerColor,
       textColor: palette.coolgray[100],
-      iconColor: mix(dangerColor, '#000000', 0.1),
+      iconColor: colord(dangerColor).lighten(0.3).toHex(),
       borderColor: mix(dangerColor, '#ffffff', 0.1),
-      hoverBgColor: mix(dangerColor, '#ffffff', 0.1),
-      activeBgColor: mix(dangerColor, '#ffffff', 0.3),
+      hoverBgColor: colord(dangerColor).darken(0.05).toHex(),
+      activeBgColor: colord(dangerColor).darken(0.1).toHex(),
     },
     subtle: {
       bgColor: 'transparent',

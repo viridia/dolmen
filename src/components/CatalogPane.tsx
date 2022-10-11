@@ -11,15 +11,16 @@ import {
   catalogEntryName,
   selectableEntryName,
 } from './styles.css';
-import { IFixtureTreeNode } from './node';
+import { IFixtureTree, IFixtureTreeNode } from './node';
+import { useNavigate, useParams } from '@solidjs/router';
 
 interface ItemProps {
   fixture: IFixtureTreeNode;
-  selected: Signal<IFixtureTreeNode | null>;
 }
 
 const CatalogItem: VoidComponent<ItemProps> = props => {
-  const [selected, setSelected] = props.selected;
+  const params = useParams();
+  const navigate = useNavigate();
   return (
     <li
       classList={{ [catalogEntryStyle]: true }}
@@ -27,7 +28,7 @@ const CatalogItem: VoidComponent<ItemProps> = props => {
         e.preventDefault();
         e.stopPropagation();
         if (props.fixture.path) {
-          setSelected(props.fixture);
+          navigate(`/${props.fixture.urlPath}`);
         }
       }}
     >
@@ -35,13 +36,13 @@ const CatalogItem: VoidComponent<ItemProps> = props => {
         classList={{
           [catalogEntryName]: true,
           [selectableEntryName]: !!props.fixture.path,
-          selected: selected() === props.fixture,
+          selected: params.fixture === props.fixture.urlPath,
         }}
       >
         {props.fixture.name}
       </div>
       <Show when={props.fixture.children} keyed>
-        {children => <CatalogGroup fixtures={children} selected={props.selected} />}
+        {children => <CatalogGroup fixtures={children} />}
       </Show>
     </li>
   );
@@ -49,64 +50,26 @@ const CatalogItem: VoidComponent<ItemProps> = props => {
 
 interface GroupProps {
   fixtures: IFixtureTreeNode[];
-  selected: Signal<IFixtureTreeNode | null>;
   root?: boolean;
 }
 
-const CatalogGroup: VoidComponent<GroupProps> = ({ fixtures, selected, root }) => {
+const CatalogGroup: VoidComponent<GroupProps> = ({ fixtures, root }) => {
   return (
     <ul class={root ? catalogRootGroup : catalogGroup}>
-      <For each={fixtures}>{fix => <CatalogItem fixture={fix} selected={selected} />}</For>
+      <For each={fixtures}>{fix => <CatalogItem fixture={fix} />}</For>
     </ul>
   );
 };
 
 interface CatalogProps {
-  fixtures: Resource<IFixtureGroup[]>;
-  selected: Signal<IFixtureTreeNode | null>;
+  fixtures: IFixtureTree;
   root?: boolean;
 }
 
-export const CatalogPane: VoidComponent<CatalogProps> = ({ fixtures, selected }) => {
-  const fixtureTree = createMemo<IFixtureTreeNode[]>(() => {
-    const root: IFixtureTreeNode[] = [];
-    const toSort: IFixtureTreeNode[][] = [root];
-    const list = fixtures();
-    if (list) {
-      // Build tree nodes by coalescing category names
-      for (const fix of list) {
-        let parent = root;
-        for (const dirName of fix.category) {
-          let next = parent.find(f => f.name === dirName);
-          if (!next) {
-            next = {
-              name: dirName,
-              children: [],
-            };
-            parent.push(next);
-            toSort.push(next.children);
-          }
-          parent = next.children;
-        }
-
-        parent.push(fix);
-      }
-
-      // Sort nodes
-      for (const dir of toSort) {
-        dir.sort(compareNodes);
-      }
-    }
-
-    return root;
-  });
+export const CatalogPane: VoidComponent<CatalogProps> = (props) => {
   return (
     <Aside classList={{ [dark]: true, [catalogPaneStyle]: true }}>
-      <CatalogGroup root fixtures={fixtureTree()} selected={selected} />
+      <CatalogGroup root fixtures={props.fixtures.children} />
     </Aside>
   );
 };
-
-function compareNodes(left: IFixtureTreeNode, right: IFixtureTreeNode) {
-  return left.name.localeCompare(right.name);
-}

@@ -4,10 +4,20 @@ import { JSX } from 'solid-js';
 const fixtureModules = import.meta.glob('dolmen/**/*.fixture.tsx');
 
 export interface IFixtureGroup {
+  /** Display name of the fixture */
   name: string;
+
+  /** Path to source module containing the fixture. */
   path: string;
-  key?: string;
+
+  /** For modules containing multiple fixtures, the name of the property used to get it. */
+  propertyKey?: string;
+
+  /** Hierarchical category shown in tree view. */
   category: string[];
+
+  /** id displayed in url. */
+  urlPath: string;
 }
 
 type FixtureFn = () => JSX.Element;
@@ -18,6 +28,16 @@ interface FixtureModule {
 }
 
 export async function listFixtures() {
+  const uniquePaths = new Set<string>();
+  const getUniquePath = (...names: string[]) => {
+    const stem = names.join('-').toLowerCase().replace(' ', '-');
+    let result = stem;
+    let index = 0;
+    while (uniquePaths.has(result)) {
+      result = `${stem}${++index}`;
+    }
+    return result;
+  };
   const result: IFixtureGroup[] = [];
   for (const path of Object.keys(fixtureModules)) {
     const mod = (await fixtureModules[path]()) as FixtureModule;
@@ -32,15 +52,17 @@ export async function listFixtures() {
       Object.keys(factory).forEach(submod => {
         result.push({
           name: submod,
-          key: submod,
+          propertyKey: submod,
           category: [...category, name],
           path,
+          urlPath: getUniquePath(...category, name, submod),
         });
       });
     } else if (typeof factory === 'function') {
       result.push({
         name,
         path,
+        urlPath: getUniquePath(...category, name),
         category,
       });
     }

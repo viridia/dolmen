@@ -1,8 +1,9 @@
-import { Accessor, createResource } from 'solid-js';
+import { Accessor, createResource, Suspense } from 'solid-js';
 import { Show, VoidComponent } from 'solid-js';
 import { sourcePaneStyle } from './styles.css';
 import { IFixtureTreeNode } from './node';
 import { Code } from 'dolmen';
+import { isServer } from 'solid-js/web';
 
 const srcPrologue = 'export default "';
 const srcEpilotue = '";\n//# sourceMappingURL';
@@ -26,13 +27,13 @@ function SourceDisplay(props: { fixture: IFixtureTreeNode }) {
   let ref: HTMLDivElement | null;
 
   return (
-    <Show when={source.state === 'ready'} keyed>
-      {() => (
+    !isServer && (
+      <Suspense>
         <Code block class="language-tsx" ref={ref}>
           {source()}
         </Code>
-      )}
-    </Show>
+      </Suspense>
+    )
   );
 }
 

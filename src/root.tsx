@@ -1,12 +1,11 @@
 // @refresh reload
-import { createResource, Suspense, useContext } from 'solid-js';
+import { createResource, Suspense } from 'solid-js';
 import { ErrorBoundary } from 'solid-start/error-boundary';
-import { Body, Head, Html, Meta, Scripts, ServerContext, Title } from 'solid-start';
+import { Body, Head, Html, Meta, Route, Routes, Scripts, Title } from 'solid-start';
 import { light, dark } from 'dolmen';
 import { listFixtures } from './listFixtures';
 import { CodexPage } from './components/CodexPage';
 import { createUserSettings, UserSettingsContext } from './settings';
-import { isServer } from 'solid-js/web';
 
 export default function Root() {
   const [fixtures] = createResource(listFixtures, {
@@ -26,7 +25,9 @@ export default function Root() {
         <Body>
           <ErrorBoundary>
             <Suspense>
-              <CodexPage fixtures={fixtures} />
+              <Routes>
+                <Route path="/:fixture?/*" component={() => <CodexPage fixtures={fixtures} />} />
+              </Routes>
             </Suspense>
           </ErrorBoundary>
           <Scripts />
