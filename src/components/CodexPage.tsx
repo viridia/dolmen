@@ -8,11 +8,11 @@ import { CatalogPane } from './CatalogPane';
 import { canvasSectionStyle } from './styles.css';
 import { IFixtureTreeNode } from './node';
 import { SourcePane } from './SourcePane';
-import { settings, setSettings } from '../settings';
+import { useUserSettings } from '../settings';
 
 export const CodexPage: VoidComponent<{ fixtures: Resource<IFixtureGroup[]> }> = ({ fixtures }) => {
   const selected = createSignal<IFixtureTreeNode | null>(null);
-  const [displayMode, setDisplayMode] = createSignal<'canvas' | 'source'>('canvas');
+  const [settings, setSettings] = useUserSettings();
 
   return (
     <Page flexDirection="row">
@@ -28,17 +28,17 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixtureGroup[]> }> =
           <ButtonGroup>
             <Button
               onClick={e => {
-                setDisplayMode('canvas');
+                setSettings({ displayMode: 'canvas' });
               }}
-              selected={displayMode() === 'canvas'}
+              selected={settings.displayMode === 'canvas'}
             >
               Canvas
             </Button>
             <Button
               onClick={e => {
-                setDisplayMode('source');
+                setSettings({ displayMode: 'source' });
               }}
-              selected={displayMode() === 'source'}
+              selected={settings.displayMode === 'source'}
             >
               Source
             </Button>
@@ -48,7 +48,7 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixtureGroup[]> }> =
             icon
             color="subtle"
             onClick={() => {
-              setSettings('theme', settings.theme === 'dark' ? 'light' : 'dark');
+              setSettings(s => ({ theme: s.theme === 'dark' ? 'light' : 'dark' }));
             }}
           >
             <Show when={settings.theme === 'dark'} fallback={<LightMode />}>
@@ -57,10 +57,10 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixtureGroup[]> }> =
           </Button>
         </PageHeader>
         <Switch>
-          <Match when={displayMode() === 'canvas'}>
+          <Match when={settings.displayMode === 'canvas'}>
             <CanvasPane fixture={selected[0]}></CanvasPane>
           </Match>
-          <Match when={displayMode() === 'source'}>
+          <Match when={settings.displayMode === 'source'}>
             <SourcePane fixture={selected[0]}></SourcePane>
           </Match>
         </Switch>

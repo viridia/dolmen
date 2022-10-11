@@ -35,16 +35,13 @@
   "type": "module",
   "devDependencies": {
     "@svgr/cli": "^6.4.0",
-    "@types/prismjs": "^1.26.0",
     "@vanilla-extract/rollup-plugin": "^1.2.0",
     "@vanilla-extract/vite-plugin": "^3.6.1",
     "rollup": "^2.79.1",
-    "rollup-plugin-dts": "^4.2.2",
     "rollup-preset-solid": "^1.4.0",
     "typescript": "^4.8.3"
   },
   "dependencies": {
-    "@solidjs/router": "^0.4.3",
     "@vanilla-extract/css": "^1.9.1",
     "@vanilla-extract/recipes": "^0.2.5",
     "@vanilla-extract/sprinkles": "^1.5.0",
