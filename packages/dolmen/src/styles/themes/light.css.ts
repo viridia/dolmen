@@ -85,5 +85,6 @@ export const light = createTheme(theme, {
   font: {
     body: '"Open Sans", Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
     title: '"Open Sans", Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
+    mono: 'Consolas, Inconsolata, Menlo, monospace',
   },
 });

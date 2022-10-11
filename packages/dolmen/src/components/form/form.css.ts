@@ -1,11 +1,11 @@
 import { style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
-import { remHeight, SizeVariant } from '../../styles/sizes';
+import { fontSize, remHeight, SizeVariant } from '../../styles/sizes';
 import { theme } from '../../styles/theme.css';
 
 const inputSize = (base: SizeVariant) => ({
   height: `${remHeight[base]}rem`,
-  fontSize: `${Math.max(remHeight[base] / 2, 0.75)}rem`,
+  fontSize: fontSize[base],
 });
 
 export const inputFrameStyle = recipe({

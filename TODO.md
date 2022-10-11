@@ -15,7 +15,6 @@
 * TextArea
 * Checkbox
 * Radio
-* Code
 * Paragraph
 * Divided button
 * Chip

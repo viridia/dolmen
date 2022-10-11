@@ -23,6 +23,7 @@ export const theme = createThemeContract({
   font: {
     body: '',
     title: '',
+    mono: '',
   },
 
   button: {

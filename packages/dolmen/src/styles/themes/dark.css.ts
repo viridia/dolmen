@@ -86,5 +86,6 @@ export const dark = createTheme(theme, {
   font: {
     body: 'Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
     title: 'Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
+    mono: 'Consolas, Inconsolata, Menlo, monospace',
   },
 });

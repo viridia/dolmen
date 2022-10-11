@@ -1,30 +1,7 @@
 import { CSSProperties, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 import { theme } from '../../styles';
-import { spacing } from '../../styles/sizes';
-
-function standardLength(prop: keyof CSSProperties): Record<keyof typeof spacing, CSSProperties> {
-  return {
-    xl: {
-      [prop]: spacing.xl,
-    },
-    lg: {
-      [prop]: spacing.lg,
-    },
-    md: {
-      [prop]: spacing.md,
-    },
-    sm: {
-      [prop]: spacing.sm,
-    },
-    xs: {
-      [prop]: spacing.xs,
-    },
-    none: {
-      [prop]: 0,
-    },
-  };
-}
+import { spacing, standardLength } from '../../styles/sizes';
 
 function standardLength2(
   prop1: keyof CSSProperties,

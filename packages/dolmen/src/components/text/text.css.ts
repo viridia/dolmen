@@ -1,10 +1,33 @@
 import { globalStyle, style } from '@vanilla-extract/css';
+import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 import { theme } from '../../styles';
+import { standardFontSizes } from '../../styles/sizes';
 
-export const codeStyle = style({
-  fontFamily: 'monospace',
-  fontSize: '1rem',
+export const codeStyle = recipe({
+  base: {
+    fontFamily: theme.font.mono,
+    fontSize: '1rem',
+  },
+
+  variants: {
+    size: standardFontSizes('fontSize'),
+  },
 });
+
+export type CodeStyleProps = RecipeVariants<typeof codeStyle>;
+
+export const textStyle = recipe({
+  base: {
+    fontFamily: theme.font.body,
+    fontSize: '1rem',
+  },
+
+  variants: {
+    size: standardFontSizes('fontSize'),
+  },
+});
+
+export type TextStyleProps = RecipeVariants<typeof textStyle>;
 
 export const titleStyle = style({
   fontFamily: theme.font.title,
