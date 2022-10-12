@@ -58,8 +58,8 @@ export const dark = createTheme(theme, {
   },
 
   checkbox: {
-    bgColor: palette.gray[800],
-    borderColor: palette.gray[700],
+    bgColor: palette.coolgray[800],
+    borderColor: palette.coolgray[700],
     checkedBgColor: primaryColor,
     markColor: palette.white,
   },
@@ -78,7 +78,7 @@ export const dark = createTheme(theme, {
     bgColor: palette.coolgray[800],
     borderColor: palette.coolgray[650],
     checkedBgColor: '#118811',
-    markBg: `linear-gradient(to bottom, ${palette.gray[100]} 0%, ${palette.gray[550]} 100%)`,
+    markBg: `linear-gradient(to bottom, ${palette.coolgray[100]} 0%, ${palette.coolgray[550]} 100%)`,
     markBorderColor: `#00000088`,
   },
 

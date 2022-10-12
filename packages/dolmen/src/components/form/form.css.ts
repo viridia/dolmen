@@ -26,11 +26,6 @@ export const inputFrameStyle = recipe({
     justifyContent: 'center',
     padding: '0 6px',
 
-    ':focus': {
-      boxShadow: `0 0 3px 2px ${theme.focusColor}`,
-      zIndex: 1,
-    },
-
     selectors: {
       '&:hover:not([disabled])': {
         borderColor: theme.input.hoverBorderColor,
@@ -154,7 +149,7 @@ export const checkboxCtrlStyle = style({
   width: '18px',
 
   selectors: {
-    '&:focus-within': {
+    '&:focus-within:focus-visible': {
       boxShadow: `0 0 1px 3px ${theme.focusColor}`,
       zIndex: 1,
     },
@@ -217,7 +212,7 @@ export const toggleSwitchCtrlStyle = style({
   width: '36px',
 
   selectors: {
-    '&:focus-within': {
+    '&:focus-within:focus-visible': {
       boxShadow: `0 0 1px 3px ${theme.focusColor}, inset 0 1px 3px 1px #000000cc`,
       zIndex: 1,
     },

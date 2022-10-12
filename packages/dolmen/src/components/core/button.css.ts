@@ -56,13 +56,13 @@ export const buttonStyle = recipe({
       '--icon-color': theme.button.default.iconColor,
     },
 
-    ':focus': {
-      boxShadow: `inset 0 0 1px 3px ${theme.focusColor}`,
-      zIndex: 1,
-    },
-
     selectors: {
-      '&[disabled]': {
+      '&:focus:focus-visible': {
+        boxShadow: `0 0 1px 3px ${theme.focusColor}`,
+        zIndex: 1,
+      },
+
+        '&[disabled]': {
         opacity: 0.5,
       },
 
