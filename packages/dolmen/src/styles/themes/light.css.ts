@@ -1,7 +1,7 @@
 import { createTheme } from '@vanilla-extract/css';
-import { mix } from '../../lib/mix';
 import { palette } from '../palette';
 import { theme } from '../theme.css';
+import { colord } from 'colord';
 
 const primaryColor = '#6469ff';
 const dangerColor = '#992ca9';
@@ -22,32 +22,32 @@ export const light = createTheme(theme, {
     primary: {
       bgColor: primaryColor,
       textColor: palette.white,
-      iconColor: mix(primaryColor, '#ffffff', 0.5),
-      borderColor: mix(primaryColor, '#000000', 0.1),
-      hoverBgColor: mix(primaryColor, '#000000', 0.1),
-      activeBgColor: mix(primaryColor, '#000000', 0.3),
+      iconColor: colord(primaryColor).lighten(0.2).toHex(),
+      borderColor: colord(primaryColor).darken(0.05).toHex(),
+      hoverBgColor: colord(primaryColor).darken(0.03).toHex(),
+      activeBgColor: colord(primaryColor).darken(0.07).toHex(),
     },
     default: {
       bgColor: palette.gray[200],
       textColor: palette.gray[750],
       iconColor: palette.gray[600],
-      borderColor: palette.gray[350],
+      borderColor: palette.gray[300],
       hoverBgColor: palette.gray[300],
       activeBgColor: palette.gray[350],
     },
     danger: {
       bgColor: dangerColor,
       textColor: palette.white,
-      iconColor: mix(dangerColor, '#ffffff', 0.5),
-      borderColor: mix(dangerColor, '#000000', 0.1),
-      hoverBgColor: mix(dangerColor, '#000000', 0.1),
-      activeBgColor: mix(dangerColor, '#000000', 0.2),
+      iconColor: colord(dangerColor).lighten(0.3).toHex(),
+      borderColor: colord(dangerColor).darken(0.07).toHex(),
+      hoverBgColor: colord(dangerColor).darken(0.03).toHex(),
+      activeBgColor: colord(dangerColor).darken(0.07).toHex(),
     },
     subtle: {
       bgColor: 'transparent',
       textColor: palette.gray[700],
       iconColor: palette.gray[450],
-      borderColor: palette.gray[200],
+      borderColor: 'transparent',
       hoverBgColor: palette.gray[200],
       activeBgColor: palette.gray[300],
     },
@@ -67,7 +67,7 @@ export const light = createTheme(theme, {
   input: {
     bgColor: palette.gray[150],
     textColor: palette.gray[800],
-    iconColor: palette.gray[550],
+    iconColor: palette.gray[450],
     borderColor: palette.gray[200],
     hoverBorderColor: palette.gray[200],
     selectionBgColor: textHighlight,
@@ -85,6 +85,6 @@ export const light = createTheme(theme, {
   font: {
     body: '"Open Sans", Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
     title: '"Open Sans", Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
-    mono: 'Consolas, Inconsolata, Menlo, monospace',
+    mono: '"Source Code Pro", Consolas, Inconsolata, Menlo, monospace',
   },
 });

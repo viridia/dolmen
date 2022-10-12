@@ -1,5 +1,4 @@
 import { createTheme } from '@vanilla-extract/css';
-import { mix } from '../../lib';
 import { palette } from '../palette';
 import { theme } from '../theme.css';
 import { colord } from 'colord';
@@ -24,7 +23,7 @@ export const dark = createTheme(theme, {
       bgColor: primaryColor,
       textColor: palette.coolgray[100],
       iconColor: colord(primaryColor).lighten(0.25).toHex(),
-      borderColor: mix(primaryColor, '#ffffff', 0.1),
+      borderColor: colord(primaryColor).darken(0.1).toHex(),
       hoverBgColor: colord(primaryColor).darken(0.05).toHex(),
       activeBgColor: colord(primaryColor).darken(0.1).toHex(),
     },
@@ -32,7 +31,7 @@ export const dark = createTheme(theme, {
       bgColor: palette.coolgray[800],
       textColor: palette.coolgray[200],
       iconColor: palette.coolgray[500],
-      borderColor: palette.coolgray[750],
+      borderColor: palette.coolgray[900],
       hoverBgColor: palette.coolgray[750],
       activeBgColor: palette.coolgray[700],
     },
@@ -40,15 +39,15 @@ export const dark = createTheme(theme, {
       bgColor: dangerColor,
       textColor: palette.coolgray[100],
       iconColor: colord(dangerColor).lighten(0.3).toHex(),
-      borderColor: mix(dangerColor, '#ffffff', 0.1),
+      borderColor: colord(dangerColor).darken(0.1).toHex(),
       hoverBgColor: colord(dangerColor).darken(0.05).toHex(),
       activeBgColor: colord(dangerColor).darken(0.1).toHex(),
     },
     subtle: {
       bgColor: 'transparent',
       textColor: palette.coolgray[200],
-      iconColor: palette.coolgray[500],
-      borderColor: palette.coolgray[800],
+      iconColor: palette.coolgray[550],
+      borderColor: 'transparent',
       hoverBgColor: palette.coolgray[800],
       activeBgColor: palette.coolgray[750],
     },
@@ -66,9 +65,9 @@ export const dark = createTheme(theme, {
   },
 
   input: {
-    bgColor: palette.coolgray[900],
+    bgColor: colord(palette.coolgray[850]).darken(0.025).toHex(),
     textColor: palette.coolgray[200],
-    iconColor: palette.coolgray[700],
+    iconColor: palette.coolgray[550],
     borderColor: palette.coolgray[750],
     hoverBorderColor: palette.coolgray[650],
     selectionBgColor: textHighlight,
@@ -86,6 +85,6 @@ export const dark = createTheme(theme, {
   font: {
     body: 'Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
     title: 'Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
-    mono: 'Consolas, Inconsolata, Menlo, monospace',
+    mono: '"Source Code Pro", Consolas, Inconsolata, Menlo, monospace',
   },
 });
