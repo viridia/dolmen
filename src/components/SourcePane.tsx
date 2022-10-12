@@ -7,7 +7,7 @@ import { isServer } from 'solid-js/web';
 import { IFixture } from '../fetchFixtures';
 
 const srcPrologue = 'export default "';
-const srcEpilotue = '";\n//# sourceMappingURL';
+const srcEpilogue = '";\n//# sourceMappingURL';
 
 function SourceDisplay(props: { fixture: IFixture }) {
   const [source] = createResource(props.fixture, async fixture => {
@@ -18,11 +18,11 @@ function SourceDisplay(props: { fixture: IFixture }) {
     if (text.startsWith(srcPrologue)) {
       startIndex = srcPrologue.length;
     }
-    let endIndex = text.indexOf(srcEpilotue);
+    let endIndex = text.indexOf(srcEpilogue);
     if (endIndex < 0) {
       endIndex = text.length;
     }
-    return text.slice(startIndex, endIndex).split('\\n').join('\n').replaceAll('\\"', '"');
+    return JSON.parse(`"${text.slice(startIndex, endIndex)}"`);
   });
 
   let ref: HTMLDivElement | null;
