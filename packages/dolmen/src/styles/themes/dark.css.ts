@@ -19,14 +19,6 @@ export const dark = createTheme(theme, {
   pageHeaderBg: palette.coolgray[850],
 
   button: {
-    primary: {
-      bgColor: primaryColor,
-      textColor: palette.coolgray[100],
-      iconColor: colord(primaryColor).lighten(0.25).toHex(),
-      borderColor: colord(primaryColor).darken(0.1).toHex(),
-      hoverBgColor: colord(primaryColor).darken(0.05).toHex(),
-      activeBgColor: colord(primaryColor).darken(0.1).toHex(),
-    },
     default: {
       bgColor: palette.coolgray[800],
       textColor: palette.coolgray[200],
@@ -35,6 +27,14 @@ export const dark = createTheme(theme, {
       hoverBgColor: palette.coolgray[750],
       activeBgColor: palette.coolgray[700],
     },
+    primary: {
+      bgColor: primaryColor,
+      textColor: palette.coolgray[100],
+      iconColor: colord(primaryColor).lighten(0.25).toHex(),
+      borderColor: colord(primaryColor).darken(0.1).toHex(),
+      hoverBgColor: colord(primaryColor).darken(0.05).toHex(),
+      activeBgColor: colord(primaryColor).darken(0.1).toHex(),
+    },
     danger: {
       bgColor: dangerColor,
       textColor: palette.coolgray[100],
@@ -42,6 +42,14 @@ export const dark = createTheme(theme, {
       borderColor: colord(dangerColor).darken(0.1).toHex(),
       hoverBgColor: colord(dangerColor).darken(0.05).toHex(),
       activeBgColor: colord(dangerColor).darken(0.1).toHex(),
+    },
+    selected: {
+      bgColor: palette.coolgray[600],
+      textColor: palette.coolgray[50],
+      iconColor: palette.coolgray[200],
+      borderColor: palette.coolgray[900],
+      hoverBgColor: palette.coolgray[600],
+      activeBgColor: palette.coolgray[600],
     },
     subtle: {
       bgColor: 'transparent',

@@ -48,7 +48,7 @@ export const buttonStyle = recipe({
     display: 'flex',
     flexDirection: 'row',
     fontWeight: '500',
-    gap: '0.5rem',
+    gap: '0.4rem',
     outline: 'none',
     justifyContent: 'center',
 
@@ -62,7 +62,7 @@ export const buttonStyle = recipe({
         zIndex: 1,
       },
 
-        '&[disabled]': {
+      '&[disabled]': {
         opacity: 0.5,
       },
 
@@ -73,6 +73,8 @@ export const buttonStyle = recipe({
       '&:active:not([disabled])': {
         backgroundColor: theme.button.default.activeBgColor,
       },
+
+      // Button groups
 
       [`${buttonGroupStyle} > &`]: {
         borderRadius: 0,
@@ -106,6 +108,7 @@ export const buttonStyle = recipe({
       primary: buttonColor('primary'),
       default: buttonColor('default'),
       danger: buttonColor('danger'),
+      selected: buttonColor('selected'),
       subtle: buttonColor('subtle'),
     },
 
@@ -121,43 +124,7 @@ export const buttonStyle = recipe({
         aspectRatio: '1',
       },
     },
-
-    selected: {
-      true: {
-        backgroundColor: theme.button.default.activeBgColor,
-      },
-    },
   },
-
-  compoundVariants: [
-    {
-      variants: {
-        selected: true,
-        color: 'primary',
-      },
-      style: {
-        backgroundColor: theme.button.primary.activeBgColor,
-      },
-    },
-    {
-      variants: {
-        selected: true,
-        color: 'danger',
-      },
-      style: {
-        backgroundColor: theme.button.danger.activeBgColor,
-      },
-    },
-    {
-      variants: {
-        selected: true,
-        color: 'subtle',
-      },
-      style: {
-        backgroundColor: theme.button.subtle.activeBgColor,
-      },
-    },
-  ],
 });
 
 export type ButtonStyleProps = RecipeVariants<typeof buttonStyle>;

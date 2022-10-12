@@ -30,6 +30,7 @@ export const theme = createThemeContract({
     primary: buttonColorContract,
     default: buttonColorContract,
     danger: buttonColorContract,
+    selected: buttonColorContract,
     subtle: buttonColorContract,
   },
 

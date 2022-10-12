@@ -1,7 +1,9 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { buttonStyle, ButtonStyleProps } from './button.css';
 
-interface ButtonProps extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {}
+interface ButtonProps extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
+  selected?: boolean;
+}
 
 export const Button: ParentComponent<ButtonProps & ButtonStyleProps> = props => {
   const [local, rest] = splitProps(props, [
@@ -22,9 +24,8 @@ export const Button: ParentComponent<ButtonProps & ButtonStyleProps> = props => 
         [local.class]: true,
         [buttonStyle({
           size: local.size,
-          color: local.color,
+          color: local.selected ? 'selected' : local.color,
           round: local.round,
-          selected: local.selected,
           icon: local.icon,
         })]: true,
       }}

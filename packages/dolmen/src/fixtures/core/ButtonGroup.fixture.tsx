@@ -1,33 +1,40 @@
+import { createSignal } from 'solid-js';
 import { Button, ButtonGroup, Stack } from '../../components';
+import { Cancel, Close, DarkMode, LightMode } from '../../icons';
 
 export const $category = 'core';
 
 function ButtonGroupDemo() {
+  const [selected, setSelected] = createSignal(3);
   return (
     <Stack gap="xl">
       <ButtonGroup>
-        <Button>One</Button>
-        <Button>Two</Button>
-        <Button selected>Three</Button>
-        <Button>Four</Button>
+        <Button selected={selected() === 1} onClick={() => setSelected(1)}>
+          One
+        </Button>
+        <Button selected={selected() === 2} onClick={() => setSelected(2)}>
+          Two
+        </Button>
+        <Button selected={selected() === 3} onClick={() => setSelected(3)}>
+          Three
+        </Button>
+        <Button selected={selected() === 4} onClick={() => setSelected(4)}>
+          Four
+        </Button>
       </ButtonGroup>
       <ButtonGroup>
-        <Button color="primary">One</Button>
-        <Button color="primary">Two</Button>
-        <Button color="primary" selected>Three</Button>
-        <Button color="primary">Four</Button>
-      </ButtonGroup>
-      <ButtonGroup>
-        <Button color="danger">One</Button>
-        <Button color="danger">Two</Button>
-        <Button color="danger" selected>Three</Button>
-        <Button color="danger">Four</Button>
-      </ButtonGroup>
-      <ButtonGroup>
-        <Button color="subtle">One</Button>
-        <Button color="subtle">Two</Button>
-        <Button color="subtle" selected>Three</Button>
-        <Button color="subtle">Four</Button>
+        <Button selected={selected() === 1} onClick={() => setSelected(1)}>
+          <Cancel />
+        </Button>
+        <Button selected={selected() === 2} onClick={() => setSelected(2)}>
+          <Close />
+        </Button>
+        <Button selected={selected() === 3} onClick={() => setSelected(3)}>
+          <DarkMode />
+        </Button>
+        <Button selected={selected() === 4} onClick={() => setSelected(4)}>
+          <LightMode />
+        </Button>
       </ButtonGroup>
     </Stack>
   );
