@@ -1,6 +1,6 @@
 import { Code, Stack, Title, Text } from '../../components';
 
-export const $category = 'text';
+export const $category = 'styling';
 
 function TextStyles() {
   return (

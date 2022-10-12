@@ -1,16 +1,15 @@
 import { style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
-import { theme } from '../../styles/theme.css';
+import { theme, scrollbars } from '../../styles';
 
 export const modalStyle = recipe({
   base: {
     backgroundColor: theme.modal.bgColor,
-    boxShadow: `0 0 3px 0 ${theme.modal.shadowColor}`,
+    boxShadow: `0 0 5px 0 ${theme.modal.shadowColor}`,
     color: theme.textColor,
     alignItems: 'stretch',
-    borderColor: theme.shadowColor,
-    borderRadius: 3,
-    borderStyle: 'solid',
+    border: 'none',
+    borderRadius: 5,
     display: 'flex',
     flexDirection: 'column',
     width: 'min(30rem, 95vw)',
@@ -18,7 +17,7 @@ export const modalStyle = recipe({
     padding: 0,
     transform: 'scale(0.7)',
     transition: 'opacity 0.3s linear, transform 0.3s linear',
-    top: '30%',
+    maxHeight: '85vh',
 
     selectors: {
       '&.entered,&.entering': {
@@ -31,19 +30,25 @@ export const modalStyle = recipe({
   variants: {
     size: {
       xl: {
-        width: 'min(50rem, 95vw)',
+        width: 'min(60rem, 95vw)',
       },
       lg: {
-        width: 'min(40rem, 95vw)',
+        width: 'min(50rem, 95vw)',
       },
       md: {
-        width: 'min(30rem, 95vw)',
+        width: 'min(40rem, 95vw)',
       },
       sm: {
-        width: 'min(20rem, 95vw)',
+        width: 'min(30rem, 95vw)',
       },
       xs: {
-        width: 'min(15rem, 95vw)',
+        width: 'min(20rem, 95vw)',
+      },
+      mini: {
+        width: 'min(13rem, 95vw)',
+      },
+      tiny: {
+        width: 'min(11rem, 95vw)',
       },
     },
   },
@@ -77,14 +82,20 @@ export const modalHeaderStyle = style({
   fontWeight: 'bold',
   justifyContent: 'space-between',
   gap: '4px',
-  padding: '1rem',
+  padding: '0.8rem 1rem',
+  borderBottom: `1px solid ${theme.modal.headerBorderColor}`,
+  borderRadius: '5px 5px 0 0',
+  backgroundColor: theme.modal.headerBgColor
 })
 
 export const modalBodyStyle = style({
   display: 'flex',
   alignItems: 'stretch',
+  flexDirection: 'column',
   fontFamily: theme.font.body,
   padding: '1rem',
+  overflowY: 'auto',
+  selectors: scrollbars
 })
 
 export const modalFooterStyle = style({

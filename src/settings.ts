@@ -13,6 +13,10 @@ export const UserSettingsContext =
 
 export const useUserSettings = () => useContext(UserSettingsContext);
 
+/** A Solid Store which is backed by a cookie. It initializes the store to the parsed
+    value of the cookie (both on server and the client.) It also (client only) writes to
+    document.cookie whenever the store is mutated.
+ */
 export const createUserSettings = () => {
   // Initialize store from cookie (server or client).
   let cookie: string;

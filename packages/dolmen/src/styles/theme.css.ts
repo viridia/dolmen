@@ -49,6 +49,8 @@ export const theme = createThemeContract({
     bgColor: '',
     backdropColor: '',
     shadowColor: '',
+    headerBgColor: '',
+    headerBorderColor: '',
   },
 
   toggleswitch: {

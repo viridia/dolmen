@@ -84,8 +84,10 @@ export const light = createTheme(theme, {
 
   modal: {
     bgColor: palette.white,
-    backdropColor: colord(palette.gray[800]).alpha(.3).toHex(),
-    shadowColor: colord(palette.black).alpha(.5).toHex(),
+    backdropColor: colord(palette.gray[900]).alpha(.3).toHex(),
+    shadowColor: colord(palette.black).alpha(.4).toHex(),
+    headerBgColor: palette.gray[50],
+    headerBorderColor: palette.gray[150],
   },
 
   toggleswitch: {

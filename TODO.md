@@ -1,7 +1,5 @@
 # Components
 
-* DiscloseButton
-* Dialog
 * Slider
 * Knob
 * CloseButton
@@ -40,20 +38,20 @@
 * ComboBox / Autocomplete
 * Rich Text
 
-# Hooks
-
-* createCssTransition
-
 # Codex
 
 * Attribute controls
   * const round = createCheckboxParam(false)
   * const gap = createEnumBar(['xl', 'lg', 'md', 'sm', 'xs'])
+  * Need:
+    * Slider
+    * Drawer
+    * Select
 
 # Other
 
+* Prism support
 * Tree view collapse
 * Tree view highlight
-* Tree view scroll
 * Tree view expand
 * Hi-res favicons in manifest

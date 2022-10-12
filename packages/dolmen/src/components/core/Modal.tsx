@@ -100,7 +100,6 @@ const ModalDialogInner: ParentComponent<
   ]);
   const { focusProps } = createFocusTrap({
     onKeyDown(e) {
-      e.preventDefault();
       e.stopPropagation();
       switch (e.key) {
         case 'Escape': {

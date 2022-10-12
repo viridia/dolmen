@@ -1,7 +1,9 @@
 import { For, VoidComponent } from 'solid-js';
 import { Group } from '../../components';
 import { ColorSpread, palette } from '../../styles';
-import { nameStyle, swatchStyle } from './palettes.css';
+import { nameStyle, swatchStyle } from './palette.css';
+
+export const $category = 'styling';
 
 const Swatch: VoidComponent<{ color: string }> = props => {
   return <div class={swatchStyle} style={{ 'background-color': props.color }} />;
