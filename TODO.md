@@ -1,21 +1,23 @@
 # Components
 
+* DiscloseButton
 * Dialog
 * Slider
 * Knob
-* DisclosureTriangle
 * CloseButton
 * List
 * Select
 * MenuButton
 * Form
-* GradientSlider
+* Color Picker
+  * GradientSlider
+  * Color Swatch
+  * HueSaturationSelector
 * ToolBar
 * ToolPalette
 * TextArea
 * Checkbox
 * Radio
-* Paragraph
 * Divided button
 * Chip
 * Badge
@@ -28,6 +30,9 @@
 * Divider
 * Tabs
 * Drawer
+* Breadcrumb
+* Card Header / Footer
+* Split
 
 ## Possible
 
@@ -38,7 +43,6 @@
 # Hooks
 
 * createCssTransition
-* pointerDrag
 
 # Codex
 
@@ -48,24 +52,8 @@
 
 # Other
 
-* Dark mode persistence
-* URL routing
 * Tree view collapse
 * Tree view highlight
 * Tree view scroll
 * Tree view expand
-* Hi-res favicons
-
-```ts
-// html:not(.dark) {
-//   --drawer-bg: #{$g0};
-//   --drawer-shadow: #{$g40};
-//   --drawer-drag-bg: #{$g10};
-// }
-
-// html.dark {
-//   --drawer-bg: #{$cg80};
-//   --drawer-shadow: #000;
-//   --drawer-drag-bg: #{$g30};
-// }
-```
+* Hi-res favicons in manifest

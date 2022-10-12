@@ -144,6 +144,7 @@ export const checkboxCtrlStyle = style({
   fontFamily: theme.font.body,
   fontSize: 'inherit',
   marginRight: '6px',
+  marginLeft: 0,
   outline: 'none',
   position: 'relative',
   width: '18px',
