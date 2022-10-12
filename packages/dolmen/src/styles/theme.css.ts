@@ -45,6 +45,12 @@ export const theme = createThemeContract({
     markColor: '',
   },
 
+  modal: {
+    bgColor: '',
+    backdropColor: '',
+    shadowColor: '',
+  },
+
   toggleswitch: {
     bgColor: '',
     borderColor: '',

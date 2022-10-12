@@ -1,4 +1,4 @@
-import { Accessor, createEffect, createSignal, onCleanup } from 'solid-js';
+import { Accessor, createEffect, createRenderEffect, createSignal, onCleanup } from 'solid-js';
 
 interface Props {
   in?: Accessor<boolean>;
@@ -7,7 +7,7 @@ interface Props {
   onExited?: () => void;
 }
 
-type CssTransitionState =
+export type CssTransitionState =
   | 'enter-start'
   | 'entering'
   | 'entered'
@@ -23,7 +23,7 @@ export const createCssTransition = ({
 }: Props): Accessor<CssTransitionState> => {
   const [state, setState] = createSignal<CssTransitionState>('exited');
 
-  createEffect(() => {
+  createRenderEffect(() => {
     if (inside()) {
       if (state() === 'exited' || state() === 'exiting') {
         setState('enter-start');
@@ -52,9 +52,13 @@ export const createCssTransition = ({
 
       onCleanup(() => window.clearTimeout(timer));
     } else if (st === 'enter-start') {
-      setState('entering');
+      window.requestAnimationFrame(() => {
+        setState('entering');
+      });
     } else if (st === 'exit-start') {
-      setState('exiting');
+      window.requestAnimationFrame(() => {
+        setState('exiting');
+      });
     }
   });
 

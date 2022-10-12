@@ -82,6 +82,12 @@ export const dark = createTheme(theme, {
     selectionTextColor: palette.white,
   },
 
+  modal: {
+    bgColor: palette.coolgray[850],
+    backdropColor: colord(palette.black).alpha(.3).toHex(),
+    shadowColor: colord(palette.black).alpha(.5).toHex(),
+  },
+
   toggleswitch: {
     bgColor: palette.coolgray[800],
     borderColor: palette.coolgray[650],

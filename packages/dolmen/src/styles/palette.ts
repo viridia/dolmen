@@ -38,7 +38,7 @@ export function createColorSpread(base: string): ColorSpread {
 
 export const palette = {
   white: '#ffffff',
-  black: '$000000',
+  black: '#000000',
   gray: createColorSpread('#8C8C8C'),
   coolgray: createColorSpread('#7F96AD'),
   warmgray: createColorSpread('#9F988F'),
