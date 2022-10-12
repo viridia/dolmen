@@ -3,7 +3,7 @@ import { JSX } from 'solid-js';
 
 const fixtureModules = import.meta.glob('dolmen/**/*.fixture.tsx');
 
-export interface IFixtureGroup {
+export interface IFixture {
   /** Display name of the fixture */
   name: string;
 
@@ -38,7 +38,7 @@ export async function listFixtures() {
     }
     return result;
   };
-  const result: IFixtureGroup[] = [];
+  const result: IFixture[] = [];
   for (const path of Object.keys(fixtureModules)) {
     const mod = (await fixtureModules[path]()) as FixtureModule;
     const factory = mod.default;

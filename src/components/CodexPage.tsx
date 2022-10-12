@@ -2,7 +2,7 @@ import { PageHeader, Page, Stack, Spacer, Button, ButtonGroup } from 'dolmen';
 import { DarkMode, LightMode } from 'dolmen/icons';
 import { createMemo, Match, Resource, Show, Switch } from 'solid-js';
 import { VoidComponent } from 'solid-js';
-import { IFixtureGroup } from '../listFixtures';
+import { IFixture } from '../fetchFixtures';
 import { CanvasPane } from './CanvasPane';
 import { CatalogPane } from './CatalogPane';
 import { canvasSectionStyle } from './styles.css';
@@ -11,48 +11,50 @@ import { useUserSettings } from '../settings';
 import { useParams } from 'solid-start';
 import { IFixtureTree, IFixtureTreeNode } from './node';
 
-export const CodexPage: VoidComponent<{ fixtures: Resource<IFixtureGroup[]> }> = ({ fixtures }) => {
+export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ fixtures }) => {
   const [settings, setSettings] = useUserSettings();
 
-  const fixtureTree = createMemo<IFixtureTree>(
-    () => {
-      const root: IFixtureTreeNode[] = [];
-      const byId: Record<string, IFixtureTreeNode> = {};
-      const toSort: IFixtureTreeNode[][] = [root];
-      const list = fixtures();
-      if (list) {
-        // Build tree nodes by coalescing category names
-        for (const fix of list) {
-          let parent = root;
-          for (const dirName of fix.category) {
-            let next = parent.find(f => f.name === dirName);
-            if (!next) {
-              next = {
-                name: dirName,
-                children: [],
-              };
-              parent.push(next);
-              toSort.push(next.children);
-            }
-            parent = next.children;
+  const fixtureTree = createMemo<IFixtureTree>(() => {
+    const root: IFixtureTreeNode[] = [];
+    const byId: Record<string, IFixtureTreeNode> = {};
+    const toSort: IFixtureTreeNode[][] = [root];
+    const list = fixtures();
+    if (list) {
+      // Build tree nodes by coalescing category names
+      for (const fix of list) {
+        let parent = root;
+        for (const dirName of fix.category) {
+          let next = parent.find(f => f.title === dirName);
+          if (!next) {
+            next = {
+              title: dirName,
+              children: [],
+            };
+            parent.push(next);
+            toSort.push(next.children);
           }
-
-          parent.push(fix);
-          byId[fix.urlPath] = fix;
+          parent = next.children;
         }
 
-        // Sort nodes
-        for (const dir of toSort) {
-          dir.sort(compareNodes);
-        }
+        const node: IFixtureTreeNode = {
+          title: fix.name,
+          fixture: fix,
+        };
+        parent.push(node);
+        byId[fix.urlPath] = node;
       }
 
-      return {
-        children: root,
-        byId
-      };
+      // Sort nodes
+      for (const dir of toSort) {
+        dir.sort(compareNodes);
+      }
     }
-  );
+
+    return {
+      children: root,
+      byId,
+    };
+  });
 
   const params = useParams();
   const selected = createMemo(() => {
@@ -64,12 +66,12 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixtureGroup[]> }> =
 
   return (
     <Page flexDirection="row">
-      <CatalogPane fixtures={fixtureTree()}></CatalogPane>
+      <CatalogPane tree={fixtureTree()}></CatalogPane>
       <Stack class={canvasSectionStyle} alignItems="stretch">
         <PageHeader>
           <PageHeader.Title>
             <Show when={selected()} fallback={<i>Nothing selected</i>} keyed>
-              {fix => fix.name}
+              {fix => fix.title}
             </Show>
           </PageHeader.Title>
           <Spacer />
@@ -106,10 +108,10 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixtureGroup[]> }> =
         </PageHeader>
         <Switch>
           <Match when={settings.displayMode === 'canvas'}>
-            <CanvasPane fixture={selected}></CanvasPane>
+            <CanvasPane node={selected}></CanvasPane>
           </Match>
           <Match when={settings.displayMode === 'source'}>
-            <SourcePane fixture={selected}></SourcePane>
+            <SourcePane node={selected}></SourcePane>
           </Match>
         </Switch>
       </Stack>
@@ -118,5 +120,5 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixtureGroup[]> }> =
 };
 
 function compareNodes(left: IFixtureTreeNode, right: IFixtureTreeNode) {
-  return left.name.localeCompare(right.name);
+  return left.title.localeCompare(right.title);
 }

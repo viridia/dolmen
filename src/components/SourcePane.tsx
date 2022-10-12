@@ -4,11 +4,12 @@ import { sourcePaneStyle } from './styles.css';
 import { IFixtureTreeNode } from './node';
 import { Code } from 'dolmen';
 import { isServer } from 'solid-js/web';
+import { IFixture } from '../fetchFixtures';
 
 const srcPrologue = 'export default "';
 const srcEpilotue = '";\n//# sourceMappingURL';
 
-function SourceDisplay(props: { fixture: IFixtureTreeNode }) {
+function SourceDisplay(props: { fixture: IFixture }) {
   const [source] = createResource(props.fixture, async fixture => {
     const { path } = fixture;
     const resp = await fetch(`${path}?raw`);
@@ -37,10 +38,10 @@ function SourceDisplay(props: { fixture: IFixtureTreeNode }) {
   );
 }
 
-export const SourcePane: VoidComponent<{ fixture: Accessor<IFixtureTreeNode | null> }> = props => {
+export const SourcePane: VoidComponent<{ node: Accessor<IFixtureTreeNode | null> }> = props => {
   return (
     <div class={sourcePaneStyle}>
-      <Show when={props.fixture()} keyed>
+      <Show when={props.node()?.fixture} keyed>
         {fix => <SourceDisplay fixture={fix} />}
       </Show>
     </div>

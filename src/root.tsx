@@ -3,7 +3,7 @@ import { createResource, Suspense } from 'solid-js';
 import { ErrorBoundary } from 'solid-start/error-boundary';
 import { Body, Head, Html, Meta, Route, Routes, Scripts, Title } from 'solid-start';
 import { light, dark } from 'dolmen';
-import { listFixtures } from './listFixtures';
+import { listFixtures } from './fetchFixtures';
 import { CodexPage } from './components/CodexPage';
 import { createUserSettings, UserSettingsContext } from './settings';
 

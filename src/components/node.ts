@@ -1,8 +1,8 @@
+import { IFixture } from "../fetchFixtures";
+
 export interface IFixtureTreeNode {
-  name: string;
-  path?: string;
-  urlPath?: string;
-  propertyKey?: string;
+  title: string;
+  fixture?: IFixture;
   children?: IFixtureTreeNode[];
 }
 

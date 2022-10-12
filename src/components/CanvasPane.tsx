@@ -2,8 +2,9 @@ import { Accessor, createResource, Suspense } from 'solid-js';
 import { Show, VoidComponent } from 'solid-js';
 import { canvasPaneStyle } from './styles.css';
 import { IFixtureTreeNode } from './node';
+import { IFixture } from '../fetchFixtures';
 
-function FixtureDisplay(props: { fixture: IFixtureTreeNode }) {
+function FixtureDisplay(props: { fixture: IFixture }) {
   const [module] = createResource(
     props.fixture,
     async fixture => {
@@ -26,10 +27,10 @@ function FixtureDisplay(props: { fixture: IFixtureTreeNode }) {
   return <Suspense>{() => module()}</Suspense>;
 }
 
-export const CanvasPane: VoidComponent<{ fixture: Accessor<IFixtureTreeNode | null> }> = props => {
+export const CanvasPane: VoidComponent<{ node: Accessor<IFixtureTreeNode | null> }> = props => {
   return (
     <div class={canvasPaneStyle}>
-      <Show when={props.fixture()} keyed>
+      <Show when={props.node()?.fixture} keyed>
         {fix => <FixtureDisplay fixture={fix} />}
       </Show>
     </div>
