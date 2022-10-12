@@ -1,5 +1,5 @@
 import { JSX, splitProps, ParentComponent } from 'solid-js';
-import { checkboxCtrlStyle, checkboxLabelStyle } from './form.css';
+import { checkboxCtrlStyle, checkboxLabelStyle } from './checkbox.css';
 
 interface CheckBoxProps extends JSX.InputHTMLAttributes<HTMLInputElement> {}
 

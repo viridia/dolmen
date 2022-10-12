@@ -1,5 +1,5 @@
 import { ParentComponent, JSX, splitProps, Show } from 'solid-js';
-import { fieldMessageStyle, fieldValidationStyle } from './form.css';
+import { fieldMessageStyle, fieldValidationStyle } from './input.css';
 
 interface FieldValidationProps extends JSX.HTMLAttributes<HTMLDivElement> {
   status?: 'warning' | 'error';

@@ -1,5 +1,5 @@
 import { JSX, splitProps, ParentComponent } from 'solid-js';
-import { toggleSwitchCtrlStyle, toggleSwitchLabelStyle } from './form.css';
+import { toggleSwitchCtrlStyle, toggleSwitchLabelStyle } from './toggle.css';
 
 interface ToggleSwitchProps extends JSX.InputHTMLAttributes<HTMLInputElement> {}
 

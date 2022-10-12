@@ -5,7 +5,7 @@ import {
   inputElementStyle,
   inputFrameStyle,
   InputStyleProps,
-} from './form.css';
+} from './input.css';
 
 interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
   adornLeft?: JSX.Element | JSX.Element[];
