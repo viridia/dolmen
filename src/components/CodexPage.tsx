@@ -1,6 +1,6 @@
 import { PageHeader, Page, Stack, Spacer, Button, ButtonGroup } from 'dolmen';
 import { DarkMode, LightMode } from 'dolmen/icons';
-import { createMemo, Match, Resource, Show, Switch } from 'solid-js';
+import { createMemo, lazy, Match, Resource, Show, Switch } from 'solid-js';
 import { VoidComponent } from 'solid-js';
 import { IFixture } from '../fetchFixtures';
 import { CanvasPane } from './CanvasPane';
@@ -36,9 +36,22 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
           parent = next.children;
         }
 
+        const component = lazy(async () => {
+          let component = (await import(fix.path /* @vite-ignore */)).default;
+          if (!component) {
+            console.error(`No default export: ${fix.path}`);
+            return null;
+          }
+          if (fix.propertyKey) {
+            component = component[fix.propertyKey];
+          }
+          return typeof component === 'function' ? { default: component } : null;
+        });
+
         const node: IFixtureTreeNode = {
           title: fix.name,
           fixture: fix,
+          component,
         };
         parent.push(node);
         byId[fix.urlPath] = node;
