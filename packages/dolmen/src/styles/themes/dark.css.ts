@@ -13,8 +13,8 @@ export const dark = createTheme(theme, {
   textColor: palette.coolgray[200],
   shadowColor: palette.black,
 
-  scrollbarColor: 'rgba(255, 255, 255, 0.3)',
-  scrollbarInactiveColor: 'rgba(255, 255, 255, 0.15)',
+  scrollbarColor: colord(palette.coolgray[500]).alpha(0.3).toHex(),
+  scrollbarInactiveColor: colord(palette.coolgray[500]).alpha(0.15).toHex(),
 
   pageHeaderBg: palette.coolgray[850],
 
@@ -80,6 +80,25 @@ export const dark = createTheme(theme, {
     hoverBorderColor: palette.coolgray[650],
     selectionBgColor: textHighlight,
     selectionTextColor: palette.white,
+  },
+
+  knob: {
+    rimBg: `linear-gradient(
+      to bottom,
+      ${colord(palette.coolgray[800]).lighten(0.1).toHex()} 0,
+      ${colord(palette.coolgray[800]).toHex()} 30%,
+      ${colord(palette.coolgray[800]).darken(0.1).toHex()}
+    )`,
+    centerBg: `linear-gradient(
+      to bottom,
+      ${colord(palette.coolgray[800]).lighten(0.03).toHex()} 0,
+      ${colord(palette.coolgray[800]).toHex()} 30%,
+      ${colord(palette.coolgray[800]).darken(0.03).toHex()}
+    )`,
+    borderColor: palette.black,
+    tickColor: palette.coolgray[750],
+    markColor: palette.coolgray[600],
+    shadowColor: colord(palette.black).alpha(0.4).toHex(),
   },
 
   modal: {

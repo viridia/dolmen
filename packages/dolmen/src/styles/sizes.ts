@@ -84,5 +84,6 @@ export function standardLength(
   };
 }
 
-export type SizeVariant = keyof typeof remHeight;
-export type Spacing = keyof typeof spacing;
+export type SizeVariant = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+export type SizeVariantExt = SizeVariant | 'mini' | 'tiny';
+export type Spacing = SizeVariant | 'none';

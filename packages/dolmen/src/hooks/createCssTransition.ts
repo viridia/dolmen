@@ -15,15 +15,12 @@ export type CssTransitionState =
   | 'exiting'
   | 'exited';
 
-export const createCssTransition = ({
-  delay = 100,
-  exitDelay,
-  onExited,
-  in: inside,
-}: Props): Accessor<CssTransitionState> => {
+export const createCssTransition = (props: Props): Accessor<CssTransitionState> => {
   const [state, setState] = createSignal<CssTransitionState>('exited');
 
   createRenderEffect(() => {
+    const { in: inside } = props;
+
     if (inside()) {
       if (state() === 'exited' || state() === 'exiting') {
         setState('enter-start');
@@ -36,6 +33,7 @@ export const createCssTransition = ({
   });
 
   createEffect(() => {
+    const { delay = 100, exitDelay, onExited } = props;
     const st = state();
     if (st === 'entering' || st === 'exiting') {
       const timer = window.setTimeout(

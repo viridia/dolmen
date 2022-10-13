@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
-import { fontSize, remHeight, SizeVariant } from '../../styles/sizes';
+import { fontSize, remHeight, SizeVariantExt } from '../../styles/sizes';
 import { theme } from '../../styles/theme.css';
 
 export const buttonGroupStyle = style({
@@ -9,7 +9,7 @@ export const buttonGroupStyle = style({
   borderRadius: 3,
 });
 
-const buttonSize = (base: SizeVariant) => ({
+const buttonSize = (base: SizeVariantExt) => ({
   height: `${remHeight[base]}rem`,
   fontSize: fontSize[base],
   padding: `0 ${remHeight[base] / 3}rem`,

@@ -1,6 +1,4 @@
 import { style } from '@vanilla-extract/css';
-import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
-import { fontSize, remHeight, SizeVariant } from '../../styles/sizes';
 import { theme } from '../../styles/theme.css';
 
 export const toggleSwitchLabelStyle = style({

@@ -87,7 +87,7 @@ const ModalFooter: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = props =
 };
 
 const ModalDialogInner: ParentComponent<
-  ModalProps & ModalStyleProps & { state: Accessor<CssTransitionState> }
+  ModalProps & ModalStyleProps & { state: CssTransitionState }
 > = props => {
   const [local, rest] = splitProps(props, [
     'size',
@@ -118,7 +118,7 @@ const ModalDialogInner: ParentComponent<
         ...local.classList,
         [local.class]: true,
         [modalStyle({ size: local.size })]: true,
-        [props.state()]: true,
+        [props.state]: true,
       }}
       open
     >
@@ -145,7 +145,7 @@ export const Modal: ParentComponent<ModalProps & ModalStyleProps> & {
           }}
         >
           <ModalContext.Provider value={{ onClose: props.withClose ? props.onClose : undefined }}>
-            <ModalDialogInner {...rest} state={state}>
+            <ModalDialogInner {...rest} state={state()}>
               {local.children}
             </ModalDialogInner>
           </ModalContext.Provider>

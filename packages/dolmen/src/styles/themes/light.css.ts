@@ -82,6 +82,25 @@ export const light = createTheme(theme, {
     selectionTextColor: palette.gray[900],
   },
 
+  knob: {
+    rimBg: `linear-gradient(
+      to bottom,
+      ${colord(palette.gray[100]).lighten(0.1).toHex()} 0,
+      ${colord(palette.gray[100]).toHex()} 30%,
+      ${colord(palette.gray[100]).darken(0.1).toHex()}
+    )`,
+    centerBg: `linear-gradient(
+      to bottom,
+      ${colord(palette.gray[100]).lighten(0.03).toHex()} 0,
+      ${colord(palette.gray[100]).toHex()} 30%,
+      ${colord(palette.gray[100]).darken(0.03).toHex()}
+    )`,
+    borderColor: palette.gray[250],
+    tickColor: palette.gray[250],
+    markColor: palette.gray[400],
+    shadowColor: colord(palette.black).alpha(0.6).toHex(),
+  },
+
   modal: {
     bgColor: palette.white,
     backdropColor: colord(palette.gray[900]).alpha(.3).toHex(),

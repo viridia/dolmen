@@ -2,7 +2,6 @@
 
 * Slider
 * Knob
-* CloseButton
 * List
 * Select
 * MenuButton
@@ -14,7 +13,6 @@
 * ToolBar
 * ToolPalette
 * TextArea
-* Checkbox
 * Radio
 * Divided button
 * Chip
@@ -56,6 +54,7 @@
 * Tree view expand
 * Hi-res favicons in manifest
 * Z-index constants.
+* Make toggle less skeumorphic.
 
 # Drawer
 

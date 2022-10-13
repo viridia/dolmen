@@ -48,8 +48,6 @@ export const inputFrameStyle = recipe({
       md: inputSize('md'),
       sm: inputSize('sm'),
       xs: inputSize('xs'),
-      mini: inputSize('mini'),
-      tiny: inputSize('tiny'),
     },
 
     round: {
