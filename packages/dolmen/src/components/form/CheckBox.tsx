@@ -13,7 +13,7 @@ export const CheckBox: ParentComponent<CheckBoxProps> = props => {
     <label
       classList={{
         ...local.classList,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [checkboxLabelStyle]: true,
         disabled: props.disabled,
       }}

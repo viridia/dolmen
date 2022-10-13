@@ -18,7 +18,7 @@ export const Aside: ParentComponent<
       classList={{
         ...local.classList,
         ...layoutStyle,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [asideStyle]: true,
       }}
     >

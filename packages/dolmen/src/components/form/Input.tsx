@@ -26,7 +26,7 @@ export const Input: Component<InputProps & InputStyleProps> = props => {
     <div
       classList={{
         ...local.classList,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [inputFrameStyle({
           size: local.size,
           round: local.round,

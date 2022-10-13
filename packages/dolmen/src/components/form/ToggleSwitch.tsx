@@ -9,7 +9,7 @@ export const ToggleSwitch: ParentComponent<ToggleSwitchProps> = props => {
     <label
       classList={{
         ...local.classList,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [toggleSwitchLabelStyle]: true,
         disabled: props.disabled,
       }}

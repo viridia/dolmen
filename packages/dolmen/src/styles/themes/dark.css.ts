@@ -109,6 +109,12 @@ export const dark = createTheme(theme, {
     headerBorderColor: palette.coolgray[900],
   },
 
+  splitpane: {
+    splitterBgColor: palette.coolgray[800],
+    splitterShadowColor: palette.black,
+    splitterDetailColor: palette.coolgray[600],
+  },
+
   toggleswitch: {
     bgColor: palette.coolgray[800],
     borderColor: palette.coolgray[650],

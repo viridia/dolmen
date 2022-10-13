@@ -15,7 +15,7 @@ export const Title: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & TitlePr
       {...rest}
       classList={{
         ...local.classList,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [titleStyle]: true,
       }}
     >

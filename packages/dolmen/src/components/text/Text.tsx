@@ -36,7 +36,7 @@ export const Text: ParentComponent<
       {...rest}
       classList={{
         ...local.classList,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [textStyle({
           size: local.size,
         })]: true,

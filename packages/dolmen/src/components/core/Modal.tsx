@@ -40,7 +40,7 @@ const ModalHeader: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = props =
       {...rest}
       classList={{
         ...local.classList,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [modalHeaderStyle]: true,
       }}
     >
@@ -61,7 +61,7 @@ const ModalBody: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = props => 
       {...rest}
       classList={{
         ...local.classList,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [modalBodyStyle]: true,
       }}
     >
@@ -77,7 +77,7 @@ const ModalFooter: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = props =
       {...rest}
       classList={{
         ...local.classList,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [modalFooterStyle]: true,
       }}
     >
@@ -116,7 +116,7 @@ const ModalDialogInner: ParentComponent<
       aria-role="dialog"
       classList={{
         ...local.classList,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [modalStyle({ size: local.size })]: true,
         [props.state]: true,
       }}

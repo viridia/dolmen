@@ -14,7 +14,7 @@ const CardContent: ParentComponent<
       classList={{
         ...local.classList,
         ...layoutStyle,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [cardContentStyle]: true,
       }}
     >
@@ -35,7 +35,7 @@ export const Card: ParentComponent<
       classList={{
         ...local.classList,
         ...layoutStyle,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [cardStyle]: true,
       }}
     >

@@ -13,7 +13,7 @@ export const DiscloseButton: ParentComponent<DiscloseButtonProps> = props => {
       {...rest}
       classList={{
         ...local.classList,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [discloseButtonStyle]: true,
         selected: !!local.selected,
       }}

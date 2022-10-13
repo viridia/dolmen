@@ -14,7 +14,7 @@ export const FieldValidation: ParentComponent<FieldValidationProps> = props => {
       {...rest}
       classList={{
         ...local.classList,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [fieldValidationStyle({
           status: local.status,
         })]: true,

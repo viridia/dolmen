@@ -46,23 +46,6 @@ export const Knob: Component<KnobProps> = props => {
 
   const [dragging, setDragging] = createSignal(false);
 
-  // {
-  //   size = 48,
-  //   value,
-  //   min = 0,
-  //   max,
-  //   step = 1,
-  //   // precision,
-  //   onChange,
-  //   classList,
-  // }
-
-  // const range = max - min;
-
-  // function formatValue(): string {
-  //   return precision !== undefined ? value().toFixed(precision) : value() + '';
-  // }
-
   function onPointerDown(event: PointerEvent) {
     event.stopPropagation();
     (event.currentTarget as HTMLDivElement).setPointerCapture(event.pointerId);
@@ -75,7 +58,7 @@ export const Knob: Component<KnobProps> = props => {
     setDragging(false);
   }
 
-  function onMouseMove(event: MouseEvent) {
+  function onPointerMove(event: PointerEvent) {
     const { min = 0, max, step = 1, onChange } = local;
     if (dragging()) {
       event.stopPropagation();
@@ -83,6 +66,10 @@ export const Knob: Component<KnobProps> = props => {
       onChange(x => Math.min(max, Math.max(min, (x - event.movementY) * step)));
     }
   }
+
+  // function formatValue(): string {
+  //   return precision !== undefined ? value().toFixed(precision) : value() + '';
+  // }
 
   // function onTextChange(event: Event) {
   //   const value = parseFloat((event.currentTarget as HTMLInputElement).value);
@@ -166,10 +153,7 @@ export const Knob: Component<KnobProps> = props => {
         })}
         onPointerDown={onPointerDown}
         onPointerUp={onPointerUp}
-        onMouseMove={onMouseMove}
-        // style={{
-        //   '--size': `${size}px`,
-        // }}
+        onPointerMove={onPointerMove}
       >
         <div class={knobPotCenterStyle} />
         {() => (

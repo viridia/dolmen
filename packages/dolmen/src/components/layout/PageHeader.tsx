@@ -14,7 +14,7 @@ const PageHeaderTitle: ParentComponent<
       classList={{
         ...local.classList,
         ...layoutStyle,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [pageHeaderTitleStyle]: true,
       }}
     >
@@ -35,7 +35,7 @@ export const PageHeader: ParentComponent<
       classList={{
         ...local.classList,
         ...layoutStyle,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [pageHeaderStyle]: true,
       }}
     >

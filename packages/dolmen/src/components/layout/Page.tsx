@@ -14,7 +14,7 @@ export const Page: ParentComponent<
       classList={{
         ...local.classList,
         ...layoutStyle,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [pageStyle]: true,
       }}
     >

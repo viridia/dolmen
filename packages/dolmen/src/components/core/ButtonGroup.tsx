@@ -9,7 +9,7 @@ export const ButtonGroup: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = 
       {...rest}
       classList={{
         ...local.classList,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [buttonGroupStyle]: true,
       }}
     >

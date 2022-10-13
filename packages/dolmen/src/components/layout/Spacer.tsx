@@ -9,7 +9,7 @@ export const Spacer: VoidComponent<JSX.HTMLAttributes<HTMLDivElement>> = props =
       {...rest}
       classList={{
         ...local.classList,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [spacerStyle]: true,
       }}
     />

@@ -62,6 +62,12 @@ export const theme = createThemeContract({
     headerBorderColor: '',
   },
 
+  splitpane: {
+    splitterBgColor: '',
+    splitterShadowColor: '',
+    splitterDetailColor: '',
+  },
+
   toggleswitch: {
     bgColor: '',
     borderColor: '',

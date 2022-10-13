@@ -14,7 +14,7 @@ export const Group: ParentComponent<
       classList={{
         ...local.classList,
         ...layoutStyle,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [groupStyle]: true,
       }}
     >

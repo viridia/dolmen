@@ -18,7 +18,7 @@ export const Code: ParentComponent<
         {...rest}
         classList={{
           ...local.classList,
-          [local.class]: true,
+          [local.class ?? '']: true,
           [codeStyle({
             size: local.size,
           })]: true,
@@ -32,7 +32,7 @@ export const Code: ParentComponent<
       {...rest}
       classList={{
         ...local.classList,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [codeStyle({
           size: local.size,
         })]: true,

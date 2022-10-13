@@ -1,7 +1,6 @@
 # Components
 
 * Slider
-* Knob
 * List
 * Select
 * MenuButton
@@ -58,6 +57,6 @@
 
 # Drawer
 
-  * Floating or Anchoreed
+  * Floating or Anchored
   * Leave sliver
   * left, right, top, bottom

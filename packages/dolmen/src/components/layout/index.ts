@@ -4,4 +4,5 @@ export * from './Group';
 export * from './Page';
 export * from './PageHeader';
 export * from './Spacer';
+export * from './SplitPane';
 export * from './Stack';

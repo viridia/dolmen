@@ -21,7 +21,7 @@ export const Button: ParentComponent<ButtonProps & ButtonStyleProps> = props => 
       {...rest}
       classList={{
         ...local.classList,
-        [local.class]: true,
+        [local.class ?? '']: true,
         [buttonStyle({
           size: local.size,
           color: local.selected ? 'selected' : local.color,

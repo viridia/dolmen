@@ -103,10 +103,16 @@ export const light = createTheme(theme, {
 
   modal: {
     bgColor: palette.white,
-    backdropColor: colord(palette.gray[900]).alpha(.3).toHex(),
-    shadowColor: colord(palette.black).alpha(.4).toHex(),
+    backdropColor: colord(palette.gray[900]).alpha(0.3).toHex(),
+    shadowColor: colord(palette.black).alpha(0.4).toHex(),
     headerBgColor: palette.gray[50],
     headerBorderColor: palette.gray[150],
+  },
+
+  splitpane: {
+    splitterBgColor: palette.gray[50],
+    splitterShadowColor: palette.gray[750],
+    splitterDetailColor: palette.gray[200],
   },
 
   toggleswitch: {
