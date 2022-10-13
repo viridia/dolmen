@@ -1,7 +1,6 @@
-import { createContext, createEffect, useContext } from 'solid-js';
-import { createStore, SetStoreFunction, Store } from 'solid-js/store';
-import { isServer } from 'solid-js/web';
-import { parseCookie, ServerContext } from 'solid-start';
+import { createContext, useContext } from 'solid-js';
+import { SetStoreFunction, Store } from 'solid-js/store';
+import { createCookieStore } from './data/cookieStore';
 
 export interface ISettings {
   theme?: string;
@@ -13,40 +12,5 @@ export const UserSettingsContext =
 
 export const useUserSettings = () => useContext(UserSettingsContext);
 
-/** A Solid Store which is backed by a cookie. It initializes the store to the parsed
-    value of the cookie (both on server and the client.) It also (client only) writes to
-    document.cookie whenever the store is mutated.
- */
-export const createUserSettings = () => {
-  // Initialize store from cookie (server or client).
-  let cookie: string;
-  if (isServer) {
-    const event = useContext(ServerContext);
-    cookie = event.request.headers.get('Cookie');
-  } else {
-    cookie = document.cookie;
-  }
-
-  let initialValue: ISettings = { displayMode: 'canvas' };
-  try {
-    const cookieValue = parseCookie(cookie)?.settings;
-    if (typeof cookieValue === 'string') {
-      const parsed = JSON.parse(cookieValue);
-      if (typeof parsed === 'object') {
-        initialValue = parsed;
-      }
-    }
-  } catch (e) {}
-
-  const store = createStore<ISettings>(initialValue);
-
-  // Create an effect which updates document.cookie when the store is mutated.
-  if (!isServer) {
-    const [storeValue] = store;
-    createEffect(() => {
-      document.cookie = `settings=${JSON.stringify(storeValue)}`;
-    });
-  }
-
-  return store;
-};
+export const createUserSettings = () =>
+  createCookieStore<ISettings>('settings', { displayMode: 'canvas' });

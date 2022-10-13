@@ -1,17 +1,16 @@
 // @refresh reload
-import { createResource, Suspense } from 'solid-js';
+import { Suspense } from 'solid-js';
 import { ErrorBoundary } from 'solid-start/error-boundary';
 import { Body, Head, Html, Meta, Route, Routes, Scripts, Title } from 'solid-start';
 import { light, dark } from 'dolmen';
-import { listFixtures } from './fetchFixtures';
 import { CodexPage } from './components/CodexPage';
 import { createUserSettings, UserSettingsContext } from './settings';
+import { useFixtures } from './data/fixtures';
+
+const fixtureModules = import.meta.glob('dolmen/**/*.fixture.tsx');
 
 export default function Root() {
-  const [fixtures] = createResource(listFixtures, {
-    deferStream: true,
-  });
-
+  const fixtures = useFixtures(fixtureModules);
   const userSettings = createUserSettings();
 
   return (

@@ -1,5 +1,5 @@
-import { Component } from "solid-js";
-import { IFixture } from "../fetchFixtures";
+import type { Component } from 'solid-js';
+import type { IFixture } from '../data/fixtures';
 
 export interface IFixtureTreeNode {
   title: string;

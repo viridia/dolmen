@@ -1,8 +1,6 @@
 import { Aside, dark } from 'dolmen';
-import { createMemo, For, Resource, Show } from 'solid-js';
-import { Signal } from 'solid-js';
+import { For, Show } from 'solid-js';
 import { VoidComponent } from 'solid-js';
-import { IFixture } from '../fetchFixtures';
 import {
   catalogPaneStyle,
   catalogEntryStyle,

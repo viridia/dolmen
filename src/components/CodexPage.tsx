@@ -1,15 +1,14 @@
-import { PageHeader, Page, Stack, Spacer, Button, ButtonGroup } from 'dolmen';
+import { Button, ButtonGroup, Page, PageHeader, Spacer, Stack } from 'dolmen';
 import { DarkMode, LightMode } from 'dolmen/icons';
-import { createMemo, lazy, Match, Resource, Show, Switch } from 'solid-js';
-import { VoidComponent } from 'solid-js';
-import { IFixture } from '../fetchFixtures';
+import { createMemo, lazy, Match, Resource, Show, Switch, VoidComponent } from 'solid-js';
+import { useParams } from 'solid-start';
+import type { IFixture } from '../data/fixtures';
+import { useUserSettings } from '../settings';
 import { CanvasPane } from './CanvasPane';
 import { CatalogPane } from './CatalogPane';
-import { canvasSectionStyle } from './styles.css';
 import { SourcePane } from './SourcePane';
-import { useUserSettings } from '../settings';
-import { useParams } from 'solid-start';
-import { IFixtureTree, IFixtureTreeNode } from './tree';
+import { canvasSectionStyle } from './styles.css';
+import type { IFixtureTree, IFixtureTreeNode } from './tree';
 
 export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ fixtures }) => {
   const [settings, setSettings] = useUserSettings();
