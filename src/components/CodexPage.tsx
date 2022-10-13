@@ -9,7 +9,7 @@ import { canvasSectionStyle } from './styles.css';
 import { SourcePane } from './SourcePane';
 import { useUserSettings } from '../settings';
 import { useParams } from 'solid-start';
-import { IFixtureTree, IFixtureTreeNode } from './node';
+import { IFixtureTree, IFixtureTreeNode } from './tree';
 
 export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ fixtures }) => {
   const [settings, setSettings] = useUserSettings();

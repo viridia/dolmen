@@ -55,3 +55,10 @@
 * Tree view highlight
 * Tree view expand
 * Hi-res favicons in manifest
+* Z-index constants.
+
+# Drawer
+
+  * Floating or Anchoreed
+  * Leave sliver
+  * left, right, top, bottom

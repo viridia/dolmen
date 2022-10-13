@@ -11,7 +11,7 @@ import {
   catalogEntryName,
   selectableEntryName,
 } from './styles.css';
-import { IFixtureTree, IFixtureTreeNode } from './node';
+import { IFixtureTree, IFixtureTreeNode } from './tree';
 import { useNavigate, useParams } from '@solidjs/router';
 
 interface ItemProps {

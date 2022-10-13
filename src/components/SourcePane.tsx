@@ -1,7 +1,7 @@
 import { Accessor, createResource, Suspense } from 'solid-js';
 import { Show, VoidComponent } from 'solid-js';
 import { sourcePaneStyle } from './styles.css';
-import { IFixtureTreeNode } from './node';
+import { IFixtureTreeNode } from './tree';
 import { Code } from 'dolmen';
 import { isServer } from 'solid-js/web';
 import { IFixture } from '../fetchFixtures';
