@@ -8,7 +8,7 @@ const dangerColor = '#7d248a';
 const textHighlight = '#afafff66';
 
 export const dark = createTheme(theme, {
-  pageColor: palette.coolgray[900],
+  backgroundColor: palette.coolgray[900],
   focusColor: '#8183ff88',
   textColor: palette.coolgray[200],
   shadowColor: palette.black,
@@ -16,7 +16,7 @@ export const dark = createTheme(theme, {
   scrollbarColor: colord(palette.coolgray[500]).alpha(0.3).toHex(),
   scrollbarInactiveColor: colord(palette.coolgray[500]).alpha(0.15).toHex(),
 
-  pageHeaderBg: palette.coolgray[850],
+  surfaceColor: palette.coolgray[850],
 
   button: {
     default: {
@@ -59,10 +59,6 @@ export const dark = createTheme(theme, {
       hoverBgColor: palette.coolgray[800],
       activeBgColor: palette.coolgray[750],
     },
-  },
-
-  card: {
-    bgColor: palette.coolgray[850],
   },
 
   checkbox: {

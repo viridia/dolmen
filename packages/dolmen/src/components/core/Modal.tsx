@@ -1,12 +1,4 @@
-import {
-  ParentComponent,
-  JSX,
-  splitProps,
-  Show,
-  createContext,
-  useContext,
-  Accessor,
-} from 'solid-js';
+import { ParentComponent, JSX, splitProps, Show, createContext, useContext } from 'solid-js';
 import { createCssTransition, createFocusTrap, CssTransitionState } from '../../hooks';
 import { Close } from '../../icons';
 import Button from './Button';
@@ -137,20 +129,18 @@ export const Modal: ParentComponent<ModalProps & ModalStyleProps> & {
 
   return (
     <Show when={state() !== 'exited'}>
-      {() => (
-        <div
-          classList={{ [backdropStyle]: true, [state()]: true }}
-          onClick={() => {
-            props.onClose?.();
-          }}
-        >
-          <ModalContext.Provider value={{ onClose: props.withClose ? props.onClose : undefined }}>
-            <ModalDialogInner {...rest} state={state()}>
-              {local.children}
-            </ModalDialogInner>
-          </ModalContext.Provider>
-        </div>
-      )}
+      <div
+        classList={{ [backdropStyle]: true, [state()]: true }}
+        onClick={() => {
+          props.onClose?.();
+        }}
+      >
+        <ModalContext.Provider value={{ onClose: props.withClose ? props.onClose : undefined }}>
+          <ModalDialogInner {...rest} state={state()}>
+            {local.children}
+          </ModalDialogInner>
+        </ModalContext.Provider>
+      </div>
     </Show>
   );
 };

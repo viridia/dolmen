@@ -23,6 +23,7 @@ type FixtureFn = () => JSX.Element;
 interface FixtureModule {
   default: FixtureFn | Record<string, FixtureFn>;
   $category?: string;
+  $name?: string;
 }
 
 export const useFixtures = (modules: Record<string, () => Promise<unknown>>) => {
@@ -30,7 +31,7 @@ export const useFixtures = (modules: Record<string, () => Promise<unknown>>) => 
     async () => {
       const uniquePaths = new Set<string>();
       const getUniquePath = (...names: string[]) => {
-        const stem = names.join('-').toLowerCase().replace(' ', '-');
+        const stem = names.join('-').toLowerCase().replaceAll(' ', '-');
         let result = stem;
         let index = 0;
         while (uniquePaths.has(result)) {
@@ -47,6 +48,9 @@ export const useFixtures = (modules: Record<string, () => Promise<unknown>>) => 
         const m = /.*\/(.*?)\.fixture\.tsx/.exec(name);
         if (m) {
           name = m[1];
+        }
+        if (mod.$name) {
+          name = mod.$name;
         }
         if (typeof factory === 'object') {
           Object.keys(factory).forEach(submod => {

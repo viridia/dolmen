@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { Z } from '../../styles';
 import { theme } from '../../styles/theme.css';
 
 export const checkboxLabelStyle = style({
@@ -10,7 +11,7 @@ export const checkboxLabelStyle = style({
   outline: 'none',
   fontFamily: theme.font.body,
   fontSize: 'inherit',
-  flex: 1,
+  gap: '6px',
 
   selectors: {
     '&.disabled': {
@@ -32,7 +33,7 @@ export const checkboxCtrlStyle = style({
   height: '18px',
   fontFamily: theme.font.body,
   fontSize: 'inherit',
-  marginRight: '6px',
+  marginRight: 0,
   marginLeft: 0,
   outline: 'none',
   position: 'relative',
@@ -41,7 +42,7 @@ export const checkboxCtrlStyle = style({
   selectors: {
     '&:focus-within:focus-visible': {
       boxShadow: `0 0 1px 3px ${theme.focusColor}`,
-      zIndex: 1,
+      zIndex: Z.Focused,
     },
 
     '&:checked': {

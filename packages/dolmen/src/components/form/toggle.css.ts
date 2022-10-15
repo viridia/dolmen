@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { Z } from '../../styles';
 import { theme } from '../../styles/theme.css';
 
 export const toggleSwitchLabelStyle = style({
@@ -41,7 +42,7 @@ export const toggleSwitchCtrlStyle = style({
   selectors: {
     '&:focus-within:focus-visible': {
       boxShadow: `0 0 1px 3px ${theme.focusColor}, inset 0 1px 3px 1px #000000cc`,
-      zIndex: 1,
+      zIndex: Z.Focused,
     },
 
     '&:checked': {

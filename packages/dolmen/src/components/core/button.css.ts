@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
-import { fontSize, remHeight, SizeVariantExt } from '../../styles/sizes';
+import { fontSize, remHeight, SizeVariantExt, Z } from '../../styles';
 import { theme } from '../../styles/theme.css';
 
 export const buttonGroupStyle = style({
@@ -59,7 +59,7 @@ export const buttonStyle = recipe({
     selectors: {
       '&:focus:focus-visible': {
         boxShadow: `0 0 1px 3px ${theme.focusColor}`,
-        zIndex: 1,
+        zIndex: Z.Focused,
       },
 
       '&[disabled]': {

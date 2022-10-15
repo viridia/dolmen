@@ -1,7 +1,7 @@
 import { globalStyle, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 import { theme } from '../../styles';
-import { standardFontSizes } from '../../styles/sizes';
+import { standardFontSizes } from '../../styles';
 
 export const codeStyle = recipe({
   base: {

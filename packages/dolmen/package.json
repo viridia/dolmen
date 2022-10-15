@@ -39,6 +39,7 @@
     "@vanilla-extract/vite-plugin": "^3.6.1",
     "rollup": "^2.79.1",
     "rollup-preset-solid": "^1.4.0",
+    "solid-codex-api": "^0.0.1",
     "typescript": "^4.8.3"
   },
   "dependencies": {

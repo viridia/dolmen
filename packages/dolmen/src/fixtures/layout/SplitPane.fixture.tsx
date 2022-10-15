@@ -14,6 +14,13 @@ export default {
       </div>
     );
   },
+  'Horizontal (rtl)': () => {
+    return (
+      <div class={layoutStyle} style={{ 'flex-direction': 'row' }} dir="rtl">
+        <SplitPane direction="horizontal" first={<FirstChild />} second={<SecondChild />} />
+      </div>
+    );
+  },
   Vertical: () => {
     return (
       <div class={layoutStyle} style={{ 'flex-direction': 'row' }}>

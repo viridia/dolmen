@@ -1,4 +1,4 @@
-import { createMemo, createSignal, ParentComponent, Show } from 'solid-js';
+import { createSignal, Show } from 'solid-js';
 import { JSX, splitProps, VoidComponent } from 'solid-js';
 import {
   splitPaneStyle,
@@ -36,6 +36,7 @@ export const SplitPane: VoidComponent<
   let dragging = false;
   let dragOrigin = 0;
   let dragBasis = 0;
+  let direction = 1;
 
   function onPointerDown(event: PointerEvent) {
     event.stopPropagation();
@@ -43,6 +44,7 @@ export const SplitPane: VoidComponent<
     dragging = true;
     dragOrigin = local.direction === 'horizontal' ? event.pageX : event.pageY;
     dragBasis = position();
+    direction = getComputedStyle(splitPaneRef).direction === 'rtl' ? -1 : 1;
   }
 
   function onPointerUp(event: PointerEvent) {
@@ -56,9 +58,8 @@ export const SplitPane: VoidComponent<
     if (dragging) {
       event.stopPropagation();
       event.preventDefault();
-
       if (local.direction === 'horizontal') {
-        const dx = event.pageX - dragOrigin;
+        const dx = (event.pageX - dragOrigin) * direction;
         const newPosition = Math.max(0, Math.min(1, dragBasis + dx / splitPaneRef.offsetWidth));
         setPosition(newPosition);
       } else {

@@ -25,9 +25,8 @@
 * Divider
 * Tabs
 * Drawer
-* Breadcrumb
+* Breadcrumbs
 * Card Header / Footer
-* Split
 
 ## Possible
 
@@ -57,6 +56,17 @@
 
 # Drawer
 
-  * Floating or Anchored
+  * Floating or Anchored / Inplace / Ensconsed /
   * Leave sliver
   * left, right, top, bottom
+
+# Params
+
+const params = createFixtureParams({
+  marginWidth: { type: 'boolean', caption: 'Margin width', min: 0 },
+  marginHeigt: { type: 'boolean', caption: 'Margin height', min: 0 },
+});
+
+params.marginWidth()
+params.marginWidth(value)
+params.marginWidth.param

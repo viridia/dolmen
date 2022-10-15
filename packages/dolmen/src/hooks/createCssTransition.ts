@@ -1,7 +1,8 @@
 import { Accessor, createEffect, createRenderEffect, createSignal, onCleanup } from 'solid-js';
+import { isServer } from 'solid-js/web';
 
 interface Props {
-  in?: Accessor<boolean>;
+  in: Accessor<boolean>;
   delay?: number;
   exitDelay?: number;
   onExited?: () => void;
@@ -17,6 +18,11 @@ export type CssTransitionState =
 
 export const createCssTransition = (props: Props): Accessor<CssTransitionState> => {
   const [state, setState] = createSignal<CssTransitionState>('exited');
+
+  // Transitions are always static on the server.
+  if (isServer) {
+    return () => (props.in() ? 'entered' : 'exited');
+  }
 
   createRenderEffect(() => {
     const { in: inside } = props;

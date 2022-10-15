@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { palette, scrollbars, theme } from 'dolmen';
+import { palette, scrollbars, theme, Z } from 'dolmen';
 
 export const canvasSectionStyle = style({
   flex: '1 1 0',
@@ -32,7 +32,18 @@ export const catalogPaneStyle = style({
   color: theme.textColor,
   overflowY: 'auto',
   width: 300,
-  zIndex: 2,
+  zIndex: Z.Drawer,
+
+  selectors: scrollbars,
+});
+
+export const adjustPaneStyle = style({
+  boxShadow: `0 0 3px 0 black`,
+  alignItems: 'stretch',
+  color: theme.textColor,
+  overflowY: 'auto',
+  width: 300,
+  zIndex: Z.Drawer - 1,
 
   selectors: scrollbars,
 });

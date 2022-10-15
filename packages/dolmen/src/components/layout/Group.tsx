@@ -1,4 +1,5 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
+import { classes } from '../../styles';
 import { groupStyle, LayoutStyleProps } from './layout.css';
 import { withLayoutStyle } from './withLayoutStyle';
 
@@ -9,15 +10,7 @@ export const Group: ParentComponent<
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (
-    <div
-      {...rest}
-      classList={{
-        ...local.classList,
-        ...layoutStyle,
-        [local.class ?? '']: true,
-        [groupStyle]: true,
-      }}
-    >
+    <div {...rest} classList={classes(local.classList, layoutStyle, local.class, groupStyle)}>
       {local.children}
     </div>
   );

@@ -8,7 +8,7 @@ const dangerColor = '#992ca9';
 const textHighlight = '#afafff';
 
 export const light = createTheme(theme, {
-  pageColor: palette.gray[100],
+  backgroundColor: palette.gray[100],
   focusColor: '#00006633',
   textColor: palette.gray[800],
   shadowColor: palette.gray[400],
@@ -16,7 +16,7 @@ export const light = createTheme(theme, {
   scrollbarColor: 'rgba(0, 0, 0, 0.2)',
   scrollbarInactiveColor: 'rgba(0, 0, 0, 0.1)',
 
-  pageHeaderBg: palette.gray[50],
+  surfaceColor: palette.gray[50],
 
   button: {
     default: {
@@ -59,10 +59,6 @@ export const light = createTheme(theme, {
       hoverBgColor: palette.gray[200],
       activeBgColor: palette.gray[300],
     },
-  },
-
-  card: {
-    bgColor: palette.white,
   },
 
   checkbox: {

@@ -3,7 +3,9 @@ import { DarkMode, LightMode } from 'dolmen/icons';
 import { createMemo, lazy, Match, Resource, Show, Switch, VoidComponent } from 'solid-js';
 import { useParams } from 'solid-start';
 import type { IFixture } from '../data/fixtures';
+import { Tune } from '../icons';
 import { useUserSettings } from '../settings';
+import { AdjustPane } from './AdjustPane';
 import { CanvasPane } from './CanvasPane';
 import { CatalogPane } from './CatalogPane';
 import { SourcePane } from './SourcePane';
@@ -78,7 +80,8 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
 
   return (
     <Page flexDirection="row">
-      <CatalogPane tree={fixtureTree()}></CatalogPane>
+      <CatalogPane tree={fixtureTree()} />
+      <AdjustPane />
       <Stack class={canvasSectionStyle} alignItems="stretch">
         <PageHeader>
           <PageHeader.Title>
@@ -106,7 +109,16 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
             </Button>
           </ButtonGroup>
           <Button
-            round
+            icon
+            color="subtle"
+            selected={settings.showAdjust}
+            onClick={() => {
+              setSettings(s => ({ showAdjust: !s.showAdjust }));
+            }}
+          >
+            <Tune />
+          </Button>
+          <Button
             icon
             color="subtle"
             onClick={() => {

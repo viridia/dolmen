@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
-import { fontSize, remHeight, SizeVariant } from '../../styles/sizes';
+import { fontSize, remHeight, SizeVariant } from '../../styles';
 import { theme } from '../../styles/theme.css';
 
 const inputSize = (base: SizeVariant) => ({

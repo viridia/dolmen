@@ -1,7 +1,7 @@
 import { CSSProperties, style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
-import { theme } from '../../styles';
-import { spacing, standardLength } from '../../styles/sizes';
+import { theme, Z } from '../../styles';
+import { spacing, standardLength } from '../../styles';
 
 function standardLength2(
   prop1: keyof CSSProperties,
@@ -48,7 +48,7 @@ export const stackStyle = style({
 
 export const cardStyle = style({
   alignItems: 'stretch',
-  backgroundColor: theme.card.bgColor,
+  backgroundColor: theme.surfaceColor,
   borderRadius: 4,
   boxShadow: `0 1px 2px 0 ${theme.shadowColor}`,
   display: 'flex',
@@ -61,7 +61,8 @@ export const cardContentStyle = style({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'start',
-  margin: '8px',
+  margin: 0,
+  padding: '8px',
 });
 
 export const groupStyle = style({
@@ -72,7 +73,7 @@ export const groupStyle = style({
 });
 
 export const pageStyle = style({
-  backgroundColor: theme.pageColor,
+  backgroundColor: theme.backgroundColor,
   color: theme.textColor,
   position: 'fixed',
   left: 0,
@@ -88,7 +89,7 @@ export const pageStyle = style({
 });
 
 export const asideStyle = style({
-  backgroundColor: theme.pageHeaderBg,
+  backgroundColor: theme.surfaceColor,
   boxShadow: `0 0 2px 0 ${theme.shadowColor}`,
   padding: spacing.lg,
   alignItems: 'center',
@@ -99,15 +100,15 @@ export const asideStyle = style({
 
 export const pageHeaderStyle = style({
   alignItems: 'center',
-  backgroundColor: theme.pageHeaderBg,
+  backgroundColor: theme.surfaceColor,
   boxShadow: `0 0 2px 0 ${theme.shadowColor}`,
   display: 'flex',
   flexDirection: 'row',
   fontFamily: theme.font.body,
   gap: spacing.md,
   justifyContent: 'space-between',
-  padding: spacing.lg,
-  zIndex: 1,
+  padding: '8px 1rem',
+  zIndex: Z.PageHeader,
 });
 
 export const pageHeaderTitleStyle = style({
@@ -117,7 +118,7 @@ export const pageHeaderTitleStyle = style({
   fontFamily: theme.font.title,
   fontWeight: 600,
   justifyContent: 'start',
-  padding: `0 ${spacing.xl}`,
+  padding: 0,
 });
 
 // Note: order matters. This needs to come last.

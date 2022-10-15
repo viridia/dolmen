@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
-import { theme, scrollbars } from '../../styles';
+import { theme, scrollbars, Z } from '../../styles';
 
 export const modalStyle = recipe({
   base: {
@@ -62,7 +62,7 @@ export const backdropStyle = style({
   right: 0,
   top: 0,
   bottom: 0,
-  zIndex: 700,
+  zIndex: Z.Modal,
   alignItems: 'center',
   justifyContent: 'center',
   opacity: 0,

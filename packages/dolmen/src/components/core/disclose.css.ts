@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { Z } from '../../styles';
 import { theme } from '../../styles/theme.css';
 
 export const discloseButtonStyle = style({
@@ -33,7 +34,7 @@ export const discloseButtonStyle = style({
 
     '&:focus:focus-visible': {
       boxShadow: `0 0 1px 3px ${theme.focusColor}`,
-      zIndex: 1,
+      zIndex: Z.Focused,
     },
 
     '&[disabled]': {

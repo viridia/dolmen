@@ -5,6 +5,7 @@ import { createCookieStore } from './data/cookieStore';
 export interface ISettings {
   theme?: string;
   displayMode: 'canvas' | 'source';
+  showAdjust?: boolean;
 }
 
 export const UserSettingsContext =

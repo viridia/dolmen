@@ -1,0 +1,28 @@
+{
+  "name": "solid-codex-api",
+  "version": "0.0.1",
+  "author": "Talin",
+  "license": "MIT",
+  "description": "Dynamic parameter creation for Codex fixtures",
+  "scripts": {
+    "build": "tsc -p tsconfig.mjs.json && tsc -p tsconfig.cjs.json",
+    "format": "prettier --write ."
+  },
+  "source": "src/index.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/mjs/index.js",
+  "types": "dist/mjs/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "devDependencies": {
+    "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "solid-js": "^1.5.7"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

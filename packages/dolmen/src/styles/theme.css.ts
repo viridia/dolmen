@@ -10,15 +10,14 @@ const buttonColorContract = {
 };
 
 export const theme = createThemeContract({
-  pageColor: '',
-  focusColor: '',
+  backgroundColor: '',
+  surfaceColor: '',
   textColor: '',
+  focusColor: '',
   shadowColor: '',
 
   scrollbarColor: '',
   scrollbarInactiveColor: '',
-
-  pageHeaderBg: '',
 
   font: {
     body: '',
@@ -32,10 +31,6 @@ export const theme = createThemeContract({
     danger: buttonColorContract,
     selected: buttonColorContract,
     subtle: buttonColorContract,
-  },
-
-  card: {
-    bgColor: '',
   },
 
   checkbox: {
