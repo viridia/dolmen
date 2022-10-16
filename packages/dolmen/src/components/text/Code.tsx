@@ -1,12 +1,21 @@
+import { VariantProps } from '@stitches/core';
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { codeStyle, CodeStyleProps } from './text.css';
+import { css, stdFontSizes } from '../../styles';
+
+const codeCss = css(
+  {
+    fontFamily: '$mono',
+    fontSize: '1rem',
+  },
+  stdFontSizes
+);
 
 interface CodeProps {
   block?: boolean;
 }
 
 export const Code: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & CodeProps & CodeStyleProps
+  JSX.HTMLAttributes<HTMLElement> & CodeProps & VariantProps<typeof codeCss>
 > = props => {
   const [local, rest] = splitProps(props, ['size', 'block', 'class', 'classList', 'children']);
 
@@ -18,8 +27,8 @@ export const Code: ParentComponent<
         {...rest}
         classList={{
           ...local.classList,
-          [local.class ?? '']: true,
-          [codeStyle({
+          [local.class as string]: !!local.class,
+          [codeCss({
             size: local.size,
           })]: true,
         }}
@@ -32,15 +41,13 @@ export const Code: ParentComponent<
       {...rest}
       classList={{
         ...local.classList,
-        [local.class ?? '']: true,
-        [codeStyle({
+        [local as string]: !!local.class,
+        [codeCss({
           size: local.size,
         })]: true,
-    }}
+      }}
     >
       {local.children}
     </code>
   );
 };
-
-export default Code;

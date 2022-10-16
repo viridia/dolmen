@@ -1,7 +1,13 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { classes } from '../../styles';
-import { groupStyle, LayoutStyleProps } from './layout.css';
-import { withLayoutStyle } from './withLayoutStyle';
+import { css } from '../../styles';
+import { LayoutStyleProps, withLayoutStyle } from './withLayoutStyle';
+
+export const groupCss = css({
+  alignItems: 'center',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'start',
+});
 
 export const Group: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
@@ -10,10 +16,16 @@ export const Group: ParentComponent<
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (
-    <div {...rest} classList={classes(local.classList, layoutStyle, local.class, groupStyle)}>
+    <div
+      {...rest}
+      classList={{
+        ...local.classList,
+        ...layoutStyle,
+        [local.class as string]: !!local.class,
+        [groupCss()]: true,
+      }}
+    >
       {local.children}
     </div>
   );
 };
-
-export default Group;

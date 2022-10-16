@@ -32,21 +32,23 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
               children: [],
             };
             parent.push(next);
-            toSort.push(next.children);
+            toSort.push(next.children!);
           }
-          parent = next.children;
+          parent = next.children!;
         }
 
         const component = lazy(async () => {
           let component = (await import(fix.path /* @vite-ignore */)).default;
           if (!component) {
             console.error(`No default export: ${fix.path}`);
-            return null;
+            return { default: null };
           }
           if (fix.propertyKey) {
             component = component[fix.propertyKey];
           }
-          return typeof component === 'function' ? { default: component } : null;
+          return {
+            default: typeof component === 'function' ? component : null,
+          };
         });
 
         const node: IFixtureTreeNode = {

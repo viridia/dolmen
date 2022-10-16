@@ -1,18 +1,9 @@
 import { createMemo, createSignal, onMount, ParentComponent, Show } from 'solid-js';
 import { JSX, splitProps } from 'solid-js';
-import { isServer } from 'solid-js/web';
 import { createCssTransition, CssTransitionState } from '../../hooks';
-import { classes } from '../../styles';
-import {
-  drawerContainerStyle,
-  drawerContentStyle,
-  drawerHeaderStyle,
-  drawerModalContainerStyle,
-  drawerModalStyle,
-  drawerCoplanarStyle,
-} from './drawer.css';
-import { LayoutStyleProps } from './layout.css';
-import { withLayoutStyle } from './withLayoutStyle';
+import { LayoutStyleProps, withLayoutStyle } from './withLayoutStyle';
+import { css } from '../../styles';
+import { VariantProps } from '@stitches/core';
 
 type Side = 'start' | 'end' | 'left' | 'right' | 'top' | 'bottom';
 type DrawerMode = 'modal' | 'coplanar';
@@ -26,6 +17,155 @@ interface DrawerProps {
   onClose?: () => void;
 }
 
+export const drawerCoplanarCss = css({
+  backgroundColor: '$surface',
+  boxShadow: '0 0 4px 0 $colors$shadow',
+  alignItems: 'stretch',
+  display: 'flex',
+  flexDirection: 'column',
+  overflow: 'hidden',
+  padding: 0,
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+
+  variants: {
+    side: {
+      start: {
+        left: 'auto',
+      },
+      end: {
+        right: 'auto',
+      },
+      left: {
+        left: 'auto',
+      },
+      right: {
+        right: 'auto',
+      },
+      top: {
+        top: 'auto',
+      },
+      bottom: {
+        bottom: 'auto',
+      },
+    },
+  },
+});
+
+export const drawerModalCss = css({
+  backgroundColor: '$surface',
+  boxShadow: '0 0 4px 0 $colors$shadow',
+  alignItems: 'stretch',
+  display: 'flex',
+  flexDirection: 'column',
+  overflow: 'hidden',
+  padding: 0,
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  transition: 'transform 0.5s ease',
+
+  variants: {
+    side: {
+      start: {
+        right: 'auto',
+        transform: 'translateX(-100%)',
+        '&.entered,&.entering': {
+          transform: 'translateX(0)',
+        },
+      },
+      end: {
+        left: 'auto',
+        transform: 'translateX(100%)',
+        '&.entered,&.entering': {
+          transform: 'translateX(0)',
+        },
+      },
+      left: {
+        right: 'auto',
+        transform: 'translateX(-100%)',
+        '&.entered,&.entering': {
+          transform: 'translateX(0)',
+        },
+      },
+      right: {
+        left: 'auto',
+        transform: 'translateX(100%)',
+        '&.entered,&.entering': {
+          transform: 'translateX(0)',
+        },
+      },
+      top: {
+        bottom: 'auto',
+        transform: 'translateY(-100%)',
+        '&.entered,&.entering': {
+          transform: 'translateY(0)',
+        },
+      },
+      bottom: {
+        top: 'auto',
+        transform: 'translateY(100%)',
+        '&.entered,&.entering': {
+          transform: 'translateY(0)',
+        },
+      },
+    },
+  },
+});
+
+export const drawerContainerCss = css({
+  display: 'flex',
+  transition: 'width 0.3s ease, height 0.3s ease',
+  position: 'relative',
+});
+
+export const drawerModalContainerCss = css({
+  backgroundColor: 'transparent',
+  display: 'flex',
+  position: 'absolute',
+  left: 0,
+  right: 0,
+  top: 0,
+  bottom: 0,
+  zIndex: '$modal',
+  alignItems: 'center',
+  justifyContent: 'center',
+  transition: 'background-color 0.3s linear',
+  '&.entered,&.entering': {
+    backgroundColor: '$backdrop',
+  },
+});
+
+export const drawerHeaderCss = css({
+  alignItems: 'center',
+  alignSelf: 'stretch',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  padding: '8px 1rem',
+  margin: 0,
+  height: '2rem',
+  borderBottom: '1px solid $colors$shadow',
+});
+
+export const drawerContentCss = css({
+  alignItems: 'start',
+  alignSelf: 'stretch',
+  display: 'flex',
+  flex: 1,
+  flexDirection: 'column',
+  justifyContent: 'start',
+  padding: '8px 1rem',
+  margin: 0,
+});
+
+export type DrawerStyleProps = VariantProps<typeof drawerCoplanarCss>;
+
 const DrawerHeader: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
 > = props => {
@@ -35,7 +175,12 @@ const DrawerHeader: ParentComponent<
   return (
     <div
       {...rest}
-      classList={classes(local.classList, layoutStyle, local.class, drawerHeaderStyle)}
+      classList={{
+        ...local.classList,
+        ...layoutStyle,
+        [local.class as string]: !!local.class,
+        [drawerHeaderCss()]: true,
+      }}
     >
       {local.children}
     </div>
@@ -51,7 +196,12 @@ const DrawerContent: ParentComponent<
   return (
     <div
       {...rest}
-      classList={classes(local.classList, layoutStyle, local.class, drawerContentStyle)}
+      classList={{
+        ...local.classList,
+        ...layoutStyle,
+        [local.class as string]: !!local.class,
+        [drawerContentCss()]: true,
+      }}
     >
       {local.children}
     </div>
@@ -67,7 +217,7 @@ interface DrawerInnerProps {
 }
 
 export const DrawerInner: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & DrawerInnerProps
+  JSX.HTMLAttributes<HTMLElement> & DrawerInnerProps
 > = props => {
   const [local, rest] = splitProps(props, [
     'mode',
@@ -89,16 +239,16 @@ export const DrawerInner: ParentComponent<
     <Show when={direction() !== null}>
       <aside
         {...rest}
-        classList={classes(
-          local.classList,
-          local.class,
-          local.mode === 'modal'
-            ? drawerModalStyle({ side: adjustedSide(local.side, direction() === 'rtl') })
-            : drawerCoplanarStyle({
+        classList={{
+          ...local.classList,
+          [local.class as string]: !!local.class,
+          [local.mode === 'modal'
+            ? drawerModalCss({ side: adjustedSide(local.side, direction() === 'rtl') })
+            : drawerCoplanarCss({
                 side: adjustedSide(local.side, direction() === 'rtl'),
-              }),
-          local.state
-        )}
+              })]: true,
+          [local.state]: true
+        }}
         style={{
           [isHorizontal(local.side) ? 'width' : 'height']: local.size,
         }}
@@ -112,7 +262,7 @@ export const DrawerInner: ParentComponent<
   );
 };
 
-export const Drawer: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & DrawerProps> & {
+export const Drawer: ParentComponent<JSX.HTMLAttributes<HTMLElement> & DrawerProps> & {
   Header: typeof DrawerHeader;
   Content: typeof DrawerContent;
 } = props => {
@@ -128,7 +278,7 @@ export const Drawer: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & Drawer
     'children',
   ]);
   let containerElt: HTMLDivElement;
-  const state = createCssTransition({ in: () => props.open, delay: 300 });
+  const state = createCssTransition({ in: () => !!props.open, delay: 300 });
 
   const openSize = createMemo<string>(() =>
     local.size === undefined
@@ -149,9 +299,9 @@ export const Drawer: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & Drawer
   return (
     <Show when={state() !== 'exited'}>
       <div
-        ref={containerElt}
+        ref={containerElt!}
         classList={{
-          [local.mode === 'modal' ? drawerModalContainerStyle : drawerContainerStyle]: true,
+          [local.mode === 'modal' ? drawerModalContainerCss() : drawerContainerCss()]: true,
           [state()]: true,
         }}
         style={{
@@ -173,7 +323,7 @@ export const Drawer: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & Drawer
           side={local.side}
           state={state()}
           size={openSize()}
-          parent={containerElt}
+          parent={containerElt!}
         >
           {local.children}
         </DrawerInner>
@@ -199,5 +349,3 @@ function adjustedSide(side: Side, rtl: boolean) {
   }
   return side;
 }
-
-export default Drawer;

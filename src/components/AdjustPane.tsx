@@ -1,4 +1,4 @@
-import { Drawer, dark, Title } from 'dolmen';
+import { Drawer, theme, Title } from 'dolmen';
 import { useFixtureParamsContext } from 'solid-codex-api';
 import { createEffect, createSignal, For, onMount, Show, VoidComponent } from 'solid-js';
 import { useUserSettings } from '../settings';
@@ -22,7 +22,7 @@ export const AdjustPane: VoidComponent = () => {
   return (
     <Drawer
       side="start"
-      classList={{ [dark]: true, [adjustPaneStyle]: true }}
+      classList={{ [theme.dark.className]: true, [adjustPaneStyle]: true }}
       open={settings.showAdjust}
       size="300px"
     >

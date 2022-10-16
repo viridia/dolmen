@@ -1,6 +1,15 @@
+import { VariantProps } from '@stitches/core';
 import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
-import { textStyle, TextStyleProps } from './text.css';
+import { css, stdFontSizes } from '../../styles';
+
+const textCss = css(
+  {
+    fontFamily: '$body',
+    fontSize: '1rem',
+  },
+  stdFontSizes
+);
 
 interface TextProps {
   as?:
@@ -26,7 +35,7 @@ interface TextProps {
 }
 
 export const Text: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & TextProps & TextStyleProps
+  JSX.HTMLAttributes<HTMLDivElement> & TextProps & VariantProps<typeof textCss>
 > = props => {
   const [local, rest] = splitProps(props, ['size', 'as', 'class', 'classList', 'children']);
 
@@ -36,8 +45,8 @@ export const Text: ParentComponent<
       {...rest}
       classList={{
         ...local.classList,
-        [local.class ?? '']: true,
-        [textStyle({
+        [local.class as string]: !!local.class,
+        [textCss({
           size: local.size,
         })]: true,
       }}
@@ -46,5 +55,3 @@ export const Text: ParentComponent<
     </Dynamic>
   );
 };
-
-export default Text;

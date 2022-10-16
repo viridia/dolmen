@@ -1,9 +1,20 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { asideStyle, LayoutStyleProps } from './layout.css';
-import { withLayoutStyle } from './withLayoutStyle';
+import { css } from '../../styles';
+import { LayoutStyleProps, withLayoutStyle } from './withLayoutStyle';
+
+export const asideCss = css({
+  backgroundColor: '$surface',
+  boxShadow: '0 0 2px 0 $colors$shadow',
+  padding: '$lg',
+  alignItems: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+});
+
 
 export const Aside: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
+  JSX.HTMLAttributes<HTMLElement> & LayoutStyleProps
 > = props => {
   const [layoutStyle, nprops] = withLayoutStyle(props);
   const [local, rest] = splitProps(nprops, [
@@ -18,13 +29,11 @@ export const Aside: ParentComponent<
       classList={{
         ...local.classList,
         ...layoutStyle,
-        [local.class ?? '']: true,
-        [asideStyle]: true,
+        [local.class as string]: !!local.class,
+        [asideCss()]: true,
       }}
     >
       {local.children}
     </aside>
   );
 };
-
-export default Aside;

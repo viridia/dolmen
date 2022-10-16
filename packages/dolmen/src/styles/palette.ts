@@ -1,4 +1,3 @@
-import { mix } from '../lib';
 import { colord } from 'colord';
 
 /** A sequence of colors of a given hue, ranging from light to dark. */
@@ -31,7 +30,7 @@ export function createColorSpread(base: string): ColorSpread {
   const result: ColorSpread = {} as ColorSpread;
   const hsl = colord(base).toHsl();
   for (let i = 50; i < 1000; i += 50) {
-    result[i] = colord({ h: hsl.h, l: 100 - i * 100 / 1000, s: hsl.s }).toHex();
+    result[i as keyof ColorSpread] = colord({ h: hsl.h, l: 100 - (i * 100) / 1000, s: hsl.s }).toHex();
   }
   return result;
 }

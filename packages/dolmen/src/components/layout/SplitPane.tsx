@@ -1,14 +1,75 @@
+import { VariantProps } from '@stitches/core';
 import { createSignal, Show } from 'solid-js';
 import { JSX, splitProps, VoidComponent } from 'solid-js';
-import {
-  splitPaneStyle,
-  splitSegmentStyle,
-  SplitPaneStyleProps,
-  splitBarStyle,
-  splitBarDetailStyle,
-} from './splitpane.css';
+import { css } from '../../styles';
 
 type Direction = 'horizontal' | 'vertical';
+
+export const splitPaneCss = css({
+  alignItems: 'stretch',
+  flex: '1 0 0',
+  display: 'flex',
+  padding: 0,
+  overflow: 'hidden',
+
+  variants: {
+    direction: {
+      horizontal: {
+        flexDirection: 'row',
+      },
+      vertical: {
+        flexDirection: 'column',
+      },
+    },
+  },
+});
+
+export const splitBarCss = css({
+  alignSelf: 'stretch',
+  backgroundColor: '$splitterFill',
+  boxShadow: '0 0 2px 0 $colors$splitterShadow',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  minWidth: '10px',
+  minHeight: '10px',
+  userSelect: 'none',
+
+  '&.horizontal': {
+    cursor: 'col-resize',
+    // borderWidth: '0 1px 0 1px',
+  },
+
+  '&.vertical': {
+    cursor: 'row-resize',
+    // borderWidth: '1px 0 1px 0',
+  },
+});
+
+export const splitBarDetailCss = css({
+  backgroundColor: '$splitterDetail',
+  userSelect: 'none',
+
+  '.horizontal > &': {
+    width: '3px',
+    height: '64px',
+  },
+
+  '.vertical > &': {
+    width: '64px',
+    height: '3px',
+  },
+});
+
+export const splitSegmentCss = css({
+  display: 'flex',
+  alignItems: 'stretch',
+  justifyContent: 'stretch',
+  overflow: 'hidden',
+  minWidth: 0,
+  minHeight: 0,
+  flexBasis: 0,
+});
 
 interface SplitPaneProps {
   direction: Direction;
@@ -18,7 +79,7 @@ interface SplitPaneProps {
 }
 
 export const SplitPane: VoidComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & SplitPaneProps & SplitPaneStyleProps
+  JSX.HTMLAttributes<HTMLDivElement> & SplitPaneProps & VariantProps<typeof splitPaneCss>
 > = props => {
   const [local, rest] = splitProps(props, [
     'class',
@@ -28,7 +89,7 @@ export const SplitPane: VoidComponent<
     'second',
     'initialPosition',
   ]);
-  const [position, setPosition] = createSignal<number | undefined>(
+  const [position, setPosition] = createSignal<number>(
     Math.max(0, Math.min(1, props.initialPosition ?? 0.5))
   );
   let splitPaneRef: HTMLDivElement;
@@ -73,11 +134,11 @@ export const SplitPane: VoidComponent<
   return (
     <div
       {...rest}
-      ref={splitPaneRef}
+      ref={splitPaneRef!}
       classList={{
         ...local.classList,
-        [local.class ?? '']: true,
-        [splitPaneStyle({ direction: local.direction })]: true,
+        [local.class as string]: !!local.class,
+        [splitPaneCss({ direction: local.direction })]: true,
       }}
     >
       <Show when={local.first}>
@@ -85,20 +146,20 @@ export const SplitPane: VoidComponent<
           style={{
             'flex-grow': position(),
           }}
-          class={splitSegmentStyle}
+          class={splitSegmentCss()}
         >
           {local.first}
         </div>
       </Show>
       <Show when={local.first && local.second}>
         <div
-          ref={splitBarRef}
-          class={`${splitBarStyle} ${local.direction}`}
+          ref={splitBarRef!}
+          class={`${splitBarCss()} ${local.direction}`}
           onPointerDown={onPointerDown}
           onPointerUp={onPointerUp}
           onPointerMove={onPointerMove}
         >
-          <div class={splitBarDetailStyle} />
+          <div class={splitBarDetailCss()} />
         </div>
       </Show>
       <Show when={local.second}>
@@ -106,7 +167,7 @@ export const SplitPane: VoidComponent<
           style={{
             'flex-grow': 1 - position(),
           }}
-          class={splitSegmentStyle}
+          class={splitSegmentCss()}
         >
           {local.second}
         </div>
@@ -114,5 +175,3 @@ export const SplitPane: VoidComponent<
     </div>
   );
 };
-
-export default SplitPane;

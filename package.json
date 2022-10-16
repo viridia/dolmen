@@ -4,7 +4,8 @@
     "dev": "solid-start dev",
     "build": "solid-start build",
     "build:svg": "svgr --template ./node_modules/dolmen/scripts/svg-template.cjs --typescript iconsrc/ -d src/icons/",
-    "start": "solid-start start"
+    "start": "solid-start start",
+    "test:compile": "tsc --noEmit --project ./tsconfig.json"
   },
   "workspaces": {
     "packages": [
@@ -25,8 +26,6 @@
     "@solidjs/meta": "^0.28.0",
     "@solidjs/router": "^0.5.0",
     "@vanilla-extract/css": "^1.9.1",
-    "@vanilla-extract/recipes": "^0.2.5",
-    "@vanilla-extract/sprinkles": "^1.5.0",
     "dolmen": "*",
     "solid-js": "^1.5.7",
     "solid-mdx": "^0.0.6",

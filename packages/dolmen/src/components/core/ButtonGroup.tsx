@@ -1,5 +1,11 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { buttonGroupStyle } from './button.css';
+import { css } from '../../styles';
+
+export const buttonGroupCss = css({
+  display: 'flex',
+  flexDirection: 'row',
+  borderRadius: 3,
+});
 
 export const ButtonGroup: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', 'children']);
@@ -9,13 +15,11 @@ export const ButtonGroup: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = 
       {...rest}
       classList={{
         ...local.classList,
-        [local.class ?? '']: true,
-        [buttonGroupStyle]: true,
+        [local.class as string]: !!local.class,
+        [buttonGroupCss()]: true,
       }}
     >
       {local.children}
     </div>
   );
 };
-
-export default ButtonGroup;

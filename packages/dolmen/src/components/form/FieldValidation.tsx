@@ -1,5 +1,28 @@
 import { ParentComponent, JSX, splitProps, Show } from 'solid-js';
-import { fieldMessageStyle, fieldValidationStyle } from './input.css';
+import { css } from '../../styles';
+
+export const fieldValidationCss = css({
+  alignItems: 'start',
+  display: 'flex',
+  flexDirection: 'column',
+  fontSize: '0.8rem',
+
+  variants: {
+    status: {
+      warning: {
+        color: '#a80',
+      },
+
+      error: {
+        color: '#c00',
+      },
+    },
+  },
+});
+
+export const fieldMessageCss = css({
+  marginTop: 2,
+});
 
 interface FieldValidationProps extends JSX.HTMLAttributes<HTMLDivElement> {
   status?: 'warning' | 'error';
@@ -14,18 +37,16 @@ export const FieldValidation: ParentComponent<FieldValidationProps> = props => {
       {...rest}
       classList={{
         ...local.classList,
-        [local.class ?? '']: true,
-        [fieldValidationStyle({
+        [local.class as string]: !!local.class,
+        [fieldValidationCss({
           status: local.status,
         })]: true,
       }}
     >
       {local.children}
       <Show when={local.message}>
-        <div class={fieldMessageStyle}>{local.message}</div>
+        <div class={fieldMessageCss()}>{local.message}</div>
       </Show>
     </div>
   );
 };
-
-export default FieldValidation;

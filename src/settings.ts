@@ -11,7 +11,13 @@ export interface ISettings {
 export const UserSettingsContext =
   createContext<[get: Store<ISettings>, set: SetStoreFunction<ISettings>]>();
 
-export const useUserSettings = () => useContext(UserSettingsContext);
+export const useUserSettings = () => {
+  const settings = useContext(UserSettingsContext);
+  if (!settings) {
+    throw new Error('Missing context: UserSettings');
+  }
+  return settings;
+};
 
 export const createUserSettings = () =>
   createCookieStore<ISettings>('settings', { displayMode: 'canvas' });

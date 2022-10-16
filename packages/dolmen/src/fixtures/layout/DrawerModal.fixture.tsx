@@ -1,6 +1,6 @@
 import { createSignal } from 'solid-js';
 import { CheckBox, Drawer } from '../../components';
-import { layoutStyle } from './layout.css';
+import { demoPage } from './demoPage';
 
 export const $category = 'layout/Drawer';
 export const $name = 'modal';
@@ -17,7 +17,7 @@ function HorizontalModalDrawerDemo(props: {
   }
   return (
     <div
-      class={layoutStyle}
+      class={demoPage()}
       style={{
         display: 'flex',
         'flex-direction': 'row',
@@ -60,7 +60,7 @@ function VerticalModalDrawerDemo(props: { side: 'top' | 'bottom' }) {
   const [open, setOpen] = createSignal(false);
   return (
     <div
-      class={layoutStyle}
+      class={demoPage()}
       style={{
         display: 'flex',
         'flex-direction': 'column',

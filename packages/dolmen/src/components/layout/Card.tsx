@@ -1,6 +1,15 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { cardContentStyle, cardStyle, LayoutStyleProps } from './layout.css';
-import { withLayoutStyle } from './withLayoutStyle';
+import { LayoutStyleProps, withLayoutStyle } from './withLayoutStyle';
+import { css } from '../../styles';
+
+const cardContentCss = css({
+  alignItems: 'stretch',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'start',
+  margin: 0,
+  padding: '8px',
+});
 
 const CardContent: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
@@ -14,8 +23,8 @@ const CardContent: ParentComponent<
       classList={{
         ...local.classList,
         ...layoutStyle,
-        [local.class ?? '']: true,
-        [cardContentStyle]: true,
+        [local.class as string]: !!local.class,
+        [cardContentCss()]: true,
       }}
     >
       {local.children}
@@ -23,8 +32,18 @@ const CardContent: ParentComponent<
   );
 };
 
+const cardCss = css({
+  alignItems: 'stretch',
+  backgroundColor: '$surface',
+  borderRadius: 4,
+  boxShadow: '0 1px 2px 0 $colors$shadow',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'start',
+});
+
 export const Card: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
+  JSX.HTMLAttributes<HTMLElement> & LayoutStyleProps
 > & { Content: typeof CardContent } = props => {
   const [layoutStyle, nprops] = withLayoutStyle(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
@@ -35,8 +54,8 @@ export const Card: ParentComponent<
       classList={{
         ...local.classList,
         ...layoutStyle,
-        [local.class ?? '']: true,
-        [cardStyle]: true,
+        [local.class as string]: !!local.class,
+        [cardCss()]: true,
       }}
     >
       {local.children}
@@ -45,5 +64,3 @@ export const Card: ParentComponent<
 };
 
 Card.Content = CardContent;
-
-export default Card;

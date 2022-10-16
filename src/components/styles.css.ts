@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { palette, scrollbars, theme, Z } from 'dolmen';
+import { palette, scrollbars, theme } from 'dolmen';
 
 export const canvasSectionStyle = style({
   flex: '1 1 0',
@@ -13,7 +13,7 @@ export const canvasPaneStyle = style({
   padding: 8,
   flex: 1,
   overflowY: 'auto',
-  selectors: scrollbars
+  // selectors: scrollbars
 });
 
 export const sourcePaneStyle = style({
@@ -23,29 +23,29 @@ export const sourcePaneStyle = style({
   padding: 8,
   flex: 1,
   overflowY: 'auto',
-  selectors: scrollbars
+  // selectors: scrollbars
 });
 
 export const catalogPaneStyle = style({
   boxShadow: `0 0 3px 0 black`,
   alignItems: 'stretch',
-  color: theme.textColor,
+  color: '#fff',
   overflowY: 'auto',
   width: 300,
-  zIndex: Z.Drawer,
+  zIndex: 400,
 
-  selectors: scrollbars,
+  // selectors: scrollbars,
 });
 
 export const adjustPaneStyle = style({
   boxShadow: `0 0 3px 0 black`,
   alignItems: 'stretch',
-  color: theme.textColor,
+  color: '#fff',
   overflowY: 'auto',
   width: 300,
-  zIndex: Z.Drawer - 1,
+  zIndex: 300,
 
-  selectors: scrollbars,
+  // selectors: scrollbars,
 });
 
 export const catalogRootGroup = style({

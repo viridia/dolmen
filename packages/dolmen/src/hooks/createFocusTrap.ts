@@ -31,13 +31,13 @@ const hasParent = (elt: HTMLElement, parent: HTMLElement) => {
     if (elt === parent) {
       return true;
     }
-    elt = elt.parentElement;
+    elt = elt.parentElement!;
   }
   return false;
 };
 
 /** Overrides Tab and Shift-Tab behavior to wrap around when the last/first child is focused. */
-export function createFocusTrap(options?: IFocusTrapOptions): IFocusTrapResult {
+export function createFocusTrap(options: IFocusTrapOptions = {}): IFocusTrapResult {
   const [elt, setElt] = createSignal<HTMLElement | null>(null);
   const [focusableChildren, setFocusableChildren] = createSignal<HTMLElement[]>([]);
   const [saveFocus, setSaveFocus] = createSignal<HTMLElement | null>(null);
@@ -104,9 +104,7 @@ export function createFocusTrap(options?: IFocusTrapOptions): IFocusTrapResult {
   });
 
   onCleanup(() => {
-    if (saveFocus()) {
-      saveFocus().focus();
-    }
+    saveFocus()?.focus();
     setFocusableChildren([]);
   });
 

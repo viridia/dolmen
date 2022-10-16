@@ -1,5 +1,9 @@
 import { JSX, splitProps, VoidComponent } from 'solid-js';
-import { spacerStyle } from './layout.css';
+import { css } from '../../styles';
+
+export const spacerCss = css({
+  flex: 1,
+});
 
 export const Spacer: VoidComponent<JSX.HTMLAttributes<HTMLDivElement>> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList']);
@@ -9,11 +13,9 @@ export const Spacer: VoidComponent<JSX.HTMLAttributes<HTMLDivElement>> = props =
       {...rest}
       classList={{
         ...local.classList,
-        [local.class ?? '']: true,
-        [spacerStyle]: true,
+        [local.class as string]: !!local.class,
+        [spacerCss()]: true,
       }}
     />
   );
 };
-
-export default Spacer;

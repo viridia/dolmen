@@ -1,9 +1,43 @@
 import { createSignal } from 'solid-js';
 import { CheckBox, Stack } from '../../components';
 import { createCssTransition } from '../../hooks';
-import { transitionStyle } from './transition.css';
+import { css } from '../../styles';
 
 export const $category = 'hooks';
+
+export const transitionCss = css({
+  backgroundColor: 'gray',
+  height: '3rem',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: 'black',
+
+  '&.enter-start': {
+    backgroundColor: 'red',
+  },
+
+  '&.entering': {
+    backgroundColor: 'orange',
+  },
+
+  '&.entered': {
+    backgroundColor: 'yellow',
+  },
+
+  '&.exit-start': {
+    backgroundColor: 'lime',
+  },
+
+  '&.exiting': {
+    backgroundColor: 'green',
+  },
+
+  '&.exited': {
+    backgroundColor: 'blue',
+  },
+});
 
 export default () => {
   const [entered, setEntered] = createSignal(false);
@@ -13,7 +47,7 @@ export default () => {
     <Stack>
       <div
         classList={{
-          [transitionStyle]: true,
+          [transitionCss()]: true,
           [state()]: true,
         }}
       >

@@ -25,12 +25,12 @@ function SourceDisplay(props: { fixture: IFixture }) {
     return JSON.parse(`"${text.slice(startIndex, endIndex)}"`);
   });
 
-  let ref: HTMLDivElement | null;
+  let ref: HTMLDivElement;
 
   return (
     !isServer && (
       <Suspense>
-        <Code block class="language-tsx" ref={ref}>
+        <Code block class="language-tsx" ref={ref!}>
           {source()}
         </Code>
       </Suspense>
@@ -38,7 +38,7 @@ function SourceDisplay(props: { fixture: IFixture }) {
   );
 }
 
-export const SourcePane: VoidComponent<{ node: Accessor<IFixtureTreeNode | null> }> = props => {
+export const SourcePane: VoidComponent<{ node: Accessor<IFixtureTreeNode | undefined> }> = props => {
   return (
     <div class={sourcePaneStyle}>
       <Show when={props.node()?.fixture} keyed>

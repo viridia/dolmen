@@ -1,6 +1,6 @@
 import { createSignal } from 'solid-js';
 import { CheckBox, Drawer, Stack } from '../../components';
-import { layoutStyle } from './layout.css';
+import { demoPage } from './demoPage';
 import { createFixtureParams } from 'solid-codex-api';
 
 export const $category = 'layout/Drawer';
@@ -23,7 +23,7 @@ function HorizontalCoplanarDrawerDemo(props: {
   }
   return (
     <div
-      class={layoutStyle}
+      class={demoPage()}
       style={{
         display: 'flex',
         'flex-direction': reverse ? 'row-reverse' : 'row',
@@ -61,7 +61,7 @@ function VerticalCoplanarDrawerDemo(props: { side: 'top' | 'bottom' }) {
   const { side } = props;
   return (
     <div
-      class={layoutStyle}
+      class={demoPage()}
       style={{
         display: 'flex',
         'flex-direction': side === 'bottom' ? 'column-reverse' : 'column',
@@ -100,7 +100,7 @@ function MultiDrawerDemo() {
   const [open4, setOpen4] = createSignal(false);
   return (
     <div
-      class={layoutStyle}
+      class={demoPage()}
       style={{
         display: 'flex',
         'flex-direction': 'row',

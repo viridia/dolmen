@@ -16,7 +16,7 @@ function FixtureDisplay(props: { component: Component }) {
   );
 }
 
-export const CanvasPane: VoidComponent<{ node: Accessor<IFixtureTreeNode | null> }> = props => {
+export const CanvasPane: VoidComponent<{ node: Accessor<IFixtureTreeNode | undefined> }> = props => {
   return (
     <div class={canvasPaneStyle}>
       <Show when={props.node()?.component} keyed>

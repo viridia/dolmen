@@ -1,11 +1,11 @@
 import { Button, PageHeader, Spacer } from '../../components';
-import { layoutStyle } from './layout.css';
+import { demoPage } from './demoPage';
 
 export const $category = 'layout';
 
 function PageHeaderDemo() {
   return (
-    <div class={layoutStyle}>
+    <div class={demoPage()}>
       <PageHeader>
         <PageHeader.Title>Page Title</PageHeader.Title>
         <Spacer />

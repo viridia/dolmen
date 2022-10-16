@@ -1,4 +1,4 @@
-import { Aside, dark } from 'dolmen';
+import { Aside, theme } from 'dolmen';
 import { For, Show } from 'solid-js';
 import { VoidComponent } from 'solid-js';
 import {
@@ -66,8 +66,8 @@ interface CatalogProps {
 
 export const CatalogPane: VoidComponent<CatalogProps> = (props) => {
   return (
-    <Aside classList={{ [dark]: true, [catalogPaneStyle]: true }}>
-      <CatalogGroup root nodes={props.tree.children} />
+    <Aside classList={{ [theme.dark.className]: true, [catalogPaneStyle]: true }}>
+      <CatalogGroup root nodes={props.tree.children ?? []} />
     </Aside>
   );
 };

@@ -1,6 +1,6 @@
-import { theme } from './theme.css';
+import { css } from './css';
 
-export const scrollbars = {
+export const scrollbars = css({
   '&::-webkit-scrollbar': {
     backgroundColor: 'transparent',
     width: '11px',
@@ -8,17 +8,17 @@ export const scrollbars = {
   },
 
   '&::-webkit-scrollbar-thumb': {
-    backgroundColor: theme.scrollbarColor,
+    backgroundColor: '$scrollbar',
     borderRadius: '6px',
     backgroundClip: 'padding-box',
     border: '2px solid transparent',
   },
 
   '&::-webkit-scrollbar-thumb:window-inactive': {
-    backgroundColor: theme.scrollbarInactiveColor,
+    backgroundColor: '$scrollbarInactive',
   },
 
   '&::-webkit-scrollbar-corner': {
     backgroundColor: 'transparent',
   },
-};
+});

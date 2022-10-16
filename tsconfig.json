@@ -9,10 +9,13 @@
     "jsx": "preserve",
     "types": ["vite/client"],
     "baseUrl": "./",
+    // "strict": true, // Solid-start is not strict compliant
+    "skipLibCheck": true,
     "paths": {
       "~/*": ["./src/*"],
       "dolmen": ["./packages/dolmen/src"],
       "dolmen/icons": ["./packages/dolmen/src/icons"]
     }
-  }
+  },
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
 }

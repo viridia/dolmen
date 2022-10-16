@@ -9,7 +9,7 @@ import { parseCookie, ServerContext } from 'solid-start';
  */
 export const createCookieStore = <T extends {}>(cookieName: string, initialValue: T) => {
   // Initialize store from cookie (server or client).
-  let cookie: string;
+  let cookie: string | null;
   if (isServer) {
     const event = useContext(ServerContext);
     cookie = event.request.headers.get('Cookie');
@@ -18,7 +18,7 @@ export const createCookieStore = <T extends {}>(cookieName: string, initialValue
   }
 
   try {
-    const cookieValue = parseCookie(cookie)?.[cookieName];
+    const cookieValue = cookie && parseCookie(cookie)?.[cookieName];
     if (typeof cookieValue === 'string') {
       const parsed = JSON.parse(cookieValue);
       if (typeof parsed === 'object') {

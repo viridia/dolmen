@@ -5,24 +5,25 @@
   "license": "MIT",
   "description": "A UI component library that works with Solid SSR",
   "scripts": {
-    "build": "rollup --config rollup.config.js src/index.ts",
+    "build": "tsc --project tsconfig.mjs.json && tsc --project tsconfig.cjs.json",
     "build:svg": "svgr --template ./scripts/svg-template.cjs --typescript iconsrc/ -d src/icons/",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test:compile": "tsc --noEmit --project ./tsconfig.json"
   },
-  "source": "src/index.ts",
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/lib/index.d.ts",
+  "source": "src/index.tsx",
+  "main": "dist/cjs/index.jsx",
+  "module": "dist/mjs/index.jsx",
+  "types": "dist/mjs/index.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "types": "./dist/mjs/index.d.ts",
-      "default": "./dist/mjs/index.js",
-      "require": "./dist/cjs/index.js",
-      "browser": "./dist/cjs/index.js",
-      "solid": "./src/index.ts"
+      "solid": "./dist/mjs/index.jsx",
+      "import": "./dist/mjs/index.jsx",
+      "browser": "./dist/cjs/index.jsx",
+      "require": "./dist/cjs/index.jsx",
+      "node": "./dist/cjs/index.jsx"
     },
     "./icons": {
       "types": "./dist/mjs/icons/index.d.ts",
@@ -34,18 +35,16 @@
   },
   "type": "module",
   "devDependencies": {
+    "@rollup/plugin-typescript": "^9.0.1",
+    "@stitches/core": "^1.2.8",
     "@svgr/cli": "^6.4.0",
-    "@vanilla-extract/rollup-plugin": "^1.2.0",
-    "@vanilla-extract/vite-plugin": "^3.6.1",
+    "acorn-jsx": "^5.3.2",
     "rollup": "^2.79.1",
     "rollup-preset-solid": "^1.4.0",
     "solid-codex-api": "^0.0.1",
     "typescript": "^4.8.3"
   },
   "dependencies": {
-    "@vanilla-extract/css": "^1.9.1",
-    "@vanilla-extract/recipes": "^0.2.5",
-    "@vanilla-extract/sprinkles": "^1.5.0",
     "colord": "^2.9.3",
     "solid-js": "^1.5.7"
   },

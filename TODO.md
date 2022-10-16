@@ -46,6 +46,7 @@
 
 # Other
 
+* Simpify palettes
 * Prism support
 * Tree view collapse
 * Tree view highlight
@@ -53,12 +54,13 @@
 * Hi-res favicons in manifest
 * Z-index constants.
 * Make toggle less skeumorphic.
+* Fixture for createFocusTrap
 
 # Drawer
 
   * Floating or Anchored / Inplace / Ensconsed /
   * Leave sliver
-  * left, right, top, bottom
+  * Fixture for minWidth
 
 # Params
 

@@ -5,7 +5,7 @@ Dolmen is a themeable UI component library designed to work with Solid.js and op
 
 ## Themes
 
-Themes are implemented using [vanilla-extract](https://vanilla-extract.style/) and CSS variables.
+Themes are implemented using [Stitches](https://stitches.dev/) and CSS variables.
 Once a theme has been defined, you can add it to any element (and it's descendants) by adding
 the theme's class to that element. There is no need for a theme provider or context.
 
@@ -16,19 +16,15 @@ scheme than the main page.
 
 An important consideration when rendering HTML on the server is avoiding the ugly "Flash of
 Unstyled Content" (FOUC) when the HTML is displayed before the CSS is loaded. This requires that
-all of the CSS needs to be statically generated ahead of time, rather than generated in JavaScript
-on the client. This means that many of the popular CSS-in-JS frameworks, such as
-[emotion](https://emotion.sh/) or [styled-components](https://styled-components.com/) cannot
-be used.
+all of the CSS needs to be server-side renderable.
 
-Instead, Dolmen uses the [vanilla-extract](https://vanilla-extract.style/) package to generate
-CSS stylesheets from JavaScript on the server. This is consistent with Dolmen's goal of being a
-framework with minimal overhead.
+Dolmen uses the [Stitches](https://stitches.dev//) package to generate CSS stylesheets from
+JavaScript on the server as well as on the client.
 
 One limitation of this approach is that the server-generated CSS is not quite as dynamic as CSS
-that is generated on the client. With CSS-in-JS it is possible to create styles algorithmically,
-but with pregenerated CSS this can cause a combinatorial explosion of stylesheets unless care is
-taken to limit the number of combinations.
+that is generated on the client. With client-side CSS-in-JS it is possible to create styles
+algorithmically, but with pregenerated CSS this can cause a combinatorial explosion of stylesheets
+unless care is taken to limit the number of combinations.
 
 Dolmen provides *some* of the benefits of dynamic styling by cherry-picking the most common and
 useful style combinations and incorporating them into the component APIs, similar to

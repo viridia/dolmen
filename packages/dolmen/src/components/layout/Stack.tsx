@@ -1,6 +1,13 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { stackStyle, LayoutStyleProps } from './layout.css';
-import { withLayoutStyle } from './withLayoutStyle';
+import { LayoutStyleProps, withLayoutStyle } from './withLayoutStyle';
+import { css } from '../../styles';
+
+const stackCss = css({
+  alignItems: 'stretch',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'start',
+});
 
 export const Stack: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
@@ -14,13 +21,11 @@ export const Stack: ParentComponent<
       classList={{
         ...local.classList,
         ...layoutStyle,
-        [local.class ?? '']: true,
-        [stackStyle]: true,
+        [local.class as string]: !!local.class,
+        [stackCss()]: true,
       }}
     >
       {local.children}
     </div>
   );
 };
-
-export default Stack;
