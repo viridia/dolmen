@@ -14,7 +14,8 @@
     "paths": {
       "~/*": ["./src/*"],
       "dolmen": ["./packages/dolmen/src"],
-      "dolmen/icons": ["./packages/dolmen/src/icons"]
+      "dolmen/icons": ["./packages/dolmen/src/icons"],
+      "solid-codex": ["./packages/solid-codex/src"],
     }
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx"],
