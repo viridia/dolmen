@@ -26,6 +26,7 @@
       "node": "./dist/cjs/index.jsx"
     },
     "./icons": {
+      "source": "./src/icons/index.ts",
       "types": "./dist/mjs/icons/index.d.ts",
       "default": "./dist/mjs/icons/index.js",
       "require": "./dist/cjs/icons/index.js",

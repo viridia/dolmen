@@ -1,11 +1,14 @@
+import { colord } from 'colord';
 import { For, VoidComponent } from 'solid-js';
-import { Dynamic } from 'solid-js/web';
 import { Group } from '../../components';
-import { ColorSpread, css, palette } from '../../styles';
+import { colorKeys, css, palette } from '../../styles';
 
 export const swatchStyle = css({
   width: 96,
   height: 32,
+  alignItems: 'center',
+  justifyContent: 'center',
+  display: 'flex',
 });
 
 export const nameStyle = css({
@@ -17,19 +20,27 @@ export const nameStyle = css({
 
 export const $category = 'styling';
 
-const Swatch: VoidComponent<{ color: string }> = props => {
-  return <div class={swatchStyle()} style={{ 'background-color': props.color }} />;
+const Swatch: VoidComponent<{ color: string; key?: number }> = props => {
+  const c = colord(props.color);
+  const color = c.brightness() > 0.5 ? '#000' : '#fff';
+  return (
+    <div class={swatchStyle()} style={{ 'background-color': props.color, 'color': color }}>
+      {props.key}
+    </div>
+  );
 };
 
-function typedKeys<T extends {}>(obj: T): (keyof T)[] {
-  return Object.keys(obj) as (keyof T)[];
-}
+// function typedKeys<T extends {}>(obj: T): (keyof T)[] {
+//   return Object.keys(obj) as (keyof T)[];
+// }
 
-const Palette: VoidComponent<{ spread: ColorSpread; name: string }> = props => {
+const Palette: VoidComponent<{ name: string }> = props => {
   return (
     <div>
       <div class={nameStyle()}>{props.name}</div>
-      <For each={typedKeys(props.spread)}>{key => <Swatch color={props.spread[key]} />}</For>
+      <For each={colorKeys}>
+        {key => <Swatch color={(palette as any)[`${props.name}${key}`]} key={key} />}
+      </For>
     </div>
   );
 };
@@ -37,9 +48,9 @@ const Palette: VoidComponent<{ spread: ColorSpread; name: string }> = props => {
 function Palettes() {
   return (
     <Group gap="lg" alignItems="start">
-      <Palette spread={palette.gray} name="gray" />
-      <Palette spread={palette.coolgray} name="coolgray" />
-      <Palette spread={palette.warmgray} name="warmgray" />
+      <Palette name="gray" />
+      <Palette name="coolgray" />
+      <Palette name="warmgray" />
       <div>
         <div class={nameStyle()}>white</div>
         <Swatch color="#ffffff" />

@@ -66,17 +66,17 @@ export const catalogEntryName = style({
   display: 'flex',
   justifyContent: 'start',
   padding: '4px 8px',
-  color: palette.gray[450],
+  color: palette.coolgray400,
   fontStyle: 'italic',
 });
 
 export const selectableEntryName = style({
-  color: palette.gray[100],
+  color: palette.gray100,
   cursor: 'pointer',
   fontStyle: 'normal',
 
   ':hover': {
-    backgroundColor: palette.coolgray[850],
+    backgroundColor: palette.coolgray850,
   },
 
   selectors: {

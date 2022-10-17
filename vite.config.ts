@@ -19,6 +19,7 @@ export default defineConfig({
   // },
   resolve: {
     alias: {
+      'dolmen': path.resolve(__dirname, './packages/dolmen/src'),
       'dolmen/fixtures': path.resolve(__dirname, './packages/dolmen/src/fixtures'),
       'dolmen/fixtures/*': path.resolve(__dirname, './packages/dolmen/src/fixtures/*'),
     },

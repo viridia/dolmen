@@ -80,6 +80,10 @@ export const inputElementCss = css({
     color: '$inputSelectionText',
   },
 
+  '&::placeholder': {
+    color: '$inputPlaceholder',
+  },
+
   '&[disabled]': {
     opacity: 0.5,
   },
