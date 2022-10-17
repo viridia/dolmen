@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { palette, scrollbars, theme } from 'dolmen';
+import { palette, scrollbars } from 'dolmen';
 
 export const canvasSectionStyle = style({
   flex: '1 1 0',

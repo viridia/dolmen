@@ -1,4 +1,5 @@
 import { For, VoidComponent } from 'solid-js';
+import { Dynamic } from 'solid-js/web';
 import { Group } from '../../components';
 import { ColorSpread, css, palette } from '../../styles';
 
@@ -20,7 +21,7 @@ const Swatch: VoidComponent<{ color: string }> = props => {
   return <div class={swatchStyle()} style={{ 'background-color': props.color }} />;
 };
 
-function typedKeys<T extends { }>(obj: T): (keyof T)[] {
+function typedKeys<T extends {}>(obj: T): (keyof T)[] {
   return Object.keys(obj) as (keyof T)[];
 }
 
@@ -28,7 +29,7 @@ const Palette: VoidComponent<{ spread: ColorSpread; name: string }> = props => {
   return (
     <div>
       <div class={nameStyle()}>{props.name}</div>
-      <For each={typedKeys(props.spread)}>{(key) => <Swatch color={props.spread[key]} />}</For>
+      <For each={typedKeys(props.spread)}>{key => <Swatch color={props.spread[key]} />}</For>
     </div>
   );
 };

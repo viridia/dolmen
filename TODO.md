@@ -55,6 +55,7 @@
 * Z-index constants.
 * Make toggle less skeumorphic.
 * Fixture for createFocusTrap
+* Split pane with more than 2 panels - should be doable.
 
 # Drawer
 

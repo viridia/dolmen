@@ -1,4 +1,4 @@
-import { createStitches, CSS } from '@stitches/core';
+import { createStitches } from '@stitches/core';
 import { colord } from 'colord';
 import { palette } from './palette';
 
@@ -10,6 +10,9 @@ const { getCssText, css, createTheme, config } = createStitches({
   prefix: 'dol',
   theme: {
     colors: {
+      black: '#000000',
+      white: '#ffffff',
+
       background: palette.gray[100],
       backdrop: colord(palette.gray[900]).alpha(0.3).toHex(),
       surface: palette.gray[50],
@@ -20,35 +23,38 @@ const { getCssText, css, createTheme, config } = createStitches({
       primary: primaryColor,
       primaryHover: colord(primaryColor).darken(0.03).toHex(),
       primaryActive: colord(primaryColor).darken(0.07).toHex(),
-      primaryContrast: palette.white,
+      primaryContrast: '$white',
       primaryContrastDim: colord(primaryColor).lighten(0.2).toHex(),
+      primaryDivider: colord(primaryColor).darken(0.05).toHex(),
 
       secondary: palette.gray[200],
       secondaryHover: palette.gray[250],
       secondaryActive: palette.gray[350],
       secondaryContrast: palette.gray[750],
       secondaryContrastDim: palette.gray[600],
+      secondaryDivider: palette.gray[300],
 
       danger: dangerColor,
       dangerHover: colord(dangerColor).darken(0.03).toHex(),
       dangerActive: colord(dangerColor).darken(0.07).toHex(),
-      dangerContrast: palette.white,
+      dangerContrast: '$white',
       dangerContrastDim: colord(dangerColor).lighten(0.3).toHex(),
+      dangerDivider: colord(dangerColor).darken(0.07).toHex(),
 
       selected: palette.gray[700],
       selectedContrast: palette.gray[100],
       selectedContrastDim: palette.gray[200],
 
-      scrollbar: 'rgba(0, 0, 0, 0.2)',
-      scrollbarInactive: 'rgba(0, 0, 0, 0.1)',
-
       subtleHover: palette.gray[200],
       subtleActive: palette.gray[300],
+
+      scrollbar: 'rgba(0, 0, 0, 0.2)',
+      scrollbarInactive: 'rgba(0, 0, 0, 0.1)',
 
       checkboxFill: palette.gray[150],
       checkboxFillChecked: primaryColor,
       checkboxBorderColor: palette.gray[500],
-      checkboxMark: palette.white,
+      checkboxMark: '$white',
 
       inputBg: palette.gray[150],
       inputText: palette.gray[800],
@@ -75,7 +81,7 @@ const { getCssText, css, createTheme, config } = createStitches({
       knobMark: palette.gray[400],
       knobShadow: colord(palette.black).alpha(0.6).toHex(),
 
-      modalBg: palette.white,
+      modalBg: '$surface',
       modalShadow: colord(palette.black).alpha(0.4).toHex(),
       modalHeader: palette.gray[50],
       modalDivider: palette.gray[150],
@@ -117,6 +123,16 @@ const { getCssText, css, createTheme, config } = createStitches({
       none: '0',
     },
 
+    sizes: {
+      xl: '2.5rem',
+      lg: '2.2rem',
+      md: '2rem',
+      sm: '1.85rem',
+      xs: '1.65rem',
+      mini: '1.45rem',
+      tiny: '1.3rem',
+    },
+
     zIndices: {
       ground: 0,
       focused: 100,
@@ -135,25 +151,6 @@ const { getCssText, css, createTheme, config } = createStitches({
     }),
   },
 });
-
-// export const light = createTheme(theme, {
-//   button: {
-//     default: {
-//       borderColor: palette.gray[300],
-//     },
-//     primary: {
-//       borderColor: colord(primaryColor).darken(0.05).toHex(),
-//     },
-//     danger: {
-//       borderColor: colord(dangerColor).darken(0.07).toHex(),
-//     },
-//     selected: {
-//       borderColor: palette.gray[700],
-//     },
-//     subtle: {
-//       borderColor: 'transparent',
-//     },
-//   },
 
 export { getCssText, css, createTheme };
 export type FontSizes = keyof typeof config.theme.fontSizes;

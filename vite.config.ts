@@ -9,6 +9,8 @@ export default defineConfig({
       // identifiers: "short",
     }),
     solid({
+      // clientEntry: './packages/solid-codex/src/entry-client.tsx',
+      // serverEntry: './packages/solid-codex/src/entry-server.tsx',
       // extensions: ['.mdx', '.md'],
     }),
   ],
@@ -17,8 +19,6 @@ export default defineConfig({
   // },
   resolve: {
     alias: {
-      dolmen: path.resolve(__dirname, './packages/dolmen/src'),
-      'dolmen/*': path.resolve(__dirname, './packages/dolmen/src/*'),
       'dolmen/fixtures': path.resolve(__dirname, './packages/dolmen/src/fixtures'),
       'dolmen/fixtures/*': path.resolve(__dirname, './packages/dolmen/src/fixtures/*'),
     },

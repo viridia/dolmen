@@ -1,12 +1,12 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { VariantProps } from '@stitches/core';
-import { css, remHeight, ButtonSizeVariant } from '../../styles';
+import { css, ButtonSizeVariant } from '../../styles';
 import { buttonGroupCss } from './ButtonGroup';
 
 const buttonSize = (base: ButtonSizeVariant) => ({
-  height: `${remHeight[base]}rem`,
+  height: `$sizes$${base}`,
   fontSize: `$fontSizes$${base}`,
-  padding: `0 ${remHeight[base] / 3}rem`,
+  padding: `0 0.7em`,
 });
 
 const buttonCss = css({
@@ -62,6 +62,7 @@ const buttonCss = css({
     color: {
       default: {
         color: '$secondaryContrast',
+        borderColor: '$secondaryDivider',
         backgroundColor: '$secondary',
         '&:hover:not([disabled])': {
           backgroundColor: '$secondaryHover',
@@ -73,6 +74,7 @@ const buttonCss = css({
       },
       primary: {
         color: '$primaryContrast',
+        borderColor: '$primaryDivider',
         backgroundColor: '$primary',
         '&:hover:not([disabled])': {
           backgroundColor: '$primaryHover',
@@ -84,6 +86,7 @@ const buttonCss = css({
       },
       danger: {
         color: '$dangerContrast',
+        borderColor: '$dangerDivider',
         backgroundColor: '$danger',
         '&:hover:not([disabled])': {
           backgroundColor: '$dangerHover',
@@ -95,11 +98,13 @@ const buttonCss = css({
       },
       selected: {
         backgroundColor: '$selected',
+        borderColor: '$secondaryDivider',
         color: '$selectedContrast',
         '--icon-color': '$colors$selectedContrastDim',
       },
       subtle: {
         backgroundColor: 'transparent',
+        borderColor: 'transparent',
         color: '$secondaryContrast',
         '&:hover:not([disabled])': {
           backgroundColor: '$subtleHover',

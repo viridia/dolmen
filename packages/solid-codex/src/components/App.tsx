@@ -1,5 +1,5 @@
 // @refresh reload
-import { Suspense } from 'solid-js';
+import { createEffect, Suspense } from 'solid-js';
 import { ErrorBoundary } from 'solid-start/error-boundary';
 import { Body, Head, Html, Meta, Route, Routes, Scripts, Title } from 'solid-start';
 import { theme } from 'dolmen';
@@ -17,14 +17,14 @@ export function App(props: { fixtures: Record<string, () => Promise<unknown>> })
   return (
     <UserSettingsContext.Provider value={userSettings}>
       <FixtureParamsContext.Provider value={fixtureParams}>
-        <Html lang="en" classList={{ [theme.dark.className]: userSettings[0].theme === 'dark' }}>
+        <Html lang="en">
           <Head>
             <Title>SolidStart - With MDX</Title>
             <Meta charset="utf-8" />
             <Meta name="viewport" content="width=device-width, initial-scale=1" />
             <style id="stitches" innerHTML={getCssText()} />
           </Head>
-          <Body>
+          <Body classList={{ [theme.dark.className]: userSettings[0].theme === 'dark' }}>
             <ErrorBoundary>
               <Suspense>
                 <Routes>

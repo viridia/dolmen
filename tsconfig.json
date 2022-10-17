@@ -13,8 +13,7 @@
     "skipLibCheck": true,
     "paths": {
       "~/*": ["./src/*"],
-      "dolmen": ["./packages/dolmen/src"],
-      "dolmen/icons": ["./packages/dolmen/src/icons"],
+      // For development
       "solid-codex": ["./packages/solid-codex/src"],
     }
   },

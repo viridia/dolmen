@@ -4,9 +4,9 @@ import { createTheme } from '../styles/css';
 
 const primaryColor = '#3f45d4';
 const dangerColor = '#7d248a';
-const textHighlight = '#afafff66';
+const textHighlight = '#6f6fff66';
 
-export const dark = createTheme({
+export const dark = createTheme('dark', {
   colors: {
     background: palette.coolgray[900],
     backdrop: colord(palette.black).alpha(.3).toHex(),
@@ -20,18 +20,21 @@ export const dark = createTheme({
     primaryActive: colord(primaryColor).darken(0.1).toHex(),
     primaryContrast: palette.coolgray[100],
     primaryContrastDim: colord(primaryColor).lighten(0.25).toHex(),
+    primaryDivider: colord(primaryColor).darken(0.1).toHex(),
 
     secondary: palette.coolgray[800],
     secondaryHover: palette.coolgray[750],
     secondaryActive: palette.coolgray[700],
     secondaryContrast: palette.coolgray[200],
     secondaryContrastDim: palette.coolgray[500],
+    secondaryDivider: palette.coolgray[900],
 
     danger: dangerColor,
     dangerHover: colord(dangerColor).darken(0.05).toHex(),
     dangerActive: colord(dangerColor).darken(0.1).toHex(),
     dangerContrast: palette.coolgray[100],
     dangerContrastDim: colord(dangerColor).lighten(0.3).toHex(),
+    dangerDivider: colord(dangerColor).darken(0.1).toHex(),
 
     selected: palette.coolgray[600],
     selectedContrast: palette.coolgray[100],
@@ -43,7 +46,7 @@ export const dark = createTheme({
     checkboxFill: palette.coolgray[800],
     checkboxFillChecked: primaryColor,
     checkboxBorderColor: palette.coolgray[700],
-    checkboxMark: palette.white,
+    checkboxMark: '$white',
 
     inputBg: colord(palette.coolgray[850]).darken(0.025).toHex(),
     inputText: palette.coolgray[200],
@@ -51,7 +54,7 @@ export const dark = createTheme({
     inputBorder: palette.coolgray[750],
     inputBorderHover: palette.coolgray[650],
     inputSelectionBg: textHighlight,
-    inputSelectionText: palette.white,
+    inputSelectionText: '$white',
 
     knobRim: `linear-gradient(
       to bottom,
@@ -89,21 +92,3 @@ export const dark = createTheme({
     toggleSlideBorder: '#00000088',
   },
 });
-
-//   button: {
-//     default: {
-//       borderColor: palette.coolgray[900],
-//     },
-//     primary: {
-//       borderColor: colord(primaryColor).darken(0.1).toHex(),
-//     },
-//     danger: {
-//       borderColor: colord(dangerColor).darken(0.1).toHex(),
-//     },
-//     selected: {
-//       borderColor: palette.coolgray[900],
-//     },
-//     subtle: {
-//       borderColor: 'transparent',
-//     },
-//   },
