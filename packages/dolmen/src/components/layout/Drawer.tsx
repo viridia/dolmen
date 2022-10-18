@@ -14,7 +14,6 @@ interface DrawerProps {
   side: Side;
   size?: string | number;
   minSize?: string | number;
-  lift?: boolean;
   onClose?: () => void;
 }
 
@@ -31,7 +30,7 @@ export const drawerCoplanarCss = css({
   bottom: 0,
   left: 0,
   right: 0,
-  zIndex: '$drawer',
+  zIndex: '$sidebar',
 
   variants: {
     side: {
@@ -52,12 +51,6 @@ export const drawerCoplanarCss = css({
       },
       bottom: {
         bottom: 'auto',
-      },
-    },
-
-    lift: {
-      true: {
-        zIndex: '$drawer2',
       },
     },
   },
@@ -223,7 +216,6 @@ interface DrawerInnerProps {
   side: Side;
   size: string;
   parent: HTMLDivElement;
-  lift?: boolean;
 }
 
 export const DrawerInner: ParentComponent<
@@ -235,7 +227,6 @@ export const DrawerInner: ParentComponent<
     'size',
     'state',
     'parent',
-    'lift',
     'class',
     'classList',
     'children',
@@ -259,7 +250,6 @@ export const DrawerInner: ParentComponent<
               })
             : drawerCoplanarCss({
                 side: adjustedSide(local.side, direction() === 'rtl'),
-                lift: local.lift,
               })]: true,
           [local.state]: true,
         }}
@@ -287,7 +277,6 @@ export const Drawer: ParentComponent<JSX.HTMLAttributes<HTMLElement> & DrawerPro
     'side',
     'size',
     'minSize',
-    'lift',
     'class',
     'classList',
     'children',
@@ -338,7 +327,6 @@ export const Drawer: ParentComponent<JSX.HTMLAttributes<HTMLElement> & DrawerPro
           side={local.side}
           state={state()}
           size={openSize()}
-          lift={local.lift}
           parent={containerElt!}
         >
           {local.children}

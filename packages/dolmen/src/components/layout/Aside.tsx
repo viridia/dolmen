@@ -11,7 +11,7 @@ export const asideCss = css({
   position: 'relative',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  zIndex: '$pageHeader'
+  zIndex: '$sidebar'
 });
 
 export const Aside: ParentComponent<

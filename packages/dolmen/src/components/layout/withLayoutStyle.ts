@@ -169,6 +169,21 @@ const layoutStyle = css({
         justifyContent: 'stretch',
       },
     },
+
+    z: {
+      ground: {
+        zIndex: '$ground',
+      },
+      sidebar: {
+        zIndex: '$sidebar',
+      },
+      appbar: {
+        zIndex: '$appbar',
+      },
+      sidebarHigher: {
+        zIndex: '$sidebarHigher',
+      },
+    },
   },
 });
 
@@ -204,6 +219,7 @@ export function withLayoutStyle<T extends {}>(
     'alignSelf',
     'justifyContent',
     'flexDirection',
+    'z',
   ]);
 
   return [

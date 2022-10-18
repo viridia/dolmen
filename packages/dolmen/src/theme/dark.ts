@@ -8,7 +8,7 @@ const textHighlight = '#6f6fff66';
 
 export const dark = createTheme('dark', {
   colors: {
-    background: 'palette.coolgray900',
+    background: palette.coolgray900,
     backdrop: colord(palette.black).alpha(0.3).toHex(),
     surface: palette.coolgray850,
     focus: '#8183ff88',
@@ -84,7 +84,7 @@ export const dark = createTheme('dark', {
     scrollbar: colord(palette.coolgray500).alpha(0.3).toHex(),
     scrollbarInactive: colord(palette.coolgray500).alpha(0.15).toHex(),
 
-    sliderThumb: '$primary',
+    sliderThumb: colord(primaryColor).lighten(0.05).toHex(),
     sliderTrack: palette.coolgray800,
     sliderBar: '$primarySoft',
 

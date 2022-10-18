@@ -57,6 +57,7 @@ const ParamControl: VoidComponent<{ param: ParamAccessor<unknown> }> = props => 
               min={(props.param.descriptor as IParamInteger).minVal ?? 0}
               max={(props.param.descriptor as IParamInteger).maxVal ?? 100}
               step={1}
+              valueLabelDisplay="auto"
               onChange={e => {
                 props.param(e);
               }}
@@ -90,7 +91,6 @@ export const AdjustPane: VoidComponent = () => {
       classList={{ [dark.className]: true, [adjustPaneStyle]: true }}
       open={settings.showAdjust}
       size="300px"
-      lift
     >
       <Drawer.Header>
         <Title>Adjust Parameters</Title>

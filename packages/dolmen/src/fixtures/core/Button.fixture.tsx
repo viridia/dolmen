@@ -95,7 +95,7 @@ function ButtonVariants() {
 }
 
 export default {
-  Sizes: () => <ButtonSizes />,
-  Colors: () => <ButtonColors />,
-  Variants: () => <ButtonVariants />,
+  sizes: () => <ButtonSizes />,
+  colors: () => <ButtonColors />,
+  variants: () => <ButtonVariants />,
 };

@@ -44,7 +44,7 @@ export const pageHeaderCss = css({
   justifyContent: 'space-between',
   padding: '8px 1rem',
   position: 'relative',
-  zIndex: '$pageHeader',
+  zIndex: '$appbar',
 });
 
 export const PageHeader: ParentComponent<

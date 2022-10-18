@@ -1,6 +1,9 @@
 # Components
 
 * Slider
+  * Sizes
+  * Labels
+  * Tooltip
 * List
 * Select
 * MenuButton
@@ -21,12 +24,9 @@
 * Toast
 * Progress Bar
 * Collapse
-* FocusTrap
 * Divider
 * Tabs
-* Drawer
 * Breadcrumbs
-* Card Header / Footer
 
 ## Possible
 
@@ -39,9 +39,9 @@
 * Attribute controls
   * const gap = createEnumBar(['xl', 'lg', 'md', 'sm', 'xs'])
   * Need:
-    * Slider
-    * Drawer
     * Select
+    * Radio?
+    * Vertical button group?
 
 # Other
 
@@ -59,3 +59,4 @@
   * Floating or Anchored / Inplace / Ensconsed /
   * Leave sliver
   * Fixture for minWidth
+  * Firefox bugs

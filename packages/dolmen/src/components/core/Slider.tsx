@@ -1,23 +1,66 @@
-import { JSX, splitProps, VoidComponent, createMemo, createEffect, createSignal } from 'solid-js';
+import {
+  JSX,
+  splitProps,
+  VoidComponent,
+  createMemo,
+  createEffect,
+  createSignal,
+  Show,
+  batch,
+} from 'solid-js';
 import { createElementSize } from '../../hooks';
-import { css } from '../../styles';
+import { css, SizeVariant } from '../../styles';
+import { computePosition, flip, offset, arrow } from '@floating-ui/dom';
+
+interface SliderProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+  value: number;
+  min?: number;
+  max?: number;
+  step?: number;
+  precision?: number;
+  name?: string;
+  size?: SizeVariant;
+  valueLabelDisplay?: 'auto';
+  onChange?: (value: number) => void;
+}
 
 export const sliderCss = css({
   alignItems: 'center',
   cursor: 'pointer',
+  display: 'flex',
+  height: 'calc(var(--slider-size) * 0.6)',
   minWidth: '100px',
-  padding: '6px 0',
+  outline: 'none',
   position: 'relative',
   pointerEvents: 'none',
-  outline: 'none',
   userSelect: 'none',
+  '--slider-size': '2rem',
+
+  variants: {
+    size: {
+      xl: {
+        '--slider-size': '3rem',
+      },
+      lg: {
+        '--slider-size': '2.5rem',
+      },
+      md: {
+        '--slider-size': '2rem',
+      },
+      sm: {
+        '--slider-size': '1.5rem',
+      },
+      xs: {
+        '--slider-size': '1.3rem',
+      },
+    },
+  },
 });
 
 export const trackCss = css({
-  alignSelf: 'stretch',
   backgroundColor: '$sliderTrack',
   borderRadius: '500px',
-  height: '8px',
+  height: 'calc(var(--slider-size) * 0.2)',
   overflow: 'hidden',
   position: 'relative',
   width: '100%',
@@ -30,15 +73,15 @@ export const trackCss = css({
 
 export const barCss = css({
   backgroundColor: '$sliderBar',
-  height: '8px',
+  height: '100%',
 });
 
 export const thumbContainerCss = css({
   borderRadius: '50%',
   position: 'absolute',
-  height: '20px',
+  height: 'calc(var(--slider-size) * 0.6)',
   pointerEvents: 'all',
-  width: '20px',
+  width: 'calc(var(--slider-size) * 0.6)',
   top: 0,
 });
 
@@ -47,18 +90,17 @@ export const thumbCss = css({
   borderRadius: '50%',
   boxShadow: '0 1px 4px $colors$shadow',
   position: 'absolute',
-  height: '20px',
+  height: '100%',
   pointerEvents: 'all',
   left: 0,
   top: 0,
-  width: '20px',
+  width: '100%',
 });
 
 export const thumbFocusCss = css({
   backgroundColor: '$focus',
   borderRadius: '50%',
   position: 'absolute',
-  content: '',
   left: 0,
   top: 0,
   bottom: 0,
@@ -72,14 +114,33 @@ export const thumbFocusCss = css({
   },
 });
 
-interface SliderProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  value: number;
-  min?: number;
-  max?: number;
-  step?: number;
-  name?: string;
-  onChange?: (value: number) => void;
-}
+export const valueLabelCss = css({
+  backgroundColor: '$selected',
+  color: '$selectedContrast',
+  borderRadius: '3px',
+  minWidth: '12px',
+  padding: '2px 4px',
+  position: 'absolute',
+  pointerEvents: 'none',
+  fontSize: '$tiny',
+  opacity: 0,
+  textAlign: 'center',
+  transition: 'opacity 0.05s linear',
+  zIndex: '$tooltip',
+
+  ':hover > &': {
+    opacity: 1,
+  },
+});
+
+export const valueLabelArrowCss = css({
+  backgroundColor: '$selected',
+  width: '8px',
+  height: '8px',
+  position: 'absolute',
+  transform: 'rotate(45deg)',
+  zIndex: -1,
+});
 
 export const Slider: VoidComponent<SliderProps> = props => {
   const [local, rest] = splitProps(props, [
@@ -90,11 +151,19 @@ export const Slider: VoidComponent<SliderProps> = props => {
     'min',
     'max',
     'step',
+    'precision',
+    'size',
+    'valueLabelDisplay',
     'onChange',
   ]);
-  let dragging = false;
   let dragOffset = 0;
+  let dragPointer: number | undefined = undefined;
   const [elementSize, sizeRef] = createElementSize();
+  const [thumbRef, setThumbRef] = createSignal<HTMLDivElement>();
+  const [labelRef, setLabelRef] = createSignal<HTMLDivElement>();
+  const [arrowRef, setArrowRef] = createSignal<HTMLDivElement>();
+  const [labelStyle, setLabelStyle] = createSignal<{ left?: string; top?: string }>({});
+  const [arrowStyle, setArrowStyle] = createSignal<{ left?: string; top?: string }>({});
 
   /** Returns the current value scaled to the range [0, 1]. */
   const position = createMemo(() => {
@@ -104,6 +173,14 @@ export const Slider: VoidComponent<SliderProps> = props => {
       return 0;
     }
     return Math.max(0, Math.min(range, value - min)) / range;
+  });
+
+  const formattedValue = createMemo(() => {
+    const { value, precision } = local;
+    if (typeof precision === 'number') {
+      return value.toFixed(precision);
+    }
+    return (Math.round(value * 1000) / 1000).toString();
   });
 
   const setValue = (value: number) => {
@@ -129,6 +206,37 @@ export const Slider: VoidComponent<SliderProps> = props => {
     setValue((pos * range) / elementSize().width + min);
   };
 
+  createEffect(() => {
+    const thumbElt = thumbRef();
+    const labelElt = labelRef();
+    const arrowElt = arrowRef();
+    if (thumbElt && labelElt && arrowElt && local.value !== undefined) {
+      computePosition(thumbElt, labelElt, {
+        placement: 'top',
+        middleware: [offset(8), flip(), arrow({ element: arrowElt })],
+      }).then(({ x, y, placement, middlewareData }) => {
+        const { x: arrowX, y: arrowY } = middlewareData.arrow as any;
+        batch(() => {
+          setLabelStyle({
+            left: `${x}px`,
+            top: `${y}px`,
+          });
+          if (placement === 'top') {
+            setArrowStyle({
+              left: arrowX != null ? `${arrowX}px` : '',
+              bottom: '-4px',
+            });
+          } else {
+            setArrowStyle({
+              left: arrowX != null ? `${arrowX}px` : '',
+              top: '-4px',
+            });
+          }
+        });
+      });
+    }
+  });
+
   return (
     <div
       {...rest}
@@ -140,23 +248,29 @@ export const Slider: VoidComponent<SliderProps> = props => {
       classList={{
         ...local.classList,
         [local.class as string]: !!local.class,
-        [sliderCss()]: true,
+        [sliderCss({
+          size: local.size,
+        })]: true,
       }}
       onPointerDown={e => {
+        // Don't want to prevent default because we want focus
         e.stopPropagation();
         e.currentTarget.setPointerCapture(e.pointerId);
-        dragging = true;
         dragOffset = 0;
+        dragPointer = e.pointerId;
         drag(e.clientX - e.currentTarget.getBoundingClientRect().left);
       }}
       onPointerUp={e => {
         e.stopPropagation();
-        e.currentTarget.releasePointerCapture(e.pointerId);
-        dragging = false;
+        if (dragPointer) {
+          e.currentTarget.releasePointerCapture(dragPointer);
+          dragPointer = undefined;
+        }
       }}
       onPointerMove={e => {
         e.stopPropagation();
-        if (dragging) {
+        e.preventDefault();
+        if (dragPointer !== undefined && e.currentTarget.hasPointerCapture(dragPointer)) {
           drag(e.clientX - e.currentTarget.getBoundingClientRect().left);
         }
       }}
@@ -194,29 +308,40 @@ export const Slider: VoidComponent<SliderProps> = props => {
         <div class={barCss()} style={{ width: `${position() * elementSize().width}px` }} />
       </div>
       <div
+        ref={setThumbRef}
         class={thumbContainerCss()}
-        style={{ left: `${position() * (elementSize().width - 16) - 2}px` }}
+        style={{ left: `calc(${position()} * calc(100% - calc(var(--slider-size) * 0.5)))` }}
         onPointerDown={e => {
+          // Don't want to prevent default because we want focus
           e.stopPropagation();
           e.currentTarget.setPointerCapture(e.pointerId);
-          dragging = true;
+          dragPointer = e.pointerId;
           dragOffset = position() * elementSize().width - e.offsetX - e.currentTarget.offsetLeft;
           drag(dragOffset + e.offsetX + e.currentTarget.offsetLeft);
         }}
         onPointerUp={e => {
           e.stopPropagation();
-          e.currentTarget.releasePointerCapture(e.pointerId);
-          dragging = false;
+          if (dragPointer) {
+            e.currentTarget.releasePointerCapture(dragPointer);
+            dragPointer = undefined;
+          }
         }}
         onPointerMove={e => {
           e.stopPropagation();
-          if (dragging) {
+          e.preventDefault();
+          if (dragPointer !== undefined && thumbRef()?.hasPointerCapture(dragPointer)) {
             drag(dragOffset + e.offsetX + e.currentTarget.offsetLeft);
           }
         }}
       >
         <div class={thumbFocusCss()} />
         <div class={thumbCss()} />
+        <Show when={local.valueLabelDisplay}>
+          <div ref={setLabelRef} class={valueLabelCss()} style={labelStyle()}>
+            {formattedValue()}
+            <div ref={setArrowRef} class={valueLabelArrowCss()} style={arrowStyle()} />
+          </div>
+        </Show>
       </div>
       <input type="hidden" name={props.name} value={props.value} />
     </div>
