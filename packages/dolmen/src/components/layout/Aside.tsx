@@ -8,10 +8,11 @@ export const asideCss = css({
   padding: '$lg',
   alignItems: 'center',
   display: 'flex',
+  position: 'relative',
   flexDirection: 'column',
   justifyContent: 'space-between',
+  zIndex: '$pageHeader'
 });
-
 
 export const Aside: ParentComponent<
   JSX.HTMLAttributes<HTMLElement> & LayoutStyleProps

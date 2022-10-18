@@ -42,9 +42,9 @@ const cardCss = css({
   justifyContent: 'start',
 });
 
-export const Card: ParentComponent<
-  JSX.HTMLAttributes<HTMLElement> & LayoutStyleProps
-> & { Content: typeof CardContent } = props => {
+export const Card: ParentComponent<JSX.HTMLAttributes<HTMLElement> & LayoutStyleProps> & {
+  Content: typeof CardContent;
+} = props => {
   const [layoutStyle, nprops] = withLayoutStyle(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 

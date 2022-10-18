@@ -1,5 +1,5 @@
 // @refresh reload
-import { createEffect, Suspense } from 'solid-js';
+import { Suspense } from 'solid-js';
 import { ErrorBoundary } from 'solid-start/error-boundary';
 import { Body, Head, Html, Meta, Route, Routes, Scripts, Title } from 'solid-start';
 import { theme } from 'dolmen';

@@ -43,6 +43,7 @@ export const pageHeaderCss = css({
   gap: '$md',
   justifyContent: 'space-between',
   padding: '8px 1rem',
+  position: 'relative',
   zIndex: '$pageHeader',
 });
 

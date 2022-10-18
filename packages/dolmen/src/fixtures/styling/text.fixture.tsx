@@ -17,6 +17,8 @@ function TextStyles() {
       <Text>text</Text>
       <Text size="xl">text XL</Text>
       <Text size="xs">text XS</Text>
+      <Text dim>text dim</Text>
+      <Text em>text em</Text>
       <Text>text <Text as="sup">sup</Text><Text as="sub">sub</Text></Text>
     </Stack>
   );

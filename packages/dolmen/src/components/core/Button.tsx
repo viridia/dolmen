@@ -19,8 +19,9 @@ const buttonCss = css({
   flexDirection: 'row',
   fontWeight: '500',
   gap: '0.4rem',
-  outline: 'none',
   justifyContent: 'center',
+  margin: 0,
+  outline: 'none',
 
   '&:focus:focus-visible': {
     boxShadow: '0 0 1px 3px $colors$focus',

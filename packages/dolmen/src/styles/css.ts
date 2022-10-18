@@ -18,11 +18,13 @@ const { getCssText, css, createTheme, config } = createStitches({
       surface: palette.gray50,
       focus: '#00006633',
       text: palette.gray800,
-      shadow: palette.gray400,
+      textDim: palette.gray500,
+      shadow: colord(palette.black).alpha(0.4).toHex(),
 
       primary: primaryColor,
       primaryHover: colord(primaryColor).darken(0.03).toHex(),
       primaryActive: colord(primaryColor).darken(0.07).toHex(),
+      primarySoft: colord(primaryColor).lighten(0.1).toHex(),
       primaryContrast: '$white',
       primaryContrastDim: colord(primaryColor).lighten(0.2).toHex(),
       primaryDivider: colord(primaryColor).darken(0.05).toHex(),
@@ -48,9 +50,6 @@ const { getCssText, css, createTheme, config } = createStitches({
       subtleHover: palette.gray200,
       subtleActive: palette.gray300,
 
-      scrollbar: 'rgba(0, 0, 0, 0.2)',
-      scrollbarInactive: 'rgba(0, 0, 0, 0.1)',
-
       checkboxFill: palette.gray150,
       checkboxFillChecked: primaryColor,
       checkboxBorderColor: palette.gray500,
@@ -63,7 +62,7 @@ const { getCssText, css, createTheme, config } = createStitches({
       inputBorderHover: palette.gray200,
       inputSelectionBg: textHighlight,
       inputSelectionText: palette.gray900,
-      inputPlaceholder: palette.gray500,
+      inputPlaceholder: '$colors$textDim',
 
       knobRim: `linear-gradient(
         to bottom,
@@ -86,6 +85,13 @@ const { getCssText, css, createTheme, config } = createStitches({
       modalShadow: colord(palette.black).alpha(0.4).toHex(),
       modalHeader: palette.gray50,
       modalDivider: palette.gray150,
+
+      scrollbar: 'rgba(0, 0, 0, 0.2)',
+      scrollbarInactive: 'rgba(0, 0, 0, 0.1)',
+
+      sliderThumb: '$primary',
+      sliderTrack: palette.gray250,
+      sliderBar: '$primarySoft',
 
       splitterFill: palette.gray50,
       splitterShadow: palette.gray800,
@@ -139,6 +145,7 @@ const { getCssText, css, createTheme, config } = createStitches({
       focused: 100,
       drawer: 700,
       pageHeader: 750,
+      drawer2: 760,
       modal: 800,
       dropdown: 900,
       alert: 950,

@@ -1,8 +1,7 @@
-import { Aside, theme } from 'dolmen';
+import { Aside, css, dark, scrollbars } from 'dolmen';
 import { For, Show } from 'solid-js';
 import { VoidComponent } from 'solid-js';
 import {
-  catalogPaneStyle,
   catalogEntryStyle,
   catalogRootGroup,
   catalogGroup,
@@ -11,6 +10,15 @@ import {
 } from './styles.css';
 import { IFixtureTree, IFixtureTreeNode } from './tree';
 import { useNavigate, useParams } from '@solidjs/router';
+
+export const catalogPaneCss = css({
+  boxShadow: `0 0 3px 0 black`,
+  alignItems: 'stretch',
+  color: '#fff',
+  overflowY: 'auto',
+  width: 300,
+  zIndex: 800,
+}, scrollbars);
 
 interface ItemProps {
   node: IFixtureTreeNode;
@@ -66,7 +74,7 @@ interface CatalogProps {
 
 export const CatalogPane: VoidComponent<CatalogProps> = (props) => {
   return (
-    <Aside classList={{ [theme.dark.className]: true, [catalogPaneStyle]: true }}>
+    <Aside classList={{ [dark.className]: true, [catalogPaneCss()]: true }}>
       <CatalogGroup root nodes={props.tree.children ?? []} />
     </Aside>
   );

@@ -14,6 +14,7 @@ interface DrawerProps {
   side: Side;
   size?: string | number;
   minSize?: string | number;
+  lift?: boolean;
   onClose?: () => void;
 }
 
@@ -30,6 +31,7 @@ export const drawerCoplanarCss = css({
   bottom: 0,
   left: 0,
   right: 0,
+  zIndex: '$drawer',
 
   variants: {
     side: {
@@ -50,6 +52,12 @@ export const drawerCoplanarCss = css({
       },
       bottom: {
         bottom: 'auto',
+      },
+    },
+
+    lift: {
+      true: {
+        zIndex: '$drawer2',
       },
     },
   },
@@ -144,13 +152,14 @@ export const drawerModalContainerCss = css({
 export const drawerHeaderCss = css({
   alignItems: 'center',
   alignSelf: 'stretch',
+  boxShadow: '0 0 2px 0 $colors$shadow',
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
   padding: '8px 1rem',
   margin: 0,
   height: '2rem',
-  borderBottom: '1px solid $colors$shadow',
+  // borderBottom: '1px solid $colors$secondaryDivider',
 });
 
 export const drawerContentCss = css({
@@ -214,6 +223,7 @@ interface DrawerInnerProps {
   side: Side;
   size: string;
   parent: HTMLDivElement;
+  lift?: boolean;
 }
 
 export const DrawerInner: ParentComponent<
@@ -225,6 +235,7 @@ export const DrawerInner: ParentComponent<
     'size',
     'state',
     'parent',
+    'lift',
     'class',
     'classList',
     'children',
@@ -243,11 +254,14 @@ export const DrawerInner: ParentComponent<
           ...local.classList,
           [local.class as string]: !!local.class,
           [local.mode === 'modal'
-            ? drawerModalCss({ side: adjustedSide(local.side, direction() === 'rtl') })
+            ? drawerModalCss({
+                side: adjustedSide(local.side, direction() === 'rtl'),
+              })
             : drawerCoplanarCss({
                 side: adjustedSide(local.side, direction() === 'rtl'),
+                lift: local.lift,
               })]: true,
-          [local.state]: true
+          [local.state]: true,
         }}
         style={{
           [isHorizontal(local.side) ? 'width' : 'height']: local.size,
@@ -273,6 +287,7 @@ export const Drawer: ParentComponent<JSX.HTMLAttributes<HTMLElement> & DrawerPro
     'side',
     'size',
     'minSize',
+    'lift',
     'class',
     'classList',
     'children',
@@ -323,6 +338,7 @@ export const Drawer: ParentComponent<JSX.HTMLAttributes<HTMLElement> & DrawerPro
           side={local.side}
           state={state()}
           size={openSize()}
+          lift={local.lift}
           parent={containerElt!}
         >
           {local.children}

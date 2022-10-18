@@ -7,6 +7,20 @@ const textCss = css(
   {
     fontFamily: '$body',
     fontSize: '1rem',
+
+    variants: {
+      dim: {
+        true: {
+          color: '$textDim',
+        },
+      },
+
+      em: {
+        true: {
+          fontStyle: 'italic',
+        },
+      },
+    },
   },
   stdFontSizes
 );
@@ -37,7 +51,15 @@ interface TextProps {
 export const Text: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement> & TextProps & VariantProps<typeof textCss>
 > = props => {
-  const [local, rest] = splitProps(props, ['size', 'as', 'class', 'classList', 'children']);
+  const [local, rest] = splitProps(props, [
+    'size',
+    'as',
+    'dim',
+    'em',
+    'class',
+    'classList',
+    'children',
+  ]);
 
   return (
     <Dynamic
@@ -48,6 +70,8 @@ export const Text: ParentComponent<
         [local.class as string]: !!local.class,
         [textCss({
           size: local.size,
+          dim: local.dim,
+          em: local.em,
         })]: true,
       }}
     >

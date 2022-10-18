@@ -4,12 +4,12 @@
     "dev": "solid-start dev",
     "build": "solid-start build",
     "build:svg": "svgr --template ./node_modules/dolmen/scripts/svg-template.cjs --typescript iconsrc/ -d src/icons/",
-    "start": "solid-start start"
+    "start": "solid-start start",
+    "test:compile": "tsc --noEmit --project ./tsconfig.json"
   },
   "type": "module",
   "module": "./src/index.ts",
   "devDependencies": {
-    "@vanilla-extract/vite-plugin": "^3.6.1",
     "solid-start-node": "^0.1.6",
     "typescript": "^4.8.3",
     "vite": "^3.1.0"

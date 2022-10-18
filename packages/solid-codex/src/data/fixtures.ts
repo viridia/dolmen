@@ -27,6 +27,7 @@ interface FixtureModule {
 }
 
 export const useFixtures = (modules: Record<string, () => Promise<unknown>>) => {
+  // console.log(modules);
   const [fixtures] = createResource(
     async () => {
       const uniquePaths = new Set<string>();
@@ -40,7 +41,8 @@ export const useFixtures = (modules: Record<string, () => Promise<unknown>>) => 
         return result;
       };
       const result: IFixture[] = [];
-      for (const path of Object.keys(modules)) {
+      for (let path of Object.keys(modules)) {
+        // console.log(path);
         const mod = (await modules[path]()) as FixtureModule;
         const factory = mod.default;
         const category = mod.$category?.split('/') ?? [];

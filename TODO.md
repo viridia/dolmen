@@ -37,7 +37,6 @@
 # Codex
 
 * Attribute controls
-  * const round = createCheckboxParam(false)
   * const gap = createEnumBar(['xl', 'lg', 'md', 'sm', 'xs'])
   * Need:
     * Slider
@@ -46,13 +45,11 @@
 
 # Other
 
-* Simpify palettes
 * Prism support
 * Tree view collapse
 * Tree view highlight
 * Tree view expand
 * Hi-res favicons in manifest
-* Z-index constants.
 * Make toggle less skeumorphic.
 * Fixture for createFocusTrap
 * Split pane with more than 2 panels - should be doable.
@@ -62,14 +59,3 @@
   * Floating or Anchored / Inplace / Ensconsed /
   * Leave sliver
   * Fixture for minWidth
-
-# Params
-
-const params = createFixtureParams({
-  marginWidth: { type: 'boolean', caption: 'Margin width', min: 0 },
-  marginHeigt: { type: 'boolean', caption: 'Margin height', min: 0 },
-});
-
-params.marginWidth()
-params.marginWidth(value)
-params.marginWidth.param

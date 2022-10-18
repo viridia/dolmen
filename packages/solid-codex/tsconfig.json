@@ -5,5 +5,7 @@
     "jsx": "preserve",
     "outDir": "./dist",
     "declaration": true,
-  }
+    // "strict": true // Solid-start is not strict-compliant
+  },
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"]
 }

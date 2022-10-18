@@ -8,16 +8,18 @@ const textHighlight = '#6f6fff66';
 
 export const dark = createTheme('dark', {
   colors: {
-    background: palette.coolgray900,
+    background: 'palette.coolgray900',
     backdrop: colord(palette.black).alpha(0.3).toHex(),
     surface: palette.coolgray850,
     focus: '#8183ff88',
     text: palette.coolgray200,
+    textDim: palette.coolgray500,
     shadow: palette.black,
 
     primary: primaryColor,
     primaryHover: colord(primaryColor).darken(0.05).toHex(),
     primaryActive: colord(primaryColor).darken(0.1).toHex(),
+    primarySoft: colord(primaryColor).darken(0.1).toHex(),
     primaryContrast: palette.coolgray100,
     primaryContrastDim: colord(primaryColor).lighten(0.25).toHex(),
     primaryDivider: colord(primaryColor).darken(0.1).toHex(),
@@ -55,7 +57,7 @@ export const dark = createTheme('dark', {
     inputBorderHover: palette.coolgray600,
     inputSelectionBg: textHighlight,
     inputSelectionText: '$white',
-    inputPlaceholder: palette.coolgray600,
+    inputPlaceholder: '$colors$textDim',
 
     knobRim: `linear-gradient(
       to bottom,
@@ -81,6 +83,10 @@ export const dark = createTheme('dark', {
 
     scrollbar: colord(palette.coolgray500).alpha(0.3).toHex(),
     scrollbarInactive: colord(palette.coolgray500).alpha(0.15).toHex(),
+
+    sliderThumb: '$primary',
+    sliderTrack: palette.coolgray800,
+    sliderBar: '$primarySoft',
 
     splitterFill: palette.coolgray800,
     splitterShadow: palette.black,

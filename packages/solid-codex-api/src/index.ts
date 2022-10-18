@@ -1,20 +1,20 @@
 import { createContext, useContext } from 'solid-js';
 import { createStore, produce } from 'solid-js/store';
 
-interface IParamBoolean {
+export interface IParamBoolean {
   type: 'boolean';
   caption?: string;
   default?: boolean;
 }
 
-interface IParamString {
+export interface IParamString {
   type: 'string';
   caption?: string;
   default?: string;
   enumVals?: string[];
 }
 
-interface IParamInteger {
+export interface IParamInteger {
   type: 'integer';
   caption?: string;
   default?: number;
@@ -22,7 +22,7 @@ interface IParamInteger {
   maxVal?: number;
 }
 
-interface IParamFloat {
+export interface IParamFloat {
   type: 'float';
   caption?: string;
   default?: number;
@@ -31,7 +31,7 @@ interface IParamFloat {
   precision?: number;
 }
 
-type AnyParam = IParamBoolean | IParamString | IParamInteger | IParamFloat;
+export type AnyParam = IParamBoolean | IParamString | IParamInteger | IParamFloat;
 type ParamType<T extends AnyParam> = T extends IParamBoolean
   ? boolean
   : T extends IParamString
@@ -42,9 +42,9 @@ type ParamType<T extends AnyParam> = T extends IParamBoolean
 
 type ParamGetter<T> = () => T;
 type ParamSetter<T> = (value: T) => void;
-type ParamAccessor<T> = ParamGetter<T> & ParamSetter<T> & { type: AnyParam };
+export type ParamAccessor<T> = ParamGetter<T> & ParamSetter<T> & { descriptor: AnyParam };
 
-type ParamAccessors<T extends { [key: string]: AnyParam }> = {
+export type ParamAccessors<T extends { [key: string]: AnyParam }> = {
   [key in keyof T]: ParamAccessor<ParamType<T[key]>>;
 };
 
@@ -76,7 +76,13 @@ interface IFixtureParamsStore {
 
 export const FixtureParamsContext = createContext<IFixtureParams>();
 
-export const useFixtureParamsContext = () => useContext(FixtureParamsContext);
+export const useFixtureParamsContext = () => {
+  const context = useContext(FixtureParamsContext);
+  if (!context) {
+    throw new Error('Missing Fixture Params Context');
+  }
+  return context;
+};
 
 export function createFixtureParamsStore(): IFixtureParams {
   const [store, setStore] = createStore<IFixtureParamsStore>({
@@ -92,9 +98,9 @@ export function createFixtureParamsStore(): IFixtureParams {
     reset() {
       setStore(
         produce(s => {
-          const newState: Record<number, boolean | string | number> = {};
+          const newState: Record<string, boolean | string | number> = {};
           for (const key of Object.keys(s.params)) {
-            newState[key] = defaultValue(s.params[key].type);
+            newState[key] = defaultValue(s.params[key].descriptor);
           }
           s.state = newState;
         })
@@ -109,7 +115,8 @@ export function createFixtureParamsStore(): IFixtureParams {
             const p = params[key];
             s.state[key] = defaultValue(p);
 
-            const fn = (value?: unknown) => {
+            function access(value?: unknown) {
+              // console.log(arguments);
               if (arguments.length == 0) {
                 return store.state[key];
               } else {
@@ -137,11 +144,12 @@ export function createFixtureParamsStore(): IFixtureParams {
                     }
                     break;
                 }
-                store.state[key] = value as string | number | boolean;
+                setStore('state', key, value);
               }
-            };
-            fn.type = { ...p, caption: p.caption ?? key };
-            accessors[key] = fn;
+            }
+
+            access.descriptor = { ...p, caption: p.caption ?? key };
+            accessors[key] = access;
           }
 
           s.params = accessors;
@@ -179,7 +187,7 @@ function defaultValue(param: AnyParam): boolean | string | number {
       return false;
 
     case 'string':
-      if (param.enumVals?.length > 0) {
+      if (param.enumVals && param.enumVals.length > 0) {
         return param.enumVals[0];
       }
       return '';

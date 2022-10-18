@@ -16,6 +16,7 @@
       // For development
       "dolmen": ["./packages/dolmen/src"],
       "solid-codex": ["./packages/solid-codex/src"],
+      "solid-codex-api": ["./packages/solid-codex-api/src"],
     }
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx"],

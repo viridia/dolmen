@@ -1,4 +1,5 @@
-import { createSignal } from 'solid-js';
+import { createFixtureParams } from 'solid-codex-api';
+import { createMemo, createSignal } from 'solid-js';
 import { CheckBox, Drawer } from '../../components';
 import { demoPage } from './demoPage';
 
@@ -7,14 +8,15 @@ export const $name = 'modal';
 
 function HorizontalModalDrawerDemo(props: {
   side: 'left' | 'right' | 'start' | 'end';
-  dir?: 'rtl' | 'ltr';
 }) {
+  const params = createFixtureParams({
+    mode: { type: 'string', enumVals: ['left', 'right', 'start', 'end', 'top', 'bottom'] },
+    rtl: { type: 'boolean', caption: 'Right-to-Left' },
+  });
   const [open, setOpen] = createSignal(false);
-  const { side, dir = 'ltr' } = props;
-  let reverse = side === 'right' || side === 'end';
-  if (dir === 'rtl' && (side === 'left' || side === 'right')) {
-    reverse = !reverse;
-  }
+  const dir = createMemo(() => {
+    return params.rtl() ? 'rtl' : 'ltr';
+  });
   return (
     <div
       class={demoPage()}
@@ -24,7 +26,7 @@ function HorizontalModalDrawerDemo(props: {
         position: 'relative',
         overflow: 'hidden',
       }}
-      dir={dir}
+      dir={dir()}
     >
       <Drawer
         side={props.side}
@@ -103,10 +105,6 @@ export default {
   'Horizontal right': () => <HorizontalModalDrawerDemo side="right" />,
   'Horizontal start': () => <HorizontalModalDrawerDemo side="start" />,
   'Horizontal end': () => <HorizontalModalDrawerDemo side="end" />,
-  'Horizontal left [rtl]': () => <HorizontalModalDrawerDemo side="left" dir="rtl" />,
-  'Horizontal right [rtl]': () => <HorizontalModalDrawerDemo side="right" dir="rtl" />,
-  'Horizontal start [rtl]': () => <HorizontalModalDrawerDemo side="start" dir="rtl" />,
-  'Horizontal end [rtl]': () => <HorizontalModalDrawerDemo side="end" dir="rtl" />,
   'Vertical top': () => <VerticalModalDrawerDemo side="top" />,
   'Vertical bottom': () => <VerticalModalDrawerDemo side="bottom" />,
 };

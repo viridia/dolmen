@@ -6,16 +6,6 @@ export const canvasSectionStyle = style({
   minWidth: 0,
 });
 
-export const canvasPaneStyle = style({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'start',
-  padding: 8,
-  flex: 1,
-  overflowY: 'auto',
-  // selectors: scrollbars
-});
-
 export const sourcePaneStyle = style({
   display: 'flex',
   flexDirection: 'column',
@@ -24,17 +14,6 @@ export const sourcePaneStyle = style({
   flex: 1,
   overflowY: 'auto',
   // selectors: scrollbars
-});
-
-export const catalogPaneStyle = style({
-  boxShadow: `0 0 3px 0 black`,
-  alignItems: 'stretch',
-  color: '#fff',
-  overflowY: 'auto',
-  width: 300,
-  zIndex: 400,
-
-  // selectors: scrollbars,
 });
 
 export const adjustPaneStyle = style({

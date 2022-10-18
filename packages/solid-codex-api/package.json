@@ -6,7 +6,8 @@
   "description": "Dynamic parameter creation for Codex fixtures",
   "scripts": {
     "build": "tsc -p tsconfig.mjs.json && tsc -p tsconfig.cjs.json",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test:compile": "tsc --noEmit --project ./tsconfig.json"
   },
   "source": "src/index.ts",
   "main": "dist/cjs/index.js",

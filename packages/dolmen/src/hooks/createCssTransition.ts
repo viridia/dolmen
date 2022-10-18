@@ -17,7 +17,7 @@ export type CssTransitionState =
   | 'exited';
 
 export const createCssTransition = (props: Props): Accessor<CssTransitionState> => {
-  const [state, setState] = createSignal<CssTransitionState>('exited');
+  const [state, setState] = createSignal<CssTransitionState>(props.in() ? 'entered' : 'exited');
 
   // Transitions are always static on the server.
   if (isServer) {

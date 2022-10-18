@@ -10,31 +10,33 @@
     "format": "prettier --write .",
     "test:compile": "tsc --noEmit --project ./tsconfig.json"
   },
+  "type": "module",
   "source": "src/index.tsx",
-  "main": "dist/cjs/index.jsx",
-  "module": "dist/mjs/index.jsx",
-  "types": "dist/mjs/index.d.ts",
+  "main": "./dist/cjs/index.jsx",
+  "module": "./dist/mjs/index.jsx",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
       "solid": "./dist/mjs/index.jsx",
+      "types": "./dist/mjs/index.d.js",
       "import": "./dist/mjs/index.jsx",
+      "default": "./dist/mjs/index.jsx",
       "browser": "./dist/cjs/index.jsx",
       "require": "./dist/cjs/index.jsx",
       "node": "./dist/cjs/index.jsx"
     },
     "./icons": {
       "source": "./src/icons/index.ts",
-      "types": "./dist/mjs/icons/index.d.ts",
+      "types": "./dist/mjs/icons/index.d.js",
       "default": "./dist/mjs/icons/index.js",
+      "import": "./dist/mjs/icons/index.js",
       "require": "./dist/cjs/icons/index.js",
       "browser": "./dist/cjs/icons/index.js",
       "solid": "./dist/mjs/icons/index.js"
     }
   },
-  "type": "module",
   "dependencies": {
     "colord": "^2.9.3",
     "solid-codex-api": "^0.0.1",
