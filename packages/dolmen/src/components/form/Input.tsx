@@ -12,7 +12,7 @@ const inputSize = (base: SizeVariant) => ({
   fontSize: `$fontSizes$${base}`,
 });
 
-export const inputFrameCss = css({
+const inputFrameCss = css({
   ...inputSize('md'),
   backgroundColor: '$inputBg',
   color: '$inputText',
@@ -63,7 +63,7 @@ export const inputFrameCss = css({
   },
 });
 
-export const inputElementCss = css({
+const inputElementCss = css({
   alignSelf: 'stretch',
   appearance: 'none',
   backgroundColor: 'transparent',
@@ -89,17 +89,17 @@ export const inputElementCss = css({
   },
 });
 
-export const adornCss = css({
+const adornCss = css({
   alignSelf: 'stretch',
   display: 'flex',
   alignItems: 'center',
 });
 
-export const adornLeftCss = css(adornCss, {
+const adornLeftCss = css(adornCss, {
   marginLeft: -2,
 });
 
-export const adornRightCss = css(adornCss, {
+const adornRightCss = css(adornCss, {
   marginRight: -2,
 });
 

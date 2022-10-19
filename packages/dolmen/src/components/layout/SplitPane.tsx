@@ -5,7 +5,7 @@ import { css } from '../../styles';
 
 type Direction = 'horizontal' | 'vertical';
 
-export const splitPaneCss = css({
+const splitPaneCss = css({
   alignItems: 'stretch',
   flex: '1 0 0',
   display: 'flex',
@@ -24,7 +24,7 @@ export const splitPaneCss = css({
   },
 });
 
-export const splitBarCss = css({
+const splitBarCss = css({
   alignSelf: 'stretch',
   backgroundColor: '$splitterFill',
   boxShadow: '0 0 2px 0 $colors$splitterShadow',
@@ -46,7 +46,7 @@ export const splitBarCss = css({
   },
 });
 
-export const splitBarDetailCss = css({
+const splitBarDetailCss = css({
   backgroundColor: '$splitterDetail',
   userSelect: 'none',
 
@@ -61,7 +61,7 @@ export const splitBarDetailCss = css({
   },
 });
 
-export const splitSegmentCss = css({
+const splitSegmentCss = css({
   display: 'flex',
   alignItems: 'stretch',
   justifyContent: 'stretch',

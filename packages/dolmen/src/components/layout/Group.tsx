@@ -2,7 +2,7 @@ import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { css } from '../../styles';
 import { LayoutStyleProps, withLayoutStyle } from './withLayoutStyle';
 
-export const groupCss = css({
+const groupCss = css({
   alignItems: 'center',
   display: 'flex',
   flexDirection: 'row',

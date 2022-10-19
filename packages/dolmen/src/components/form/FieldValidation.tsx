@@ -1,7 +1,7 @@
 import { ParentComponent, JSX, splitProps, Show } from 'solid-js';
 import { css } from '../../styles';
 
-export const fieldValidationCss = css({
+const fieldValidationCss = css({
   alignItems: 'start',
   display: 'flex',
   flexDirection: 'column',
@@ -20,7 +20,7 @@ export const fieldValidationCss = css({
   },
 });
 
-export const fieldMessageCss = css({
+const fieldMessageCss = css({
   marginTop: 2,
 });
 

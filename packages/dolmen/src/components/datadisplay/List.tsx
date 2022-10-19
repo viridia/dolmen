@@ -3,7 +3,7 @@ import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { css, scrollbars } from '../../styles';
 import { LayoutStyleProps, withLayoutStyle } from '../layout/withLayoutStyle';
 
-export const listCss = css(
+const listCss = css(
   {
     alignItems: 'stretch',
     backgroundColor: '$listBg',
@@ -43,7 +43,7 @@ export const List: ParentComponent<
   );
 };
 
-export const listItemCss = css({
+const listItemCss = css({
   alignItems: 'center',
   display: 'flex',
   flexDirection: 'row',

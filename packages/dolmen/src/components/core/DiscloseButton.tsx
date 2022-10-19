@@ -2,7 +2,7 @@ import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { ChevronDown } from '../../icons';
 import { css } from '../../styles';
 
-export const discloseButtonCss = css({
+const discloseButtonCss = css({
   alignItems: 'center',
   appearance: 'none',
   aspectRatio: 1,

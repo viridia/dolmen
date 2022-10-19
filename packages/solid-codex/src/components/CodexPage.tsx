@@ -1,6 +1,15 @@
-import { Button, ButtonGroup, Page, PageHeader, Spacer, Stack } from 'dolmen';
+import {
+  Breadcrumbs,
+  BreadcrumbsItem,
+  Button,
+  ButtonGroup,
+  Page,
+  PageHeader,
+  Spacer,
+  Stack,
+} from 'dolmen';
 import { DarkMode, LightMode } from 'dolmen/icons';
-import { createMemo, lazy, Match, Resource, Show, Switch, VoidComponent } from 'solid-js';
+import { createMemo, For, lazy, Match, Resource, Show, Switch, VoidComponent } from 'solid-js';
 import { useParams } from 'solid-start';
 import type { IFixture } from '../data/fixtures';
 import { Tune } from '../icons';
@@ -29,6 +38,7 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
           if (!next) {
             next = {
               title: dirName,
+              category: fix.category,
               children: [],
             };
             parent.push(next);
@@ -54,6 +64,7 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
         const node: IFixtureTreeNode = {
           title: fix.name,
           fixture: fix,
+          category: fix.category,
           component,
         };
         parent.push(node);
@@ -88,7 +99,14 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
         <PageHeader z="ground">
           <PageHeader.Title>
             <Show when={selected()} fallback={<i>Nothing selected</i>} keyed>
-              {fix => fix.title}
+              {fix => (
+                <Breadcrumbs>
+                  <For each={fix.category}>
+                    {category => <BreadcrumbsItem>{category}</BreadcrumbsItem>}
+                  </For>
+                  <BreadcrumbsItem>{fix.title}</BreadcrumbsItem>
+                </Breadcrumbs>
+              )}
             </Show>
           </PageHeader.Title>
           <Spacer />

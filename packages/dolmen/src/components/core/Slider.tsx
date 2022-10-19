@@ -24,7 +24,7 @@ interface SliderProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'onChange
   onChange?: (value: number) => void;
 }
 
-export const sliderCss = css({
+const sliderCss = css({
   alignItems: 'center',
   cursor: 'pointer',
   display: 'flex',
@@ -57,7 +57,7 @@ export const sliderCss = css({
   },
 });
 
-export const trackCss = css({
+const trackCss = css({
   backgroundColor: '$sliderTrack',
   borderRadius: '500px',
   height: 'calc(var(--slider-size) * 0.2)',
@@ -71,12 +71,12 @@ export const trackCss = css({
   },
 });
 
-export const barCss = css({
+const barCss = css({
   backgroundColor: '$sliderBar',
   height: '100%',
 });
 
-export const thumbContainerCss = css({
+const thumbContainerCss = css({
   borderRadius: '50%',
   position: 'absolute',
   height: 'calc(var(--slider-size) * 0.6)',
@@ -85,7 +85,7 @@ export const thumbContainerCss = css({
   top: 0,
 });
 
-export const thumbCss = css({
+const thumbCss = css({
   backgroundColor: '$sliderThumb',
   borderRadius: '50%',
   boxShadow: '0 1px 4px $colors$shadow',
@@ -97,7 +97,7 @@ export const thumbCss = css({
   width: '100%',
 });
 
-export const thumbFocusCss = css({
+const thumbFocusCss = css({
   backgroundColor: '$focus',
   borderRadius: '50%',
   position: 'absolute',
@@ -114,7 +114,7 @@ export const thumbFocusCss = css({
   },
 });
 
-export const valueLabelCss = css({
+const valueLabelCss = css({
   backgroundColor: '$tooltipBg',
   color: '$tooltipText',
   borderRadius: '3px',

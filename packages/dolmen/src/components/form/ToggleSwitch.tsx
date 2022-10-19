@@ -1,7 +1,7 @@
 import { JSX, splitProps, ParentComponent } from 'solid-js';
 import { css } from '../../styles';
 
-export const toggleSwitchLabelCss = css({
+const toggleSwitchLabelCss = css({
   alignItems: 'center',
   borderRadius: '500px',
   color: '$text',
@@ -19,7 +19,7 @@ export const toggleSwitchLabelCss = css({
   },
 });
 
-export const toggleSwitchCtrlCss = css({
+const toggleSwitchCtrlCss = css({
   appearance: 'none',
   backgroundColor: '$toggleFill',
   border: '2px solid $colors$toggleBorder',

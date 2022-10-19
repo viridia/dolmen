@@ -6,6 +6,7 @@ export interface IFixtureTreeNode {
   fixture?: IFixture;
   children?: IFixtureTreeNode[];
   component?: Component;
+  category: string[];
 }
 
 export interface IFixtureTree {

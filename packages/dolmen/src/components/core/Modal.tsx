@@ -18,7 +18,7 @@ interface ModalProps extends JSX.HTMLAttributes<HTMLDialogElement> {
   onExited?: () => void;
 }
 
-export const modalCss = css({
+const modalCss = css({
   backgroundColor: '$modalBg',
   boxShadow: '0 0 5px 0 $colors$modalShadow',
   color: '$text',
@@ -66,7 +66,7 @@ export const modalCss = css({
   },
 });
 
-export const backdropCss = css({
+const backdropCss = css({
   backgroundColor: '$backdrop',
   display: 'flex',
   position: 'fixed',
@@ -85,7 +85,7 @@ export const backdropCss = css({
   },
 });
 
-export const modalHeaderCss = css({
+const modalHeaderCss = css({
   display: 'flex',
   alignItems: 'center',
   fontFamily: '$title',
@@ -98,7 +98,7 @@ export const modalHeaderCss = css({
   backgroundColor: '$modalHeader',
 });
 
-export const modalBodyCss = css(
+const modalBodyCss = css(
   {
     display: 'flex',
     alignItems: 'stretch',
@@ -110,7 +110,7 @@ export const modalBodyCss = css(
   scrollbars
 );
 
-export const modalFooterCss = css({
+const modalFooterCss = css({
   display: 'flex',
   alignItems: 'center',
   fontFamily: '$body',

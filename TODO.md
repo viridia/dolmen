@@ -4,7 +4,6 @@
   * Marks
   * Vertical
   * Quanta
-* List
 * MenuButton
 * Select
 * Form
@@ -27,6 +26,7 @@
 * Divider
 * Tabs
 * Breadcrumbs
+* Pagination
 
 ## Possible
 

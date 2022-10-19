@@ -2,7 +2,7 @@ import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 import { css } from '../../styles';
 
-export const titleCss = css({
+const titleCss = css({
   fontFamily: '$title',
   fontWeight: 'bold',
   marginTop: 0,

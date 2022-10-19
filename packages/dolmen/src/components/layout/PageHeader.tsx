@@ -2,7 +2,7 @@ import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { css } from '../../styles';
 import { LayoutStyleProps, withLayoutStyle } from './withLayoutStyle';
 
-export const pageHeaderTitleCss = css({
+const pageHeaderTitleCss = css({
   alignItems: 'center',
   display: 'flex',
   flexDirection: 'row',
@@ -33,7 +33,7 @@ const PageHeaderTitle: ParentComponent<
   );
 };
 
-export const pageHeaderCss = css({
+const pageHeaderCss = css({
   alignItems: 'center',
   backgroundColor: '$surface',
   boxShadow: '0 0 2px 0 $colors$shadow',

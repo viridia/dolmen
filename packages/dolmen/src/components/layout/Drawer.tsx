@@ -18,7 +18,7 @@ interface DrawerProps {
   z?: 'sidebar' | 'sidebarHigher';
 }
 
-export const drawerCoplanarCss = css({
+const drawerCoplanarCss = css({
   backgroundColor: '$surface',
   boxShadow: '0 0 4px 0 $colors$shadow',
   alignItems: 'stretch',
@@ -66,7 +66,7 @@ export const drawerCoplanarCss = css({
   },
 });
 
-export const drawerModalCss = css({
+const drawerModalCss = css({
   backgroundColor: '$surface',
   boxShadow: '0 0 4px 0 $colors$shadow',
   alignItems: 'stretch',
@@ -138,13 +138,13 @@ export const drawerModalCss = css({
   },
 });
 
-export const drawerContainerCss = css({
+const drawerContainerCss = css({
   display: 'flex',
   transition: 'width 0.3s ease, height 0.3s ease',
   position: 'relative',
 });
 
-export const drawerModalContainerCss = css({
+const drawerModalContainerCss = css({
   backgroundColor: 'transparent',
   display: 'flex',
   position: 'absolute',
@@ -161,7 +161,7 @@ export const drawerModalContainerCss = css({
   },
 });
 
-export const drawerHeaderCss = css({
+const drawerHeaderCss = css({
   alignItems: 'center',
   alignSelf: 'stretch',
   boxShadow: '0 0 2px 0 $colors$shadow',
@@ -174,7 +174,7 @@ export const drawerHeaderCss = css({
   // borderBottom: '1px solid $colors$secondaryDivider',
 });
 
-export const drawerContentCss = css({
+const drawerContentCss = css({
   alignItems: 'start',
   alignSelf: 'stretch',
   display: 'flex',
@@ -238,7 +238,7 @@ interface DrawerInnerProps {
   z?: 'sidebar' | 'sidebarHigher';
 }
 
-export const DrawerInner: ParentComponent<
+const DrawerInner: ParentComponent<
   JSX.HTMLAttributes<HTMLElement> & DrawerInnerProps
 > = props => {
   const [local, rest] = splitProps(props, [

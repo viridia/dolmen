@@ -1,7 +1,7 @@
 import { JSX, splitProps, ParentComponent } from 'solid-js';
 import { css } from '../../styles';
 
-export const checkboxLabelCss = css({
+const checkboxLabelCss = css({
   color: '$text',
   cursor: 'pointer',
   display: 'flex',
@@ -18,7 +18,7 @@ export const checkboxLabelCss = css({
   },
 });
 
-export const checkboxCtrlCss = css({
+const checkboxCtrlCss = css({
   appearance: 'none',
   backgroundColor: '$checkboxFill',
   borderWidth: '1px',

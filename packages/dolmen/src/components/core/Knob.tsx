@@ -32,14 +32,14 @@ const knobSize: (size: SizeVariant) => CSS = size => ({
   width: `${knobSizes[size]}px`,
 });
 
-export const knobCss = css({
+const knobCss = css({
   position: 'relative',
   padding: '16px',
   margin: '4px 0',
   userSelect: 'none',
 });
 
-export const knobArcCss = css({
+const knobArcCss = css({
   position: 'absolute',
   left: 0,
   top: 0,
@@ -65,7 +65,7 @@ export const knobArcCss = css({
   },
 });
 
-export const knobTickCss = css({
+const knobTickCss = css({
   position: 'absolute',
   left: '50%',
   top: 0,
@@ -78,7 +78,7 @@ export const knobTickCss = css({
   transformOrigin: '0 100%',
 });
 
-export const knobTickSmallCss = css({
+const knobTickSmallCss = css({
   position: 'absolute',
   left: '50%',
   top: 0,
@@ -100,7 +100,7 @@ export const knobTickSmallCss = css({
   },
 });
 
-export const knobPotRimCss = css({
+const knobPotRimCss = css({
   border: `1px solid $colors$knobRim`,
   borderRadius: '50%',
   background: '$knobRim',
@@ -121,7 +121,7 @@ export const knobPotRimCss = css({
   },
 });
 
-export const knobPotCenterCss = css({
+const knobPotCenterCss = css({
   position: 'absolute',
   left: '1px',
   top: '1px',
@@ -131,7 +131,7 @@ export const knobPotCenterCss = css({
   borderRadius: '50%',
 });
 
-export const knobRotatorCss = css({
+const knobRotatorCss = css({
   position: 'absolute',
   left: 0,
   top: 0,
@@ -140,7 +140,7 @@ export const knobRotatorCss = css({
   transform: 'rotate(var(--rotation))',
 });
 
-export const knobPotMarkCss = css({
+const knobPotMarkCss = css({
   backgroundColor: '$knobMark',
   borderRadius: '1px',
   width: '3px',
@@ -150,12 +150,12 @@ export const knobPotMarkCss = css({
   top: '2px',
 });
 
-// export const knobTitleCss = css({
+// const knobTitleCss = css({
 //   color: 'var(--detail-bright-color)',
 //   fontSize: '12px',
 // });
 
-// export const knobInputCss = css({
+// const knobInputCss = css({
 //   backgroundColor: 'rgb(69, 58, 58)',
 //   border: '1px solid rgb(37, 31, 31)',
 //   borderRadius: '3px',
