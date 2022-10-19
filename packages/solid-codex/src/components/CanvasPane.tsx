@@ -17,13 +17,19 @@ export const canvasPaneCss = css(
   scrollbars
 );
 
-function FixtureDisplay(props: { component: Component }) {
+const ResetParams = () => {
   const fixtureParams = useFixtureParamsContext();
 
   fixtureParams.clear();
+
+  return null;
+}
+
+function FixtureDisplay(props: { component: Component }) {
   const C = props.component;
   return (
     <Suspense>
+      <ResetParams />
       <C />
     </Suspense>
   );

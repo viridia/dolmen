@@ -8,13 +8,13 @@ const ParamsEditorClient = unstable_clientOnly(() => import('./ParamsEditor'));
 
 export const AdjustPane: VoidComponent = () => {
   const [settings] = useUserSettings();
-  const [isClient, setIsClient] = createSignal(false);
+  // const [isClient, setIsClient] = createSignal(false);
 
-  onMount(() => {
-    setTimeout(() => {
-      setIsClient(true);
-    }, 10);
-  });
+  // onMount(() => {
+  //   setTimeout(() => {
+  //     setIsClient(true);
+  //   }, 10);
+  // });
 
   return (
     <Drawer
@@ -27,9 +27,9 @@ export const AdjustPane: VoidComponent = () => {
         <Title>Adjust Parameters</Title>
       </Drawer.Header>
       <Drawer.Content>
-        <Show when={isClient()}>
+        {/* <Show when={isClient()}> */}
           <ParamsEditorClient />
-        </Show>
+        {/* </Show> */}
       </Drawer.Content>
     </Drawer>
   );
