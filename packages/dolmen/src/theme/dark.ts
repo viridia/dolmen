@@ -4,7 +4,7 @@ import { createTheme } from '../styles/css';
 
 const primaryColor = '#3f45d4';
 const dangerColor = '#7d248a';
-const textHighlight = '#6f6fff66';
+const textHighlight = '#6f6fcf66';
 
 export const dark = createTheme('dark', {
   colors: {
@@ -76,6 +76,13 @@ export const dark = createTheme('dark', {
     knobMark: palette.coolgray600,
     knobShadow: colord(palette.black).alpha(0.4).toHex(),
 
+    listBg: colord(palette.coolgray850).darken(0.025).toHex(),
+    listText: palette.coolgray200,
+    listBorder: palette.coolgray750,
+    listHoverBg: palette.coolgray800,
+    listSelectedBg: textHighlight,
+    listSelectedText: '$white',
+
     modalBg: palette.coolgray850,
     modalShadow: colord(palette.black).alpha(0.1).toHex(),
     modalHeader: palette.coolgray800,
@@ -85,7 +92,7 @@ export const dark = createTheme('dark', {
     scrollbarInactive: colord(palette.coolgray500).alpha(0.15).toHex(),
 
     sliderThumb: colord(primaryColor).lighten(0.05).toHex(),
-    sliderTrack: palette.coolgray800,
+    sliderTrack: palette.coolgray750,
     sliderBar: '$primarySoft',
 
     splitterFill: palette.coolgray800,
@@ -97,5 +104,8 @@ export const dark = createTheme('dark', {
     toggleBorder: palette.coolgray600,
     toggleSlideFill: `linear-gradient(to bottom, ${palette.coolgray100} 0%, ${palette.coolgray300} 100%)`,
     toggleSlideBorder: '#00000088',
-  },
+
+    tooltipBg: palette.black,
+    tooltipText: palette.coolgray300,
+},
 });

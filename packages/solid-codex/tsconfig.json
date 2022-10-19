@@ -7,5 +7,5 @@
     "declaration": true,
     // "strict": true // Solid-start is not strict-compliant
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"]
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
 }

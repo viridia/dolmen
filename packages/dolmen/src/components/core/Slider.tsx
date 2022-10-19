@@ -115,8 +115,8 @@ export const thumbFocusCss = css({
 });
 
 export const valueLabelCss = css({
-  backgroundColor: '$selected',
-  color: '$selectedContrast',
+  backgroundColor: '$tooltipBg',
+  color: '$tooltipText',
   borderRadius: '3px',
   minWidth: '12px',
   padding: '2px 4px',
@@ -134,7 +134,7 @@ export const valueLabelCss = css({
 });
 
 export const valueLabelArrowCss = css({
-  backgroundColor: '$selected',
+  backgroundColor: '$tooltipBg',
   width: '8px',
   height: '8px',
   position: 'absolute',

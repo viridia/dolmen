@@ -1,12 +1,12 @@
 # Components
 
 * Slider
-  * Sizes
-  * Labels
-  * Tooltip
+  * Marks
+  * Vertical
+  * Quanta
 * List
-* Select
 * MenuButton
+* Select
 * Form
 * Color Picker
   * GradientSlider
@@ -15,7 +15,7 @@
 * ToolBar
 * ToolPalette
 * TextArea
-* Radio
+* Radio / RadioGroup
 * Divided button
 * Chip
 * Badge
@@ -56,7 +56,6 @@
 
 # Drawer
 
-  * Floating or Anchored / Inplace / Ensconsed /
   * Leave sliver
   * Fixture for minWidth
   * Firefox bugs

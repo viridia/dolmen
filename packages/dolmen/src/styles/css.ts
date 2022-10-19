@@ -4,7 +4,7 @@ import { palette } from './palette';
 
 const primaryColor = '#6469ff';
 const dangerColor = '#992ca9';
-const textHighlight = '#afafff';
+const textHighlight = '#afafef';
 
 const { getCssText, css, createTheme, config } = createStitches({
   prefix: 'dol',
@@ -81,6 +81,13 @@ const { getCssText, css, createTheme, config } = createStitches({
       knobMark: palette.gray400,
       knobShadow: colord(palette.black).alpha(0.6).toHex(),
 
+      listBg: palette.gray150,
+      listText: palette.gray800,
+      listBorder: palette.gray200,
+      listHoverBg: palette.gray200,
+      listSelectedBg: textHighlight,
+      listSelectedText: palette.black,
+
       modalBg: '$surface',
       modalShadow: colord(palette.black).alpha(0.4).toHex(),
       modalHeader: palette.gray50,
@@ -102,6 +109,9 @@ const { getCssText, css, createTheme, config } = createStitches({
       toggleBorder: palette.gray250,
       toggleSlideFill: `linear-gradient(to bottom, ${palette.gray50} 0%, ${palette.gray200} 100%)`,
       toggleSlideBorder: `#00000044`,
+
+      tooltipBg: palette.gray700,
+      tooltipText: palette.white,
     },
 
     fonts: {

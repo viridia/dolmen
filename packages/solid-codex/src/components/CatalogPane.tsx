@@ -74,7 +74,7 @@ interface CatalogProps {
 
 export const CatalogPane: VoidComponent<CatalogProps> = (props) => {
   return (
-    <Aside classList={{ [dark.className]: true, [catalogPaneCss()]: true }}>
+    <Aside classList={{ [dark.className]: true, [catalogPaneCss()]: true }} z="sidebarHigher">
       <CatalogGroup root nodes={props.tree.children ?? []} />
     </Aside>
   );

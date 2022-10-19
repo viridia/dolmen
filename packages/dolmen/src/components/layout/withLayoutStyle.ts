@@ -7,7 +7,7 @@ type LayoutStylePropsResult<T extends {}> = [
   Omit<T, keyof LayoutStyleProps>
 ];
 
-export function standardLength(prop: keyof CSS): Record<Spacings, CSS> {
+function standardLength(prop: keyof CSS): Record<Spacings, CSS> {
   return {
     xl: {
       [prop]: '$space$xl',
@@ -60,7 +60,7 @@ function standardLength2(prop1: keyof CSS, prop2: keyof CSS): Record<Spacings, C
 }
 
 // Note: order matters. This needs to come last.
-const layoutStyle = css({
+const layoutCss = css({
   variants: {
     margin: standardLength('margin'),
     marginLeft: standardLength('marginLeft'),
@@ -224,10 +224,10 @@ export function withLayoutStyle<T extends {}>(
 
   return [
     {
-      [layoutStyle(lprops)]: Object.keys(lprops).length > 0,
+      [layoutCss(lprops)]: Object.keys(lprops).length > 0,
     },
     rest,
   ];
 }
 
-export type LayoutStyleProps = VariantProps<typeof layoutStyle>;
+export type LayoutStyleProps = VariantProps<typeof layoutCss>;

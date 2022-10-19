@@ -9,6 +9,7 @@
     "jsx": "preserve",
     "types": ["vite/client"],
     "baseUrl": "./",
+    "composite": true,
     // "strict": true, // Solid-start is not strict compliant
     "skipLibCheck": true,
     "paths": {
@@ -16,8 +17,14 @@
       // For development
       "dolmen": ["./packages/dolmen/src"],
       "solid-codex": ["./packages/solid-codex/src"],
-      "solid-codex-api": ["./packages/solid-codex-api/src"],
+      "solid-codex-api": ["./packages/solid-codex-api/src"]
     }
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx"],
+  "files": [],
+  "references": [
+    { "path": "packages/dolmen/tsconfig.mjs.json" },
+    { "path": "packages/solid-codex/tsconfig.mjs.json" },
+    { "path": "packages/solid-codex-api/tsconfig.mjs.json" }
+  ]
 }

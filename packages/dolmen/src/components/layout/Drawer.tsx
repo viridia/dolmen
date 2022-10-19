@@ -15,6 +15,7 @@ interface DrawerProps {
   size?: string | number;
   minSize?: string | number;
   onClose?: () => void;
+  z?: 'sidebar' | 'sidebarHigher';
 }
 
 export const drawerCoplanarCss = css({
@@ -51,6 +52,15 @@ export const drawerCoplanarCss = css({
       },
       bottom: {
         bottom: 'auto',
+      },
+    },
+
+    z: {
+      sidebar: {
+        zIndex: '$sidebar',
+      },
+      sidebarHigher: {
+        zIndex: '$sidebarHigher',
       },
     },
   },
@@ -114,6 +124,15 @@ export const drawerModalCss = css({
         '&.entered,&.entering': {
           transform: 'translateY(0)',
         },
+      },
+    },
+
+    z: {
+      sidebar: {
+        zIndex: '$sidebar',
+      },
+      sidebarHigher: {
+        zIndex: '$sidebarHigher',
       },
     },
   },
@@ -216,6 +235,7 @@ interface DrawerInnerProps {
   side: Side;
   size: string;
   parent: HTMLDivElement;
+  z?: 'sidebar' | 'sidebarHigher';
 }
 
 export const DrawerInner: ParentComponent<
@@ -226,6 +246,7 @@ export const DrawerInner: ParentComponent<
     'side',
     'size',
     'state',
+    'z',
     'parent',
     'class',
     'classList',
@@ -247,9 +268,11 @@ export const DrawerInner: ParentComponent<
           [local.mode === 'modal'
             ? drawerModalCss({
                 side: adjustedSide(local.side, direction() === 'rtl'),
+                z: local.z,
               })
             : drawerCoplanarCss({
                 side: adjustedSide(local.side, direction() === 'rtl'),
+                z: local.z,
               })]: true,
           [local.state]: true,
         }}
