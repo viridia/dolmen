@@ -133,7 +133,7 @@ const valueLabelCss = css({
   },
 });
 
-export const valueLabelArrowCss = css({
+const valueLabelArrowCss = css({
   backgroundColor: '$tooltipBg',
   width: '8px',
   height: '8px',

@@ -1,4 +1,4 @@
-import { List, ListItem } from '../../components/datadisplay';
+import { List, ListItem } from '../../components';
 
 export const $category = 'data display';
 

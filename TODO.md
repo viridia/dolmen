@@ -25,7 +25,7 @@
 * Collapse
 * Divider
 * Tabs
-* Breadcrumbs
+* Breadcrumbs (incomplete)
 * Pagination
 
 ## Possible
