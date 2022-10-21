@@ -1,6 +1,5 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css } from '../../styles';
-import { LayoutStyleProps, withLayoutStyle } from './withLayoutStyle';
+import { css, StyleProps, styleProps } from '../../styles';
 
 const groupCss = css({
   alignItems: 'center',
@@ -10,9 +9,9 @@ const groupCss = css({
 });
 
 export const Group: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
+  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
 > = props => {
-  const [layoutStyle, nprops] = withLayoutStyle(props);
+  const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (

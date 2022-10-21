@@ -18,7 +18,6 @@
 * Divided button
 * Chip
 * Badge
-* Tooltip
 * Alert
 * Toast
 * Progress Bar

@@ -4,8 +4,9 @@
     "declaration": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "skipLibCheck": true
-    // "outDir": "./dist"
+    "skipLibCheck": true,
+    "outDir": "./dist/mjs",
+    "module": "ESNext"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["*/**/*.fixture.tsx", "*/**/*.test.tsx", "*/**/*.test.ts"]

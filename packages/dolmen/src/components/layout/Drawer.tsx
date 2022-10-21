@@ -1,8 +1,7 @@
 import { createMemo, createSignal, onMount, ParentComponent, Show } from 'solid-js';
 import { JSX, splitProps } from 'solid-js';
 import { createCssTransition, CssTransitionState } from '../../hooks';
-import { LayoutStyleProps, withLayoutStyle } from './withLayoutStyle';
-import { css } from '../../styles';
+import { css, styleProps, StyleProps } from '../../styles';
 import { VariantProps } from '@stitches/core';
 
 type Side = 'start' | 'end' | 'left' | 'right' | 'top' | 'bottom';
@@ -15,7 +14,6 @@ interface DrawerProps {
   size?: string | number;
   minSize?: string | number;
   onClose?: () => void;
-  z?: 'sidebar' | 'sidebarHigher';
 }
 
 const drawerCoplanarCss = css({
@@ -52,15 +50,6 @@ const drawerCoplanarCss = css({
       },
       bottom: {
         bottom: 'auto',
-      },
-    },
-
-    z: {
-      sidebar: {
-        zIndex: '$sidebar',
-      },
-      sidebarHigher: {
-        zIndex: '$sidebarHigher',
       },
     },
   },
@@ -126,15 +115,6 @@ const drawerModalCss = css({
         },
       },
     },
-
-    z: {
-      sidebar: {
-        zIndex: '$sidebar',
-      },
-      sidebarHigher: {
-        zIndex: '$sidebarHigher',
-      },
-    },
   },
 });
 
@@ -188,9 +168,9 @@ const drawerContentCss = css({
 export type DrawerStyleProps = VariantProps<typeof drawerCoplanarCss>;
 
 const DrawerHeader: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
+  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
 > = props => {
-  const [layoutStyle, nprops] = withLayoutStyle(props);
+  const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (
@@ -209,9 +189,9 @@ const DrawerHeader: ParentComponent<
 };
 
 const DrawerContent: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
+  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
 > = props => {
-  const [layoutStyle, nprops] = withLayoutStyle(props);
+  const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (
@@ -235,18 +215,14 @@ interface DrawerInnerProps {
   side: Side;
   size: string;
   parent: HTMLDivElement;
-  z?: 'sidebar' | 'sidebarHigher';
 }
 
-const DrawerInner: ParentComponent<
-  JSX.HTMLAttributes<HTMLElement> & DrawerInnerProps
-> = props => {
+const DrawerInner: ParentComponent<JSX.HTMLAttributes<HTMLElement> & DrawerInnerProps> = props => {
   const [local, rest] = splitProps(props, [
     'mode',
     'side',
     'size',
     'state',
-    'z',
     'parent',
     'class',
     'classList',
@@ -268,11 +244,9 @@ const DrawerInner: ParentComponent<
           [local.mode === 'modal'
             ? drawerModalCss({
                 side: adjustedSide(local.side, direction() === 'rtl'),
-                z: local.z,
               })
             : drawerCoplanarCss({
                 side: adjustedSide(local.side, direction() === 'rtl'),
-                z: local.z,
               })]: true,
           [local.state]: true,
         }}

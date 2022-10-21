@@ -1,6 +1,5 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css } from '../../styles';
-import { LayoutStyleProps, withLayoutStyle } from './withLayoutStyle';
+import { css, styleProps, StyleProps } from '../../styles';
 
 const pageHeaderTitleCss = css({
   alignItems: 'center',
@@ -13,9 +12,9 @@ const pageHeaderTitleCss = css({
 });
 
 const PageHeaderTitle: ParentComponent<
-  JSX.HTMLAttributes<HTMLElement> & LayoutStyleProps
+  JSX.HTMLAttributes<HTMLElement> & StyleProps
 > = props => {
-  const [layoutStyle, nprops] = withLayoutStyle(props);
+  const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (
@@ -48,9 +47,9 @@ const pageHeaderCss = css({
 });
 
 export const PageHeader: ParentComponent<
-  JSX.HTMLAttributes<HTMLElement> & LayoutStyleProps
+  JSX.HTMLAttributes<HTMLElement> & StyleProps
 > & { Title: typeof PageHeaderTitle } = props => {
-  const [layoutStyle, nprops] = withLayoutStyle(props);
+  const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (

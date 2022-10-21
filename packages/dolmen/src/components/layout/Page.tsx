@@ -1,6 +1,5 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css } from '../../styles';
-import { LayoutStyleProps, withLayoutStyle } from './withLayoutStyle';
+import { css, styleProps, StyleProps } from '../../styles';
 
 const pageCss = css({
   backgroundColor: '$background',
@@ -19,9 +18,9 @@ const pageCss = css({
 });
 
 export const Page: ParentComponent<
-  JSX.HTMLAttributes<HTMLElement> & LayoutStyleProps
+  JSX.HTMLAttributes<HTMLElement> & StyleProps
 > = props => {
-  const [layoutStyle, nprops] = withLayoutStyle(props);
+  const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (

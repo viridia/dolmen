@@ -1,7 +1,6 @@
 import { ParentComponent, JSX, splitProps, children, For, Show } from 'solid-js';
 import { ChevronRight } from '../../icons';
-import { css } from '../../styles';
-import { LayoutStyleProps, withLayoutStyle } from '../layout/withLayoutStyle';
+import { css, styleProps, StyleProps } from '../../styles';
 
 interface BreadcrumbsProps {
   separator?: JSX.Element;
@@ -24,9 +23,9 @@ const breadcrumbsSeparatorCss = css({
 });
 
 export const Breadcrumbs: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps & BreadcrumbsProps
+  JSX.HTMLAttributes<HTMLDivElement> & StyleProps & BreadcrumbsProps
 > = props => {
-  const [layoutStyle, nprops] = withLayoutStyle(props);
+  const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children', 'separator']);
   const childNodes = children(() => local.children);
 
@@ -64,9 +63,9 @@ const breadcrumbsItemCss = css({
 });
 
 export const BreadcrumbsItem: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
+  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
 > = props => {
-  const [layoutStyle, nprops] = withLayoutStyle(props);
+  const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (

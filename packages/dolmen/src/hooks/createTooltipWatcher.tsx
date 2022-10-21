@@ -1,11 +1,5 @@
 import { Accessor, batch, createEffect, createMemo, createSignal, onCleanup } from 'solid-js';
 
-export interface TooltipInfo {
-  anchor: HTMLElement;
-  content: string;
-  // placement: Placement,
-}
-
 type TTProviderResult = [
   { onMouseOver(e: MouseEvent): void; onMouseOut(e: MouseEvent): void },
   Accessor<HTMLElement | null>,
@@ -52,6 +46,7 @@ export function createTooltipWatcher(options: { delay?: number } = {}): TTProvid
       }, options.delay ?? 500);
       onCleanup(() => clearTimeout(timer));
     } else {
+      // Note that tipContent persists while tooltip is exiting...
       setTipShown(false);
     }
   });

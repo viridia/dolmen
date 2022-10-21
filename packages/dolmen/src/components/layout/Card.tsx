@@ -1,6 +1,5 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { LayoutStyleProps, withLayoutStyle } from './withLayoutStyle';
-import { css } from '../../styles';
+import { css, styleProps, StyleProps } from '../../styles';
 
 const cardContentCss = css({
   alignItems: 'stretch',
@@ -12,9 +11,9 @@ const cardContentCss = css({
 });
 
 const CardContent: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
+  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
 > = props => {
-  const [layoutStyle, nprops] = withLayoutStyle(props);
+  const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (
@@ -42,10 +41,10 @@ const cardCss = css({
   justifyContent: 'start',
 });
 
-export const Card: ParentComponent<JSX.HTMLAttributes<HTMLElement> & LayoutStyleProps> & {
+export const Card: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> & {
   Content: typeof CardContent;
 } = props => {
-  const [layoutStyle, nprops] = withLayoutStyle(props);
+  const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (

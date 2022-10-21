@@ -96,7 +96,7 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
       <CatalogPane tree={fixtureTree()} />
       <AdjustPane />
       <Stack class={canvasSectionStyle} alignItems="stretch">
-        <PageHeader z="ground">
+        <PageHeader zIndex="ground">
           <PageHeader.Title>
             <Show when={selected()} fallback={<i>Nothing selected</i>} keyed>
               {fix => (

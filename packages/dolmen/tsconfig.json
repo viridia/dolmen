@@ -4,6 +4,7 @@
     "strict": true,
     "declaration": true,
     "jsx": "preserve",
+    "rootDir": "./src",
     "jsxImportSource": "solid-js"
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx"]

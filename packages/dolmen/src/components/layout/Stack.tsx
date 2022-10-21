@@ -1,6 +1,5 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { LayoutStyleProps, withLayoutStyle } from './withLayoutStyle';
-import { css } from '../../styles';
+import { css, StyleProps, styleProps } from '../../styles';
 
 const stackCss = css({
   alignItems: 'stretch',
@@ -10,9 +9,9 @@ const stackCss = css({
 });
 
 export const Stack: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
+  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
 > = props => {
-  const [layoutStyle, nprops] = withLayoutStyle(props);
+  const [styleClass, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (
@@ -20,7 +19,7 @@ export const Stack: ParentComponent<
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutStyle,
+        ...styleClass,
         [local.class as string]: !!local.class,
         [stackCss()]: true,
       }}

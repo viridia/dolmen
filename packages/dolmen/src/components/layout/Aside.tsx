@@ -1,6 +1,5 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css } from '../../styles';
-import { LayoutStyleProps, withLayoutStyle } from './withLayoutStyle';
+import { css, StyleProps, styleProps } from '../../styles';
 
 const asideCss = css({
   backgroundColor: '$surface',
@@ -15,9 +14,9 @@ const asideCss = css({
 });
 
 export const Aside: ParentComponent<
-  JSX.HTMLAttributes<HTMLElement> & LayoutStyleProps
+  JSX.HTMLAttributes<HTMLElement> & StyleProps
 > = props => {
-  const [layoutStyle, nprops] = withLayoutStyle(props);
+  const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, [
     'class',
     'classList',

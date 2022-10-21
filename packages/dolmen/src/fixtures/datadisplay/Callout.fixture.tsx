@@ -7,7 +7,7 @@ function AutoTooltipDemo() {
   const [anchor, setAnchor] = createSignal<HTMLElement | null>(null);
   return (
     <Stack>
-      <Group gap="md" padding="xl">
+      <Group gap="md" p="xl">
         <Callout anchor={anchor()} placement="right">
           <Title>Note</Title>
           This is a callout.

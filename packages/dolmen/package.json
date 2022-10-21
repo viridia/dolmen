@@ -5,8 +5,11 @@
   "license": "MIT",
   "description": "A UI component library that works with Solid SSR",
   "scripts": {
-    "build": "tsc --project tsconfig.mjs.json && tsc --project tsconfig.cjs.json",
+    "build": "npm run build:svg && npm run build:mjs && npm run build:cjs",
+    "build:cjs": "tsc --project tsconfig.src.json --outDir ./dist/cjs --module CommonJS",
+    "build:mjs": "tsc --project tsconfig.src.json --outDir ./dist/mjs --module ESNext",
     "build:svg": "svgr --template ./scripts/svg-template.cjs --typescript iconsrc/ -d src/icons/",
+    "clean": "rimraf ./dist",
     "format": "prettier --write .",
     "test:compile": "tsc --noEmit --project ./tsconfig.json"
   },

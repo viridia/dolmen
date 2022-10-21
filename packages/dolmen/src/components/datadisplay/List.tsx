@@ -1,7 +1,6 @@
 import { VariantProps } from '@stitches/core';
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, scrollbars } from '../../styles';
-import { LayoutStyleProps, withLayoutStyle } from '../layout/withLayoutStyle';
+import { css, scrollbars, styleProps, StyleProps } from '../../styles';
 
 const listCss = css(
   {
@@ -23,9 +22,9 @@ const listCss = css(
 );
 
 export const List: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps
+  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
 > = props => {
-  const [layoutStyle, nprops] = withLayoutStyle(props);
+  const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (
@@ -68,9 +67,9 @@ const listItemCss = css({
 });
 
 export const ListItem: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & LayoutStyleProps & VariantProps<typeof listItemCss>
+  JSX.HTMLAttributes<HTMLDivElement> & StyleProps & VariantProps<typeof listItemCss>
 > = props => {
-  const [layoutStyle, nprops] = withLayoutStyle(props);
+  const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['selected', 'class', 'classList', 'children']);
 
   return (

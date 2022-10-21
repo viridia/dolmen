@@ -153,28 +153,17 @@ const { getCssText, css, createTheme, config } = createStitches({
     zIndices: {
       ground: 0,
       focused: 100, // Let's focus indicators float above other controls.
-      sidebar: 400, // For sidebars that lie below the appbar
-      appbar: 500,
-      sidebarHigher: 600, // For sidebars that rest above the appbar
+      sidebar: 500, // For sidebars that lie below the appbar
+      appbar: 600,
       modal: 700,
       dropdown: 800,
       alert: 900,
       tooltip: 1000,
     },
   },
-
-  utils: {
-    gap: (value: Spacings) => ({
-      gap: value,
-    }),
-  },
 });
 
-export { getCssText, css, createTheme };
-export type FontSizes = keyof typeof config.theme.fontSizes;
-export type SizeVariant = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
-export type ButtonSizeVariant = SizeVariant | 'mini' | 'tiny';
-export type Spacings = 'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'none';
+export { getCssText, css, createTheme, config };
 
 export const stdFontSizes = css({
   variants: {
