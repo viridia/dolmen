@@ -23,7 +23,7 @@ const discloseButtonCss = css({
   transform: 'rotate(-90deg)',
   transition: 'transform 0.5s ease',
   width: '1.5rem',
-  '--icon-color': '$colors$secondaryContrastDim',
+  '--icon-color': '$colors$btnSecondaryContrastDim',
 
   '&.selected': {
     transform: 'rotate(0)',
@@ -39,7 +39,7 @@ const discloseButtonCss = css({
   },
 
   '&:hover:not([disabled])': {
-    '--icon-color': '$colors$secondaryContrast',
+    '--icon-color': '$colors$btnSecondaryContrast',
   },
 });
 

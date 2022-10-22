@@ -12,9 +12,10 @@ const buttonSize = (base: ButtonSizeVariant) => ({
 const buttonCss = css({
   alignItems: 'center',
   appearance: 'none',
+  borderColor: 'rgba(0, 0, 0, 0.2)', // Needed for ButtonGroup
   borderRadius: 3,
-  borderWidth: 0,
   borderStyle: 'solid',
+  borderWidth: 0,
   display: 'flex',
   flexDirection: 'row',
   fontWeight: '500',
@@ -62,58 +63,56 @@ const buttonCss = css({
 
     color: {
       default: {
-        color: '$secondaryContrast',
-        borderColor: '$secondaryDivider',
-        backgroundColor: '$secondary',
+        color: '$btnSecondaryContrast',
+        backgroundColor: '$btnSecondary',
         '&:hover:not([disabled])': {
-          backgroundColor: '$secondaryHover',
+          filter: 'contrast(85%) saturate(120%)',
         },
         '&:active:not([disabled])': {
-          backgroundColor: '$secondaryActive',
+          filter: 'brightness(0.8) contrast(110%)',
         },
-        '--icon-color': '$colors$secondaryContrastDim',
+        '--icon-color': '$colors$btnSecondaryContrastDim',
       },
       primary: {
-        color: '$primaryContrast',
-        borderColor: '$primaryDivider',
-        backgroundColor: '$primary',
+        color: '$btnPrimaryText',
+        backgroundColor: '$btnPrimary',
         '&:hover:not([disabled])': {
-          backgroundColor: '$primaryHover',
+          filter: 'brightness(1.15) contrast(130%)',
         },
         '&:active:not([disabled])': {
-          backgroundColor: '$primaryActive',
+          filter: 'brightness(1.3)',
         },
-        '--icon-color': '$colors$primaryContrastDim',
+        '--icon-color': '$colors$btnPrimaryTextDim',
       },
       danger: {
-        color: '$dangerContrast',
-        borderColor: '$dangerDivider',
-        backgroundColor: '$danger',
+        color: '$btnDangerText',
+        backgroundColor: '$btnDanger',
         '&:hover:not([disabled])': {
-          backgroundColor: '$dangerHover',
+          filter: 'brightness(1.15) contrast(130%)',
         },
         '&:active:not([disabled])': {
-          backgroundColor: '$dangerActive',
+          filter: 'brightness(1.3)',
         },
-        '--icon-color': '$colors$dangerContrastDim',
+        '--icon-color': '$colors$btnDangerTextDim',
       },
       selected: {
-        backgroundColor: '$selected',
-        borderColor: '$secondaryDivider',
-        color: '$selectedContrast',
-        '--icon-color': '$colors$selectedContrastDim',
+        backgroundColor: '$btnSelected',
+        borderColor: '$btnSelected',
+        color: '$btnSelectedContrast',
+        '--icon-color': '$colors$btnSelectedContrastDim',
       },
       subtle: {
         backgroundColor: 'transparent',
         borderColor: 'transparent',
-        color: '$secondaryContrast',
+        color: '$btnSecondaryContrast',
         '&:hover:not([disabled])': {
-          backgroundColor: '$subtleHover',
+          backgroundColor: '$itemHoverBg',
         },
         '&:active:not([disabled])': {
-          backgroundColor: '$subtleActive',
+          backgroundColor: '$itemHoverBg',
+          filter: 'brightness(0.9)',
         },
-        '--icon-color': '$colors$secondaryContrastDim',
+        '--icon-color': '$colors$btnSecondaryContrastDim',
       },
     },
 

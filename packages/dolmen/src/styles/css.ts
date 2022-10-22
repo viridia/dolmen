@@ -6,68 +6,64 @@ const primaryColor = '#6469ff';
 const dangerColor = '#992ca9';
 const textHighlight = '#afafef';
 
-const { getCssText, css, createTheme, config } = createStitches({
+const { getCssText, css, createTheme, theme, config } = createStitches({
   prefix: 'dol',
   theme: {
     colors: {
-      black: '#000000', // These don't need to be vars.
-      white: '#ffffff',
+      // Flat surfaces - page, card, modal, header
+      elevation0: palette.gray100,
+      elevation1: palette.gray50,
+      elevation2: palette.white,
 
-      background: palette.gray100, // Rename to pageBg
-      backdrop: colord(palette.gray900).alpha(0.3).toHex(),
-      surface: palette.gray50, // rename to raisedBg
-      focus: '#00006633',
+      // "Wells" are interactive regions such as input, list box, etc.
+      wellBg: palette.gray150,
+      wellBorder: palette.gray250,
+      wellHoverBorder: palette.gray300,
+
+      // Text colors
       text: palette.gray800,
       textDim: palette.gray500,
+      textSelection: palette.gray900,
+      textSelectionBg: textHighlight,
+
+      // Colors for selected items (menus, list rows)
+      itemHoverBg: palette.gray200,
+      itemSelectedBg: textHighlight,
+
+      // Various dynamic colors
+      focus: '#00006633',
       shadow: colord(palette.black).alpha(0.4).toHex(),
+      backdrop: colord(palette.gray900).alpha(0.3).toHex(),
 
-      // raised2?
-      // wellBg
-      // wellBorder - input, list
-      // wellText
+      // Buttons (also used by some other controls such as checkbox and radio)
+      btnPrimary: primaryColor,
+      btnPrimaryText: palette.white,
+      btnPrimaryTextDim: colord(primaryColor).lighten(0.2).toHex(),
 
-      primary: primaryColor,
-      primaryHover: colord(primaryColor).darken(0.03).toHex(),
-      primaryActive: colord(primaryColor).darken(0.07).toHex(),
-      primarySoft: colord(primaryColor).lighten(0.1).toHex(),
-      primaryContrast: '$white',
-      primaryContrastDim: colord(primaryColor).lighten(0.2).toHex(),
-      primaryDivider: colord(primaryColor).darken(0.05).toHex(),
+      btnSecondary: palette.gray200,
+      btnSecondaryContrast: palette.gray800,
+      btnSecondaryContrastDim: palette.gray600,
 
-      secondary: palette.gray200,
-      secondaryHover: palette.gray250,
-      secondaryActive: palette.gray300,
-      secondaryContrast: palette.gray800,
-      secondaryContrastDim: palette.gray600,
-      secondaryDivider: palette.gray300,
+      btnDanger: dangerColor,
+      btnDangerText: palette.white,
+      btnDangerTextDim: colord(dangerColor).lighten(0.3).toHex(),
 
-      danger: dangerColor,
-      dangerHover: colord(dangerColor).darken(0.03).toHex(),
-      dangerActive: colord(dangerColor).darken(0.07).toHex(),
-      dangerContrast: '$white',
-      dangerContrastDim: colord(dangerColor).lighten(0.3).toHex(),
-      dangerDivider: colord(dangerColor).darken(0.07).toHex(),
+      btnSelected: palette.gray700,
+      btnSelectedContrast: palette.gray100,
+      btnSelectedContrastDim: palette.gray200,
 
-      selected: palette.gray700,
-      selectedContrast: palette.gray100,
-      selectedContrastDim: palette.gray200,
+      // Toggle switches
+      toggleFill: palette.gray150,
+      toggleFillChecked: '#77dd77',
+      toggleSlideFill: `linear-gradient(to bottom, ${palette.gray50} 0%, ${palette.gray200} 100%)`,
 
-      subtleHover: palette.gray200,
-      subtleActive: palette.gray300,
+      // Tooltips have their own color scheme, also used by callouts.
+      tooltipBg: palette.gray700,
+      tooltipText: palette.white,
 
-      checkboxFill: palette.gray150,
-      checkboxFillChecked: primaryColor,
+      // To migrate
+
       checkboxBorderColor: palette.gray500,
-      checkboxMark: '$white',
-
-      inputBg: palette.gray150,
-      inputText: palette.gray800,
-      inputIcon: palette.gray500,
-      inputBorder: palette.gray200,
-      inputBorderHover: palette.gray200,
-      inputSelectionBg: textHighlight,
-      inputSelectionText: palette.gray900,
-      inputPlaceholder: '$colors$textDim',
 
       knobRim: `linear-gradient(
         to bottom,
@@ -86,37 +82,10 @@ const { getCssText, css, createTheme, config } = createStitches({
       knobMark: palette.gray400,
       knobShadow: colord(palette.black).alpha(0.6).toHex(),
 
-      listBg: palette.gray150,
-      listText: palette.gray800,
-      listBorder: palette.gray200,
-      listHoverBg: palette.gray200,
-      listSelectedBg: textHighlight,
-      listSelectedText: palette.black,
-
-      modalBg: '$surface',
-      modalShadow: colord(palette.black).alpha(0.4).toHex(),
-      modalHeader: palette.gray50,
-      modalDivider: palette.gray150,
-
       scrollbar: 'rgba(0, 0, 0, 0.2)',
       scrollbarInactive: 'rgba(0, 0, 0, 0.1)',
 
-      sliderThumb: '$primary',
       sliderTrack: palette.gray250,
-      sliderBar: '$primarySoft',
-
-      splitterFill: palette.gray50,
-      splitterShadow: palette.gray800,
-      splitterDetail: palette.gray200,
-
-      toggleFill: palette.gray150,
-      toggleFillChecked: '#77dd77',
-      toggleBorder: palette.gray250,
-      toggleSlideFill: `linear-gradient(to bottom, ${palette.gray50} 0%, ${palette.gray200} 100%)`,
-      toggleSlideBorder: `#00000044`,
-
-      tooltipBg: palette.gray700,
-      tooltipText: palette.white,
     },
 
     fonts: {
@@ -168,7 +137,7 @@ const { getCssText, css, createTheme, config } = createStitches({
   },
 });
 
-export { getCssText, css, createTheme, config };
+export { getCssText, css, createTheme, theme, config };
 
 export const stdFontSizes = css({
   variants: {

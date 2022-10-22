@@ -72,7 +72,8 @@ const trackCss = css({
 });
 
 const barCss = css({
-  backgroundColor: '$sliderBar',
+  backgroundColor: '$btnPrimary',
+  filter: 'saturate(0.7)',
   height: '100%',
 });
 
@@ -86,9 +87,10 @@ const thumbContainerCss = css({
 });
 
 const thumbCss = css({
-  backgroundColor: '$sliderThumb',
+  backgroundColor: '$btnPrimary',
   borderRadius: '50%',
   boxShadow: '0 1px 4px $colors$shadow',
+  filter: 'brightness(1.1) saturate(0.9)',
   position: 'absolute',
   height: '100%',
   pointerEvents: 'all',

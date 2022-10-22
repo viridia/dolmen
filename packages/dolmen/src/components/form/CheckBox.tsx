@@ -20,12 +20,12 @@ const checkboxLabelCss = css({
 
 const checkboxCtrlCss = css({
   appearance: 'none',
-  backgroundColor: '$checkboxFill',
+  backgroundColor: '$wellBg',
   borderWidth: '1px',
   borderStyle: 'solid',
   borderColor: '$checkboxBorderColor',
   borderRadius: 3,
-  color: '$checkboxMark',
+  color: '$btnPrimaryText',
   cursor: 'inherit',
   height: '18px',
   fontSize: 'inherit',
@@ -41,12 +41,12 @@ const checkboxCtrlCss = css({
   },
 
   '&:checked': {
-    backgroundColor: '$checkboxFillChecked',
-    borderColor: '$checkboxFillChecked',
+    backgroundColor: '$btnPrimary',
+    borderColor: '$btnPrimary',
   },
 
   '&:checked::after': {
-    borderColor: '$checkboxMark',
+    borderColor: '$btnPrimaryText',
     borderWidth: '0 3px 3px 0',
     borderStyle: 'solid',
     content: '',

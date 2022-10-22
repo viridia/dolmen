@@ -19,8 +19,8 @@ interface ModalProps extends JSX.HTMLAttributes<HTMLDialogElement> {
 }
 
 const modalCss = css({
-  backgroundColor: '$modalBg',
-  boxShadow: '0 0 5px 0 $colors$modalShadow',
+  backgroundColor: '$elevation1',
+  boxShadow: '0 0 3px 0 $colors$shadow',
   color: '$text',
   alignItems: 'stretch',
   border: 'none',
@@ -93,9 +93,9 @@ const modalHeaderCss = css({
   justifyContent: 'space-between',
   gap: '4px',
   padding: '0.8rem 1rem',
-  borderBottom: '1px solid $colors$modalDivider',
+  borderBottom: '1px solid $colors$elevation0',
   borderRadius: '5px 5px 0 0',
-  backgroundColor: '$modalHeader',
+  backgroundColor: '$elevation2',
 });
 
 const modalBodyCss = css(

@@ -34,8 +34,8 @@ const splitPaneCss = css({
 
 const splitBarCss = css({
   alignSelf: 'stretch',
-  backgroundColor: '$splitterFill',
-  boxShadow: '0 0 2px 0 $colors$splitterShadow',
+  backgroundColor: '$elevation1',
+  boxShadow: '0 0 2px 0 $colors$shadow',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -55,7 +55,7 @@ const splitBarCss = css({
 });
 
 const splitBarDetailCss = css({
-  backgroundColor: '$splitterDetail',
+  backgroundColor: '$wellBorder',
   userSelect: 'none',
 
   '.horizontal > &': {

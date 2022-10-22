@@ -2,7 +2,7 @@
 import { Suspense } from 'solid-js';
 import { ErrorBoundary } from 'solid-start/error-boundary';
 import { Body, Head, Html, Meta, Route, Routes, Scripts, Title } from 'solid-start';
-import { theme } from 'dolmen';
+import { dark } from 'dolmen';
 import { createFixtureParamsStore, FixtureParamsContext } from 'solid-codex-api';
 import { getCssText } from 'dolmen';
 import { useFixtures } from '../data/fixtures';
@@ -24,7 +24,7 @@ export function App(props: { fixtures: Record<string, () => Promise<unknown>> })
             <Meta name="viewport" content="width=device-width, initial-scale=1" />
             <style id="stitches" innerHTML={getCssText()} />
           </Head>
-          <Body classList={{ [theme.dark.className]: userSettings[0].theme === 'dark' }}>
+          <Body classList={{ [dark.className]: userSettings[0].theme === 'dark' }}>
             <ErrorBoundary>
               <Suspense>
                 <Routes>

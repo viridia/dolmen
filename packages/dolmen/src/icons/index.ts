@@ -4,4 +4,6 @@ export { default as ChevronDown } from './ChevronDown';
 export { default as ChevronRight } from './ChevronRight';
 export { default as Close } from './Close';
 export { default as DarkMode } from './DarkMode';
+export { default as Error } from './Error';
 export { default as LightMode } from './LightMode';
+export { default as Warning } from './Warning';

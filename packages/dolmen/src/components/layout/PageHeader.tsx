@@ -34,7 +34,7 @@ const PageHeaderTitle: ParentComponent<
 
 const pageHeaderCss = css({
   alignItems: 'center',
-  backgroundColor: '$surface',
+  backgroundColor: '$elevation1',
   boxShadow: '0 0 2px 0 $colors$shadow',
   display: 'flex',
   flexDirection: 'row',

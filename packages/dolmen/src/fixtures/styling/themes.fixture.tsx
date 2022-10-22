@@ -1,0 +1,147 @@
+import { createSignal, VoidComponent } from 'solid-js';
+import {
+  Button,
+  ButtonGroup,
+  Card,
+  CheckBox,
+  Group,
+  Input,
+  List,
+  ListItem,
+  Slider,
+  Spacer,
+  Title,
+  ToggleSwitch,
+} from '../../components';
+import { dark, light } from '../../theme';
+import { createTheme } from '../../styles/css';
+
+export const $category = 'styling';
+
+import { colord } from 'colord';
+import { palette } from '../../styles';
+import { Cancel } from '../../icons';
+const primaryColor = '#9a7e42';
+const dangerColor = '#7d248a';
+const textHighlight = '#81665566';
+
+export const custom = createTheme('custom', {
+  colors: {
+    elevation0: palette.warmgray900,
+    elevation1: palette.warmgray850,
+    elevation2: palette.warmgray800,
+
+    wellBg: colord(palette.warmgray850).darken(0.025).toHex(),
+    wellBorder: palette.warmgray750,
+    wellHoverBorder: palette.warmgray700,
+
+    text: palette.warmgray200,
+    textDim: palette.warmgray500,
+    textSelection: palette.white,
+    textSelectionBg: textHighlight,
+
+    itemHoverBg: palette.warmgray800,
+    itemSelectedBg: textHighlight,
+
+    focus: '#8183ff88',
+    shadow: palette.black,
+    backdrop: colord(palette.black).alpha(0.3).toHex(),
+
+    btnPrimary: primaryColor,
+    btnPrimaryText: palette.warmgray50,
+    btnPrimaryTextDim: colord(primaryColor).lighten(0.25).toHex(),
+
+    btnSecondary: palette.warmgray750,
+    btnSecondaryContrast: palette.warmgray200,
+    btnSecondaryContrastDim: palette.warmgray500,
+
+    btnDanger: dangerColor,
+    btnDangerText: palette.warmgray100,
+    btnDangerTextDim: colord(dangerColor).lighten(0.3).toHex(),
+
+    btnSelected: palette.warmgray600,
+    btnSelectedContrast: palette.warmgray100,
+    btnSelectedContrastDim: palette.warmgray200,
+
+    toggleFill: palette.warmgray700,
+    toggleFillChecked: '#118811',
+    toggleSlideFill: `linear-gradient(to bottom, ${palette.warmgray100} 0%, ${palette.warmgray300} 100%)`,
+
+    tooltipBg: palette.black,
+    tooltipText: palette.warmgray300,
+
+    // To migrate
+
+    checkboxBorderColor: palette.warmgray700,
+
+    knobRim: `linear-gradient(
+      to bottom,
+      ${colord(palette.warmgray800).lighten(0.1).toHex()} 0,
+      ${colord(palette.warmgray800).toHex()} 30%,
+      ${colord(palette.warmgray800).darken(0.1).toHex()}
+    )`,
+    knobCenter: `linear-gradient(
+      to bottom,
+      ${colord(palette.warmgray800).lighten(0.03).toHex()} 0,
+      ${colord(palette.warmgray800).toHex()} 30%,
+      ${colord(palette.warmgray800).darken(0.03).toHex()}
+    )`,
+    knobArc: palette.warmgray700,
+    knobTick: palette.warmgray700,
+    knobMark: palette.warmgray600,
+    knobShadow: colord(palette.black).alpha(0.4).toHex(),
+
+    scrollbar: colord(palette.warmgray500).alpha(0.3).toHex(),
+    scrollbarInactive: colord(palette.warmgray500).alpha(0.15).toHex(),
+
+    sliderTrack: palette.warmgray750,
+  },
+});
+
+const ThemeDemo: VoidComponent<{ name: string; class: string }> = props => {
+  const [sliderValue, setSliderValue] = createSignal(30);
+  return (
+    <Card flex={1} class={props.class}>
+      <Card.Content gap="lg">
+        <Title>{props.name}</Title>
+        <Group>
+          <ButtonGroup>
+            <Button>Iron</Button>
+            <Button>Gold</Button>
+            <Button>Carbon</Button>
+          </ButtonGroup>
+          <Spacer />
+          <Button color="primary">Transmute</Button>
+        </Group>
+        <CheckBox>Mass</CheckBox>
+        <ToggleSwitch>Spin</ToggleSwitch>
+        <Slider
+          value={sliderValue()}
+          min={0}
+          max={100}
+          step={1}
+          onChange={value => setSliderValue(value)}
+          valueLabelDisplay="auto"
+        />
+        <Input placeholder="Enter name..." adornRight={<Cancel />} />
+        <List>
+          <ListItem selected>Snap</ListItem>
+          <ListItem>Crackle</ListItem>
+          <ListItem>Pop</ListItem>
+        </List>
+      </Card.Content>
+    </Card>
+  );
+};
+
+export const Themes: VoidComponent = () => {
+  return (
+    <Group flex={1} alignItems="stretch" gap="xl" alignSelf="stretch">
+      <ThemeDemo name="Light" class={light.className} />
+      <ThemeDemo name="Dark" class={dark.className} />
+      <ThemeDemo name="Custom" class={custom.className} />
+    </Group>
+  );
+};
+
+export default Themes;

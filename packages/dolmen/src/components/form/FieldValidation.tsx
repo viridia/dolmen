@@ -1,5 +1,6 @@
-import { ParentComponent, JSX, splitProps, Show } from 'solid-js';
-import { css } from '../../styles';
+import { ParentComponent, JSX, splitProps, Show, Switch, Match } from 'solid-js';
+import { Error, Warning } from '../../icons';
+import { css, theme } from '../../styles';
 
 const fieldValidationCss = css({
   alignItems: 'start',
@@ -11,16 +12,22 @@ const fieldValidationCss = css({
     status: {
       warning: {
         color: '#a80',
+        [theme.colors.wellBorder.variable]: '#a80',
+        '--icon-color': '#a80',
       },
 
       error: {
         color: '#c00',
+        [theme.colors.wellBorder.variable]: '#c00',
+        '--icon-color': '#c00',
       },
     },
   },
 });
 
 const fieldMessageCss = css({
+  display: 'flex',
+  alignItems: 'center',
   marginTop: 2,
 });
 
@@ -45,7 +52,17 @@ export const FieldValidation: ParentComponent<FieldValidationProps> = props => {
     >
       {local.children}
       <Show when={local.message}>
-        <div class={fieldMessageCss()}>{local.message}</div>
+        <div class={fieldMessageCss()}>
+          <Switch>
+            <Match when={local.status === 'warning'}>
+              <Warning />
+            </Match>
+            <Match when={local.status === 'error'}>
+              <Error />
+            </Match>
+          </Switch>
+          {local.message}
+        </div>
       </Show>
     </div>
   );

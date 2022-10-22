@@ -2,7 +2,7 @@ import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { css, styleProps, StyleProps } from '../../styles';
 
 const pageCss = css({
-  backgroundColor: '$background',
+  backgroundColor: '$elevation0',
   color: '$text',
   position: 'fixed',
   left: 0,

@@ -22,13 +22,12 @@ const toggleSwitchLabelCss = css({
 const toggleSwitchCtrlCss = css({
   appearance: 'none',
   backgroundColor: '$toggleFill',
-  border: '2px solid $colors$toggleBorder',
-  boxShadow: `inset 0 1px 3px 1px #000000cc`,
+  boxShadow: `inset 0 1px 3px 1px #00000088`,
   borderRadius: 10,
   cursor: 'inherit',
   height: '20px',
   fontSize: 'inherit',
-  marginRight: '6px',
+  margin: '0 6px 0 0',
   outline: 'none',
   position: 'relative',
   transition: 'background-color 0.3s ease',
@@ -45,15 +44,15 @@ const toggleSwitchCtrlCss = css({
 
   '&::after': {
     background: '$toggleSlideFill',
-    boxShadow: '0 0 2px 1px $colors$toggleSlideBorder, 0 0.5px 2px 1px $colors$toggleSlideBorder',
+    boxShadow: '0 0.5px 2px 1px $colors$shadow',
     borderRadius: '50%',
     content: '',
-    height: '12px',
+    height: '16px',
     left: '2px',
     position: 'absolute',
     top: '2px',
     transition: 'transform 0.3s ease',
-    width: '12px',
+    width: '16px',
   },
 
   '&:checked::after': {

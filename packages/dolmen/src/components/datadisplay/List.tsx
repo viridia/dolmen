@@ -5,12 +5,12 @@ import { css, scrollbars, styleProps, StyleProps } from '../../styles';
 const listCss = css(
   {
     alignItems: 'stretch',
-    backgroundColor: '$listBg',
-    borderColor: '$listBorder',
+    backgroundColor: '$wellBg',
+    borderColor: '$wellBorder',
     borderWidth: '1px',
     borderStyle: 'solid',
     borderRadius: '3px',
-    color: '$listText',
+    color: '$text',
     display: 'flex',
     flexDirection: 'column',
     padding: '4px',
@@ -48,18 +48,19 @@ const listItemCss = css({
   flexDirection: 'row',
   justifyContent: 'start',
   padding: '4px 8px',
+  cursor: 'pointer', // Only for items that are clickable
 
   '&:hover': {
-    backgroundColor: '$listHoverBg',
+    backgroundColor: '$itemHoverBg',
   },
 
   variants: {
     selected: {
       true: {
-        backgroundColor: '$listSelectedBg',
+        backgroundColor: '$itemSelectedBg',
         color: '$listSelectectedText',
         '&:hover': {
-          backgroundColor: '$listSelectedBg',
+          backgroundColor: '$itemSelectedBg',
         },
       },
     },

@@ -33,9 +33,10 @@ const CardContent: ParentComponent<
 
 const cardCss = css({
   alignItems: 'stretch',
-  backgroundColor: '$surface',
+  backgroundColor: '$elevation1',
   borderRadius: 4,
   boxShadow: '0 1px 2px 0 $colors$shadow',
+  color: '$text',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'start',

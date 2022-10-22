@@ -2,7 +2,7 @@ import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { css, StyleProps, styleProps } from '../../styles';
 
 const asideCss = css({
-  backgroundColor: '$surface',
+  backgroundColor: '$elevation1',
   boxShadow: '0 0 2px 0 $colors$shadow',
   padding: '$lg',
   alignItems: 'center',

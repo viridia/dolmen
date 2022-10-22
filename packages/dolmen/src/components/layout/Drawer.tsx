@@ -17,7 +17,7 @@ interface DrawerProps {
 }
 
 const drawerCoplanarCss = css({
-  backgroundColor: '$surface',
+  backgroundColor: '$elevation1',
   boxShadow: '0 0 4px 0 $colors$shadow',
   alignItems: 'stretch',
   display: 'flex',
@@ -56,7 +56,7 @@ const drawerCoplanarCss = css({
 });
 
 const drawerModalCss = css({
-  backgroundColor: '$surface',
+  backgroundColor: '$elevation1',
   boxShadow: '0 0 4px 0 $colors$shadow',
   alignItems: 'stretch',
   display: 'flex',
@@ -151,7 +151,7 @@ const drawerHeaderCss = css({
   padding: '8px 1rem',
   margin: 0,
   height: '2rem',
-  // borderBottom: '1px solid $colors$secondaryDivider',
+  // borderBottom: '1px solid $colors$btnSecondaryDivider',
 });
 
 const drawerContentCss = css({

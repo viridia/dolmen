@@ -8,56 +8,52 @@ const textHighlight = '#6f6fcf66';
 
 export const dark = createTheme('dark', {
   colors: {
-    background: palette.coolgray900,
-    backdrop: colord(palette.black).alpha(0.3).toHex(),
-    surface: palette.coolgray850,
-    focus: '#8183ff88',
+    elevation0: palette.coolgray900,
+    elevation1: palette.coolgray850,
+    elevation2: palette.coolgray800,
+
+    wellBg: colord(palette.coolgray850).darken(0.025).toHex(),
+    wellBorder: palette.coolgray750,
+    wellHoverBorder: palette.coolgray700,
+
     text: palette.coolgray200,
     textDim: palette.coolgray500,
+    textSelection: palette.white,
+    textSelectionBg: textHighlight,
+
+    itemHoverBg: palette.coolgray800,
+    itemSelectedBg: textHighlight,
+
+    focus: '#8183ff88',
     shadow: palette.black,
+    backdrop: colord(palette.black).alpha(0.3).toHex(),
 
-    primary: primaryColor,
-    primaryHover: colord(primaryColor).darken(0.05).toHex(),
-    primaryActive: colord(primaryColor).darken(0.1).toHex(),
-    primarySoft: colord(primaryColor).darken(0.1).toHex(),
-    primaryContrast: palette.coolgray100,
-    primaryContrastDim: colord(primaryColor).lighten(0.25).toHex(),
-    primaryDivider: colord(primaryColor).darken(0.1).toHex(),
+    btnPrimary: primaryColor,
+    btnPrimaryText: colord(primaryColor).lighten(0.4).toHex(),
+    btnPrimaryTextDim: colord(primaryColor).lighten(0.25).toHex(),
 
-    secondary: palette.coolgray800,
-    secondaryHover: palette.coolgray750,
-    secondaryActive: palette.coolgray700,
-    secondaryContrast: palette.coolgray200,
-    secondaryContrastDim: palette.coolgray500,
-    secondaryDivider: palette.coolgray900,
+    btnSecondary: palette.coolgray800,
+    btnSecondaryContrast: palette.coolgray200,
+    btnSecondaryContrastDim: palette.coolgray500,
 
-    danger: dangerColor,
-    dangerHover: colord(dangerColor).darken(0.05).toHex(),
-    dangerActive: colord(dangerColor).darken(0.1).toHex(),
-    dangerContrast: palette.coolgray100,
-    dangerContrastDim: colord(dangerColor).lighten(0.3).toHex(),
-    dangerDivider: colord(dangerColor).darken(0.1).toHex(),
+    btnDanger: dangerColor,
+    btnDangerText: colord(dangerColor).lighten(0.4).toHex(),
+    btnDangerTextDim: colord(dangerColor).lighten(0.3).toHex(),
 
-    selected: palette.coolgray600,
-    selectedContrast: palette.coolgray100,
-    selectedContrastDim: palette.coolgray200,
+    btnSelected: palette.coolgray600,
+    btnSelectedContrast: palette.coolgray100,
+    btnSelectedContrastDim: palette.coolgray200,
 
-    subtleHover: palette.coolgray800,
-    subtleActive: palette.coolgray750,
+    toggleFill: palette.coolgray700,
+    toggleFillChecked: '#118811',
+    toggleSlideFill: `linear-gradient(to bottom, ${palette.coolgray100} 0%, ${palette.coolgray300} 100%)`,
 
-    checkboxFill: palette.coolgray800,
-    checkboxFillChecked: primaryColor,
+    tooltipBg: palette.black,
+    tooltipText: palette.coolgray300,
+
+    // To migrate
+
     checkboxBorderColor: palette.coolgray700,
-    checkboxMark: '$white',
-
-    inputBg: colord(palette.coolgray850).darken(0.025).toHex(),
-    inputText: palette.coolgray200,
-    inputIcon: palette.coolgray500,
-    inputBorder: palette.coolgray750,
-    inputBorderHover: palette.coolgray600,
-    inputSelectionBg: textHighlight,
-    inputSelectionText: '$white',
-    inputPlaceholder: '$colors$textDim',
 
     knobRim: `linear-gradient(
       to bottom,
@@ -76,36 +72,9 @@ export const dark = createTheme('dark', {
     knobMark: palette.coolgray600,
     knobShadow: colord(palette.black).alpha(0.4).toHex(),
 
-    listBg: colord(palette.coolgray850).darken(0.025).toHex(),
-    listText: palette.coolgray200,
-    listBorder: palette.coolgray750,
-    listHoverBg: palette.coolgray800,
-    listSelectedBg: textHighlight,
-    listSelectedText: '$white',
-
-    modalBg: palette.coolgray850,
-    modalShadow: colord(palette.black).alpha(0.1).toHex(),
-    modalHeader: palette.coolgray800,
-    modalDivider: palette.coolgray900,
-
     scrollbar: colord(palette.coolgray500).alpha(0.3).toHex(),
     scrollbarInactive: colord(palette.coolgray500).alpha(0.15).toHex(),
 
-    sliderThumb: colord(primaryColor).lighten(0.05).toHex(),
     sliderTrack: palette.coolgray750,
-    sliderBar: '$primarySoft',
-
-    splitterFill: palette.coolgray800,
-    splitterShadow: palette.black,
-    splitterDetail: palette.coolgray600,
-
-    toggleFill: palette.coolgray800,
-    toggleFillChecked: '#118811',
-    toggleBorder: palette.coolgray600,
-    toggleSlideFill: `linear-gradient(to bottom, ${palette.coolgray100} 0%, ${palette.coolgray300} 100%)`,
-    toggleSlideBorder: '#00000088',
-
-    tooltipBg: palette.black,
-    tooltipText: palette.coolgray300,
-},
+  },
 });

@@ -14,24 +14,24 @@ const inputSize = (base: SizeVariant) => ({
 
 const inputFrameCss = css({
   ...inputSize('md'),
-  backgroundColor: '$inputBg',
-  color: '$inputText',
+  backgroundColor: '$wellBg',
+  color: '$text',
   alignItems: 'center',
   appearance: 'none',
   borderRadius: 3,
   borderWidth: 1,
   borderStyle: 'solid',
-  borderColor: '$inputBorder',
+  borderColor: '$wellBorder',
   display: 'flex',
   flexDirection: 'row',
   fontWeight: '350',
   outline: 'none',
   justifyContent: 'center',
   padding: '0 6px',
-  '--icon-color': '$colors$inputIcon',
+  '--icon-color': '$colors$textDim',
 
   '&:hover:not([disabled])': {
-    borderColor: '$inputBorder',
+    borderColor: '$wellHoverBorder',
   },
 
   '&:focus-within': {
@@ -68,7 +68,7 @@ const inputElementCss = css({
   appearance: 'none',
   backgroundColor: 'transparent',
   border: 'none',
-  color: '$inputText',
+  color: '$text',
   outline: 'none',
   fontFamily: '$body',
   fontSize: 'inherit',
@@ -76,12 +76,12 @@ const inputElementCss = css({
   flex: 1,
 
   '&::selection': {
-    background: '$inputSelectionBg',
-    color: '$inputSelectionText',
+    background: '$textSelectionBg',
+    color: '$textSelection',
   },
 
   '&::placeholder': {
-    color: '$inputPlaceholder',
+    color: '$textDim',
   },
 
   '&[disabled]': {

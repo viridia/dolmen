@@ -1,6 +1,6 @@
 import { createFixtureParams } from 'solid-codex-api';
 import { createSignal } from 'solid-js';
-import { Group, Slider, Stack } from '../../components';
+import { Card, Group, Slider, Stack } from '../../components';
 
 export const $category = 'core';
 
@@ -23,6 +23,28 @@ export default {
           valueLabelDisplay="auto"
         />
       </Group>
+    );
+  },
+  'on card': () => {
+    const params = createFixtureParams({
+      min: { type: 'integer', minVal: -100, maxVal: 1000, default: 0 },
+      max: { type: 'integer', minVal: -100, maxVal: 1000, default: 100 },
+      step: { type: 'integer', minVal: 0, maxVal: 100, default: 0 },
+    });
+    const [value, setValue] = createSignal(0);
+    return (
+      <Card w="10rem">
+        <Card.Content>
+          <Slider
+            value={value()}
+            min={params.min()}
+            max={params.max()}
+            step={params.step()}
+            onChange={value => setValue(value)}
+            valueLabelDisplay="auto"
+          />
+        </Card.Content>
+      </Card>
     );
   },
   sizes: () => {
