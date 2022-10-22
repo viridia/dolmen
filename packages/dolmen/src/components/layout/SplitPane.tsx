@@ -1,5 +1,13 @@
 import { VariantProps } from '@stitches/core';
-import { createSignal, Show } from 'solid-js';
+import {
+  children,
+  createMemo,
+  createRenderEffect,
+  createSignal,
+  Index,
+  ParentComponent,
+  Show,
+} from 'solid-js';
 import { JSX, splitProps, VoidComponent } from 'solid-js';
 import { css } from '../../styles';
 
@@ -31,8 +39,8 @@ const splitBarCss = css({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  minWidth: '10px',
-  minHeight: '10px',
+  minWidth: '6px',
+  minHeight: '6px',
   userSelect: 'none',
 
   '&.horizontal': {
@@ -51,13 +59,13 @@ const splitBarDetailCss = css({
   userSelect: 'none',
 
   '.horizontal > &': {
-    width: '3px',
+    width: '1px',
     height: '64px',
   },
 
   '.vertical > &': {
     width: '64px',
-    height: '3px',
+    height: '1px',
   },
 });
 
@@ -73,38 +81,51 @@ const splitSegmentCss = css({
 
 interface SplitPaneProps {
   direction: Direction;
-  initialPosition?: number;
-  first?: JSX.Element;
-  second?: JSX.Element;
 }
 
-export const SplitPane: VoidComponent<
+export const SplitPane: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement> & SplitPaneProps & VariantProps<typeof splitPaneCss>
+> = props => {
+  const [positions, setPositions] = createSignal<number[]>([]);
+
+  return <SplitPaneControlled {...props} positions={positions()} setPositions={setPositions} />;
+};
+
+interface SplitPaneControlledProps {
+  direction: Direction;
+  positions: number[];
+  setPositions: (p: number[]) => void;
+}
+
+export const SplitPaneControlled: ParentComponent<
+  JSX.HTMLAttributes<HTMLDivElement> & SplitPaneControlledProps & VariantProps<typeof splitPaneCss>
 > = props => {
   const [local, rest] = splitProps(props, [
     'class',
     'classList',
     'direction',
-    'first',
-    'second',
-    'initialPosition',
+    'children',
+    'positions',
+    'setPositions',
   ]);
-  const [position, setPosition] = createSignal<number>(
-    Math.max(0, Math.min(1, props.initialPosition ?? 0.5))
-  );
   let splitPaneRef: HTMLDivElement;
   let splitBarRef: HTMLDivElement;
   let dragging = false;
+  let dragSplitIndex = 0;
   let dragOrigin = 0;
   let dragBasis = 0;
   let direction = 1;
 
+  const childPanes = children(() => props.children);
+
   function onPointerDown(event: PointerEvent) {
+    const elt = event.currentTarget as HTMLDivElement;
     event.stopPropagation();
-    (event.currentTarget as HTMLDivElement).setPointerCapture(event.pointerId);
+    elt.setPointerCapture(event.pointerId);
     dragging = true;
+    dragSplitIndex = Number(elt.dataset.splitindex);
     dragOrigin = local.direction === 'horizontal' ? event.pageX : event.pageY;
-    dragBasis = position();
+    dragBasis = normalizedPositions()[dragSplitIndex];
     direction = getComputedStyle(splitPaneRef).direction === 'rtl' ? -1 : 1;
   }
 
@@ -112,24 +133,96 @@ export const SplitPane: VoidComponent<
     event.stopPropagation();
     (event.currentTarget as HTMLDivElement).releasePointerCapture(event.pointerId);
     dragging = false;
-    dragBasis = position();
   }
 
   function onPointerMove(event: PointerEvent) {
     if (dragging) {
       event.stopPropagation();
       event.preventDefault();
+      const newPositions = [...normalizedPositions()];
+      let pos: number;
+      let moveAmt: number;
       if (local.direction === 'horizontal') {
-        const dx = (event.pageX - dragOrigin) * direction;
-        const newPosition = Math.max(0, Math.min(1, dragBasis + dx / splitPaneRef.offsetWidth));
-        setPosition(newPosition);
+        moveAmt = (event.pageX - dragOrigin) * direction;
+        pos = Math.max(0, Math.min(1, dragBasis + moveAmt / splitPaneRef.offsetWidth));
+        // setPosition(newPosition);
       } else {
-        const dy = event.pageY - dragOrigin;
-        const newPosition = Math.max(0, Math.min(1, dragBasis + dy / splitPaneRef.offsetHeight));
-        setPosition(newPosition);
+        moveAmt = event.pageY - dragOrigin;
+        pos = Math.max(0, Math.min(1, dragBasis + moveAmt / splitPaneRef.offsetHeight));
+        // setPosition(newPosition);
       }
+      newPositions[dragSplitIndex] = pos;
+
+      const numPanes = childPanes.toArray().length;
+      const numSplits = Math.max(0, numPanes - 1);
+      if (moveAmt > 0) {
+        for (let i = dragSplitIndex + 1; i < numSplits; i++) {
+          newPositions[i] = Math.max(pos, newPositions[i]);
+        }
+      } else {
+        for (let i = dragSplitIndex - 1; i >= 0; i--) {
+          newPositions[i] = Math.min(pos, newPositions[i]);
+        }
+      }
+
+      // Normalize...
+      props.setPositions(newPositions);
     }
   }
+
+  // Normalize the split positions
+  const normalizedPositions = createMemo(() => {
+    const numPanes = childPanes.toArray().length;
+    const numSplits = Math.max(0, numPanes - 1);
+    let firstUndefinedIndex = 0;
+    let lastDefinedPosition = 0;
+    const positions = [...props.positions];
+    positions.length = numSplits; // Force length to be numSplits.
+    for (let i = 0; i < numSplits; i++) {
+      let pos = positions[i];
+      if (pos !== undefined) {
+        pos = Math.min(lastDefinedPosition, Math.max(pos, 1)); // Clamp to max
+        // Fill in any undefined slots between last defined index an current index.
+        while (firstUndefinedIndex < i) {
+          const widthToDistribute = (pos - lastDefinedPosition) / (i - firstUndefinedIndex + 1);
+          lastDefinedPosition += widthToDistribute;
+          positions[firstUndefinedIndex++] = lastDefinedPosition;
+        }
+        firstUndefinedIndex = i + 1;
+        lastDefinedPosition = pos;
+      }
+    }
+
+    while (firstUndefinedIndex < numSplits) {
+      const widthToDistribute = (1 - lastDefinedPosition) / (numSplits - firstUndefinedIndex + 1);
+      lastDefinedPosition += widthToDistribute;
+      positions[firstUndefinedIndex++] = lastDefinedPosition;
+    }
+
+    return positions;
+  });
+
+  // Convert split positions into an array of flex widths.
+  const paneWidths = createMemo<number[]>(() => {
+    const numPanes = childPanes.toArray().length;
+    if (numPanes == 0) {
+      return [];
+    }
+    const widths: number[] = new Array(numPanes);
+    const p = normalizedPositions();
+    let prev = 0;
+    for (let i = 0; i < numPanes - 1; i++) {
+      const pos = p[i];
+      widths[i] = Math.max(0, pos - prev);
+      prev = pos;
+    }
+    widths[numPanes - 1] = Math.max(0, 1 - prev);
+    return widths;
+  });
+
+  // createEffect(() => {
+  //   console.log(paneWidths());
+  // });
 
   return (
     <div
@@ -141,37 +234,34 @@ export const SplitPane: VoidComponent<
         [splitPaneCss({ direction: local.direction })]: true,
       }}
     >
-      <Show when={local.first}>
-        <div
-          style={{
-            'flex-grow': position(),
-          }}
-          class={splitSegmentCss()}
-        >
-          {local.first}
-        </div>
-      </Show>
-      <Show when={local.first && local.second}>
-        <div
-          ref={splitBarRef!}
-          class={`${splitBarCss()} ${local.direction}`}
-          onPointerDown={onPointerDown}
-          onPointerUp={onPointerUp}
-          onPointerMove={onPointerMove}
-        >
-          <div class={splitBarDetailCss()} />
-        </div>
-      </Show>
-      <Show when={local.second}>
-        <div
-          style={{
-            'flex-grow': 1 - position(),
-          }}
-          class={splitSegmentCss()}
-        >
-          {local.second}
-        </div>
-      </Show>
+      <Index each={childPanes.toArray()}>
+        {(pane, index) => {
+          return (
+            <>
+              <Show when={index > 0}>
+                <div
+                  ref={splitBarRef!}
+                  class={`${splitBarCss()} ${local.direction}`}
+                  onPointerDown={onPointerDown}
+                  onPointerUp={onPointerUp}
+                  onPointerMove={onPointerMove}
+                  data-splitindex={index - 1}
+                >
+                  <div class={splitBarDetailCss()} />
+                </div>
+              </Show>
+              <div
+                style={{
+                  'flex-grow': paneWidths()[index],
+                }}
+                class={splitSegmentCss()}
+              >
+                {pane()}
+              </div>
+            </>
+          );
+        }}
+      </Index>
     </div>
   );
 };

@@ -161,6 +161,6 @@ export function styleProps<T extends {}>(props: T & StyleProps): StylePropsResul
     return [{}, otherProps];
   }
 
-  const style = css({ '&': translatedProps }); // Use '&' to bump cascade priority
+  const style = css({ '&&': translatedProps }); // Use '&' to bump cascade priority
   return [{ [style.toString()]: true }, otherProps];
 }

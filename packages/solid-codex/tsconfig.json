@@ -3,7 +3,9 @@
   "compilerOptions": {
     "jsxImportSource": "solid-js",
     "jsx": "preserve",
-    "outDir": "./dist",
+    "outDir": "./dist/mjs",
+    "rootDir": "./src",
+    "module": "ESNext",
     "declaration": true,
     // "strict": true // Solid-start is not strict-compliant
   },

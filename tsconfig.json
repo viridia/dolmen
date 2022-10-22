@@ -22,9 +22,9 @@
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx"],
   // "files": [],
-  // "references": [
-  //   { "path": "packages/dolmen/tsconfig.mjs.json" },
-  //   { "path": "packages/solid-codex/tsconfig.mjs.json" },
-  //   { "path": "packages/solid-codex-api/tsconfig.mjs.json" }
-  // ]
+  "references": [
+    { "path": "packages/dolmen/tsconfig.src.json" },
+  //   { "path": "packages/solid-codex/tsconfig.json" },
+    { "path": "packages/solid-codex-api/tsconfig.json" }
+  ]
 }

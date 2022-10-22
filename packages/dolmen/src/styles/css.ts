@@ -10,16 +10,21 @@ const { getCssText, css, createTheme, config } = createStitches({
   prefix: 'dol',
   theme: {
     colors: {
-      black: '#000000',
+      black: '#000000', // These don't need to be vars.
       white: '#ffffff',
 
-      background: palette.gray100,
+      background: palette.gray100, // Rename to pageBg
       backdrop: colord(palette.gray900).alpha(0.3).toHex(),
-      surface: palette.gray50,
+      surface: palette.gray50, // rename to raisedBg
       focus: '#00006633',
       text: palette.gray800,
       textDim: palette.gray500,
       shadow: colord(palette.black).alpha(0.4).toHex(),
+
+      // raised2?
+      // wellBg
+      // wellBorder - input, list
+      // wellText
 
       primary: primaryColor,
       primaryHover: colord(primaryColor).darken(0.03).toHex(),

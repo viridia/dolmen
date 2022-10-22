@@ -52,6 +52,7 @@
 * Make toggle less skeumorphic.
 * Fixture for createFocusTrap
 * Split pane with more than 2 panels - should be doable.
+* Way too many theme variables - need to reduce by at least 50%.
 
 # Drawer
 
