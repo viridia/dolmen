@@ -54,8 +54,8 @@ const ListItem: ParentComponent<
 const listCss = css(
   {
     alignItems: 'stretch',
-    backgroundColor: '$wellBg',
-    borderColor: '$wellBorder',
+    backgroundColor: '$fieldBg',
+    borderColor: '$fieldBorderSlight',
     borderWidth: '1px',
     borderStyle: 'solid',
     borderRadius: '3px',

@@ -14,14 +14,14 @@ const inputSize = (base: SizeVariant) => ({
 
 const inputFrameCss = css({
   ...inputSize('md'),
-  backgroundColor: '$wellBg',
+  backgroundColor: '$fieldBg',
   color: '$text',
   alignItems: 'center',
   appearance: 'none',
   borderRadius: 3,
   borderWidth: 1,
   borderStyle: 'solid',
-  borderColor: '$wellBorder',
+  borderColor: '$fieldBorderSlight',
   display: 'flex',
   flexDirection: 'row',
   fontWeight: '350',
@@ -31,7 +31,7 @@ const inputFrameCss = css({
   '--icon-color': '$colors$textDim',
 
   '&:hover:not([disabled])': {
-    borderColor: '$wellHoverBorder',
+    borderColor: '$fieldHoverBorder',
   },
 
   '&:focus-within': {

@@ -30,9 +30,10 @@ export const custom = createTheme('custom', {
     elevation1: palette.warmgray850,
     elevation2: palette.warmgray800,
 
-    wellBg: colord(palette.warmgray850).darken(0.025).toHex(),
-    wellBorder: palette.warmgray750,
-    wellHoverBorder: palette.warmgray700,
+    fieldBg: colord(palette.warmgray850).darken(0.025).toHex(),
+    fieldBorder: palette.warmgray500,
+    fieldBorderSlight: palette.warmgray750,
+    fieldHoverBorder: palette.warmgray700,
 
     text: palette.warmgray200,
     textDim: palette.warmgray500,
@@ -71,8 +72,6 @@ export const custom = createTheme('custom', {
 
     // To migrate
 
-    checkboxBorderColor: palette.warmgray700,
-
     knobRim: `linear-gradient(
       to bottom,
       ${colord(palette.warmgray800).lighten(0.1).toHex()} 0,
@@ -85,8 +84,6 @@ export const custom = createTheme('custom', {
       ${colord(palette.warmgray800).toHex()} 30%,
       ${colord(palette.warmgray800).darken(0.03).toHex()}
     )`,
-    knobArc: palette.warmgray700,
-    knobTick: palette.warmgray700,
     knobMark: palette.warmgray600,
     knobShadow: colord(palette.black).alpha(0.4).toHex(),
 

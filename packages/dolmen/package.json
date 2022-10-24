@@ -44,6 +44,7 @@
     "@floating-ui/dom": "^1.0.2",
     "@stitches/core": "^1.2.8",
     "colord": "^2.9.3",
+    "goober": "^2.1.11",
     "solid-js": "^1.6.0"
   },
   "devDependencies": {

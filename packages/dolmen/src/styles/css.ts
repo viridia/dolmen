@@ -16,9 +16,10 @@ const { getCssText, css, createTheme, theme, config } = createStitches({
       elevation2: palette.white,
 
       // "Wells" are interactive regions such as input, list box, etc.
-      wellBg: palette.gray150,
-      wellBorder: palette.gray250,
-      wellHoverBorder: palette.gray300,
+      fieldBg: palette.gray150,
+      fieldBorder: palette.gray500,
+      fieldBorderSlight: palette.gray250,
+      fieldHoverBorder: palette.gray300,
 
       // Text colors
       text: palette.gray800,
@@ -67,8 +68,6 @@ const { getCssText, css, createTheme, theme, config } = createStitches({
 
       // To migrate
 
-      checkboxBorderColor: palette.gray500,
-
       knobRim: `linear-gradient(
         to bottom,
         ${colord(palette.gray100).lighten(0.1).toHex()} 0,
@@ -81,8 +80,6 @@ const { getCssText, css, createTheme, theme, config } = createStitches({
         ${colord(palette.gray100).toHex()} 30%,
         ${colord(palette.gray100).darken(0.03).toHex()}
       )`,
-      knobArc: palette.gray250,
-      knobTick: palette.gray250,
       knobMark: palette.gray400,
       knobShadow: colord(palette.black).alpha(0.6).toHex(),
 

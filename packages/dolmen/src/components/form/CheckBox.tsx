@@ -20,10 +20,10 @@ const checkboxLabelCss = css({
 
 const checkboxCtrlCss = css({
   appearance: 'none',
-  backgroundColor: '$wellBg',
+  backgroundColor: '$fieldBg',
   borderWidth: '1px',
   borderStyle: 'solid',
-  borderColor: '$checkboxBorderColor',
+  borderColor: '$fieldBorder',
   borderRadius: 3,
   color: '$btnPrimaryText',
   cursor: 'inherit',

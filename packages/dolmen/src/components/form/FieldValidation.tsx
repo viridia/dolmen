@@ -12,13 +12,15 @@ const fieldValidationCss = css({
     status: {
       warning: {
         color: '#a80',
-        [theme.colors.wellBorder.variable]: '#a80',
+        [theme.colors.fieldBorder.variable]: '#a80',
+        [theme.colors.fieldBorderSlight.variable]: '#a80',
         '--icon-color': '#a80',
       },
 
       error: {
         color: '#c00',
-        [theme.colors.wellBorder.variable]: '#c00',
+        [theme.colors.fieldBorder.variable]: '#c00',
+        [theme.colors.fieldBorderSlight.variable]: '#c00',
         '--icon-color': '#c00',
       },
     },

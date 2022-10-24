@@ -55,7 +55,7 @@ const splitBarCss = css({
 });
 
 const splitBarDetailCss = css({
-  backgroundColor: '$wellBorder',
+  backgroundColor: '$fieldBorder',
   userSelect: 'none',
 
   '.horizontal > &': {
