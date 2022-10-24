@@ -7,7 +7,6 @@ import {
   Group,
   Input,
   List,
-  ListItem,
   Slider,
   Spacer,
   Title,
@@ -125,9 +124,9 @@ const ThemeDemo: VoidComponent<{ name: string; class: string }> = props => {
         />
         <Input placeholder="Enter name..." adornRight={<Cancel />} />
         <List>
-          <ListItem selected>Snap</ListItem>
-          <ListItem>Crackle</ListItem>
-          <ListItem>Pop</ListItem>
+          <List.Item selected>Snap</List.Item>
+          <List.Item>Crackle</List.Item>
+          <List.Item>Pop</List.Item>
         </List>
       </Card.Content>
     </Card>

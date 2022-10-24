@@ -1,10 +1,13 @@
 # Components
 
+* MenuButton
+  * Shortcuts
+  * Submenus
+  * forward ref
 * Slider
   * Marks
   * Vertical
   * Quanta
-* MenuButton
 * Select
 * Form
 * Color Picker
@@ -59,3 +62,20 @@
   * Leave sliver
   * Fixture for minWidth
   * Firefox bugs
+
+```tsx
+<Menu>
+  <Menu.Button>Button</Menu.Button>
+  <Menu.List>
+    <Menu.Item></Menu.Item>
+    <Menu.CheckboxItem></Menu.CheckboxItem>
+    <Menu.RadioItem></Menu.RadioItem>
+    <Menu.SubmenuItem></Menu.SubmenuItem>
+    <Menu.Divider />
+  </Menu.List>
+</Menu>
+
+<Select>
+  <Option value={true} caption disabled>
+</Select>
+```

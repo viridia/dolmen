@@ -43,7 +43,7 @@ export const Breadcrumbs: ParentComponent<
         {(child, index) => (
           <>
             <Show when={index() > 0}>
-              <div class={breadcrumbsSeparatorCss()}>
+              <div class={breadcrumbsSeparatorCss()} aria-hidden={true}>
                 {local.separator ?? <ChevronRight />}
               </div>
               </Show>

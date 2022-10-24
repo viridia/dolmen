@@ -12,16 +12,16 @@ export const dark = createTheme('dark', {
     elevation1: palette.coolgray850,
     elevation2: palette.coolgray800,
 
-    wellBg: colord(palette.coolgray850).darken(0.025).toHex(),
-    wellBorder: palette.coolgray750,
-    wellHoverBorder: palette.coolgray700,
+    wellBg: palette.coolgray800,
+    wellBorder: palette.coolgray700,
+    wellHoverBorder: palette.coolgray600,
 
     text: palette.coolgray200,
     textDim: palette.coolgray500,
     textSelection: palette.white,
     textSelectionBg: textHighlight,
 
-    itemHoverBg: palette.coolgray800,
+    itemHoverBg: palette.coolgray750,
     itemSelectedBg: textHighlight,
 
     focus: '#8183ff88',
@@ -43,6 +43,10 @@ export const dark = createTheme('dark', {
     btnSelected: palette.coolgray600,
     btnSelectedContrast: palette.coolgray100,
     btnSelectedContrastDim: palette.coolgray200,
+
+    // Scrollbars
+    scrollbar: colord(palette.coolgray500).alpha(0.3).toHex(),
+    scrollbarInactive: colord(palette.coolgray500).alpha(0.15).toHex(),
 
     toggleFill: palette.coolgray700,
     toggleFillChecked: '#118811',
@@ -71,9 +75,6 @@ export const dark = createTheme('dark', {
     knobTick: palette.coolgray700,
     knobMark: palette.coolgray600,
     knobShadow: colord(palette.black).alpha(0.4).toHex(),
-
-    scrollbar: colord(palette.coolgray500).alpha(0.3).toHex(),
-    scrollbarInactive: colord(palette.coolgray500).alpha(0.15).toHex(),
 
     sliderTrack: palette.coolgray750,
   },

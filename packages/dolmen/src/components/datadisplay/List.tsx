@@ -2,46 +2,6 @@ import { VariantProps } from '@stitches/core';
 import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { css, scrollbars, styleProps, StyleProps } from '../../styles';
 
-const listCss = css(
-  {
-    alignItems: 'stretch',
-    backgroundColor: '$wellBg',
-    borderColor: '$wellBorder',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderRadius: '3px',
-    color: '$text',
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '4px',
-    justifyContent: 'start',
-    overflowY: 'auto',
-    overflowX: 'hidden',
-  },
-  scrollbars
-);
-
-export const List: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
-> = props => {
-  const [layoutStyle, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
-
-  return (
-    <div
-      {...rest}
-      classList={{
-        ...local.classList,
-        ...layoutStyle,
-        [local.class as string]: !!local.class,
-        [listCss()]: true,
-      }}
-    >
-      {local.children}
-    </div>
-  );
-};
-
 const listItemCss = css({
   alignItems: 'center',
   display: 'flex',
@@ -67,7 +27,7 @@ const listItemCss = css({
   },
 });
 
-export const ListItem: ParentComponent<
+const ListItem: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement> & StyleProps & VariantProps<typeof listItemCss>
 > = props => {
   const [layoutStyle, nprops] = styleProps(props);
@@ -76,6 +36,7 @@ export const ListItem: ParentComponent<
   return (
     <div
       {...rest}
+      role="listitem"
       classList={{
         ...local.classList,
         ...layoutStyle,
@@ -89,3 +50,46 @@ export const ListItem: ParentComponent<
     </div>
   );
 };
+
+const listCss = css(
+  {
+    alignItems: 'stretch',
+    backgroundColor: '$wellBg',
+    borderColor: '$wellBorder',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderRadius: '3px',
+    color: '$text',
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '4px',
+    justifyContent: 'start',
+    overflowY: 'auto',
+    overflowX: 'hidden',
+  },
+  scrollbars
+);
+
+export const List: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> & {
+  Item: typeof ListItem;
+} = props => {
+  const [layoutStyle, nprops] = styleProps(props);
+  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+
+  return (
+    <div
+      {...rest}
+      role="list"
+      classList={{
+        ...local.classList,
+        ...layoutStyle,
+        [local.class as string]: !!local.class,
+        [listCss()]: true,
+      }}
+    >
+      {local.children}
+    </div>
+  );
+};
+
+List.Item = ListItem;

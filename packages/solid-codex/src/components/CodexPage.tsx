@@ -132,6 +132,7 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
             icon
             color="subtle"
             selected={settings.showAdjust}
+            aria-label="Toggle Adjustment Panel"
             onClick={() => {
               setSettings(s => ({ showAdjust: !s.showAdjust }));
             }}
@@ -141,6 +142,7 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
           <Button
             icon
             color="subtle"
+            aria-label={settings.theme === 'dark' ? 'Dark Mode' : 'Light Mode'}
             onClick={() => {
               setSettings(s => ({ theme: s.theme === 'dark' ? 'light' : 'dark' }));
             }}

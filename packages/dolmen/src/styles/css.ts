@@ -27,8 +27,8 @@ const { getCssText, css, createTheme, theme, config } = createStitches({
       textSelectionBg: textHighlight,
 
       // Colors for selected items (menus, list rows)
-      itemHoverBg: palette.gray200,
-      itemSelectedBg: textHighlight,
+      itemHoverBg: palette.gray100,
+      itemSelectedBg: colord(primaryColor).lighten(0.2).toHex(),
 
       // Various dynamic colors
       focus: '#00006633',
@@ -51,6 +51,10 @@ const { getCssText, css, createTheme, theme, config } = createStitches({
       btnSelected: palette.gray700,
       btnSelectedContrast: palette.gray100,
       btnSelectedContrastDim: palette.gray200,
+
+      // Scrollbars
+      scrollbar: 'rgba(0, 0, 0, 0.2)',
+      scrollbarInactive: 'rgba(0, 0, 0, 0.1)',
 
       // Toggle switches
       toggleFill: palette.gray150,
@@ -81,9 +85,6 @@ const { getCssText, css, createTheme, theme, config } = createStitches({
       knobTick: palette.gray250,
       knobMark: palette.gray400,
       knobShadow: colord(palette.black).alpha(0.6).toHex(),
-
-      scrollbar: 'rgba(0, 0, 0, 0.2)',
-      scrollbarInactive: 'rgba(0, 0, 0, 0.1)',
 
       sliderTrack: palette.gray250,
     },

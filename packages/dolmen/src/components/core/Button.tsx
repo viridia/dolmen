@@ -1,6 +1,6 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { VariantProps } from '@stitches/core';
-import { css, ButtonSizeVariant } from '../../styles';
+import { css, ButtonSizeVariant, StyleProps, styleProps } from '../../styles';
 import { buttonGroupCss } from './ButtonGroup';
 
 const buttonSize = (base: ButtonSizeVariant) => ({
@@ -146,12 +146,15 @@ const buttonCss = css({
   },
 });
 
-interface ButtonProps extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
-  selected?: boolean;
-}
+export type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> &
+  StyleProps &
+  VariantProps<typeof buttonCss> & {
+    selected?: boolean;
+  };
 
-export const Button: ParentComponent<ButtonProps & VariantProps<typeof buttonCss>> = props => {
-  const [local, rest] = splitProps(props, [
+export const Button: ParentComponent<ButtonProps> = props => {
+  const [layoutStyle, nprops] = styleProps(props);
+  const [local, rest] = splitProps(nprops, [
     'size',
     'color',
     'round',
@@ -166,6 +169,7 @@ export const Button: ParentComponent<ButtonProps & VariantProps<typeof buttonCss
       {...rest}
       classList={{
         ...local.classList,
+        ...layoutStyle,
         [local.class as string]: !!local.class,
         [buttonCss({
           size: local.size,

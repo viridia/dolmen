@@ -1,4 +1,5 @@
 import { createSignal, onCleanup, onMount } from 'solid-js';
+import { getAllFocusableElements } from '../lib/focus';
 
 interface IFocusTrapOptions {
   onKeyDown?: (e: KeyboardEvent) => void;
@@ -13,18 +14,6 @@ interface IFocusTrapResult {
   focusPrev: () => void;
   setFocus: (index: number) => void;
 }
-
-const getAllFocusableElements = (parent: HTMLElement): HTMLElement[] => {
-  if (!parent) {
-    return [];
-  }
-
-  return Array.from(
-    parent.querySelectorAll(
-      'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), details:not([disabled]), summary:not(:disabled)'
-    )
-  );
-};
 
 const hasParent = (elt: HTMLElement, parent: HTMLElement) => {
   while (elt) {
