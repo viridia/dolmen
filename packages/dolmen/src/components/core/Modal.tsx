@@ -1,7 +1,7 @@
 import { createContext, JSX, ParentComponent, Show, splitProps, useContext } from 'solid-js';
 import { createCssTransition, createFocusTrap, CssTransitionState } from '../../hooks';
 import { Close } from '../../icons';
-import { css, scrollbars } from '../../styles';
+import { css, scrollbars, Z } from '../../styles';
 import { Button } from './Button';
 import { VariantProps } from '@stitches/core';
 
@@ -74,7 +74,7 @@ const backdropCss = css({
   right: 0,
   top: 0,
   bottom: 0,
-  zIndex: '$modal',
+  zIndex: Z.modal,
   alignItems: 'center',
   justifyContent: 'center',
   opacity: 0,

@@ -1,7 +1,7 @@
 import { createMemo, createSignal, onMount, ParentComponent, Show } from 'solid-js';
 import { JSX, splitProps } from 'solid-js';
 import { createCssTransition, CssTransitionState } from '../../hooks';
-import { css, styleProps, StyleProps } from '../../styles';
+import { css, styleProps, StyleProps, Z } from '../../styles';
 import { VariantProps } from '@stitches/core';
 
 type Side = 'start' | 'end' | 'left' | 'right' | 'top' | 'bottom';
@@ -29,7 +29,7 @@ const drawerCoplanarCss = css({
   bottom: 0,
   left: 0,
   right: 0,
-  zIndex: '$sidebar',
+  zIndex: Z.sidebar,
 
   variants: {
     side: {
@@ -132,7 +132,7 @@ const drawerModalContainerCss = css({
   right: 0,
   top: 0,
   bottom: 0,
-  zIndex: '$modal',
+  zIndex: Z.modal,
   alignItems: 'center',
   justifyContent: 'center',
   transition: 'background-color 0.3s linear',

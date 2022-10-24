@@ -1,5 +1,5 @@
 import { ParentComponent, createSignal, createEffect, batch, Show } from 'solid-js';
-import { css } from '../../styles';
+import { css, Z } from '../../styles';
 import { computePosition, flip, offset, arrow, Placement } from '@floating-ui/dom';
 import { createCssTransition } from '../../hooks/createCssTransition';
 
@@ -19,7 +19,7 @@ const calloutCss = css({
   width: 'fit-content(10rem)',
   opacity: 0,
   transition: 'opacity 0.3s linear',
-  zIndex: '$tooltip',
+  zIndex: Z.tooltip,
 
   '&.entering,&.entered': {
     opacity: 1,

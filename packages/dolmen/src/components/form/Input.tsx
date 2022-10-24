@@ -1,6 +1,6 @@
 import { JSX, splitProps, Component } from 'solid-js';
 import { VariantProps } from '@stitches/core';
-import { css, SizeVariant } from '../../styles';
+import { css, fontSize, size, SizeVariant } from '../../styles';
 
 interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
   adornLeft?: JSX.Element | JSX.Element[];
@@ -8,8 +8,8 @@ interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
 }
 
 const inputSize = (base: SizeVariant) => ({
-  height: `$sizes$${base}`,
-  fontSize: `$fontSizes$${base}`,
+  height: size[base],
+  fontSize: fontSize[base],
 });
 
 const inputFrameCss = css({

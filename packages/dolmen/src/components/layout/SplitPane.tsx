@@ -1,14 +1,6 @@
 import { VariantProps } from '@stitches/core';
-import {
-  children,
-  createMemo,
-  createRenderEffect,
-  createSignal,
-  Index,
-  ParentComponent,
-  Show,
-} from 'solid-js';
-import { JSX, splitProps, VoidComponent } from 'solid-js';
+import { children, createMemo, createSignal, Index, ParentComponent, Show } from 'solid-js';
+import { JSX, splitProps } from 'solid-js';
 import { css } from '../../styles';
 
 type Direction = 'horizontal' | 'vertical';
@@ -45,17 +37,15 @@ const splitBarCss = css({
 
   '&.horizontal': {
     cursor: 'col-resize',
-    // borderWidth: '0 1px 0 1px',
   },
 
   '&.vertical': {
     cursor: 'row-resize',
-    // borderWidth: '1px 0 1px 0',
   },
 });
 
 const splitBarDetailCss = css({
-  backgroundColor: '$fieldBorder',
+  backgroundColor: '$fieldBorderSlight',
   userSelect: 'none',
 
   '.horizontal > &': {

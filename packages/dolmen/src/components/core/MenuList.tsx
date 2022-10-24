@@ -9,7 +9,7 @@ import {
   onCleanup,
   useContext,
 } from 'solid-js';
-import { css, scrollbars, styleProps, StyleProps } from '../../styles';
+import { css, scrollbars, styleProps, StyleProps, Z } from '../../styles';
 import { autoUpdate, computePosition, flip, offset, Placement } from '@floating-ui/dom';
 import { Property } from '@stitches/core/types/css';
 import { createCssTransition } from '../../hooks';
@@ -27,7 +27,7 @@ const menuListCss = css(
     justifyContent: 'start',
     overflowY: 'auto',
     overflowX: 'hidden',
-    zIndex: '$dropdown',
+    zIndex: Z.dropdown,
     margin: 0,
     padding: 0,
     position: 'absolute',

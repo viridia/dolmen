@@ -1,6 +1,7 @@
 import { createStitches } from '@stitches/core';
 import { colord } from 'colord';
 import { palette } from './palette';
+import { fontSize } from './size';
 
 const primaryColor = '#6469ff';
 const dangerColor = '#992ca9';
@@ -93,45 +94,34 @@ const { getCssText, css, createTheme, theme, config } = createStitches({
       mono: '"Source Code Pro", Consolas, Inconsolata, Menlo, monospace',
     },
 
-    fontSizes: {
-      xl: '1.25rem',
-      lg: '1.1rem',
-      md: '1rem',
-      sm: '0.95rem',
-      xs: '0.85rem',
-      mini: '0.8rem',
-      tiny: '0.75rem',
-    },
+    // fontSizes: {
+    //   xl: '1.25rem',
+    //   lg: '1.1rem',
+    //   md: '1rem',
+    //   sm: '0.95rem',
+    //   xs: '0.85rem',
+    //   mini: '0.8rem',
+    //   tiny: '0.75rem',
+    // },
 
-    space: {
-      xl: '12px',
-      lg: '8px',
-      md: '4px',
-      sm: '2px',
-      xs: '1px',
-      none: '0',
-    },
+    // space: {
+    //   xl: '12px',
+    //   lg: '8px',
+    //   md: '4px',
+    //   sm: '2px',
+    //   xs: '1px',
+    //   none: '0',
+    // },
 
-    sizes: {
-      xl: '2.5rem',
-      lg: '2.2rem',
-      md: '2rem',
-      sm: '1.85rem',
-      xs: '1.65rem',
-      mini: '1.45rem',
-      tiny: '1.3rem',
-    },
-
-    zIndices: {
-      ground: 0,
-      focused: 100, // Let's focus indicators float above other controls.
-      sidebar: 500, // For sidebars that lie below the appbar
-      appbar: 600,
-      modal: 700,
-      dropdown: 800,
-      alert: 900,
-      tooltip: 1000,
-    },
+    // sizes: {
+    //   xl: '2.5rem',
+    //   lg: '2.2rem',
+    //   md: '2rem',
+    //   sm: '1.85rem',
+    //   xs: '1.65rem',
+    //   mini: '1.45rem',
+    //   tiny: '1.3rem',
+    // },
   },
 });
 
@@ -140,13 +130,13 @@ export { getCssText, css, createTheme, theme, config };
 export const stdFontSizes = css({
   variants: {
     size: {
-      xl: { fontSize: '$xl' },
-      lg: { fontSize: '$lg' },
-      md: { fontSize: '$md' },
-      sm: { fontSize: '$sm' },
-      xs: { fontSize: '$xs' },
-      mini: { fontSize: '$mini' },
-      tiny: { fontSize: '$tiny' },
+      xl: { fontSize: fontSize.xl },
+      lg: { fontSize: fontSize.lg },
+      md: { fontSize: fontSize.md },
+      sm: { fontSize: fontSize.sm },
+      xs: { fontSize: fontSize.xs },
+      mini: { fontSize: fontSize.mini },
+      tiny: { fontSize: fontSize.tiny },
     },
   },
 });

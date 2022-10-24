@@ -1,78 +1,87 @@
 import { CSSProperties } from '@stitches/core';
 import { Property } from '@stitches/core/types/css';
 import { splitProps } from 'solid-js';
-import { css, config } from './css';
-import { Spacings, ZIndices } from './cssTypes';
+import { css } from './css';
+import { Space, space } from './size';
+import { Z, ZIndices } from './z';
 
-const space = config.theme.space;
-const zIndices = config.theme.zIndices;
+const spaceAlias = (s: string | number) => (typeof s === 'string' && space[s as Space] || s);
 
-const spaceAlias = (s: string | number) => (typeof s === 'string' && s in space ? `$${s}` : s);
-const zAlias = (z: string | number) => (typeof z === 'string' && z in zIndices ? `$${z}` : z);
+const zAlias = (z: string | number) => {
+  const result = Z[z as ZIndices];
+  if (result !== undefined) {
+    return result;
+  } else if (typeof z === 'number') {
+    return z;
+  } else {
+    console.warn(`Invalid zIndex value: ${JSON.stringify(z)}`);
+    return undefined;
+  }
+};
 
 /** Translates shortcuts such as "xl" into a form acceptable to Stitches. */
 const conversionMap = {
-  gap: (value: Property.Gap | Spacings, css: CSSProperties) => {
+  gap: (value: Property.Gap | Space, css: CSSProperties) => {
     css.gap = spaceAlias(value);
   },
 
-  m: (value: Property.Margin | Spacings, css: CSSProperties) => {
+  m: (value: Property.Margin | Space, css: CSSProperties) => {
     css.margin = spaceAlias(value);
   },
 
-  margin: (value: Property.Margin | Spacings, css: CSSProperties) => {
+  margin: (value: Property.Margin | Space, css: CSSProperties) => {
     css.margin = spaceAlias(value);
   },
 
-  ml: (value: Property.Margin | Spacings, css: CSSProperties) => {
+  ml: (value: Property.Margin | Space, css: CSSProperties) => {
     css.marginLeft = spaceAlias(value);
   },
 
-  mr: (value: Property.Margin | Spacings, css: CSSProperties) => {
+  mr: (value: Property.Margin | Space, css: CSSProperties) => {
     css.marginRight = spaceAlias(value);
   },
 
-  mt: (value: Property.Margin | Spacings, css: CSSProperties) => {
+  mt: (value: Property.Margin | Space, css: CSSProperties) => {
     css.marginTop = spaceAlias(value);
   },
 
-  mb: (value: Property.Margin | Spacings, css: CSSProperties) => {
+  mb: (value: Property.Margin | Space, css: CSSProperties) => {
     css.marginBottom = spaceAlias(value);
   },
 
-  mx: (value: Property.Margin | Spacings, css: CSSProperties) => {
+  mx: (value: Property.Margin | Space, css: CSSProperties) => {
     css.marginLeft = css.marginRight = spaceAlias(value);
   },
 
-  my: (value: Property.Margin | Spacings, css: CSSProperties) => {
+  my: (value: Property.Margin | Space, css: CSSProperties) => {
     css.marginTop = css.marginBottom = spaceAlias(value);
   },
 
-  p: (value: Property.Margin | Spacings, css: CSSProperties) => {
+  p: (value: Property.Margin | Space, css: CSSProperties) => {
     css.padding = spaceAlias(value);
   },
 
-  pl: (value: Property.Margin | Spacings, css: CSSProperties) => {
+  pl: (value: Property.Margin | Space, css: CSSProperties) => {
     css.paddingLeft = spaceAlias(value);
   },
 
-  pr: (value: Property.Margin | Spacings, css: CSSProperties) => {
+  pr: (value: Property.Margin | Space, css: CSSProperties) => {
     css.paddingRight = spaceAlias(value);
   },
 
-  pt: (value: Property.Margin | Spacings, css: CSSProperties) => {
+  pt: (value: Property.Margin | Space, css: CSSProperties) => {
     css.paddingTop = spaceAlias(value);
   },
 
-  pb: (value: Property.Margin | Spacings, css: CSSProperties) => {
+  pb: (value: Property.Margin | Space, css: CSSProperties) => {
     css.paddingBottom = spaceAlias(value);
   },
 
-  px: (value: Property.Margin | Spacings, css: CSSProperties) => {
+  px: (value: Property.Margin | Space, css: CSSProperties) => {
     css.paddingLeft = css.paddingRight = spaceAlias(value);
   },
 
-  py: (value: Property.Margin | Spacings, css: CSSProperties) => {
+  py: (value: Property.Margin | Space, css: CSSProperties) => {
     css.paddingTop = css.paddingBottom = spaceAlias(value);
   },
 

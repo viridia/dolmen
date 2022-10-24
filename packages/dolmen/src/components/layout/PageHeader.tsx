@@ -1,5 +1,5 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, styleProps, StyleProps } from '../../styles';
+import { css, styleProps, StyleProps, Z } from '../../styles';
 
 const pageHeaderTitleCss = css({
   alignItems: 'center',
@@ -43,7 +43,7 @@ const pageHeaderCss = css({
   justifyContent: 'space-between',
   padding: '8px 1rem',
   position: 'relative',
-  zIndex: '$appbar',
+  zIndex: Z.appbar,
 });
 
 export const PageHeader: ParentComponent<

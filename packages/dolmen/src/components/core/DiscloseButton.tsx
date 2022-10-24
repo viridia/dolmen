@@ -1,6 +1,6 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { ChevronDown } from '../../icons';
-import { css } from '../../styles';
+import { css, Z } from '../../styles';
 
 const discloseButtonCss = css({
   alignItems: 'center',
@@ -31,7 +31,7 @@ const discloseButtonCss = css({
 
   '&:focus:focus-visible': {
     boxShadow: '0 0 1px 3px $colors$focus',
-    zIndex: '$focused',
+    zIndex: Z.focused,
   },
 
   '&[disabled]': {

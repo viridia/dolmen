@@ -1,5 +1,5 @@
 import { JSX, splitProps, ParentComponent } from 'solid-js';
-import { css } from '../../styles';
+import { css, Z } from '../../styles';
 
 const checkboxLabelCss = css({
   color: '$text',
@@ -37,7 +37,7 @@ const checkboxCtrlCss = css({
 
   '&:focus-within:focus-visible': {
     boxShadow: '0 0 1px 3px $colors$focus',
-    zIndex: '$focused',
+    zIndex: Z.focused,
   },
 
   '&:checked': {

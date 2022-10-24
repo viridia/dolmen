@@ -1,16 +1,16 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, StyleProps, styleProps } from '../../styles';
+import { css, space, StyleProps, styleProps, Z } from '../../styles';
 
 const asideCss = css({
   backgroundColor: '$elevation1',
   boxShadow: '0 0 2px 0 $colors$shadow',
-  padding: '$lg',
+  padding: space.lg,
   alignItems: 'center',
   display: 'flex',
   position: 'relative',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  zIndex: '$sidebar'
+  zIndex: Z.sidebar
 });
 
 export const Aside: ParentComponent<

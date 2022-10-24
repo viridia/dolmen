@@ -1,5 +1,5 @@
 import { JSX, splitProps, ParentComponent } from 'solid-js';
-import { css } from '../../styles';
+import { css, Z } from '../../styles';
 
 const toggleSwitchLabelCss = css({
   alignItems: 'center',
@@ -23,19 +23,22 @@ const toggleSwitchCtrlCss = css({
   appearance: 'none',
   backgroundColor: '$toggleFill',
   boxShadow: `inset 0 1px 3px 1px #00000088`,
+  borderWidth: 0,
   borderRadius: 10,
   cursor: 'inherit',
+  display: 'block',
   height: '20px',
   fontSize: 'inherit',
   margin: '0 6px 0 0',
   outline: 'none',
+  padding: 0,
   position: 'relative',
   transition: 'background-color 0.3s ease',
   width: '36px',
 
   '&:focus-within:focus-visible': {
     boxShadow: '0 0 1px 3px $colors$focus, inset 0 1px 3px 1px #000000cc',
-    zIndex: '$focused',
+    zIndex: Z.focused,
   },
 
   '&:checked': {
@@ -73,7 +76,7 @@ export const ToggleSwitch: ParentComponent<ToggleSwitchProps> = props => {
         disabled: props.disabled,
       }}
     >
-      <input {...rest} class={toggleSwitchCtrlCss()} type="checkbox" />
+      <input {...rest} class={toggleSwitchCtrlCss()} type="checkbox" role="switch" />
       {local.children}
     </label>
   );

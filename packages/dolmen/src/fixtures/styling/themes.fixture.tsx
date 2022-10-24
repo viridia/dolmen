@@ -7,6 +7,7 @@ import {
   Group,
   Input,
   List,
+  Menu,
   Slider,
   Spacer,
   Title,
@@ -19,7 +20,7 @@ export const $category = 'styling';
 
 import { colord } from 'colord';
 import { palette } from '../../styles';
-import { Cancel } from '../../icons';
+import { Cancel, ChevronDown } from '../../icons';
 const primaryColor = '#9a7e42';
 const dangerColor = '#7d248a';
 const textHighlight = '#81665566';
@@ -96,6 +97,7 @@ export const custom = createTheme('custom', {
 
 const ThemeDemo: VoidComponent<{ name: string; class: string }> = props => {
   const [sliderValue, setSliderValue] = createSignal(30);
+  const [anchorRef, setAnchorRef] = createSignal<HTMLElement>();
   return (
     <Card flex={1} class={props.class}>
       <Card.Content gap="lg">
@@ -125,6 +127,18 @@ const ThemeDemo: VoidComponent<{ name: string; class: string }> = props => {
           <List.Item>Crackle</List.Item>
           <List.Item>Pop</List.Item>
         </List>
+        <Button ref={setAnchorRef} w="10rem">
+          Menu
+          <Spacer />
+          <ChevronDown />
+        </Button>
+        <Menu.List anchor={anchorRef()} inset>
+          <Menu.Item>One</Menu.Item>
+          <Menu.ItemCheckBox checked>Two</Menu.ItemCheckBox>
+          <Menu.Item disabled>Three</Menu.Item>
+          <Menu.Divider />
+          <Menu.Item>Four</Menu.Item>
+        </Menu.List>
       </Card.Content>
     </Card>
   );

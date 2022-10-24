@@ -1,11 +1,11 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { VariantProps } from '@stitches/core';
-import { css, ButtonSizeVariant, StyleProps, styleProps } from '../../styles';
+import { css, ButtonSizeVariant, StyleProps, styleProps, Z, size, fontSize } from '../../styles';
 import { buttonGroupCss } from './ButtonGroup';
 
 const buttonSize = (base: ButtonSizeVariant) => ({
-  height: `$sizes$${base}`,
-  fontSize: `$fontSizes$${base}`,
+  height: size[base],
+  fontSize: fontSize[base],
   padding: `0 0.7em`,
 });
 
@@ -26,7 +26,7 @@ const buttonCss = css({
 
   '&:focus:focus-visible': {
     boxShadow: '0 0 1px 3px $colors$focus',
-    zIndex: '$focused',
+    zIndex: Z.focused,
   },
 
   '&[disabled]': {

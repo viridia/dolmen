@@ -9,7 +9,7 @@ import {
   batch,
 } from 'solid-js';
 import { createElementSize } from '../../hooks';
-import { css, SizeVariant } from '../../styles';
+import { css, SizeVariant, Z } from '../../styles';
 import { computePosition, flip, offset, arrow } from '@floating-ui/dom';
 
 interface SliderProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -128,7 +128,7 @@ const valueLabelCss = css({
   opacity: 0,
   textAlign: 'center',
   transition: 'opacity 0.05s linear',
-  zIndex: '$tooltip',
+  zIndex: Z.tooltip,
 
   ':hover > &': {
     opacity: 1,
