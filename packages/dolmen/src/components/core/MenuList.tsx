@@ -13,7 +13,7 @@ import { css, scrollbars, styleProps, StyleProps } from '../../styles';
 import { autoUpdate, computePosition, flip, offset, Placement } from '@floating-ui/dom';
 import { Property } from '@stitches/core/types/css';
 import { createCssTransition } from '../../hooks';
-import { menuCloseEvent, MenuContext } from './MenuContext';
+import { MenuAction, menuCloseEvent, MenuContext } from './MenuContext';
 
 const menuListCss = css(
   {
@@ -28,6 +28,8 @@ const menuListCss = css(
     overflowY: 'auto',
     overflowX: 'hidden',
     zIndex: '$dropdown',
+    margin: 0,
+    padding: 0,
     position: 'absolute',
     opacity: 0,
     transform: 'scale(.95)',
@@ -49,7 +51,7 @@ export interface MenuListProps {
 }
 
 export const MenuList: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & MenuListProps & StyleProps
+  JSX.HTMLAttributes<HTMLUListElement> & MenuListProps & StyleProps
 > = props => {
   const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children', 'inset', 'onClose']);
@@ -76,7 +78,7 @@ export const MenuList: ParentComponent<
     setMounted(true);
   });
 
-  const menuAction = (action: 'next' | 'prev' | 'home' | 'end' | 'sync' | 'close') => {
+  const menuAction = (action: MenuAction) => {
     if (action === 'close') {
       if (local.onClose) {
         local.onClose();
@@ -91,7 +93,7 @@ export const MenuList: ParentComponent<
     const menu = menuRef();
     if (menu) {
       // Find child items that are menu items.
-      const items = Array.from(menu.querySelectorAll(':scope > [role^="menuitem"]').values());
+      const items = Array.from(menu.querySelectorAll(':scope > li > [role^="menuitem"]').values());
 
       // Get active element in doc, and find menuitem parent
       let activeItem: Element | null | undefined = document.activeElement;
@@ -149,7 +151,12 @@ export const MenuList: ParentComponent<
     const menuElt = menuRef();
     if (anchorElt && menuElt && mounted()) {
       setSaveFocus((document.activeElement as HTMLElement) ?? null);
-      menuAction('home');
+      if (context) {
+        menuAction(context.pendingAction ?? 'home');
+        context.pendingAction = undefined;
+      } else {
+        menuAction('home');
+      }
       onCleanup(
         autoUpdate(anchorElt, menuElt, () => {
           computePosition(anchorElt, menuElt, {
@@ -200,7 +207,7 @@ export const MenuList: ParentComponent<
 
   return (
     <Show when={state() !== 'exited'}>
-      <div
+      <ul
         {...rest}
         ref={setMenuRef}
         role="menu"
@@ -260,7 +267,7 @@ export const MenuList: ParentComponent<
         }}
       >
         {props.children}
-      </div>
+      </ul>
     </Show>
   );
 };

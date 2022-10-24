@@ -18,12 +18,27 @@ export const MenuButton: ParentComponent<ButtonProps & MenuButtonProps> = props 
       aria-controls={context.anchor() ? 'basic-menu' : undefined}
       aria-haspopup
       aria-expanded={context.anchor() ? 'true' : undefined}
-      // classList={{
-      //   ...props.classList,
-      //   [menuCss()]: true,
-      // }}
       onClick={e => {
         context.open(e.currentTarget);
+      }}
+      onKeyDown={e => {
+        switch (e.key) {
+          case 'Down':
+          case 'ArrowDown': {
+            e.preventDefault();
+            e.stopPropagation();
+            context.open(e.currentTarget);
+            break;
+          }
+          case 'Up':
+          case 'ArrowUp': {
+            e.preventDefault();
+            e.stopPropagation();
+            context.pendingAction = 'end';
+            context.open(e.currentTarget);
+            break;
+          }
+        }
       }}
     >
       {props.children}

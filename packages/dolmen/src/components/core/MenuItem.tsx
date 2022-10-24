@@ -76,51 +76,53 @@ const MenuItemBase: ParentComponent<
   ]);
 
   return (
-    <a
-      {...rest}
-      tabIndex={-1}
-      aria-disabled={local.disabled}
-      classList={{
-        ...local.classList,
-        ...layoutStyle,
-        [local.class as string]: !!local.class,
-        [menuItemCss()]: true,
-      }}
-      onClick={e => {
-        e.stopPropagation();
-        if (props.onClick) {
-          props.onClick(e);
-          // Close menu if they did not call preventDefault().
-          if (!e.defaultPrevented) {
-            e.preventDefault();
-            e.currentTarget.dispatchEvent(new CustomEvent(menuCloseEvent, { bubbles: true }));
-          }
-        }
-      }}
-      onKeyDown={e => {
-        switch (e.key) {
-          case 'Enter':
-          case ' ':
-            e.stopPropagation();
-            if (props.onClick) {
-              props.onClick(e);
-              // Close menu if they did not call preventDefault().
-              if (!e.defaultPrevented) {
-                e.preventDefault();
-                e.currentTarget.dispatchEvent(new CustomEvent(menuCloseEvent, { bubbles: true }));
-              }
+    <li>
+      <a
+        {...rest}
+        tabIndex={-1}
+        aria-disabled={local.disabled}
+        classList={{
+          ...local.classList,
+          ...layoutStyle,
+          [local.class as string]: !!local.class,
+          [menuItemCss()]: true,
+        }}
+        onClick={e => {
+          e.stopPropagation();
+          if (props.onClick) {
+            props.onClick(e);
+            // Close menu if they did not call preventDefault().
+            if (!e.defaultPrevented) {
+              e.preventDefault();
+              e.currentTarget.dispatchEvent(new CustomEvent(menuCloseEvent, { bubbles: true }));
             }
-            break;
-        }
-      }}
-    >
-      <div class={menuIconCss()}>
-        <Show when={local.checked} fallback={local.icon}>
-          <div class={menuCheckCss()} />
-        </Show>
-      </div>
-      {local.children}
-    </a>
+          }
+        }}
+        onKeyDown={e => {
+          switch (e.key) {
+            case 'Enter':
+            case ' ':
+              e.stopPropagation();
+              if (props.onClick) {
+                props.onClick(e);
+                // Close menu if they did not call preventDefault().
+                if (!e.defaultPrevented) {
+                  e.preventDefault();
+                  e.currentTarget.dispatchEvent(new CustomEvent(menuCloseEvent, { bubbles: true }));
+                }
+              }
+              break;
+          }
+        }}
+      >
+        <div class={menuIconCss()}>
+          <Show when={local.checked} fallback={local.icon}>
+            <div class={menuCheckCss()} />
+          </Show>
+        </div>
+        {local.children}
+      </a>
+    </li>
   );
 };
 

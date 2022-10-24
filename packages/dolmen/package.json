@@ -42,13 +42,13 @@
   },
   "dependencies": {
     "@floating-ui/dom": "^1.0.2",
+    "@stitches/core": "^1.2.8",
     "colord": "^2.9.3",
-    "solid-codex-api": "^0.0.1",
-    "solid-js": "^1.5.7"
+    "solid-js": "^1.6.0"
   },
   "devDependencies": {
-    "@stitches/core": "^1.2.8",
     "@svgr/cli": "^6.4.0",
+    "solid-codex-api": "^0.0.1",
     "typescript": "^4.8.3"
   },
   "engines": {
