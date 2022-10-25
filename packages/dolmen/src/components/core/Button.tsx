@@ -114,6 +114,20 @@ const buttonCss = css({
         },
         '--icon-color': '$colors$btnSecondaryContrastDim',
       },
+      field: {
+        backgroundColor: '$fieldBg',
+        borderColor: '$fieldBorderSlight',
+        color: '$text',
+        borderWidth: 1,
+        // '&:hover:not([disabled])': {
+        //   backgroundColor: '$itemHoverBg',
+        // },
+        // '&:active:not([disabled])': {
+        //   backgroundColor: '$itemHoverBg',
+        //   filter: 'brightness(0.9)',
+        // },
+        '--icon-color': '$colors$textDim',
+      },
     },
 
     round: {

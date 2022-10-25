@@ -1,10 +1,20 @@
 import { ParentComponent, useContext } from 'solid-js';
 import { ChevronDown } from '../../icons';
-import { Spacer } from '../layout';
+import { css } from '../../styles';
 import { Button, ButtonProps } from './Button';
 import { MenuContext } from './MenuContext';
 
 interface MenuButtonProps {}
+
+const menuButtonCaptionCss = css({
+  display: 'block',
+  overflowX: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+  textAlign: 'start',
+  minWidth: 0,
+  flex: '1 1 0',
+});
 
 export const MenuButton: ParentComponent<ButtonProps & MenuButtonProps> = props => {
   const context = useContext(MenuContext);
@@ -41,8 +51,7 @@ export const MenuButton: ParentComponent<ButtonProps & MenuButtonProps> = props 
         }
       }}
     >
-      {props.children}
-      <Spacer />
+      <div class={menuButtonCaptionCss()}>{props.children}</div>
       <ChevronDown />
     </Button>
   );

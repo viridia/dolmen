@@ -93,7 +93,11 @@ export const MenuList: ParentComponent<
     const menu = menuRef();
     if (menu) {
       // Find child items that are menu items.
-      const items = Array.from(menu.querySelectorAll(':scope > li > [role^="menuitem"]').values());
+      const items = Array.from(
+        menu
+          .querySelectorAll(':scope > li > [role^="menuitem"], :scope > li > [role="option"]')
+          .values()
+      );
 
       // Get active element in doc, and find menuitem parent
       let activeItem: Element | null | undefined = document.activeElement;
@@ -104,7 +108,7 @@ export const MenuList: ParentComponent<
         const role = activeItem.getAttribute('role');
         if (role === 'menu') {
           break;
-        } else if (role?.startsWith('menuitem')) {
+        } else if (role?.startsWith('menuitem') || role === 'option') {
           break;
         }
       }
@@ -158,19 +162,26 @@ export const MenuList: ParentComponent<
         menuAction('home');
       }
       onCleanup(
-        autoUpdate(anchorElt, menuElt, () => {
-          computePosition(anchorElt, menuElt, {
-            placement: props.placement ?? 'bottom-start',
-            middleware: [offset(3), flip()],
-          }).then(({ x, y }) => {
-            setPopupStyle({
-              left: `${x}px`,
-              top: `${y}px`,
-              position: 'absolute',
-              'min-width': `${anchorElt.offsetWidth}px`,
+        autoUpdate(
+          anchorElt,
+          menuElt,
+          () => {
+            computePosition(anchorElt, menuElt, {
+              placement: props.placement ?? 'bottom-start',
+              middleware: [offset(3), flip()],
+            }).then(({ x, y }) => {
+              setPopupStyle({
+                left: `${x}px`,
+                top: `${y}px`,
+                position: 'absolute',
+                'min-width': `${anchorElt.offsetWidth}px`,
+              });
             });
-          });
-        })
+          },
+          {
+            animationFrame: true,
+          }
+        )
       );
     }
   });

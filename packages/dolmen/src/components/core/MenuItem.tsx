@@ -46,13 +46,26 @@ const menuItemCss = css({
     cursor: 'default',
   },
 
-  '&:hover:not([aria-disabled])': {
-    backgroundColor: '$itemHoverBg',
+  '&&&[aria-selected]': {
+    color: '$itemSelectedText',
+    backgroundColor: '$itemSelectedBg',
   },
 
   '&&:focus': {
-    backgroundColor: '$itemSelectedBg',
+    boxShadow: 'inset 0 0 2px 1px $colors$focus',
+    backgroundColor: '$itemFocusBg',
   },
+
+  '&:hover:not([aria-disabled])': {
+    backgroundColor: '$itemHoverBg',
+  },
+});
+
+const menuCaptionCss = css({
+  display: 'block',
+  overflowX: 'hidden',
+  textOverflow: 'ellipsis',
+  flex: '1 1 0',
 });
 
 interface MenuItemProps {
@@ -120,7 +133,7 @@ const MenuItemBase: ParentComponent<
             <div class={menuCheckCss()} />
           </Show>
         </div>
-        {local.children}
+        <div class={menuCaptionCss()}>{local.children}</div>
       </a>
     </li>
   );

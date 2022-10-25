@@ -1,4 +1,3 @@
-import { VariantProps } from '@stitches/core';
 import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { css, scrollbars, styleProps, StyleProps } from '../../styles';
 
@@ -14,36 +13,45 @@ const listItemCss = css({
     backgroundColor: '$itemHoverBg',
   },
 
-  variants: {
-    selected: {
-      true: {
-        backgroundColor: '$itemSelectedBg',
-        color: '$listSelectectedText',
-        '&:hover': {
-          backgroundColor: '$itemSelectedBg',
-        },
-      },
-    },
+  '&&[aria-disabled]': {
+    opacity: 0.5,
+    cursor: 'default',
+  },
+
+  '&&&[aria-selected]': {
+    backgroundColor: '$itemSelectedBg',
+    color: '$itemSelectedText',
   },
 });
 
+interface ListItemProps {
+  selected?: boolean;
+  disabled?: boolean;
+}
+
 const ListItem: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & StyleProps & VariantProps<typeof listItemCss>
+  JSX.HTMLAttributes<HTMLDivElement> & StyleProps & ListItemProps
 > = props => {
   const [layoutStyle, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['selected', 'class', 'classList', 'children']);
+  const [local, rest] = splitProps(nprops, [
+    'selected',
+    'disabled',
+    'class',
+    'classList',
+    'children',
+  ]);
 
   return (
     <div
       {...rest}
       role="listitem"
+      aria-selected={local.selected ? true : undefined}
+      aria-disabled={local.disabled ? true : undefined}
       classList={{
         ...local.classList,
         ...layoutStyle,
         [local.class as string]: !!local.class,
-        [listItemCss({
-          selected: local.selected,
-        })]: true,
+        [listItemCss()]: true,
       }}
     >
       {local.children}

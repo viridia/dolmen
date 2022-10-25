@@ -23,7 +23,9 @@ export const dark = createTheme('dark', {
     textSelectionBg: textHighlight,
 
     itemHoverBg: palette.coolgray750,
-    itemSelectedBg: textHighlight,
+    itemFocusBg: palette.coolgray700,
+    itemSelectedText: palette.white,
+    itemSelectedBg: primaryColor,
 
     focus: '#8183ff88',
     shadow: palette.black,

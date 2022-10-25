@@ -30,10 +30,12 @@ const { getCssText, css, createTheme, theme, config } = createStitches({
 
       // Colors for selected items (menus, list rows)
       itemHoverBg: palette.gray100,
-      itemSelectedBg: colord(primaryColor).lighten(0.2).toHex(),
+      itemFocusBg: palette.gray100,
+      itemSelectedText: palette.white,
+      itemSelectedBg: colord(primaryColor).darken(0.3).desaturate(0.7).toHex(),
 
       // Various dynamic colors
-      focus: '#00006633',
+      focus: '#11117733',
       shadow: colord(palette.black).alpha(0.4).toHex(),
       backdrop: colord(palette.gray900).alpha(0.3).toHex(),
 
@@ -93,35 +95,6 @@ const { getCssText, css, createTheme, theme, config } = createStitches({
         '"Open Sans", Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
       mono: '"Source Code Pro", Consolas, Inconsolata, Menlo, monospace',
     },
-
-    // fontSizes: {
-    //   xl: '1.25rem',
-    //   lg: '1.1rem',
-    //   md: '1rem',
-    //   sm: '0.95rem',
-    //   xs: '0.85rem',
-    //   mini: '0.8rem',
-    //   tiny: '0.75rem',
-    // },
-
-    // space: {
-    //   xl: '12px',
-    //   lg: '8px',
-    //   md: '4px',
-    //   sm: '2px',
-    //   xs: '1px',
-    //   none: '0',
-    // },
-
-    // sizes: {
-    //   xl: '2.5rem',
-    //   lg: '2.2rem',
-    //   md: '2rem',
-    //   sm: '1.85rem',
-    //   xs: '1.65rem',
-    //   mini: '1.45rem',
-    //   tiny: '1.3rem',
-    // },
   },
 });
 
