@@ -7,7 +7,10 @@ import { parseCookie, ServerContext } from 'solid-start';
     value of the cookie (both on server and the client.) It also (client only) writes to
     document.cookie whenever the store is mutated.
  */
-export const createCookieStore = <T extends {}>(cookieName: string, initialValue: T) => {
+export const createCookieStore = <T extends Record<string, unknown>>(
+  cookieName: string,
+  initialValue: T
+) => {
   // Initialize store from cookie (server or client).
   let cookie: string | null;
   if (isServer) {

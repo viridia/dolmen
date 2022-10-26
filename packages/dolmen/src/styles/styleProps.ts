@@ -143,18 +143,18 @@ type StyleKey = keyof StylePropsMap;
 
 type StyleArgument<T> = T extends (value: infer Arg, css: CSSProperties) => unknown ? Arg : never;
 export type StyleProps = { [k in StyleKey]?: StyleArgument<StylePropsMap[k]> };
-type StylePropsResult<T extends {}> = [{ [key: string]: true }, Omit<T, keyof StyleProps>];
+type StylePropsResult<T> = [{ [key: string]: true }, Omit<T, keyof StyleProps>];
 
 const stylePropsKeys = Object.keys(conversionMap) as StyleKey[];
 
 /** Function that allows individual style properties to be passed as parameters
     to a component, inspired by styled-system.
  */
-export function styleProps<T extends {}>(props: T & StyleProps): StylePropsResult<T> {
+export function styleProps<T>(props: T & StyleProps): StylePropsResult<T> {
   const [styleProps, otherProps] = splitProps(props, stylePropsKeys);
 
   let isEmpty = true;
-  let translatedProps = {};
+  const translatedProps = {};
   for (const key in styleProps) {
     isEmpty = false;
     const converter = conversionMap[key as StyleKey] as (

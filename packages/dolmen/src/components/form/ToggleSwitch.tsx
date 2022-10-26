@@ -63,7 +63,7 @@ const toggleSwitchCtrlCss = css({
   },
 });
 
-interface ToggleSwitchProps extends JSX.InputHTMLAttributes<HTMLInputElement> {}
+type ToggleSwitchProps = JSX.InputHTMLAttributes<HTMLInputElement>;
 
 export const ToggleSwitch: ParentComponent<ToggleSwitchProps> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', 'children']);

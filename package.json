@@ -5,6 +5,7 @@
     "build": "solid-start build",
     "build:svg": "svgr --template ./node_modules/dolmen/scripts/svg-template.cjs --typescript iconsrc/ -d src/icons/",
     "start": "solid-start start",
+    "test:lint": "eslint -c .eslintrc.cjs \"packages/*/src/**/*.ts?(x)\"",
     "test:compile": "tsc --noEmit --project ./tsconfig.json"
   },
   "workspaces": {
@@ -16,7 +17,12 @@
   "type": "module",
   "devDependencies": {
     "@mdx-js/rollup": "^2.1.3",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
     "@vanilla-extract/vite-plugin": "^3.6.1",
+    "eslint": "^8.26.0",
+    "eslint-plugin-deprecation": "^1.3.2",
+    "eslint-plugin-import": "^2.26.0",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "solid-start-node": "^0.1.8",

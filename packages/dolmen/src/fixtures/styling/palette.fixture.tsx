@@ -24,22 +24,20 @@ const Swatch: VoidComponent<{ color: string; key?: number }> = props => {
   const c = colord(props.color);
   const color = c.brightness() > 0.5 ? '#000' : '#fff';
   return (
-    <div class={swatchStyle()} style={{ 'background-color': props.color, 'color': color }}>
+    <div class={swatchStyle()} style={{ 'background-color': props.color, color: color }}>
       {props.key}
     </div>
   );
 };
-
-// function typedKeys<T extends {}>(obj: T): (keyof T)[] {
-//   return Object.keys(obj) as (keyof T)[];
-// }
 
 const Palette: VoidComponent<{ name: string }> = props => {
   return (
     <div>
       <div class={nameStyle()}>{props.name}</div>
       <For each={colorKeys}>
-        {key => <Swatch color={(palette as any)[`${props.name}${key}`]} key={key} />}
+        {key => (
+          <Swatch color={(palette as Record<string, string>)[`${props.name}${key}`]} key={key} />
+        )}
       </For>
     </div>
   );

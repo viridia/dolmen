@@ -190,7 +190,7 @@ export const MenuList: ParentComponent<
     const menuElt = menuRef();
     if (menuElt) {
       // Listen for close events from menu items.
-      const closeListener = (e: Event) => {
+      const closeListener = () => {
         menuAction('close');
       };
 
@@ -231,7 +231,7 @@ export const MenuList: ParentComponent<
           [menuListCss()]: true,
         }}
         style={popupStyle()}
-        onFocusIn={e => {
+        onFocusIn={() => {
           menuAction('sync');
         }}
         onKeyDown={e => {

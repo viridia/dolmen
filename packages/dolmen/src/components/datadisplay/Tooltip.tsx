@@ -34,10 +34,10 @@ export const Tooltip: ParentComponent<Props> = props => {
     <div
       ref={setRef}
       class={anchorContainerCss()}
-      onMouseOver={(e: MouseEvent) => {
+      onMouseOver={() => {
         setOver(true);
       }}
-      onMouseOut={(e: MouseEvent) => {
+      onMouseOut={() => {
         setOver(false);
       }}
     >

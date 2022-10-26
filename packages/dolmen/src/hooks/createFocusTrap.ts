@@ -69,7 +69,7 @@ export function createFocusTrap(options: IFocusTrapOptions = {}): IFocusTrapResu
     const e = elt();
 
     if (e) {
-      let prevFocus = document.activeElement as HTMLElement;
+      const prevFocus = document.activeElement as HTMLElement;
 
       // Find all focusable children.
       const focusable = getAllFocusableElements(e);

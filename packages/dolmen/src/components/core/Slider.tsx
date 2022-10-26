@@ -217,7 +217,7 @@ export const Slider: VoidComponent<SliderProps> = props => {
         placement: 'top',
         middleware: [offset(8), flip(), arrow({ element: arrowElt })],
       }).then(({ x, y, placement, middlewareData }) => {
-        const { x: arrowX, y: arrowY } = middlewareData.arrow as any;
+        const { x: arrowX } = middlewareData.arrow as { x: number };
         batch(() => {
           setLabelStyle({
             left: `${x}px`,

@@ -4,8 +4,6 @@ import { css } from '../../styles';
 import { Button, ButtonProps } from './Button';
 import { MenuContext } from './MenuContext';
 
-interface MenuButtonProps {}
-
 const menuButtonCaptionCss = css({
   display: 'block',
   overflowX: 'hidden',
@@ -16,7 +14,7 @@ const menuButtonCaptionCss = css({
   flex: '1 1 0',
 });
 
-export const MenuButton: ParentComponent<ButtonProps & MenuButtonProps> = props => {
+export const MenuButton: ParentComponent<ButtonProps> = props => {
   const context = useContext(MenuContext);
   if (!context) {
     throw new Error('MenuButton must be inside of a Menu');

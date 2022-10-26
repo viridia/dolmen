@@ -1,4 +1,4 @@
-import { createFixtureParams, useCodex } from 'solid-codex-api';
+import { useCodex } from 'solid-codex-api';
 import { Button, Group, Stack } from '../../components';
 import { Cancel } from '../../icons';
 

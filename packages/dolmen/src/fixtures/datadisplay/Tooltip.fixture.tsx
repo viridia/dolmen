@@ -1,4 +1,4 @@
-import { Button, Callout, Group, Stack, Title, Tooltip, Text } from '../../components';
+import { Button, Callout, Group, Stack, Title, Tooltip } from '../../components';
 import { createTooltipWatcher } from '../../hooks';
 
 export const $category = 'data display';

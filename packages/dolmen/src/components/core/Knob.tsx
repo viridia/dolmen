@@ -1,6 +1,6 @@
 import { Component, createMemo, createSignal, For, JSX, Setter, Show, splitProps } from 'solid-js';
 import { css, SizeVariant } from '../../styles';
-import { VariantProps, CSS } from '@stitches/core';
+import { CSS } from '@stitches/core';
 
 const travelDegrees = 270;
 

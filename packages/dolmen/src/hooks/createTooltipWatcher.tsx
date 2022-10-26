@@ -60,12 +60,12 @@ export function createTooltipWatcher(options: { delay?: number } = {}): TTProvid
           setHoverElement(null);
         }
       },
-      onMouseOut(e: MouseEvent) {
+      onMouseOut() {
         setHoverElement(null);
       },
     },
     anchor,
     tipContent,
-    tipShown
+    tipShown,
   ];
 }

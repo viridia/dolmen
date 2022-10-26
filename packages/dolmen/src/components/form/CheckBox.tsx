@@ -59,7 +59,7 @@ const checkboxCtrlCss = css({
   },
 });
 
-interface CheckBoxProps extends JSX.InputHTMLAttributes<HTMLInputElement> {}
+type CheckBoxProps = JSX.InputHTMLAttributes<HTMLInputElement>;
 
 export const CheckBox: ParentComponent<CheckBoxProps> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', 'children']);

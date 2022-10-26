@@ -21,6 +21,7 @@ export interface ITreeExpansionState {
   setExpanded(key: string, expanded: boolean): void
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function createExpansionStateStore(storageKey: string): ITreeExpansionState {
   // const [store, setStore] = createLocalStorageStore<Record<string, boolean>>(storageKey, {});
   const [store, setStore] = createStore<Record<string, boolean>>({});

@@ -124,12 +124,12 @@ export function createCodex(): ICodex {
     createParams<T extends { [key: string]: AnyParam }>(params: T): ParamAccessors<T> {
       setStore(
         produce(s => {
-          const accessors = {} as Record<string, ParamAccessor<any>>;
+          const accessors = {} as Record<string, ParamAccessor<unknown>>;
           for (const key in params) {
             const p = params[key];
             s.state[key] = defaultValue(p);
 
-            function access(value?: unknown) {
+            const access = (value?: unknown) => {
               // console.log(arguments);
               if (arguments.length == 0) {
                 return store.state[key];
@@ -160,7 +160,7 @@ export function createCodex(): ICodex {
                 }
                 setStore('state', key, value);
               }
-            }
+            };
 
             access.descriptor = { ...p, caption: p.caption ?? key };
             accessors[key] = access;
@@ -181,7 +181,7 @@ export function createCodex(): ICodex {
       return Object.values(store.params);
     },
 
-    getParam(key: string): ParamAccessor<any> {
+    getParam(key: string): ParamAccessor<unknown> {
       const p = store.params[key];
       if (!p) {
         throw new Error(`Undefined param: [${key}]`);

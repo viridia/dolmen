@@ -33,7 +33,7 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
       // Build tree nodes by coalescing category names
       for (const fix of list) {
         let parent = root;
-        let dirCategory: string[] = [];
+        const dirCategory: string[] = [];
         for (const dirName of fix.category) {
           dirCategory.push(dirName);
           let next = parent.find(f => f.title === dirName);
@@ -114,7 +114,7 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
           <Spacer />
           <ButtonGroup>
             <Button
-              onClick={e => {
+              onClick={() => {
                 setSettings({ displayMode: 'canvas' });
               }}
               selected={settings.displayMode === 'canvas'}
@@ -122,7 +122,7 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
               Canvas
             </Button>
             <Button
-              onClick={e => {
+              onClick={() => {
                 setSettings({ displayMode: 'source' });
               }}
               selected={settings.displayMode === 'source'}

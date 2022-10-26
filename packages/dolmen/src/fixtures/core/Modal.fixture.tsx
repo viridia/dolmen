@@ -51,33 +51,7 @@ const DialogDemo: Component<{ size: SizeVariant }> = props => {
   );
 };
 
-const DialogTallDemo: Component = () => {
-  const [open, setOpen] = createSignal(false);
-  return (
-    <>
-      <Button onClick={() => setOpen(true)}>Open Tall</Button>
-      <Modal
-        open={open()}
-        onClose={() => {
-          setOpen(false);
-        }}
-        withClose
-      >
-        <Modal.Header>Modal Example</Modal.Header>
-        <Modal.Body></Modal.Body>
-        <Modal.Footer>
-          <Button>Cancel</Button>
-          <Button color="primary" autofocus>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
-  );
-};
-
 export default () => {
-  const [open, setOpen] = createSignal(false);
   return (
     <Group gap="md">
       <DialogDemo size="xl" />

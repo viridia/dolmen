@@ -11,6 +11,7 @@
     "build:svg": "svgr --template ./scripts/svg-template.cjs --typescript iconsrc/ -d src/icons/",
     "clean": "rimraf ./dist",
     "format": "prettier --write .",
+    "prepublishOnly": "npm run build",
     "test:compile": "tsc --noEmit --project ./tsconfig.json"
   },
   "type": "module",

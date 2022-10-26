@@ -161,6 +161,6 @@ const menuDividerCss = css({
   borderBottom: '1px solid $colors$elevation0',
 });
 
-export const MenuDivider: VoidComponent = props => {
+export const MenuDivider: VoidComponent = () => {
   return <div class={menuDividerCss({})} />;
 };

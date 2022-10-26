@@ -228,7 +228,7 @@ const DrawerInner: ParentComponent<JSX.HTMLAttributes<HTMLElement> & DrawerInner
     'classList',
     'children',
   ]);
-  let [direction, setDirection] = createSignal<string | null>(null);
+  const [direction, setDirection] = createSignal<string | null>(null);
 
   onMount(() => {
     setDirection(getComputedStyle(local.parent).direction);

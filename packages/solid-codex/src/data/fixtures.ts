@@ -41,7 +41,7 @@ export const useFixtures = (modules: Record<string, () => Promise<unknown>>) => 
         return result;
       };
       const result: IFixture[] = [];
-      for (let path of Object.keys(modules)) {
+      for (const path of Object.keys(modules)) {
         const mod = (await modules[path]()) as FixtureModule;
         const factory = mod.default;
         const category = mod.$category?.split('/') ?? [];

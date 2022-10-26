@@ -2,7 +2,10 @@ import { createEffect } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { isServer } from 'solid-js/web';
 
-export function createLocalStorageStore<T extends {}>(storeName: string, initialValue?: T) {
+export function createLocalStorageStore<T extends Record<string, unknown>>(
+  storeName: string,
+  initialValue?: T
+) {
   if (!isServer) {
     const json = localStorage.getItem(storeName);
     if (json) {
