@@ -11,6 +11,7 @@
     "test:compile": "tsc --noEmit --project ./tsconfig.json"
   },
   "type": "module",
+  "source": "./src/index.ts",
   "module": "./src/index.ts",
   "devDependencies": {
     "solid-start-node": "^0.1.6",

@@ -1,5 +1,5 @@
 {
-  "name": "solid-codex",
+  "name": "solid-dolmen",
   "scripts": {
     "dev": "solid-start dev",
     "build": "solid-start build",
@@ -47,5 +47,17 @@
   },
   "engines": {
     "node": ">=16"
-  }
+  },
+  "description": "Dolmen is a themeable UI component library designed to work with Solid.js and optimized for SSR (Server-side rendering). It provides a broad selection of UI components with minimal overhead.",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viridia/dolmen.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/viridia/dolmen/issues"
+  },
+  "homepage": "https://github.com/viridia/dolmen#readme"
 }

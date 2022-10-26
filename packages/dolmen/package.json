@@ -1,8 +1,16 @@
 {
   "name": "dolmen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Talin",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viridia/dolmen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/viridia/dolmen/issues"
+  },
+  "homepage": "https://github.com/viridia/dolmen#readme",
   "description": "A UI component library that works with Solid SSR",
   "scripts": {
     "build": "npm run build:svg && npm run build:mjs && npm run build:cjs",
