@@ -33,12 +33,14 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
       // Build tree nodes by coalescing category names
       for (const fix of list) {
         let parent = root;
+        let dirCategory: string[] = [];
         for (const dirName of fix.category) {
+          dirCategory.push(dirName);
           let next = parent.find(f => f.title === dirName);
           if (!next) {
             next = {
               title: dirName,
-              category: fix.category,
+              category: [...dirCategory],
               children: [],
             };
             parent.push(next);
@@ -96,7 +98,7 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
       <CatalogPane tree={fixtureTree()} />
       <AdjustPane />
       <Stack class={canvasSectionStyle} alignItems="stretch">
-        <PageHeader zIndex={0}>
+        <PageHeader zIndex={0} gap="md">
           <PageHeader.Title>
             <Show when={selected()} fallback={<i>Nothing selected</i>} keyed>
               {fix => (

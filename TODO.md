@@ -64,3 +64,13 @@
   * Leave sliver
   * Fixture for minWidth
   * Firefox bugs
+
+# Unresolved issues with Solid
+
+* Client-only rendering:
+  * properties panel
+  * tree expansion state
+  * SSR in general makes design hard
+* red squiggles - submodule exports
+* module exports declarations.
+* solid-start exporting source

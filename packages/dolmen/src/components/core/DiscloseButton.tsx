@@ -7,11 +7,9 @@ const discloseButtonCss = css({
   appearance: 'none',
   aspectRatio: 1,
   backgroundColor: 'transparent',
-  // borderColor: theme.button.subtle.borderColor,
   border: 'none',
   borderRadius: 3,
-  // borderWidth: 0,
-  // borderStyle: 'solid',
+  cursor: 'pointer',
   display: 'flex',
   flexDirection: 'row',
   fontWeight: '500',
@@ -25,7 +23,7 @@ const discloseButtonCss = css({
   width: '1.5rem',
   '--icon-color': '$colors$btnSecondaryContrastDim',
 
-  '&.selected': {
+  '&.dol-open': {
     transform: 'rotate(0)',
   },
 
@@ -44,11 +42,11 @@ const discloseButtonCss = css({
 });
 
 interface DiscloseButtonProps extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
-  selected?: boolean;
+  open?: boolean;
 }
 
 export const DiscloseButton: ParentComponent<DiscloseButtonProps> = props => {
-  const [local, rest] = splitProps(props, ['selected', 'class', 'classList', 'children']);
+  const [local, rest] = splitProps(props, ['open', 'class', 'classList', 'children']);
   return (
     <button
       {...rest}
@@ -56,7 +54,7 @@ export const DiscloseButton: ParentComponent<DiscloseButtonProps> = props => {
         ...local.classList,
         [local.class as string]: !!local.class,
         [discloseButtonCss()]: true,
-        selected: !!local.selected,
+        'dol-open': !!local.open,
       }}
     >
       <ChevronDown />

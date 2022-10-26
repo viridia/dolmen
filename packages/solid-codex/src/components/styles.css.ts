@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { palette, scrollbars } from 'dolmen';
+import { palette } from 'dolmen';
 
 export const canvasSectionStyle = style({
   flex: '1 1 0',
@@ -28,7 +28,7 @@ export const adjustPaneStyle = style({
 });
 
 export const catalogRootGroup = style({
-  paddingLeft: '1rem',
+  paddingLeft: '0',
 });
 
 export const catalogGroup = style({
@@ -43,6 +43,7 @@ export const catalogEntryStyle = style({
 
 export const catalogEntryName = style({
   display: 'flex',
+  alignItems: 'center',
   justifyContent: 'start',
   padding: '4px 8px',
   color: palette.coolgray400,
@@ -61,6 +62,7 @@ export const selectableEntryName = style({
   selectors: {
     '&.selected': {
       fontWeight: 'bold',
+      backgroundColor: 'rgba(255, 255, 255, 0.1)', // TODO: Replace with selected bg
     },
   },
 });

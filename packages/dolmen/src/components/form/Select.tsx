@@ -65,6 +65,9 @@ export function Select<T>(
               onClick={() => {
                 if (!opt.disabled) {
                   local.onSelect(opt.value);
+                  setTimeout(() => {
+                    setAnchor(undefined);
+                  }, 100);
                 }
               }}
             >

@@ -6,6 +6,10 @@ const codeCss = css(
   {
     fontFamily: '$mono',
     fontSize: '1rem',
+
+    '& pre': {
+      margin: 0,
+    }
   },
   stdFontSizes
 );

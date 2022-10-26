@@ -49,53 +49,67 @@ export type ParamAccessors<T extends { [key: string]: AnyParam }> = {
 };
 
 /** Context for defining fixture parameters. */
-export interface IFixtureParams {
+export interface ICodex {
   /** Remove all parameter definitions from the store. */
-  clear(): void;
+  clearParams(): void;
 
   /** Reset all parameters to their default values. */
-  reset(): void;
+  resetParams(): void;
 
   /** Add a new parameter, and return an accessor of the value of that parameter. */
   createParams<T extends { [key: string]: AnyParam }>(params: T): ParamAccessors<T>;
 
   /** Return the keys of all defined parameters. */
-  keys(): ReadonlyArray<string>;
+  // keys(): ReadonlyArray<string>;
 
   /** Return the list of all parameter accessors. */
-  list(): ReadonlyArray<ParamAccessor<unknown>>;
+  listParams(): ReadonlyArray<ParamAccessor<unknown>>;
 
   /** Get the accessors for the given parameter. */
   getParam(key: string): ParamAccessor<unknown>;
+
+  /** Append a message to the event log. */
+  log(message: string): void;
+
+  /** Creates a callback that prints to the log when invoked. */
+  action(message: string): () => void;
+
+  /** Return current log entries. */
+  logs(): string[];
+
+  /** Clear saved log entries. */
+  clearLogs(): void;
 }
 
-interface IFixtureParamsStore {
+interface ICodexStore {
   params: Record<string, ParamAccessor<unknown>>;
   state: Record<string, boolean | string | number>;
+  logEntries: string[];
 }
 
-export const FixtureParamsContext = createContext<IFixtureParams>();
+export const CodexContext = createContext<ICodex>();
 
-export const useFixtureParamsContext = () => {
-  const context = useContext(FixtureParamsContext);
+export const useCodex = () => {
+  const context = useContext(CodexContext);
   if (!context) {
     throw new Error('Missing Fixture Params Context');
   }
   return context;
 };
 
-export function createFixtureParamsStore(): IFixtureParams {
-  const [store, setStore] = createStore<IFixtureParamsStore>({
+export function createCodex(): ICodex {
+  const [store, setStore] = createStore<ICodexStore>({
     params: {},
     state: {},
+    logEntries: [],
   });
 
   return {
-    clear() {
+    clearParams() {
       setStore({ params: {}, state: {} });
     },
 
-    reset() {
+    resetParams() {
       setStore(
         produce(s => {
           const newState: Record<string, boolean | string | number> = {};
@@ -159,11 +173,11 @@ export function createFixtureParamsStore(): IFixtureParams {
       return store.params as ParamAccessors<T>;
     },
 
-    keys() {
-      return Object.keys(store.params);
-    },
+    // keys() {
+    //   return Object.keys(store.params);
+    // },
 
-    list() {
+    listParams() {
       return Object.values(store.params);
     },
 
@@ -173,6 +187,24 @@ export function createFixtureParamsStore(): IFixtureParams {
         throw new Error(`Undefined param: [${key}]`);
       }
       return p;
+    },
+
+    log(message: string) {
+      setStore('logEntries', [...store.logEntries, message]);
+    },
+
+    logs(): string[] {
+      return store.logEntries;
+    },
+
+    clearLogs(): void {
+      setStore('logEntries', []);
+    },
+
+    action(message: string): () => void {
+      return () => {
+        setStore('logEntries', [...store.logEntries, message]);
+      };
     },
   };
 }
@@ -201,6 +233,6 @@ function defaultValue(param: AnyParam): boolean | string | number {
 export function createFixtureParams<T extends { [key: string]: AnyParam }>(
   params: T
 ): ParamAccessors<T> {
-  const store = useFixtureParamsContext();
+  const store = useCodex();
   return store.createParams(params);
 }

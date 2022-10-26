@@ -1,5 +1,5 @@
 import { Text, CheckBox, Slider, css, Group } from 'dolmen';
-import { IParamInteger, ParamAccessor, useFixtureParamsContext } from 'solid-codex-api';
+import { IParamInteger, ParamAccessor, useCodex } from 'solid-codex-api';
 import {
   For,
   Match,
@@ -64,10 +64,10 @@ const ParamControl: VoidComponent<{ param: ParamAccessor<unknown> }> = props => 
 };
 
 const ParamsEditor: VoidComponent = () => {
-  const fixtureParams = useFixtureParamsContext();
+  const fixtureParams = useCodex();
   return (
     <For
-      each={fixtureParams.list()}
+      each={fixtureParams.listParams()}
       fallback={
         <Text dim em>
           No Parameters

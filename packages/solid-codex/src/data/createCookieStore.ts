@@ -25,7 +25,9 @@ export const createCookieStore = <T extends {}>(cookieName: string, initialValue
         initialValue = parsed;
       }
     }
-  } catch (e) {}
+  } catch (e) {
+    console.error(`Malformed data for cookie "${cookieName}".`);
+  }
 
   const store = createStore<T>(initialValue);
 

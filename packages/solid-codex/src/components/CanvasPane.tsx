@@ -1,5 +1,5 @@
 import { css, scrollbars } from 'dolmen';
-import { useFixtureParamsContext } from 'solid-codex-api';
+import { useCodex } from 'solid-codex-api';
 import { Accessor, Component, Suspense } from 'solid-js';
 import { Show, VoidComponent } from 'solid-js';
 import { IFixtureTreeNode } from './tree';
@@ -17,10 +17,11 @@ export const canvasPaneCss = css(
   scrollbars
 );
 
-const ResetParams = () => {
-  const fixtureParams = useFixtureParamsContext();
+const ResetCodex = () => {
+  const codex = useCodex();
 
-  fixtureParams.clear();
+  codex.clearParams();
+  codex.clearLogs();
 
   return null;
 }
@@ -29,7 +30,7 @@ function FixtureDisplay(props: { component: Component }) {
   const C = props.component;
   return (
     <Suspense>
-      <ResetParams />
+      <ResetCodex />
       <C />
     </Suspense>
   );

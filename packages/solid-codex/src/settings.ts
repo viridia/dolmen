@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'solid-js';
 import { SetStoreFunction, Store } from 'solid-js/store';
-import { createCookieStore } from './data/cookieStore';
+import { createCookieStore } from './data/createCookieStore';
 
 export interface ISettings {
   theme?: string;
