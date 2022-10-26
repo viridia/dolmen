@@ -3,7 +3,6 @@ import { For, Show, useContext } from 'solid-js';
 import { VoidComponent } from 'solid-js';
 import {
   catalogEntryStyle,
-  catalogRootGroup,
   catalogGroup,
   catalogEntryName,
   selectableEntryName,
@@ -86,11 +85,15 @@ interface GroupProps {
 
 const CatalogGroup: VoidComponent<GroupProps> = props => {
   return (
-    <Show when={props.expanded ?? true}>
-      <ul class={props.root ? catalogRootGroup : catalogGroup}>
-        <For each={props.nodes}>{fix => <CatalogItem node={fix} />}</For>
-      </ul>
-    </Show>
+    <ul
+      classList={{
+        [catalogGroup]: true,
+        root: props.root,
+        expanded: props.expanded,
+      }}
+    >
+      <For each={props.nodes}>{fix => <CatalogItem node={fix} />}</For>
+    </ul>
   );
 };
 

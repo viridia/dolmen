@@ -31,7 +31,6 @@
       "node": "./dist/cjs/index.jsx"
     },
     "./icons": {
-      "source": "./src/icons/index.ts",
       "types": "./dist/mjs/icons/index.d.js",
       "default": "./dist/mjs/icons/index.js",
       "import": "./dist/mjs/icons/index.js",

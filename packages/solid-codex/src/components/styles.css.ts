@@ -13,7 +13,6 @@ export const sourcePaneStyle = style({
   padding: 8,
   flex: 1,
   overflowY: 'auto',
-  // selectors: scrollbars
 });
 
 export const adjustPaneStyle = style({
@@ -23,16 +22,23 @@ export const adjustPaneStyle = style({
   overflowY: 'auto',
   width: 300,
   zIndex: 300,
-
-  // selectors: scrollbars,
-});
-
-export const catalogRootGroup = style({
-  paddingLeft: '0',
 });
 
 export const catalogGroup = style({
   paddingLeft: '1rem',
+  height: 0,
+  overflowY: 'hidden',
+
+  selectors: {
+    '&.root': {
+      paddingLeft: 0,
+      height: '100%',
+    },
+
+    '&.expanded': {
+      height: 'calc(100%)',
+    },
+  },
 });
 
 export const catalogEntryStyle = style({

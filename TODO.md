@@ -1,6 +1,7 @@
 # Components
 
 * Select
+  * Events
 * Menu
   * Shortcuts
   * Submenus
@@ -57,7 +58,11 @@
 * Make toggle less skeumorphic.
 * Fixture for createFocusTrap
 * Split pane with more than 2 panels - should be doable.
-* Way too many theme variables - need to reduce by at least 50%.
+* Form submission tests:
+  * Select
+  * Checkbox
+  * Toggle
+  * Input
 
 # Drawer
 
