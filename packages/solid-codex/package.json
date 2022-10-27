@@ -5,7 +5,7 @@
     "build": "solid-start build",
     "build:cjs": "tsc --project tsconfig.json --outDir ./dist/cjs --module CommonJS",
     "build:mjs": "tsc --project tsconfig.json --outDir ./dist/mjs --module ESNext",
-    "build:svg": "svgr --template ./node_modules/dolmen/scripts/svg-template.cjs --typescript iconsrc/ -d src/icons/",
+    "build:svg": "svgr --template ../dolmen/scripts/svg-template.cjs --typescript iconsrc/ -d src/icons/",
     "clean": "rimraf ./dist",
     "start": "solid-start start",
     "test:compile": "tsc --noEmit --project ./tsconfig.json"

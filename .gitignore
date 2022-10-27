@@ -13,6 +13,7 @@ node_modules/
 /.idea
 .project
 .classpath
+tsconfig.tsbuildinfo
 *.launch
 .settings/
 

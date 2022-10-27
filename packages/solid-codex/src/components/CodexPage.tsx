@@ -8,11 +8,10 @@ import {
   Spacer,
   Stack,
 } from 'dolmen';
-import { DarkMode, LightMode } from 'dolmen/icons';
 import { createMemo, For, lazy, Match, Resource, Show, Switch, VoidComponent } from 'solid-js';
 import { useParams } from 'solid-start';
 import type { IFixture } from '../data/fixtures';
-import { Tune } from '../icons';
+import { DarkMode, LightMode, Tune } from '../icons';
 import { useUserSettings } from '../settings';
 import { AdjustPane } from './AdjustPane';
 import { CanvasPane } from './CanvasPane';

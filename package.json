@@ -6,7 +6,7 @@
     "build:svg": "svgr --template ./node_modules/dolmen/scripts/svg-template.cjs --typescript iconsrc/ -d src/icons/",
     "start": "solid-start start",
     "test:lint": "eslint -c .eslintrc.cjs \"packages/*/src/**/*.ts?(x)\"",
-    "test:compile": "tsc --noEmit --project ./tsconfig.json"
+    "test:compile": "npm run -w dolmen -w solid-codex-api test:compile"
   },
   "workspaces": {
     "packages": [

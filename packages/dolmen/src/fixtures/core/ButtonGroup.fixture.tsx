@@ -1,6 +1,6 @@
 import { createSignal } from 'solid-js';
 import { Button, ButtonGroup, Stack } from '../../components';
-import { Cancel, Close, DarkMode, LightMode } from '../../icons';
+import { Cancel, Close } from '../../icons';
 
 export const $category = 'core';
 
@@ -30,10 +30,10 @@ function ButtonGroupDemo() {
           <Close />
         </Button>
         <Button selected={selected() === 3} onClick={() => setSelected(3)}>
-          <DarkMode />
+          <Cancel />
         </Button>
         <Button selected={selected() === 4} onClick={() => setSelected(4)}>
-          <LightMode />
+          <Close />
         </Button>
       </ButtonGroup>
     </Stack>

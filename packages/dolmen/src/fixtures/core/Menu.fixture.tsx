@@ -1,6 +1,6 @@
 import { createSignal } from 'solid-js';
 import { Button, Card, Group, Menu, Stack } from '../../components';
-import { DarkMode } from '../../icons';
+import { Cancel } from '../../icons';
 
 export const $category = 'core';
 
@@ -51,7 +51,7 @@ function MenuListDemo() {
             <Menu.ItemCheckBox checked>Alpha Wolf</Menu.ItemCheckBox>
             <Menu.ItemRadio>Beta Test</Menu.ItemRadio>
             <Menu.Item disabled>Delta Dawn</Menu.Item>
-            <Menu.Item icon={<DarkMode />}>Gamma Ray</Menu.Item>
+            <Menu.Item icon={<Cancel />}>Gamma Ray</Menu.Item>
             <Menu.Divider />
             <Menu.Item href="/core-modal">Omega Man</Menu.Item>
           </Menu.List>
