@@ -129,7 +129,8 @@ export function createCodex(): ICodex {
             const p = params[key];
             s.state[key] = defaultValue(p);
 
-            const access = (value?: unknown) => {
+            // eslint-disable-next-line no-inner-declarations
+            function access(value?: unknown) {
               // console.log(arguments);
               if (arguments.length == 0) {
                 return store.state[key];
@@ -160,7 +161,7 @@ export function createCodex(): ICodex {
                 }
                 setStore('state', key, value);
               }
-            };
+            }
 
             access.descriptor = { ...p, caption: p.caption ?? key };
             accessors[key] = access;

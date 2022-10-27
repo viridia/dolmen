@@ -1,13 +1,13 @@
 import { createMemo, createSignal } from 'solid-js';
 import { CheckBox, Drawer, Stack } from '../../components';
 import { demoPage } from './demoPage';
-import { createFixtureParams } from 'solid-codex-api';
+import { useCodex } from 'solid-codex-api';
 
 export const $category = 'layout/Drawer';
 export const $name = 'coplanar';
 
 function HorizontalCoplanarDrawerDemo(props: { side: 'left' | 'right' | 'start' | 'end' }) {
-  const params = createFixtureParams({
+  const params = useCodex().createParams({
     mode: { type: 'string', enumVals: ['left', 'right', 'start', 'end'] },
     rtl: { type: 'boolean', caption: 'Right-to-Left' },
   });

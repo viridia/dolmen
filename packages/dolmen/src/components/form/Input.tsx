@@ -130,3 +130,36 @@ export const Input: Component<InputProps & VariantProps<typeof inputFrameCss>> =
     </div>
   );
 };
+
+interface TextAreaProps extends JSX.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  adornLeft?: JSX.Element | JSX.Element[];
+  adornRight?: JSX.Element | JSX.Element[];
+}
+
+export const TextArea: Component<TextAreaProps & VariantProps<typeof inputFrameCss>> = props => {
+  const [local, rest] = splitProps(props, [
+    'size',
+    'color',
+    'round',
+    'adornLeft',
+    'adornRight',
+    'class',
+    'classList',
+  ]);
+  return (
+    <div
+      classList={{
+        ...local.classList,
+        [local.class as string]: !!local.class,
+        [inputFrameCss({
+          size: local.size,
+          round: local.round,
+        })]: true,
+      }}
+    >
+      {props.adornLeft && <div class={adornLeftCss()}>{props.adornLeft}</div>}
+      <textarea {...rest} class={inputElementCss()} />
+      {props.adornRight && <div class={adornRightCss()}>{props.adornRight}</div>}
+    </div>
+  );
+};

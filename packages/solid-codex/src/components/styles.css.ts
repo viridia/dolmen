@@ -32,11 +32,12 @@ export const catalogGroup = style({
   selectors: {
     '&.root': {
       paddingLeft: 0,
-      height: '100%',
+      height: 'auto',
+      overflowY: 'visible',
     },
 
     '&.expanded': {
-      height: 'calc(100%)',
+      height: 'auto',
     },
   },
 });

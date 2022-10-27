@@ -5,6 +5,7 @@ import { css } from '../../styles';
 const titleCss = css({
   fontFamily: '$title',
   fontWeight: 'bold',
+  fontSize: '1rem',
   marginTop: 0,
   marginBottom: '0.3em',
 

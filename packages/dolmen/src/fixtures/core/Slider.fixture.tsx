@@ -1,4 +1,4 @@
-import { createFixtureParams } from 'solid-codex-api';
+import { useCodex } from 'solid-codex-api';
 import { createSignal } from 'solid-js';
 import { Card, Group, Slider, Stack } from '../../components';
 
@@ -6,7 +6,7 @@ export const $category = 'core';
 
 export default {
   basic: () => {
-    const params = createFixtureParams({
+    const params = useCodex().createParams({
       min: { type: 'integer', minVal: -100, maxVal: 1000, default: 0 },
       max: { type: 'integer', minVal: -100, maxVal: 1000, default: 100 },
       step: { type: 'integer', minVal: 0, maxVal: 100, default: 0 },
@@ -26,7 +26,7 @@ export default {
     );
   },
   'on card': () => {
-    const params = createFixtureParams({
+    const params = useCodex().createParams({
       min: { type: 'integer', minVal: -100, maxVal: 1000, default: 0 },
       max: { type: 'integer', minVal: -100, maxVal: 1000, default: 100 },
       step: { type: 'integer', minVal: 0, maxVal: 100, default: 0 },

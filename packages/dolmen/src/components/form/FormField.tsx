@@ -1,6 +1,20 @@
 import { ParentComponent, JSX, splitProps, Show, Switch, Match } from 'solid-js';
 import { Error, Warning } from '../../icons';
-import { css, theme } from '../../styles';
+import { css, fontSize, theme } from '../../styles';
+
+const fieldTitleCss = css({
+  font: theme.fonts.title,
+  fontSize: fontSize.md,
+  fontWeight: 'bold',
+  marginBottom: '4px',
+  marginTop: '4px',
+});
+
+const fieldDescriptionCss = css({
+  font: theme.fonts.body,
+  fontSize: fontSize.xs,
+  marginBottom: '4px',
+});
 
 const fieldValidationCss = css({
   alignItems: 'start',
@@ -33,13 +47,23 @@ const fieldMessageCss = css({
   marginTop: 2,
 });
 
-interface FieldValidationProps extends JSX.HTMLAttributes<HTMLDivElement> {
+interface FieldValidationProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'title'> {
   status?: 'warning' | 'error';
   message?: string;
+  title?: JSX.Element;
+  description?: JSX.Element;
 }
 
-export const FieldValidation: ParentComponent<FieldValidationProps> = props => {
-  const [local, rest] = splitProps(props, ['status', 'message', 'class', 'classList', 'children']);
+export const FormField: ParentComponent<FieldValidationProps> = props => {
+  const [local, rest] = splitProps(props, [
+    'status',
+    'message',
+    'title',
+    'description',
+    'class',
+    'classList',
+    'children',
+  ]);
 
   return (
     <div
@@ -52,6 +76,12 @@ export const FieldValidation: ParentComponent<FieldValidationProps> = props => {
         })]: true,
       }}
     >
+      <Show when={local.title}>
+        <div class={fieldTitleCss()}>{local.title}</div>
+      </Show>
+      <Show when={local.description}>
+        <div class={fieldDescriptionCss()}>{local.description}</div>
+      </Show>
       {local.children}
       <Show when={local.message}>
         <div class={fieldMessageCss()}>
