@@ -25,6 +25,14 @@ const conversionMap = {
     css.gap = spaceAlias(value);
   },
 
+  rowGap: (value: Property.RowGap | Space, css: CSSProperties) => {
+    css.rowGap = spaceAlias(value);
+  },
+
+  columnGap: (value: Property.ColumnGap | Space, css: CSSProperties) => {
+    css.columnGap = spaceAlias(value);
+  },
+
   m: (value: Property.Margin | Space, css: CSSProperties) => {
     css.margin = spaceAlias(value);
   },
@@ -95,6 +103,22 @@ const conversionMap = {
 
   h: (value: Property.Height, css: CSSProperties) => {
     css.height = value;
+  },
+
+  maxWidth: (value: Property.MaxWidth, css: CSSProperties) => {
+    css.maxWidth = value;
+  },
+
+  minWidth: (value: Property.MaxHeight, css: CSSProperties) => {
+    css.minWidth = value;
+  },
+
+  maxHeight: (value: Property.MinWidth, css: CSSProperties) => {
+    css.maxWidth = value;
+  },
+
+  minHeight: (value: Property.MinHeight, css: CSSProperties) => {
+    css.minWidth = value;
   },
 
   alignItems: (value: Property.AlignItems, css: CSSProperties) => {

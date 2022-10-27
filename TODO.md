@@ -70,12 +70,27 @@
   * Fixture for minWidth
   * Firefox bugs
 
+# Style props to do
+
+lineHeight
+
+top
+right
+bottom
+left
+
+gridTemplateColumns
+gridTemplateRows
+gridGap
+
+inset
+
+letterSpacing
+
 # Unresolved issues with Solid
 
 * Client-only rendering:
   * properties panel
   * tree expansion state
   * SSR in general makes design hard
-* red squiggles - submodule exports
-* module exports declarations.
 * solid-start exporting source
