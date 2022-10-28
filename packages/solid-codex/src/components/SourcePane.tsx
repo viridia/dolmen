@@ -2,7 +2,7 @@ import { Accessor, createResource, Suspense } from 'solid-js';
 import { Show, VoidComponent } from 'solid-js';
 import { sourcePaneStyle } from './styles.css';
 import type { IFixtureTreeNode } from './tree';
-import { Code } from 'dolmen';
+import { CodeBlock } from 'dolmen';
 import { isServer } from 'solid-js/web';
 import type { IFixture } from '../data/fixtures';
 
@@ -30,9 +30,9 @@ function SourceDisplay(props: { fixture: IFixture }) {
   return (
     !isServer && (
       <Suspense>
-        <Code block class="language-tsx" ref={ref!}>
+        <CodeBlock block class="language-tsx" ref={ref!}>
           {source()}
-        </Code>
+        </CodeBlock>
       </Suspense>
     )
   );

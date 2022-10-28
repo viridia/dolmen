@@ -60,6 +60,9 @@ const { getCssText, css, createTheme, theme, config } = createStitches({
       scrollbar: 'rgba(0, 0, 0, 0.2)',
       scrollbarInactive: 'rgba(0, 0, 0, 0.1)',
 
+      // Slider
+      sliderFill: palette.gray250,
+
       // Toggle switches
       toggleFill: palette.gray150,
       toggleFillChecked: '#77dd77',
@@ -74,19 +77,13 @@ const { getCssText, css, createTheme, theme, config } = createStitches({
       knobRim: `linear-gradient(
         to bottom,
         ${colord(palette.gray100).lighten(0.1).toHex()} 0,
-        ${colord(palette.gray100).toHex()} 30%,
         ${colord(palette.gray100).darken(0.1).toHex()}
       )`,
       knobCenter: `linear-gradient(
         to bottom,
         ${colord(palette.gray100).lighten(0.03).toHex()} 0,
-        ${colord(palette.gray100).toHex()} 30%,
         ${colord(palette.gray100).darken(0.03).toHex()}
       )`,
-      knobMark: palette.gray400,
-      knobShadow: colord(palette.black).alpha(0.6).toHex(),
-
-      sliderTrack: palette.gray250,
     },
 
     fonts: {

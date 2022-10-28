@@ -7,10 +7,16 @@ import {
   createSignal,
   Show,
   batch,
+  For,
 } from 'solid-js';
 import { createElementSize } from '../../hooks';
-import { css, SizeVariant, Z } from '../../styles';
+import { css, fontSize, SizeVariant, Z } from '../../styles';
 import { computePosition, flip, offset, arrow } from '@floating-ui/dom';
+
+interface SliderMark {
+  value: number;
+  label?: JSX.Element;
+}
 
 interface SliderProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   value: number;
@@ -20,7 +26,9 @@ interface SliderProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'onChange
   precision?: number;
   name?: string;
   size?: SizeVariant;
-  valueLabelDisplay?: 'auto';
+  marks?: SliderMark[] | true;
+  valueLabelDisplay?: 'auto' | 'on' | 'off';
+  valueLabelFormat?: (value: number) => string;
   onChange?: (value: number) => void;
 }
 
@@ -58,7 +66,7 @@ const sliderCss = css({
 });
 
 const trackCss = css({
-  backgroundColor: '$sliderTrack',
+  backgroundColor: '$sliderFill',
   borderRadius: '500px',
   height: 'calc(var(--slider-size) * 0.2)',
   overflow: 'hidden',
@@ -69,6 +77,24 @@ const trackCss = css({
   ':focus-within:focus-visible > &': {
     boxShadow: '0 0 0 3px $colors$focus',
   },
+});
+
+const marksContainerCss = css({
+  position: 'absolute',
+  left: 'calc(var(--slider-size) * 0.25)',
+  right: 'calc(var(--slider-size) * 0.25)',
+  top: '50%',
+  bottom: '50%',
+});
+
+const markCss = css({
+  backgroundColor: 'rgba(255, 255, 255, 0.3)',
+  borderRadius: '50%',
+  position: 'absolute',
+  top: '50%',
+  height: 'calc(var(--slider-size) * 0.13)',
+  width: 'calc(var(--slider-size) * 0.13)',
+  transform: 'translate(-50%, -50%)',
 });
 
 const barCss = css({
@@ -124,7 +150,7 @@ const valueLabelCss = css({
   padding: '2px 4px',
   position: 'absolute',
   pointerEvents: 'none',
-  fontSize: '$tiny',
+  fontSize: fontSize.tiny,
   opacity: 0,
   textAlign: 'center',
   transition: 'opacity 0.05s linear',
@@ -132,6 +158,14 @@ const valueLabelCss = css({
 
   ':hover > &': {
     opacity: 1,
+  },
+
+  variants: {
+    on: {
+      true: {
+        opacity: 1,
+      },
+    },
   },
 });
 
@@ -155,7 +189,9 @@ export const Slider: VoidComponent<SliderProps> = props => {
     'step',
     'precision',
     'size',
+    'marks',
     'valueLabelDisplay',
+    'valueLabelFormat',
     'onChange',
   ]);
   let dragOffset = 0;
@@ -178,12 +214,39 @@ export const Slider: VoidComponent<SliderProps> = props => {
   });
 
   const formattedValue = createMemo(() => {
-    const { value, precision } = local;
+    const { value, precision, valueLabelFormat } = local;
+    if (valueLabelFormat) {
+      return valueLabelFormat(value);
+    }
     if (typeof precision === 'number') {
       return value.toFixed(precision);
     }
     return (Math.round(value * 1000) / 1000).toString();
   });
+
+  const marks = createMemo(() => {
+    if (local.marks === true) {
+      const { min = 0, max = 100, step = 1 } = local;
+      const result: SliderMark[] = [];
+      for (let i = min; i <= max; i += step) {
+        result.push({ value: i });
+      }
+      return result;
+    } else if (Array.isArray(local.marks)) {
+      return local.marks;
+    } else {
+      return [];
+    }
+  });
+
+  const markPosition = (value: number) => {
+    const { min = 0, max = 100 } = local;
+    const range = max - min;
+    if (range <= 0) {
+      return 0;
+    }
+    return Math.max(0, Math.min(range, value - min)) / range;
+  };
 
   const setValue = (value: number) => {
     if (local.onChange) {
@@ -306,8 +369,20 @@ export const Slider: VoidComponent<SliderProps> = props => {
       }}
       tabIndex={props.tabIndex ?? 0}
     >
-      <div class={trackCss()}>
+      <div role="presentation" class={trackCss()}>
         <div class={barCss()} style={{ width: `${position() * elementSize().width}px` }} />
+        <Show when={marks().length > 0}>
+          <div class={marksContainerCss()}>
+            <For each={marks()}>
+              {mark => (
+                <div
+                  classList={{ [markCss()]: true, 'dol-above': mark.value >= local.value }}
+                  style={{ left: `${markPosition(mark.value) * 100}%` }}
+                />
+              )}
+            </For>
+          </div>
+        </Show>
       </div>
       <div
         ref={setThumbRef}
@@ -338,8 +413,14 @@ export const Slider: VoidComponent<SliderProps> = props => {
       >
         <div class={thumbFocusCss()} />
         <div class={thumbCss()} />
-        <Show when={local.valueLabelDisplay}>
-          <div ref={setLabelRef} class={valueLabelCss()} style={labelStyle()}>
+        <Show when={local.valueLabelDisplay === 'auto' || local.valueLabelDisplay === 'on'}>
+          <div
+            ref={setLabelRef}
+            class={valueLabelCss({
+              on: local.valueLabelDisplay === 'on',
+            })}
+            style={labelStyle()}
+          >
             {formattedValue()}
             <div ref={setArrowRef} class={valueLabelArrowCss()} style={arrowStyle()} />
           </div>

@@ -24,6 +24,7 @@
   // "files": [],
   "references": [
     { "path": "packages/dolmen/tsconfig.src.json" },
+    { "path": "packages/dolmen-knob/tsconfig.src.json" },
   //   { "path": "packages/solid-codex/tsconfig.json" },
     { "path": "packages/solid-codex-api/tsconfig.json" }
   ]

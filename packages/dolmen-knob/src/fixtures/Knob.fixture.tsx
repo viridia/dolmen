@@ -1,5 +1,6 @@
 import { createSignal } from 'solid-js';
-import { Group, Knob, Stack, Title } from '../../components';
+import { Stack, Title, Group } from 'dolmen';
+import { Knob } from '../index';
 
 export const $category = 'core';
 

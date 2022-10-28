@@ -76,22 +76,18 @@ export const custom = createTheme('custom', {
     knobRim: `linear-gradient(
       to bottom,
       ${colord(palette.warmgray800).lighten(0.1).toHex()} 0,
-      ${colord(palette.warmgray800).toHex()} 30%,
       ${colord(palette.warmgray800).darken(0.1).toHex()}
     )`,
     knobCenter: `linear-gradient(
       to bottom,
       ${colord(palette.warmgray800).lighten(0.03).toHex()} 0,
-      ${colord(palette.warmgray800).toHex()} 30%,
       ${colord(palette.warmgray800).darken(0.03).toHex()}
     )`,
-    knobMark: palette.warmgray600,
-    knobShadow: colord(palette.black).alpha(0.4).toHex(),
 
     scrollbar: colord(palette.warmgray500).alpha(0.3).toHex(),
     scrollbarInactive: colord(palette.warmgray500).alpha(0.15).toHex(),
 
-    sliderTrack: palette.warmgray750,
+    sliderFill: palette.warmgray750,
   },
 });
 

@@ -1,5 +1,13 @@
 # Components
 
+* Slider
+  * Marks
+  * Vertical
+  * Quantization
+* Radio / RadioGroup
+* Divided button
+* Chip
+* Badge
 * Select
   * Events
 * Menu
@@ -7,30 +15,21 @@
   * Submenus
   * forward ref
   * Prefix navigation
-* Slider
-  * Marks
-  * Vertical
-  * Quanta
 * Form
 * Color Picker
   * GradientSlider
   * Color Swatch
   * HueSaturationSelector
-* ToolBar
-* ToolPalette
-* TextArea
-* Radio / RadioGroup
-* Divided button
-* Chip
-* Badge
+* Tabs
+* Pagination
+* Breadcrumbs (incomplete - need links)
 * Alert
 * Toast
 * Progress Bar
 * Collapse
 * Divider
-* Tabs
-* Breadcrumbs (incomplete)
-* Pagination
+* ToolBar
+* ToolPalette
 
 ## Possible
 
@@ -50,14 +49,14 @@
 
 # Other
 
+* Move Knob to its own package.
+  * Figure out how we are going to handle theming in that case.
 * Prism support
+* Fixture for createFocusTrap
 * Tree view collapse
 * Tree view highlight
 * Tree view expand
 * Hi-res favicons in manifest
-* Make toggle less skeumorphic.
-* Fixture for createFocusTrap
-* Split pane with more than 2 panels - should be doable.
 * Form submission tests:
   * Select
   * Checkbox

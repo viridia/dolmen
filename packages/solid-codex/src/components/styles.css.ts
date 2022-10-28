@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { palette } from 'dolmen';
+// import { palette } from 'dolmen';
 
 export const canvasSectionStyle = style({
   flex: '1 1 0',
@@ -53,17 +53,17 @@ export const catalogEntryName = style({
   alignItems: 'center',
   justifyContent: 'start',
   padding: '4px 8px',
-  color: palette.coolgray400,
+  // color: palette.coolgray400,
   fontStyle: 'italic',
 });
 
 export const selectableEntryName = style({
-  color: palette.gray100,
+  // color: palette.gray100,
   cursor: 'pointer',
   fontStyle: 'normal',
 
   ':hover': {
-    backgroundColor: palette.coolgray850,
+    // backgroundColor: palette.coolgray850,
   },
 
   selectors: {

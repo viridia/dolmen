@@ -1,5 +1,5 @@
 import { ParentComponent, createSignal, createEffect, batch, Show } from 'solid-js';
-import { css, Z } from '../../styles';
+import { css, fontSize, Z } from '../../styles';
 import { computePosition, flip, offset, arrow, Placement } from '@floating-ui/dom';
 import { createCssTransition } from '../../hooks/createCssTransition';
 
@@ -9,7 +9,7 @@ const calloutCss = css({
   borderRadius: '3px',
   color: '$tooltipText',
   flexDirection: 'column',
-  fontSize: '$tiny',
+  fontSize: fontSize.tiny,
   minWidth: '12px',
   padding: '4px 8px',
   pointerEvents: 'none',

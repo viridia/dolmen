@@ -20,11 +20,13 @@ export default defineConfig({
   resolve: {
     alias: {
       // Root directory for fixture files, used by glob import.
-      '#fixtures': path.resolve(__dirname, './packages/dolmen/src/fixtures'),
+      // This doesn't handle multiple roots,
+      // '#fixtures': path.resolve(__dirname, './packages/dolmen/src/fixtures'),
 
       // Aliases used during development
       // Mainly here because I can't seem to get TypeScript project references to work.
       'dolmen': path.resolve(__dirname, './packages/dolmen/src'),
+      'dolmen-knob': path.resolve(__dirname, './packages/dolmen-knob/src'),
       'solid-codex-api': path.resolve(__dirname, './packages/solid-codex-api/src'),
     },
   },

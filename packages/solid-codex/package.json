@@ -22,7 +22,7 @@
     "@solidjs/meta": "^0.28.0",
     "@solidjs/router": "^0.5.0",
     "@vanilla-extract/css": "^1.9.1",
-    "dolmen": "^0.0.1",
+    "dolmen": "*",
     "solid-codex-api": "^0.0.1",
     "solid-js": "^1.5.7",
     "solid-mdx": "^0.0.6",

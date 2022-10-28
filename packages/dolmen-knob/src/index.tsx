@@ -1,6 +1,6 @@
 import { Component, createMemo, createSignal, For, JSX, Setter, Show, splitProps } from 'solid-js';
-import { css, SizeVariant } from '../../styles';
 import { CSS } from '@stitches/core';
+import { css, SizeVariant } from 'dolmen';
 
 const travelDegrees = 270;
 
@@ -104,7 +104,7 @@ const knobPotRimCss = css({
   border: `1px solid $colors$knobRim`,
   borderRadius: '50%',
   background: '$knobRim',
-  boxShadow: '0 2px 8px $colors$knobShadow',
+  boxShadow: '0 2px 8px $colors$shadow',
   cursor: 'pointer',
   height: '48px',
   position: 'relative',
@@ -141,7 +141,7 @@ const knobRotatorCss = css({
 });
 
 const knobPotMarkCss = css({
-  backgroundColor: '$knobMark',
+  backgroundColor: '$textDim',
   borderRadius: '1px',
   width: '3px',
   height: '20%',

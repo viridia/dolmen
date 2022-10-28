@@ -1,4 +1,4 @@
-import { Drawer, dark, Title, ScrollArea, Code } from 'dolmen';
+import { Drawer, dark, Title, ScrollArea, CodeBlock } from 'dolmen';
 import { useCodex } from 'solid-codex-api';
 import { VoidComponent } from 'solid-js';
 import { unstable_clientOnly } from 'solid-start';
@@ -34,9 +34,9 @@ export const AdjustPane: VoidComponent = () => {
       <Drawer.Content flex="1 1 auto">
         <Title>Event Log</Title>
         <ScrollArea alignSelf="stretch" flex="1 1 0" mb="lg">
-          <Code size="xs">
-            <pre>{codex.logs().join('\n')}</pre>
-          </Code>
+          <CodeBlock size="xs">
+            {codex.logs().join('\n')}
+          </CodeBlock>
         </ScrollArea>
       </Drawer.Content>
     </Drawer>

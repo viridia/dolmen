@@ -1,6 +1,6 @@
 {
-  "name": "dolmen",
-  "version": "0.0.4",
+  "name": "dolmen-richtext",
+  "version": "0.0.1",
   "author": "Talin",
   "license": "MIT",
   "repository": {
@@ -11,12 +11,11 @@
     "url": "https://github.com/viridia/dolmen/issues"
   },
   "homepage": "https://github.com/viridia/dolmen#readme",
-  "description": "A UI component library that works with Solid SSR",
+  "description": "Rich text editor for Dolmen UI",
   "scripts": {
-    "build": "npm run build:svg && npm run build:mjs && npm run build:cjs",
+    "build": "npm run build:mjs && npm run build:cjs",
     "build:cjs": "tsc --project tsconfig.src.json --outDir ./dist/cjs --module CommonJS",
     "build:mjs": "tsc --project tsconfig.src.json --outDir ./dist/mjs --module ESNext",
-    "build:svg": "svgr --template ./scripts/svg-template.cjs --typescript iconsrc/ -d src/icons/",
     "clean": "rimraf ./dist",
     "format": "prettier --write .",
     "prepublishOnly": "npm run build",
@@ -31,14 +30,12 @@
     "dist"
   ],
   "dependencies": {
-    "@floating-ui/dom": "^1.0.2",
+    "dolmen": "*",
     "@stitches/core": "^1.2.8",
     "colord": "^2.9.3",
-    "goober": "^2.1.11",
     "solid-js": "^1.6.0"
   },
   "devDependencies": {
-    "@svgr/cli": "^6.4.0",
     "solid-codex-api": "^0.0.1",
     "typescript": "^4.8.3"
   },

@@ -51,6 +51,8 @@ export const dark = createTheme('dark', {
     scrollbar: colord(palette.coolgray500).alpha(0.3).toHex(),
     scrollbarInactive: colord(palette.coolgray500).alpha(0.15).toHex(),
 
+    sliderFill: palette.coolgray750,
+
     toggleFill: palette.coolgray700,
     toggleFillChecked: '#118811',
     toggleSlideFill: `linear-gradient(to bottom, ${palette.coolgray100} 0%, ${palette.coolgray300} 100%)`,
@@ -63,18 +65,12 @@ export const dark = createTheme('dark', {
     knobRim: `linear-gradient(
       to bottom,
       ${colord(palette.coolgray800).lighten(0.1).toHex()} 0,
-      ${colord(palette.coolgray800).toHex()} 30%,
       ${colord(palette.coolgray800).darken(0.1).toHex()}
     )`,
     knobCenter: `linear-gradient(
       to bottom,
       ${colord(palette.coolgray800).lighten(0.03).toHex()} 0,
-      ${colord(palette.coolgray800).toHex()} 30%,
       ${colord(palette.coolgray800).darken(0.03).toHex()}
     )`,
-    knobMark: palette.coolgray600,
-    knobShadow: colord(palette.black).alpha(0.4).toHex(),
-
-    sliderTrack: palette.coolgray750,
   },
 });
