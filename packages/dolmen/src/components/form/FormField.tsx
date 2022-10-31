@@ -1,7 +1,6 @@
 import { ParentComponent, JSX, splitProps, Show, Switch, Match } from 'solid-js';
-import { space } from '../../../dist/mjs';
 import { Error, Warning } from '../../icons';
-import { css, fontSize, styleProps, StyleProps, theme } from '../../styles';
+import { css, fontSize, space, styleProps, StyleProps, theme } from '../../styles';
 
 const fieldTitleCss = css({
   font: theme.fonts.title,
