@@ -6,9 +6,7 @@ import { demoPage } from './demoPage';
 export const $category = 'layout/Drawer';
 export const $name = 'modal';
 
-function HorizontalModalDrawerDemo(props: {
-  side: 'left' | 'right' | 'start' | 'end';
-}) {
+function HorizontalModalDrawerDemo(props: { side: 'left' | 'right' | 'start' | 'end' }) {
   const params = useCodex().createParams({
     mode: { type: 'string', enumVals: ['left', 'right', 'start', 'end', 'top', 'bottom'] },
     rtl: { type: 'boolean', caption: 'Right-to-Left' },

@@ -19,7 +19,10 @@ function TextStyles() {
       <Text size="xs">text XS</Text>
       <Text dim>text dim</Text>
       <Text em>text em</Text>
-      <Text>text <Text as="sup">sup</Text><Text as="sub">sub</Text></Text>
+      <Text>
+        text <Text as="sup">sup</Text>
+        <Text as="sub">sub</Text>
+      </Text>
     </Stack>
   );
 }

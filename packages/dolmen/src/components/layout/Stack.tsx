@@ -8,9 +8,7 @@ const stackCss = css({
   justifyContent: 'start',
 });
 
-export const Stack: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
-> = props => {
+export const Stack: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> = props => {
   const [styleClass, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 

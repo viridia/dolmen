@@ -8,9 +8,7 @@ const groupCss = css({
   justifyContent: 'start',
 });
 
-export const Group: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
-> = props => {
+export const Group: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> = props => {
   const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 

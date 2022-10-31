@@ -13,7 +13,7 @@ export const swatchStyle = css({
   justifyContent: 'start',
   display: 'flex',
   fontSize: fontSize.mini,
-  padding: '0 8px'
+  padding: '0 8px',
 });
 
 export const nameStyle = css({
@@ -35,16 +35,12 @@ const Swatch: VoidComponent<{ color: string; key?: string }> = props => {
   );
 };
 
-const Palette: VoidComponent<{ name: string, colors: typeof light.colors }> = props => {
+const Palette: VoidComponent<{ name: string; colors: typeof light.colors }> = props => {
   const keys = Object.keys(theme.colors) as (keyof typeof light.colors)[];
   return (
     <div>
       <div class={nameStyle()}>{props.name}</div>
-      <For each={keys}>
-        {key => (
-          <Swatch color={(props.colors)[key].value} key={key} />
-        )}
-      </For>
+      <For each={keys}>{key => <Swatch color={props.colors[key].value} key={key} />}</For>
     </div>
   );
 };

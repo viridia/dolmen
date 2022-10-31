@@ -10,18 +10,12 @@ const asideCss = css({
   position: 'relative',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  zIndex: Z.sidebar
+  zIndex: Z.sidebar,
 });
 
-export const Aside: ParentComponent<
-  JSX.HTMLAttributes<HTMLElement> & StyleProps
-> = props => {
+export const Aside: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> = props => {
   const [layoutStyle, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, [
-    'class',
-    'classList',
-    'children',
-  ]);
+  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (
     <aside

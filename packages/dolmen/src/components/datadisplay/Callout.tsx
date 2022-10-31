@@ -56,7 +56,7 @@ export const Callout: ParentComponent<CalloutProps> = props => {
         placement: props.placement ?? 'top',
         middleware: [offset(8), flip(), arrow({ element: arrowElt })],
       }).then(({ x, y, placement, middlewareData }) => {
-        const { x: ax, y: ay } = middlewareData.arrow as { x: number, y: number };
+        const { x: ax, y: ay } = middlewareData.arrow as { x: number; y: number };
         batch(() => {
           const staticSide = {
             top: 'bottom',

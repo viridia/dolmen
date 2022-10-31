@@ -10,9 +10,7 @@ const cardContentCss = css({
   padding: '8px',
 });
 
-const CardContent: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
-> = props => {
+const CardContent: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> = props => {
   const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 

@@ -5,7 +5,7 @@ export const $category = 'form';
 
 export default {
   Variants: () => (
-    <Stack gap="md"  w="20rem">
+    <Stack gap="md" w="20rem">
       <Input value="default" />
       <Input round value="round" />
       <Input disabled value="disabled" />
@@ -22,7 +22,7 @@ export default {
     </Stack>
   ),
   Adornments: () => (
-    <Stack gap="md"  w="20rem">
+    <Stack gap="md" w="20rem">
       <Input value="Adorn Left" adornLeft={<Cancel />} />
       <Input value="Adorn Right" adornRight={<Cancel />} />
       <Input value="Adorn Left" adornLeft={<Cancel />} round />

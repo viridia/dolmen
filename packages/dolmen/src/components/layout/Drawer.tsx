@@ -167,9 +167,7 @@ const drawerContentCss = css({
 
 export type DrawerStyleProps = VariantProps<typeof drawerCoplanarCss>;
 
-const DrawerHeader: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
-> = props => {
+const DrawerHeader: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> = props => {
   const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
@@ -188,9 +186,7 @@ const DrawerHeader: ParentComponent<
   );
 };
 
-const DrawerContent: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
-> = props => {
+const DrawerContent: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> = props => {
   const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
