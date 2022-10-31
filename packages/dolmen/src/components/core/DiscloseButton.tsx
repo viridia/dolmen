@@ -23,7 +23,7 @@ const discloseButtonCss = css({
   width: '1.5rem',
   '--icon-color': '$colors$btnSecondaryContrastDim',
 
-  '&.dol-open': {
+  '&.dm-open': {
     transform: 'rotate(0)',
   },
 
@@ -54,7 +54,7 @@ export const DiscloseButton: ParentComponent<DiscloseButtonProps> = props => {
         ...local.classList,
         [local.class as string]: !!local.class,
         [discloseButtonCss()]: true,
-        'dol-open': !!local.open,
+        'dm-open': !!local.open,
       }}
     >
       <ChevronDown />

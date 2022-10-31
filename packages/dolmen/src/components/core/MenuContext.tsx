@@ -9,4 +9,4 @@ export interface IMenuContext {
 }
 
 export const MenuContext = createContext<IMenuContext>();
-export const menuCloseEvent = 'dol-menuclose';
+export const menuCloseEvent = 'dm-menuclose';

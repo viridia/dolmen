@@ -1,4 +1,5 @@
 import { ParentComponent, JSX, splitProps, Show, Switch, Match } from 'solid-js';
+import { space } from '../../../dist/mjs';
 import { Error, Warning } from '../../icons';
 import { css, fontSize, styleProps, StyleProps, theme } from '../../styles';
 
@@ -16,7 +17,7 @@ const fieldDescriptionCss = css({
   marginBottom: '4px',
 });
 
-const fieldValidationCss = css({
+const fieldCss = css({
   alignItems: 'stretch',
   display: 'flex',
   flexDirection: 'column',
@@ -25,30 +26,40 @@ const fieldValidationCss = css({
   variants: {
     status: {
       warning: {
-        color: '#a80',
-        [theme.colors.fieldBorder.variable]: '#a80',
-        [theme.colors.fieldBorderSlight.variable]: '#a80',
-        '--icon-color': '#a80',
+        color: theme.colors.warningText,
+        [theme.colors.fieldBorder.variable]: theme.colors.warningIcon,
+        [theme.colors.fieldBorderSlight.variable]: theme.colors.warningIcon,
+        '--icon-color': theme.colors.warningIcon,
       },
 
       error: {
-        color: '#c00',
-        [theme.colors.fieldBorder.variable]: '#c00',
-        [theme.colors.fieldBorderSlight.variable]: '#c00',
-        '--icon-color': '#c00',
+        color: theme.colors.errorText,
+        [theme.colors.fieldBorder.variable]: theme.colors.errorIcon,
+        [theme.colors.fieldBorderSlight.variable]: theme.colors.errorIcon,
+        '--icon-color': theme.colors.errorIcon,
       },
     },
   },
 });
 
-const fieldMessageCss = css({
+const fieldMessageContainerCss = css({
   display: 'flex',
-  alignItems: 'center',
+  alignItems: 'start',
   marginTop: 2,
 });
 
+const fieldStatusIconCss = css({
+  flexShrink: 0,
+  marginRight: space.md,
+});
+
+const fieldMessageCss = css({
+  flex: '1 1 auto',
+  marginTop: '2px',
+});
+
 interface FormFieldProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'title'> {
-  status?: 'warning' | 'error';
+  severity?: 'warning' | 'error';
   message?: string;
   title?: JSX.Element;
   description?: JSX.Element;
@@ -57,7 +68,7 @@ interface FormFieldProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'title
 export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => {
   const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, [
-    'status',
+    'severity',
     'message',
     'title',
     'description',
@@ -73,8 +84,8 @@ export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => 
         ...local.classList,
         ...layoutStyle,
         [local.class as string]: !!local.class,
-        [fieldValidationCss({
-          status: local.status,
+        [fieldCss({
+          status: local.severity,
         })]: true,
       }}
     >
@@ -86,16 +97,16 @@ export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => 
       </Show>
       {local.children}
       <Show when={local.message}>
-        <div class={fieldMessageCss()}>
+        <div class={fieldMessageContainerCss()}>
           <Switch>
-            <Match when={local.status === 'warning'}>
-              <Warning />
+            <Match when={local.severity === 'warning'}>
+              <Warning class={fieldStatusIconCss()} />
             </Match>
-            <Match when={local.status === 'error'}>
-              <Error />
+            <Match when={local.severity === 'error'}>
+              <Error class={fieldStatusIconCss()} />
             </Match>
           </Switch>
-          {local.message}
+          <div class={fieldMessageCss()}>{local.message}</div>
         </div>
       </Show>
     </div>

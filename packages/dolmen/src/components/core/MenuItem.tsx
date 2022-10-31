@@ -10,7 +10,7 @@ const menuIconCss = css({
   height: '20px',
   '--icon-color': '$colors$textDim',
 
-  '.dol-inset > li > * > &': {
+  '.dm-inset > li > * > &': {
     width: '24px',
   },
 });

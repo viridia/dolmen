@@ -376,7 +376,7 @@ export const Slider: VoidComponent<SliderProps> = props => {
             <For each={marks()}>
               {mark => (
                 <div
-                  classList={{ [markCss()]: true, 'dol-above': mark.value >= local.value }}
+                  classList={{ [markCss()]: true, 'dm-above': mark.value >= local.value }}
                   style={{ left: `${markPosition(mark.value) * 100}%` }}
                 />
               )}

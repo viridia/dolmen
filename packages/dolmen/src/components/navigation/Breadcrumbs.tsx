@@ -1,4 +1,5 @@
 import { ParentComponent, JSX, splitProps, children, For, Show } from 'solid-js';
+import { Dynamic } from 'solid-js/web';
 import { ChevronRight } from '../../icons';
 import { css, styleProps, StyleProps } from '../../styles';
 
@@ -31,6 +32,40 @@ export const BreadcrumbsItem: ParentComponent<
   );
 };
 
+const linkCss = css(breadcrumbsItemCss, {
+  textDecoration: 'none',
+  color: '$textLink',
+  fontWeight: 'normal',
+
+  '&:hover': {
+    textDecoration: 'underline',
+  },
+});
+
+interface BreadcrumbsLinkProps {
+  as?: ParentComponent<JSX.AnchorHTMLAttributes<HTMLAnchorElement>>;
+  href: string;
+}
+
+export const BreadcrumbsLink: ParentComponent<
+  BreadcrumbsLinkProps & JSX.AnchorHTMLAttributes<HTMLAnchorElement>
+> = props => {
+  const [local, rest] = splitProps(props, ['class', 'classList', 'children', 'as']);
+  return (
+    <Dynamic
+      component={local.as ?? 'a'}
+      {...rest}
+      classList={{
+        ...local.classList,
+        [local.class as string]: !!local.class,
+        [linkCss()]: true,
+      }}
+    >
+      {local.children}
+    </Dynamic>
+  );
+};
+
 interface BreadcrumbsProps {
   separator?: JSX.Element;
 }
@@ -54,7 +89,8 @@ const breadcrumbsSeparatorCss = css({
 export const Breadcrumbs: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement> & StyleProps & BreadcrumbsProps
 > & {
-  Item: typeof BreadcrumbsItem
+  Item: typeof BreadcrumbsItem;
+  Link: typeof BreadcrumbsLink;
 } = props => {
   const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children', 'separator']);
@@ -77,7 +113,7 @@ export const Breadcrumbs: ParentComponent<
               <div class={breadcrumbsSeparatorCss()} aria-hidden={true}>
                 {local.separator ?? <ChevronRight />}
               </div>
-              </Show>
+            </Show>
             {child}
           </>
         )}
@@ -87,3 +123,4 @@ export const Breadcrumbs: ParentComponent<
 };
 
 Breadcrumbs.Item = BreadcrumbsItem;
+Breadcrumbs.Link = BreadcrumbsLink;

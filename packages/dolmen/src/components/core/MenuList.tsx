@@ -225,7 +225,7 @@ export const MenuList: ParentComponent<
         classList={{
           ...local.classList,
           ...layoutStyle,
-          'dol-inset': local.inset,
+          'dm-inset': local.inset,
           [local.class as string]: !!local.class,
           [state()]: true,
           [menuListCss()]: true,

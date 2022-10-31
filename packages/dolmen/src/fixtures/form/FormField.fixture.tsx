@@ -13,10 +13,10 @@ export default () => (
     <FormField>
       <Input value="default" />
     </FormField>
-    <FormField status="warning" message="Warning">
+    <FormField severity="warning" message="Warning">
       <Input value="default" />
     </FormField>
-    <FormField status="error" message="Error">
+    <FormField severity="error" message="Error - a very long error message that should wrap to the next line.">
       <Input value="default" />
     </FormField>
   </Stack>

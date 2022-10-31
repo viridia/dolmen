@@ -8,7 +8,7 @@ const dangerColor = '#992ca9';
 const textHighlight = '#afafef';
 
 const { getCssText, css, createTheme, theme, config, globalCss } = createStitches({
-  prefix: 'dol',
+  prefix: 'dm',
   theme: {
     colors: {
       // Flat surfaces - page, card, modal, header
@@ -28,6 +28,20 @@ const { getCssText, css, createTheme, theme, config, globalCss } = createStitche
       textSelection: palette.gray900,
       textSelectionBg: textHighlight,
       textLink: colord(primaryColor).darken(0.2).desaturate(0.3).toHex(),
+
+      // Severities
+      successText: '#040',
+      successIcon: '#4a4',
+      successBg: '#ddeedd',
+      infoText: '#008',
+      infoIcon: '#66e',
+      infoBg: '#d4d4ee',
+      warningText: '#640',
+      warningIcon: '#a80',
+      warningBg: '#eeeed4',
+      errorText: '#700',
+      errorIcon: '#d00',
+      errorBg: '#eed5d5',
 
       // Colors for selected items (menus, list rows)
       itemHoverBg: palette.gray100,
