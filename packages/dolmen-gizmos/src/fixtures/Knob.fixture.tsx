@@ -2,7 +2,7 @@ import { createSignal } from 'solid-js';
 import { Stack, Title, Group } from 'dolmen';
 import { Knob } from '../index';
 
-export const $category = 'core';
+export const $category = 'gizmos';
 
 export default () => {
   const [value, setValue] = createSignal(0);

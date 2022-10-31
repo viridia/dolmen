@@ -4,7 +4,6 @@ import {
   Button,
   ButtonGroup,
   Page,
-  PageHeader,
   Spacer,
   Stack,
 } from 'dolmen';
@@ -97,8 +96,8 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
       <CatalogPane tree={fixtureTree()} />
       <AdjustPane />
       <Stack class={canvasSectionStyle} alignItems="stretch">
-        <PageHeader zIndex={0} gap="md">
-          <PageHeader.Title>
+        <Page.Header zIndex={0} gap="md">
+          <Page.Title>
             <Show when={selected()} fallback={<i>Nothing selected</i>} keyed>
               {fix => (
                 <Breadcrumbs>
@@ -109,7 +108,7 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
                 </Breadcrumbs>
               )}
             </Show>
-          </PageHeader.Title>
+          </Page.Title>
           <Spacer />
           <ButtonGroup>
             <Button
@@ -152,7 +151,7 @@ export const CodexPage: VoidComponent<{ fixtures: Resource<IFixture[]> }> = ({ f
               <DarkMode />
             </Show>
           </Button>
-        </PageHeader>
+        </Page.Header>
         <Switch>
           <Match when={settings.displayMode === 'canvas'}>
             <CanvasPane node={selected}></CanvasPane>

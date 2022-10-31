@@ -51,7 +51,7 @@ const menuItemCss = css({
     backgroundColor: '$itemSelectedBg',
   },
 
-  '&&:focus': {
+  '&:focus:focus-visible': {
     boxShadow: 'inset 0 0 2px 1px $colors$focus',
     backgroundColor: '$itemFocusBg',
   },
@@ -105,10 +105,10 @@ const MenuItemBase: ParentComponent<
           if (props.onClick) {
             props.onClick(e);
             // Close menu if they did not call preventDefault().
-            if (!e.defaultPrevented) {
-              e.preventDefault();
-              e.currentTarget.dispatchEvent(new CustomEvent(menuCloseEvent, { bubbles: true }));
-            }
+          }
+          if (!e.defaultPrevented) {
+            e.preventDefault();
+            e.currentTarget.dispatchEvent(new CustomEvent(menuCloseEvent, { bubbles: true }));
           }
         }}
         onKeyDown={e => {

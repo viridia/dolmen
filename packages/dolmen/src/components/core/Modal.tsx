@@ -240,7 +240,13 @@ export const Modal: ParentComponent<ModalProps & VariantProps<typeof modalCss>> 
         }}
       >
         <ModalContext.Provider value={{ onClose: props.withClose ? props.onClose : undefined }}>
-          <ModalDialogInner {...rest} state={state()}>
+          <ModalDialogInner
+            {...rest}
+            state={state()}
+            onClick={e => {
+              e.stopPropagation();
+            }}
+          >
             {local.children}
           </ModalDialogInner>
         </ModalContext.Provider>

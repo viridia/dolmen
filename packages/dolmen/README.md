@@ -30,17 +30,17 @@ useful style combinations and incorporating them into the component APIs, simila
 what [styled-system](https://styled-system.com/) does. Here's an example:
 
 ```tsx
-<PageHeader gap="xs" flexDirection="row">
+<Page.Header gap="xs" flexDirection="row">
   <Button icon round>Sign In</Button>
-</PageHeader>
+</Page.Header>
 ```
 
 However, what you can't do is something like this:
 
 ```tsx
-<PageHeader gap="10px">
+<Page.Header gap="10px">
   <Button icon round>Sign In</Button>
-</PageHeader>
+</Page.Header>
 ```
 
 The reason is because the value `10px` is not in the selected set of known gap sizes.
@@ -49,9 +49,9 @@ To get around this limitation, the component can be styled in the traditional wa
 applying a conventional stylesheet:
 
 ```tsx
-<PageHeader class="page-header">
+<Page.Header class="page-header">
   <Button icon round>Sign In</Button>
-</PageHeader>
+</Page.Header>
 ```
 
 ```css

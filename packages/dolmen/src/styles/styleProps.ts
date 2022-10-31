@@ -5,7 +5,7 @@ import { css } from './css';
 import { Space, space } from './size';
 import { Z, ZIndices } from './z';
 
-const spaceAlias = (s: string | number) => (typeof s === 'string' && space[s as Space] || s);
+const spaceAlias = (s: string | number) => (typeof s === 'string' && space[s as Space]) || s;
 
 const zAlias = (z: string | number) => {
   const result = Z[z as ZIndices];
@@ -20,19 +20,7 @@ const zAlias = (z: string | number) => {
 };
 
 /** Translates shortcuts such as "xl" into a form acceptable to Stitches. */
-const conversionMap = {
-  gap: (value: Property.Gap | Space, css: CSSProperties) => {
-    css.gap = spaceAlias(value);
-  },
-
-  rowGap: (value: Property.RowGap | Space, css: CSSProperties) => {
-    css.rowGap = spaceAlias(value);
-  },
-
-  columnGap: (value: Property.ColumnGap | Space, css: CSSProperties) => {
-    css.columnGap = spaceAlias(value);
-  },
-
+const layoutProps = {
   m: (value: Property.Margin | Space, css: CSSProperties) => {
     css.margin = spaceAlias(value);
   },
@@ -120,6 +108,20 @@ const conversionMap = {
   minHeight: (value: Property.MinHeight, css: CSSProperties) => {
     css.minWidth = value;
   },
+};
+
+const flexProps = {
+  gap: (value: Property.Gap | Space, css: CSSProperties) => {
+    css.gap = spaceAlias(value);
+  },
+
+  rowGap: (value: Property.RowGap | Space, css: CSSProperties) => {
+    css.rowGap = spaceAlias(value);
+  },
+
+  columnGap: (value: Property.ColumnGap | Space, css: CSSProperties) => {
+    css.columnGap = spaceAlias(value);
+  },
 
   alignItems: (value: Property.AlignItems, css: CSSProperties) => {
     css.alignItems = value;
@@ -162,31 +164,41 @@ const conversionMap = {
   },
 };
 
-type StylePropsMap = typeof conversionMap;
-type StyleKey = keyof StylePropsMap;
+const combinedStyleProps = {
+  ...layoutProps,
+  ...flexProps,
+};
+
+type CombinedPropBuilders = typeof combinedStyleProps;
+type LayoutPropBuilders = typeof layoutProps;
 
 type StyleArgument<T> = T extends (value: infer Arg, css: CSSProperties) => unknown ? Arg : never;
-export type StyleProps = { [k in StyleKey]?: StyleArgument<StylePropsMap[k]> };
-type StylePropsResult<T> = [{ [key: string]: true }, Omit<T, keyof StyleProps>];
+export type StyleProps = {
+  [k in keyof CombinedPropBuilders]?: StyleArgument<CombinedPropBuilders[k]>;
+};
+export type LayoutProps = {
+  [k in keyof LayoutPropBuilders]?: StyleArgument<LayoutPropBuilders[k]>;
+};
 
-const stylePropsKeys = Object.keys(conversionMap) as StyleKey[];
+type StylePropsResult<T> = [{ [key: string]: true }, Omit<T, keyof StyleProps>];
+const allPropsKeys = Object.keys(combinedStyleProps) as (keyof CombinedPropBuilders)[];
 
 /** Function that allows individual style properties to be passed as parameters
     to a component, inspired by styled-system.
  */
 export function styleProps<T>(props: T & StyleProps): StylePropsResult<T> {
-  const [styleProps, otherProps] = splitProps(props, stylePropsKeys);
+  const [styleProps, otherProps] = splitProps(props, allPropsKeys);
 
   let isEmpty = true;
   const translatedProps = {};
   for (const key in styleProps) {
     isEmpty = false;
-    const converter = conversionMap[key as StyleKey] as (
+    const converter = combinedStyleProps[key as keyof CombinedPropBuilders] as (
       value: unknown,
       props: CSSProperties
     ) => string;
     if (converter) {
-      converter(styleProps[key as StyleKey], translatedProps);
+      converter(styleProps[key as keyof CombinedPropBuilders], translatedProps);
     }
   }
 

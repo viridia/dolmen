@@ -7,7 +7,7 @@ const primaryColor = '#6469ff';
 const dangerColor = '#992ca9';
 const textHighlight = '#afafef';
 
-const { getCssText, css, createTheme, theme, config } = createStitches({
+const { getCssText, css, createTheme, theme, config, globalCss } = createStitches({
   prefix: 'dol',
   theme: {
     colors: {
@@ -27,6 +27,7 @@ const { getCssText, css, createTheme, theme, config } = createStitches({
       textDim: palette.gray500,
       textSelection: palette.gray900,
       textSelectionBg: textHighlight,
+      textLink: colord(primaryColor).darken(0.2).desaturate(0.3).toHex(),
 
       // Colors for selected items (menus, list rows)
       itemHoverBg: palette.gray100,
@@ -95,7 +96,7 @@ const { getCssText, css, createTheme, theme, config } = createStitches({
   },
 });
 
-export { getCssText, css, createTheme, theme, config };
+export { getCssText, css, createTheme, theme, config, globalCss };
 
 export const stdFontSizes = css({
   variants: {

@@ -1,5 +1,5 @@
 import { JSX, splitProps, ParentComponent } from 'solid-js';
-import { css, Z } from '../../styles';
+import { css, fontSize, Z } from '../../styles';
 
 const checkboxLabelCss = css({
   color: '$text',
@@ -9,7 +9,7 @@ const checkboxLabelCss = css({
   justifyContent: 'start',
   outline: 'none',
   fontFamily: '$body',
-  fontSize: 'inherit',
+  fontSize: fontSize.md,
   gap: '6px',
 
   '&.disabled': {

@@ -1,4 +1,4 @@
-import { Button, Input, PageHeader, Stack } from '../../components';
+import { Button, Input, Page, Stack } from '../../components';
 import { Cancel } from '../../icons';
 
 export const $category = 'form';
@@ -55,8 +55,8 @@ export default {
     </Stack>
   ),
   'In Header': () => (
-    <PageHeader>
+    <Page.Header>
       <Input round placeholder="Search..." />
-    </PageHeader>
+    </Page.Header>
   ),
 };

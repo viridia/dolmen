@@ -1,5 +1,5 @@
 {
-  "name": "dolmen-knob",
+  "name": "dolmen-rich-text",
   "version": "0.0.1",
   "author": "Talin",
   "license": "MIT",
@@ -11,7 +11,7 @@
     "url": "https://github.com/viridia/dolmen/issues"
   },
   "homepage": "https://github.com/viridia/dolmen#readme",
-  "description": "Dolmen knob widget",
+  "description": "Rich text editor for Dolmen UI",
   "scripts": {
     "build": "npm run build:mjs && npm run build:cjs",
     "build:cjs": "tsc --project tsconfig.src.json --outDir ./dist/cjs --module CommonJS",
@@ -30,9 +30,19 @@
     "dist"
   ],
   "dependencies": {
-    "dolmen": "*",
     "@stitches/core": "^1.2.8",
     "colord": "^2.9.3",
+    "dolmen": "*",
+    "prosemirror-commands": "^1.3.1",
+    "prosemirror-gapcursor": "^1.3.1",
+    "prosemirror-history": "^1.3.0",
+    "prosemirror-inputrules": "^1.2.0",
+    "prosemirror-keymap": "^1.2.0",
+    "prosemirror-model": "^1.18.1",
+    "prosemirror-schema-basic": "^1.2.0",
+    "prosemirror-state": "^1.4.2",
+    "prosemirror-transform": "^1.7.0",
+    "prosemirror-view": "^1.29.0",
     "solid-js": "^1.6.0"
   },
   "devDependencies": {

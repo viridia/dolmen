@@ -1,4 +1,4 @@
-import { Button, PageHeader, Spacer } from '../../components';
+import { Button, Page, Spacer } from '../../components';
 import { demoPage } from './demoPage';
 
 export const $category = 'layout';
@@ -6,8 +6,8 @@ export const $category = 'layout';
 function PageHeaderDemo() {
   return (
     <div class={demoPage()}>
-      <PageHeader>
-        <PageHeader.Title>Page Title</PageHeader.Title>
+      <Page.Header>
+        <Page.Title>Page Title</Page.Title>
         <Spacer />
         <Button icon round>
           X
@@ -20,7 +20,7 @@ function PageHeaderDemo() {
         </Button>
         <Button>Register</Button>
         <Button color="primary">Sign In</Button>
-      </PageHeader>
+      </Page.Header>
       <div style={{ flex: 1 }} />
     </div>
   );

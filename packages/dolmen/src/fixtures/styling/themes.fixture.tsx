@@ -42,6 +42,7 @@ export const custom = createTheme('custom', {
     textSelectionBg: textHighlight,
 
     itemHoverBg: palette.warmgray800,
+    itemFocusBg: palette.warmgray700,
     itemSelectedBg: textHighlight,
 
     focus: '#8183ff88',
@@ -64,6 +65,11 @@ export const custom = createTheme('custom', {
     btnSelectedContrast: palette.warmgray100,
     btnSelectedContrastDim: palette.warmgray200,
 
+    scrollbar: colord(palette.warmgray500).alpha(0.3).toHex(),
+    scrollbarInactive: colord(palette.warmgray500).alpha(0.15).toHex(),
+
+    sliderFill: palette.warmgray750,
+
     toggleFill: palette.warmgray700,
     toggleFillChecked: '#118811',
     toggleSlideFill: `linear-gradient(to bottom, ${palette.warmgray100} 0%, ${palette.warmgray300} 100%)`,
@@ -83,11 +89,6 @@ export const custom = createTheme('custom', {
       ${colord(palette.warmgray800).lighten(0.03).toHex()} 0,
       ${colord(palette.warmgray800).darken(0.03).toHex()}
     )`,
-
-    scrollbar: colord(palette.warmgray500).alpha(0.3).toHex(),
-    scrollbarInactive: colord(palette.warmgray500).alpha(0.15).toHex(),
-
-    sliderFill: palette.warmgray750,
   },
 });
 

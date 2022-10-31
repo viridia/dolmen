@@ -6,7 +6,7 @@ import { buttonGroupCss } from './ButtonGroup';
 const buttonSize = (base: ButtonSizeVariant) => ({
   height: size[base],
   fontSize: fontSize[base],
-  padding: `0 0.7em`,
+  padding: '0 0.7em',
 });
 
 const buttonCss = css({
@@ -114,18 +114,12 @@ const buttonCss = css({
         },
         '--icon-color': '$colors$btnSecondaryContrastDim',
       },
+      // Used internally for menubuttons
       field: {
         backgroundColor: '$fieldBg',
         borderColor: '$fieldBorderSlight',
         color: '$text',
         borderWidth: 1,
-        // '&:hover:not([disabled])': {
-        //   backgroundColor: '$itemHoverBg',
-        // },
-        // '&:active:not([disabled])': {
-        //   backgroundColor: '$itemHoverBg',
-        //   filter: 'brightness(0.9)',
-        // },
         '--icon-color': '$colors$textDim',
       },
     },
@@ -147,6 +141,55 @@ const buttonCss = css({
   compoundVariants: [
     {
       round: true,
+      icon: true,
+      css: {
+        padding: 0,
+      },
+    },
+    {
+      size: 'xl',
+      icon: true,
+      css: {
+        padding: 0,
+      },
+    },
+    {
+      size: 'lg',
+      icon: true,
+      css: {
+        padding: 0,
+      },
+    },
+    {
+      size: 'md',
+      icon: true,
+      css: {
+        padding: 0,
+      },
+    },
+    {
+      size: 'sm',
+      icon: true,
+      css: {
+        padding: 0,
+      },
+    },
+    {
+      size: 'xs',
+      icon: true,
+      css: {
+        padding: 0,
+      },
+    },
+    {
+      size: 'mini',
+      icon: true,
+      css: {
+        padding: 0,
+      },
+    },
+    {
+      size: 'tiny',
       icon: true,
       css: {
         padding: 0,

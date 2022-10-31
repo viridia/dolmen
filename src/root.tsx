@@ -4,7 +4,8 @@ import { App } from 'solid-codex';
 
 const fixtureModules = import.meta.glob([
   '/packages/dolmen/src/fixtures/**/*.fixture.tsx',
-  '/packages/dolmen-knob/**/*.fixture.tsx',
+  '/packages/dolmen-gizmos/**/*.fixture.tsx',
+  '/packages/dolmen-rich-text/**/*.fixture.tsx',
 ]);
 
 export default function Root() {

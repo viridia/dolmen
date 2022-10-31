@@ -1,6 +1,14 @@
 import { JSX, splitProps, Component } from 'solid-js';
 import { VariantProps } from '@stitches/core';
-import { css, fontSize, size, SizeVariant } from '../../styles';
+import {
+  css,
+  fontSize,
+  size,
+  SizeVariant,
+  scrollbars,
+  styleProps,
+  LayoutProps,
+} from '../../styles';
 
 interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
   adornLeft?: JSX.Element | JSX.Element[];
@@ -12,60 +20,53 @@ const inputSize = (base: SizeVariant) => ({
   fontSize: fontSize[base],
 });
 
-const inputFrameCss = css({
-  ...inputSize('md'),
-  backgroundColor: '$fieldBg',
-  color: '$text',
-  alignItems: 'center',
-  appearance: 'none',
-  borderRadius: 3,
-  borderWidth: 1,
-  borderStyle: 'solid',
-  borderColor: '$fieldBorderSlight',
-  display: 'flex',
-  flexDirection: 'row',
-  fontWeight: '350',
-  outline: 'none',
-  justifyContent: 'center',
-  padding: '0 6px',
-  '--icon-color': '$colors$textDim',
+const inputFrameCss = css(
+  {
+    ...inputSize('md'),
+    backgroundColor: '$fieldBg',
+    alignItems: 'center',
+    borderRadius: 3,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: '$fieldBorderSlight',
+    display: 'flex',
+    flexDirection: 'row',
+    fontWeight: '350',
+    outline: 'none',
+    justifyContent: 'center',
+    padding: '0 6px',
+    '--icon-color': '$colors$textDim',
 
-  '&:hover:not([disabled])': {
-    borderColor: '$fieldHoverBorder',
-  },
-
-  '&:focus-within': {
-    boxShadow: '0 0 0 2px inset $colors$focus',
-  },
-
-  variants: {
-    size: {
-      xl: inputSize('xl'),
-      lg: inputSize('lg'),
-      md: inputSize('md'),
-      sm: inputSize('sm'),
-      xs: inputSize('xs'),
+    '&:hover:not([disabled])': {
+      borderColor: '$fieldHoverBorder',
     },
 
-    round: {
-      true: {
-        borderRadius: '500px',
-        padding: '0 8px',
+    '&:focus-within': {
+      boxShadow: '0 0 0 2px inset $colors$focus',
+    },
+
+    variants: {
+      size: {
+        xl: inputSize('xl'),
+        lg: inputSize('lg'),
+        md: inputSize('md'),
+        sm: inputSize('sm'),
+        xs: inputSize('xs'),
       },
-    },
 
-    icon: {
-      true: {
-        padding: 0,
-        aspectRatio: '1',
+      round: {
+        true: {
+          borderRadius: '500px',
+          padding: '0 8px',
+        },
       },
     },
   },
-});
+  scrollbars
+);
 
 const inputElementCss = css({
   alignSelf: 'stretch',
-  appearance: 'none',
   backgroundColor: 'transparent',
   border: 'none',
   color: '$text',
@@ -103,10 +104,12 @@ const adornRightCss = css(adornCss, {
   marginRight: -2,
 });
 
-export const Input: Component<InputProps & VariantProps<typeof inputFrameCss>> = props => {
-  const [local, rest] = splitProps(props, [
+export const Input: Component<
+  InputProps & LayoutProps & VariantProps<typeof inputFrameCss>
+> = props => {
+  const [layoutStyle, nprops] = styleProps(props);
+  const [local, rest] = splitProps(nprops, [
     'size',
-    'color',
     'round',
     'adornLeft',
     'adornRight',
@@ -117,6 +120,7 @@ export const Input: Component<InputProps & VariantProps<typeof inputFrameCss>> =
     <div
       classList={{
         ...local.classList,
+        ...layoutStyle,
         [local.class as string]: !!local.class,
         [inputFrameCss({
           size: local.size,
@@ -126,39 +130,6 @@ export const Input: Component<InputProps & VariantProps<typeof inputFrameCss>> =
     >
       {props.adornLeft && <div class={adornLeftCss()}>{props.adornLeft}</div>}
       <input {...rest} class={inputElementCss()} />
-      {props.adornRight && <div class={adornRightCss()}>{props.adornRight}</div>}
-    </div>
-  );
-};
-
-interface TextAreaProps extends JSX.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  adornLeft?: JSX.Element | JSX.Element[];
-  adornRight?: JSX.Element | JSX.Element[];
-}
-
-export const TextArea: Component<TextAreaProps & VariantProps<typeof inputFrameCss>> = props => {
-  const [local, rest] = splitProps(props, [
-    'size',
-    'color',
-    'round',
-    'adornLeft',
-    'adornRight',
-    'class',
-    'classList',
-  ]);
-  return (
-    <div
-      classList={{
-        ...local.classList,
-        [local.class as string]: !!local.class,
-        [inputFrameCss({
-          size: local.size,
-          round: local.round,
-        })]: true,
-      }}
-    >
-      {props.adornLeft && <div class={adornLeftCss()}>{props.adornLeft}</div>}
-      <textarea {...rest} class={inputElementCss()} />
       {props.adornRight && <div class={adornRightCss()}>{props.adornRight}</div>}
     </div>
   );

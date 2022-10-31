@@ -35,7 +35,15 @@
 
 * TreeView
 * ComboBox / Autocomplete
+
 * Rich Text
+  * Serialization
+  * Deserialization
+  * Lists
+  * Codeblocks
+  * Checkbox lists with attributes.
+  * Images / SVG
+  * Formulas
 
 # Codex
 
@@ -62,14 +70,15 @@
   * Checkbox
   * Toggle
   * Input
+* Button busy state.
 
-# Drawer
+## Drawer
 
   * Leave sliver
   * Fixture for minWidth
   * Firefox bugs
 
-# Style props to do
+## Style props to do
 
 lineHeight
 
@@ -92,4 +101,3 @@ letterSpacing
   * properties panel
   * tree expansion state
   * SSR in general makes design hard
-* solid-start exporting source

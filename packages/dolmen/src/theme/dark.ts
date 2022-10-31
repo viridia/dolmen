@@ -21,6 +21,7 @@ export const dark = createTheme('dark', {
     textDim: palette.coolgray500,
     textSelection: palette.white,
     textSelectionBg: textHighlight,
+    textLink: colord(primaryColor).toHex(),
 
     itemHoverBg: palette.coolgray750,
     itemFocusBg: palette.coolgray700,

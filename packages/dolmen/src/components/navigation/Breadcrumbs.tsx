@@ -2,6 +2,35 @@ import { ParentComponent, JSX, splitProps, children, For, Show } from 'solid-js'
 import { ChevronRight } from '../../icons';
 import { css, styleProps, StyleProps } from '../../styles';
 
+const breadcrumbsItemCss = css({
+  alignItems: 'center',
+  display: 'flex',
+  flexDirection: 'row',
+  fontWeight: 'bold',
+  color: '$text',
+});
+
+export const BreadcrumbsItem: ParentComponent<
+  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
+> = props => {
+  const [layoutStyle, nprops] = styleProps(props);
+  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+
+  return (
+    <div
+      {...rest}
+      classList={{
+        ...local.classList,
+        ...layoutStyle,
+        [local.class as string]: !!local.class,
+        [breadcrumbsItemCss()]: true,
+      }}
+    >
+      {local.children}
+    </div>
+  );
+};
+
 interface BreadcrumbsProps {
   separator?: JSX.Element;
 }
@@ -24,7 +53,9 @@ const breadcrumbsSeparatorCss = css({
 
 export const Breadcrumbs: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement> & StyleProps & BreadcrumbsProps
-> = props => {
+> & {
+  Item: typeof BreadcrumbsItem
+} = props => {
   const [layoutStyle, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children', 'separator']);
   const childNodes = children(() => local.children);
@@ -55,30 +86,4 @@ export const Breadcrumbs: ParentComponent<
   );
 };
 
-const breadcrumbsItemCss = css({
-  alignItems: 'center',
-  display: 'flex',
-  flexDirection: 'row',
-  color: '$text',
-});
-
-export const BreadcrumbsItem: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
-> = props => {
-  const [layoutStyle, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
-
-  return (
-    <div
-      {...rest}
-      classList={{
-        ...local.classList,
-        ...layoutStyle,
-        [local.class as string]: !!local.class,
-        [breadcrumbsItemCss()]: true,
-      }}
-    >
-      {local.children}
-    </div>
-  );
-};
+Breadcrumbs.Item = BreadcrumbsItem;
