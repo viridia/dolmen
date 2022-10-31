@@ -1,5 +1,5 @@
 import { VariantProps } from '@stitches/core';
-import { ParentComponent, JSX, splitProps, Switch, Match } from 'solid-js';
+import { ParentComponent, JSX, splitProps, Switch, Match, Show } from 'solid-js';
 import { Error, Info, Success, Warning } from '../../icons';
 import { css, space, theme } from '../../styles';
 
@@ -41,37 +41,46 @@ export const alertCss = css({
   },
 });
 
+interface AlertProps {
+  /** Allows the alert to be shown conditionally. If false, the alert will not be shown.
+      If true or undefined, the alert will be visible.
+   */
+  when?: boolean;
+}
+
 export const Alert: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertCss>
+  JSX.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertCss> & AlertProps
 > = props => {
-  const [local, rest] = splitProps(props, ['class', 'classList', 'children', 'severity']);
+  const [local, rest] = splitProps(props, ['class', 'classList', 'children', 'severity', 'when']);
 
   return (
-    <div
-      {...rest}
-      classList={{
-        ...local.classList,
-        [local.class as string]: !!local.class,
-        [alertCss({
-          severity: local.severity,
-        })]: true,
-      }}
-    >
-      <Switch>
-        <Match when={local.severity === 'success'}>
-          <Success />
-        </Match>
-        <Match when={local.severity === 'info'}>
-          <Info />
-        </Match>
-        <Match when={local.severity === 'warning'}>
-          <Warning />
-        </Match>
-        <Match when={local.severity === 'error'}>
-          <Error />
-        </Match>
-      </Switch>
-      {local.children}
-    </div>
+    <Show when={local.when !== false}>
+      <div
+        {...rest}
+        classList={{
+          ...local.classList,
+          [local.class as string]: !!local.class,
+          [alertCss({
+            severity: local.severity,
+          })]: true,
+        }}
+      >
+        <Switch>
+          <Match when={local.severity === 'success'}>
+            <Success />
+          </Match>
+          <Match when={local.severity === 'info'}>
+            <Info />
+          </Match>
+          <Match when={local.severity === 'warning'}>
+            <Warning />
+          </Match>
+          <Match when={local.severity === 'error'}>
+            <Error />
+          </Match>
+        </Switch>
+        {local.children}
+      </div>
+    </Show>
   );
 };

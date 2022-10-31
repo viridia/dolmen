@@ -1,5 +1,7 @@
 # Components
 
+* ColorGrid
+* TableGrid
 * Slider
   * Marks
   * Vertical
@@ -24,7 +26,9 @@
 * Pagination
 * Breadcrumbs (incomplete - need links)
 * Alert
+  * Make them conditional.
 * Toast
+* Snackbar
 * Progress Bar
 * Collapse
 * Divider
