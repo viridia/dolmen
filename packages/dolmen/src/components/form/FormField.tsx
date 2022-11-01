@@ -1,4 +1,4 @@
-import { ParentComponent, JSX, splitProps, Show, Switch, Match } from 'solid-js';
+import { ParentComponent, JSX, splitProps, Show, Switch, Match, createMemo } from 'solid-js';
 import { Error, Warning } from '../../icons';
 import { css, fontSize, space, styleProps, StyleProps, theme } from '../../styles';
 
@@ -23,7 +23,7 @@ const fieldCss = css({
   fontSize: '0.8rem',
 
   variants: {
-    status: {
+    severity: {
       warning: {
         color: theme.colors.warningText,
         [theme.colors.fieldBorder.variable]: theme.colors.warningIcon,
@@ -60,6 +60,8 @@ const fieldMessageCss = css({
 interface FormFieldProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'title'> {
   severity?: 'warning' | 'error';
   message?: string;
+  error?: string;
+  warning?: string;
   title?: JSX.Element;
   description?: JSX.Element;
 }
@@ -69,6 +71,8 @@ export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => 
   const [local, rest] = splitProps(nprops, [
     'severity',
     'message',
+    'error',
+    'warning',
     'title',
     'description',
     'class',
@@ -76,6 +80,15 @@ export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => 
     'children',
   ]);
 
+  const severity = createMemo(() => {
+    return local.severity
+      ? local.severity
+      : local.error
+      ? 'error'
+      : local.warning
+      ? 'warning'
+      : undefined;
+  });
   return (
     <div
       {...rest}
@@ -84,7 +97,7 @@ export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => 
         ...layoutCss,
         [local.class as string]: !!local.class,
         [fieldCss({
-          status: local.severity,
+          severity: severity(),
         })]: true,
       }}
     >
@@ -95,18 +108,20 @@ export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => 
         <div class={fieldDescriptionCss()}>{local.description}</div>
       </Show>
       {local.children}
-      <Show when={local.message}>
-        <div class={fieldMessageContainerCss()}>
-          <Switch>
-            <Match when={local.severity === 'warning'}>
-              <Warning class={fieldStatusIconCss()} />
-            </Match>
-            <Match when={local.severity === 'error'}>
-              <Error class={fieldStatusIconCss()} />
-            </Match>
-          </Switch>
-          <div class={fieldMessageCss()}>{local.message}</div>
-        </div>
+      <Show when={local.message ?? local.error ?? local.warning} keyed>
+        {message => (
+          <div class={fieldMessageContainerCss()}>
+            <Switch>
+              <Match when={severity() === 'warning'}>
+                <Warning class={fieldStatusIconCss()} />
+              </Match>
+              <Match when={severity() === 'error'}>
+                <Error class={fieldStatusIconCss()} />
+              </Match>
+            </Switch>
+            <div class={fieldMessageCss()}>{message}</div>
+          </div>
+        )}
       </Show>
     </div>
   );

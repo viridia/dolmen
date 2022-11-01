@@ -22,5 +22,11 @@ export default () => (
     >
       <Input value="default" />
     </FormField>
+    <FormField warning="Warning shortcut attribute">
+      <Input value="default" />
+    </FormField>
+    <FormField error="Error shortcut attribute">
+      <Input value="default" />
+    </FormField>
   </Stack>
 );
