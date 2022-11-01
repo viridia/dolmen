@@ -210,7 +210,7 @@ export type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> &
   };
 
 export const Button: ParentComponent<ButtonProps> = props => {
-  const [layoutStyle, nprops] = styleProps(props);
+  const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, [
     'size',
     'color',
@@ -226,7 +226,7 @@ export const Button: ParentComponent<ButtonProps> = props => {
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutStyle,
+        ...layoutCss,
         [local.class as string]: !!local.class,
         [buttonCss({
           size: local.size,

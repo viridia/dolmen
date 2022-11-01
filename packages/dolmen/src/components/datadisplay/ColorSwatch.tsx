@@ -32,14 +32,14 @@ interface Props {
 }
 
 export const ColorSwatch: VoidComponent<Props & StyleProps> = props => {
-  const [layoutStyle, nprops] = styleProps(props);
+  const [layoutCss, nprops] = styleProps(props);
   const c = colord(nprops.color);
   const color = c.brightness() > 0.3 ? '#000' : '#fff'; // Compute contrasting color.
   return props.onClick ? (
     <button
       style={{ 'background-color': nprops.color, color, 'border-color': color }}
       classList={{
-        ...layoutStyle,
+        ...layoutCss,
         [colorSwatchClickableCss()]: true,
         selected: props.selected,
       }}
@@ -47,7 +47,7 @@ export const ColorSwatch: VoidComponent<Props & StyleProps> = props => {
     />
   ) : (
     <div
-      style={{ ...layoutStyle, 'background-color': props.color, color, 'border-color': color }}
+      style={{ ...layoutCss, 'background-color': props.color, color, 'border-color': color }}
       class={colorSwatchCss()}
     />
   );

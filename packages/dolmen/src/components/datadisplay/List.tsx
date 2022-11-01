@@ -32,7 +32,7 @@ interface ListItemProps {
 const ListItem: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement> & StyleProps & ListItemProps
 > = props => {
-  const [layoutStyle, nprops] = styleProps(props);
+  const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, [
     'selected',
     'disabled',
@@ -49,7 +49,7 @@ const ListItem: ParentComponent<
       aria-disabled={local.disabled ? true : undefined}
       classList={{
         ...local.classList,
-        ...layoutStyle,
+        ...layoutCss,
         [local.class as string]: !!local.class,
         [listItemCss()]: true,
       }}
@@ -81,7 +81,7 @@ const listCss = css(
 export const List: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> & {
   Item: typeof ListItem;
 } = props => {
-  const [layoutStyle, nprops] = styleProps(props);
+  const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (
@@ -90,7 +90,7 @@ export const List: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StylePro
       role="list"
       classList={{
         ...local.classList,
-        ...layoutStyle,
+        ...layoutCss,
         [local.class as string]: !!local.class,
         [listCss()]: true,
       }}

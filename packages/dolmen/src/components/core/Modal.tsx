@@ -1,7 +1,7 @@
 import { createContext, JSX, ParentComponent, Show, splitProps, useContext } from 'solid-js';
 import { createCssTransition, createFocusTrap, CssTransitionState } from '../../hooks';
 import { Close } from '../../icons';
-import { css, scrollbars, Z } from '../../styles';
+import { css, FlexProps, scrollbars, styleProps, Z } from '../../styles';
 import { Button } from './Button';
 import { VariantProps } from '@stitches/core';
 
@@ -146,13 +146,15 @@ const ModalHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement>> = props => {
   );
 };
 
-const ModalBody: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = props => {
-  const [local, rest] = splitProps(props, ['class', 'classList', 'children']);
+const ModalBody: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & FlexProps> = props => {
+  const [layoutCss, nprops] = styleProps(props);
+  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
   return (
     <div
       {...rest}
       classList={{
         ...local.classList,
+        ...layoutCss,
         [local.class as string]: !!local.class,
         [modalBodyCss()]: true,
       }}

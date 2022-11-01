@@ -37,7 +37,7 @@ const scrollAreaCss = css(
 export const ScrollArea: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement> & StyleProps & VariantProps<typeof scrollAreaCss>
 > = props => {
-  const [layoutStyle, nprops] = styleProps(props);
+  const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children', 'direction']);
 
   return (
@@ -46,7 +46,7 @@ export const ScrollArea: ParentComponent<
       role="list"
       classList={{
         ...local.classList,
-        ...layoutStyle,
+        ...layoutCss,
         [local.class as string]: !!local.class,
         [scrollAreaCss({
           direction: local.direction,

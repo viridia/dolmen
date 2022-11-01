@@ -14,7 +14,7 @@ const breadcrumbsItemCss = css({
 export const BreadcrumbsItem: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement> & StyleProps
 > = props => {
-  const [layoutStyle, nprops] = styleProps(props);
+  const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (
@@ -22,7 +22,7 @@ export const BreadcrumbsItem: ParentComponent<
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutStyle,
+        ...layoutCss,
         [local.class as string]: !!local.class,
         [breadcrumbsItemCss()]: true,
       }}
@@ -92,7 +92,7 @@ export const Breadcrumbs: ParentComponent<
   Item: typeof BreadcrumbsItem;
   Link: typeof BreadcrumbsLink;
 } = props => {
-  const [layoutStyle, nprops] = styleProps(props);
+  const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children', 'separator']);
   const childNodes = children(() => local.children);
 
@@ -101,7 +101,7 @@ export const Breadcrumbs: ParentComponent<
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutStyle,
+        ...layoutCss,
         [local.class as string]: !!local.class,
         [breadcrumbsCss()]: true,
       }}

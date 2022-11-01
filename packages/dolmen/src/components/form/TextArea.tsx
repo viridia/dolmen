@@ -64,14 +64,14 @@ const textAreaCss = css(
 type TextAreaProps = JSX.TextareaHTMLAttributes<HTMLTextAreaElement> & LayoutProps;
 
 export const TextArea: VoidComponent<TextAreaProps & VariantProps<typeof textAreaCss>> = props => {
-  const [layoutStyle, nprops] = styleProps(props);
+  const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['size', 'color', 'class', 'classList']);
   return (
     <textarea
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutStyle,
+        ...layoutCss,
         [local.class as string]: !!local.class,
         [textAreaCss({
           size: local.size,

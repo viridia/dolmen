@@ -107,7 +107,7 @@ const adornRightCss = css(adornCss, {
 export const Input: Component<
   InputProps & LayoutProps & VariantProps<typeof inputFrameCss>
 > = props => {
-  const [layoutStyle, nprops] = styleProps(props);
+  const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, [
     'size',
     'round',
@@ -120,7 +120,7 @@ export const Input: Component<
     <div
       classList={{
         ...local.classList,
-        ...layoutStyle,
+        ...layoutCss,
         [local.class as string]: !!local.class,
         [inputFrameCss({
           size: local.size,

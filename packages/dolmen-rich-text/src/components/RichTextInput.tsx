@@ -145,7 +145,7 @@ export function codeBlockRule(nodeType: NodeType) {
 export const RichTextInput: VoidComponent<
   RichTextEditProps & LayoutProps & VariantProps<typeof rtInputCss>
 > = props => {
-  const [layoutStyle, nprops] = styleProps(props);
+  const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['size', 'class', 'classList']);
   const [ref, setRef] = createSignal<HTMLElement>();
 
@@ -219,7 +219,7 @@ export const RichTextInput: VoidComponent<
         {...rest}
         classList={{
           ...local.classList,
-          ...layoutStyle,
+          ...layoutCss,
           [local.class as string]: !!local.class,
           [rtInputCss({
             size: local.size,

@@ -9,7 +9,9 @@ function GroupDemo() {
       <Alert severity="info">Just so you know...</Alert>
       <Alert severity="warning">I've got a bad feeling about this...</Alert>
       <Alert severity="error">Meeee-Maaaaw! Meeee-Maaaaw! Meeee-Maaaaw!</Alert>
-      <Alert severity="success" when={false}>This should not be visible.</Alert>
+      <Alert severity="success" when={false}>
+        This should not be visible.
+      </Alert>
     </Stack>
   );
 }

@@ -179,6 +179,9 @@ export type StyleProps = {
 export type LayoutProps = {
   [k in keyof LayoutPropBuilders]?: StyleArgument<LayoutPropBuilders[k]>;
 };
+export type FlexProps = {
+  [k in keyof typeof flexProps]?: StyleArgument<typeof flexProps[k]>;
+};
 
 type StylePropsResult<T> = [{ [key: string]: true }, Omit<T, keyof StyleProps>];
 const allPropsKeys = Object.keys(combinedStyleProps) as (keyof CombinedPropBuilders)[];

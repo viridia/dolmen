@@ -11,7 +11,7 @@ const cardContentCss = css({
 });
 
 const CardContent: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> = props => {
-  const [layoutStyle, nprops] = styleProps(props);
+  const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (
@@ -19,7 +19,7 @@ const CardContent: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StylePro
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutStyle,
+        ...layoutCss,
         [local.class as string]: !!local.class,
         [cardContentCss()]: true,
       }}
@@ -43,7 +43,7 @@ const cardCss = css({
 export const Card: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> & {
   Content: typeof CardContent;
 } = props => {
-  const [layoutStyle, nprops] = styleProps(props);
+  const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (
@@ -51,7 +51,7 @@ export const Card: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps>
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutStyle,
+        ...layoutCss,
         [local.class as string]: !!local.class,
         [cardCss()]: true,
       }}

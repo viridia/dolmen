@@ -53,7 +53,7 @@ export interface MenuListProps {
 export const MenuList: ParentComponent<
   JSX.HTMLAttributes<HTMLUListElement> & MenuListProps & StyleProps
 > = props => {
-  const [layoutStyle, nprops] = styleProps(props);
+  const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children', 'inset', 'onClose']);
   const [mounted, setMounted] = createSignal(false);
   const [menuRef, setMenuRef] = createSignal<HTMLElement>();
@@ -224,7 +224,7 @@ export const MenuList: ParentComponent<
         role="menu"
         classList={{
           ...local.classList,
-          ...layoutStyle,
+          ...layoutCss,
           'dm-inset': local.inset,
           [local.class as string]: !!local.class,
           [state()]: true,

@@ -9,7 +9,7 @@ const groupCss = css({
 });
 
 export const Group: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> = props => {
-  const [layoutStyle, nprops] = styleProps(props);
+  const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   return (
@@ -17,7 +17,7 @@ export const Group: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StylePr
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutStyle,
+        ...layoutCss,
         [local.class as string]: !!local.class,
         [groupCss()]: true,
       }}
