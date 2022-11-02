@@ -1,6 +1,5 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { theme } from '../../../dist/mjs/styles';
-import { css } from '../../styles';
+import { css, theme } from '../../styles';
 
 const emptyResultCss = css({
   fontFamily: theme.fonts.body,
