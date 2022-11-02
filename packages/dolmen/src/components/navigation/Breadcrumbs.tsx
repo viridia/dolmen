@@ -43,7 +43,7 @@ const linkCss = css(breadcrumbsItemCss, {
 });
 
 interface BreadcrumbsLinkProps {
-  as?: ParentComponent<JSX.AnchorHTMLAttributes<HTMLAnchorElement>>;
+  as?: ParentComponent<JSX.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }>;
   href: string;
 }
 

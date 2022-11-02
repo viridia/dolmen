@@ -3,6 +3,7 @@ import { Error, Warning } from '../../icons';
 import { css, fontSize, space, styleProps, StyleProps, theme } from '../../styles';
 
 const fieldTitleCss = css({
+  color: theme.colors.text,
   font: theme.fonts.title,
   fontSize: fontSize.md,
   fontWeight: 'bold',
@@ -11,6 +12,7 @@ const fieldTitleCss = css({
 });
 
 const fieldDescriptionCss = css({
+  color: theme.colors.textDim,
   font: theme.fonts.body,
   fontSize: fontSize.xs,
   marginBottom: '4px',

@@ -1,11 +1,12 @@
 import { VariantProps } from '@stitches/core';
 import { ParentComponent, JSX, splitProps, Switch, Match, Show } from 'solid-js';
 import { Error, Info, Success, Warning } from '../../icons';
-import { css, space, theme } from '../../styles';
+import { css, fontSize, space, theme } from '../../styles';
 
 export const alertCss = css({
   display: 'flex',
   flexDirection: 'row',
+  fontSize: fontSize.sm,
   borderRadius: 3,
   backgroundColor: '$elevation2',
   padding: '12px 12px',
@@ -39,6 +40,10 @@ export const alertCss = css({
   defaultVariants: {
     severity: 'error',
   },
+});
+
+const alertMessageCss = css({
+  flex: 1
 });
 
 interface AlertProps {
@@ -79,7 +84,7 @@ export const Alert: ParentComponent<
             <Error />
           </Match>
         </Switch>
-        {local.children}
+        <div class={alertMessageCss()}>{local.children}</div>
       </div>
     </Show>
   );

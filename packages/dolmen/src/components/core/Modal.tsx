@@ -138,7 +138,7 @@ const ModalHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement>> = props => {
     >
       {local.children}
       <Show when={context?.onClose}>
-        <Button color="subtle" size="xs" icon onClick={() => context.onClose?.()}>
+        <Button color="subtle" size="xs" icon onClick={() => context.onClose?.()} type="button">
           <Close />
         </Button>
       </Show>

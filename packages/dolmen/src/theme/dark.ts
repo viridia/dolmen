@@ -21,7 +21,7 @@ export const dark = createTheme('dark', {
     textDim: palette.coolgray500,
     textSelection: palette.white,
     textSelectionBg: textHighlight,
-    textLink: colord(primaryColor).toHex(),
+    textLink: colord(primaryColor).lighten(0.15).toHex(),
 
     successText: '#aea',
     successIcon: '#4a4',
@@ -32,7 +32,7 @@ export const dark = createTheme('dark', {
     warningText: '#eea',
     warningIcon: '#a80',
     warningBg: '#333322',
-    errorText: '#eaa',
+    errorText: '#e99',
     errorIcon: '#d00',
     errorBg: '#332222',
 
