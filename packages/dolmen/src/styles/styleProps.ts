@@ -102,11 +102,35 @@ const layoutProps = {
   },
 
   maxHeight: (value: Property.MinWidth, css: CSSProperties) => {
-    css.maxWidth = value;
+    css.maxHeight = value;
   },
 
   minHeight: (value: Property.MinHeight, css: CSSProperties) => {
-    css.minWidth = value;
+    css.minHeight = value;
+  },
+
+  flexGrow: (value: Property.FlexGrow, css: CSSProperties) => {
+    css.flexGrow = value;
+  },
+
+  flexShrink: (value: Property.FlexShrink, css: CSSProperties) => {
+    css.flexShrink = value;
+  },
+
+  flexBasis: (value: Property.FlexBasis, css: CSSProperties) => {
+    css.flexBasis = value;
+  },
+
+  flex: (value: Property.Flex, css: CSSProperties) => {
+    css.flex = value;
+  },
+
+  alignSelf: (value: Property.AlignSelf, css: CSSProperties) => {
+    css.alignSelf = value;
+  },
+
+  position: (value: Property.Position, css: CSSProperties) => {
+    css.position = value;
   },
 };
 
@@ -127,10 +151,6 @@ const flexProps = {
     css.alignItems = value;
   },
 
-  alignSelf: (value: Property.AlignSelf, css: CSSProperties) => {
-    css.alignSelf = value;
-  },
-
   justifyContent: (value: Property.JustifyContent, css: CSSProperties) => {
     css.justifyContent = value;
   },
@@ -143,24 +163,8 @@ const flexProps = {
     css.flexDirection = value;
   },
 
-  flexGrow: (value: Property.FlexGrow, css: CSSProperties) => {
-    css.flexGrow = value;
-  },
-
-  flexShrink: (value: Property.FlexShrink, css: CSSProperties) => {
-    css.flexShrink = value;
-  },
-
-  flexBasis: (value: Property.FlexBasis, css: CSSProperties) => {
-    css.flexBasis = value;
-  },
-
   flexWrap: (value: Property.FlexWrap, css: CSSProperties) => {
     css.flexWrap = value;
-  },
-
-  flex: (value: Property.Flex, css: CSSProperties) => {
-    css.flex = value;
   },
 };
 

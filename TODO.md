@@ -1,32 +1,29 @@
 # Components
 
-* ColorGrid
 * TableGrid
 * Slider
-  * Marks
+  * Marks (redo?)
   * Vertical
   * Quantization
 * Radio / RadioGroup
 * Divided button
 * Chip
-* Badge
 * Select
-  * Events
+  * Test events
+  * Test form submit
 * Menu
   * Shortcuts
   * Submenus
   * forward ref
   * Prefix navigation
-* Form
 * Color Picker
   * GradientSlider
   * Color Swatch
   * HueSaturationSelector
+* Color Grid - redo as radio buttons.
 * Tabs
 * Pagination
 * Breadcrumbs (incomplete - need links)
-* Alert
-  * Make them conditional.
 * Toast
 * Snackbar
 * Progress Bar

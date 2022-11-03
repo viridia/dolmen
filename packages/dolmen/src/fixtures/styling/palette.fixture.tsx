@@ -22,7 +22,7 @@ export const $category = 'styling';
 
 const Swatch: VoidComponent<{ color: string; key?: number }> = props => {
   const c = colord(props.color);
-  const color = c.brightness() > 0.5 ? '#000' : '#fff';
+  const color = c.isLight() ? '#000' : '#fff';
   return (
     <div class={swatchStyle()} style={{ 'background-color': props.color, color: color }}>
       {props.key}

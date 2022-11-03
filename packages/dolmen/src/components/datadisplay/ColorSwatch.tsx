@@ -34,7 +34,7 @@ interface Props {
 export const ColorSwatch: VoidComponent<Props & StyleProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
   const c = colord(nprops.color);
-  const color = c.brightness() > 0.3 ? '#000' : '#fff'; // Compute contrasting color.
+  const color = c.isLight() ? '#000' : '#fff'; // Compute contrasting color.
   return props.onClick ? (
     <button
       style={{ 'background-color': nprops.color, color, 'border-color': color }}

@@ -28,13 +28,28 @@ function ColorGridDemo() {
   return (
     <Stack gap="md">
       No Gap
-      <ColorGrid w="10rem" colors={colors} value={selected()} onChange={setSelected} />
+      <ColorGrid w="10rem" colors={colors} value={selected()} onChange={setSelected} name="nogap" />
       Gap (sm)
-      <ColorGrid gap="sm" w="10rem" colors={colors} value={selected()} onChange={setSelected} />
+      <ColorGrid
+        gap="sm"
+        w="10rem"
+        colors={colors}
+        value={selected()}
+        onChange={setSelected}
+        name="gap"
+      />
       Narrow
-      <ColorGrid gap="sm" w="5rem" colors={colors} value={selected()} onChange={setSelected} />
+      <ColorGrid
+        gap="sm"
+        w="5rem"
+        colors={colors}
+        value={selected()}
+        onChange={setSelected}
+        name="narrow"
+      />
       Columns = 5
       <ColorGrid
+        name="5columns"
         gap="sm"
         w="10rem"
         columns={5}
@@ -44,6 +59,7 @@ function ColorGridDemo() {
       />
       Column-major
       <ColorGrid
+        name="cmajor"
         gap="sm"
         w="10rem"
         columnMajor

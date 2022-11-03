@@ -1,3 +1,13 @@
+export const fontSizeRem = {
+  xl: 1.25,
+  lg: 1.1,
+  md: 1,
+  sm: 0.95,
+  xs: 0.85,
+  mini: 0.8,
+  tiny: 0.75,
+};
+
 export const fontSize = {
   xl: '1.25rem',
   lg: '1.1rem',
