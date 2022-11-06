@@ -1,5 +1,5 @@
 import { ParentComponent, JSX, splitProps, Show, Switch, Match, createMemo } from 'solid-js';
-import { Error, Warning } from '../../icons';
+import { Error, Info, Success, Warning } from '../../icons';
 import { css, fontSize, space, styleProps, StyleProps, theme } from '../../styles';
 
 const fieldTitleCss = css({
@@ -26,6 +26,16 @@ const fieldCss = css({
 
   variants: {
     severity: {
+      success: {
+        color: theme.colors.successText,
+        '--icon-color': theme.colors.successIcon,
+      },
+
+      info: {
+        color: theme.colors.infoText,
+        '--icon-color': theme.colors.infoIcon,
+      },
+
       warning: {
         color: theme.colors.warningText,
         [theme.colors.fieldBorder.variable]: theme.colors.warningIcon,
@@ -46,7 +56,7 @@ const fieldCss = css({
 const fieldMessageContainerCss = css({
   display: 'flex',
   alignItems: 'start',
-  marginTop: 2,
+  margin: '4px 0',
 });
 
 const fieldStatusIconCss = css({
@@ -60,10 +70,12 @@ const fieldMessageCss = css({
 });
 
 interface FormFieldProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'title'> {
-  severity?: 'warning' | 'error';
+  severity?: 'warning' | 'error' | 'success' | 'info';
   message?: string;
   error?: string;
   warning?: string;
+  info?: string;
+  success?: string;
   title?: JSX.Element;
   description?: JSX.Element;
 }
@@ -75,6 +87,8 @@ export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => 
     'message',
     'error',
     'warning',
+    'info',
+    'success',
     'title',
     'description',
     'class',
@@ -89,6 +103,10 @@ export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => 
       ? 'error'
       : local.warning
       ? 'warning'
+      : local.info
+      ? 'info'
+      : local.success
+      ? 'success'
       : undefined;
   });
   return (
@@ -110,7 +128,10 @@ export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => 
         <div class={fieldDescriptionCss()}>{local.description}</div>
       </Show>
       {local.children}
-      <Show when={local.message ?? local.error ?? local.warning} keyed>
+      <Show
+        when={local.message ?? local.error ?? local.warning ?? local.success ?? local.info}
+        keyed
+      >
         {message => (
           <div class={fieldMessageContainerCss()}>
             <Switch>
@@ -119,6 +140,12 @@ export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => 
               </Match>
               <Match when={severity() === 'error'}>
                 <Error class={fieldStatusIconCss()} />
+              </Match>
+              <Match when={severity() === 'info'}>
+                <Info class={fieldStatusIconCss()} />
+              </Match>
+              <Match when={severity() === 'success'}>
+                <Success class={fieldStatusIconCss()} />
               </Match>
             </Switch>
             <div class={fieldMessageCss()}>{message}</div>

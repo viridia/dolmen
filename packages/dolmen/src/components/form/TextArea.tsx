@@ -27,7 +27,7 @@ const textAreaCss = css(
     resize: 'none',
     '--icon-color': '$colors$textDim',
 
-    '&:hover:not([disabled])': {
+    '&:hover:not(.dm-disabled)': {
       borderColor: '$fieldHoverBorder',
     },
 
@@ -44,8 +44,13 @@ const textAreaCss = css(
       color: '$textDim',
     },
 
-    '&[disabled]': {
+    '&:disabled': {
       opacity: 0.5,
+    },
+
+    '&[readonly]': {
+      opacity: 0.6,
+      cursor: 'not-allowed',
     },
 
     variants: {
@@ -72,6 +77,7 @@ export const TextArea: VoidComponent<TextAreaProps & VariantProps<typeof textAre
       classList={{
         ...local.classList,
         ...layoutCss,
+        'dm-disabled': rest.disabled,
         [local.class as string]: !!local.class,
         [textAreaCss({
           size: local.size,

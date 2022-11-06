@@ -23,6 +23,7 @@ const buttonCss = css({
   justifyContent: 'center',
   margin: 0,
   outline: 'none',
+  whiteSpace: 'nowrap',
 
   '&:focus:focus-visible': {
     boxShadow: '0 0 1px 3px $colors$focus',

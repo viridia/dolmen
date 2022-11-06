@@ -37,7 +37,7 @@ const inputFrameCss = css(
     padding: '0 6px',
     '--icon-color': '$colors$textDim',
 
-    '&:hover:not([disabled])': {
+    '&:hover:not(.dm-disabled)': {
       borderColor: '$fieldHoverBorder',
     },
 
@@ -85,8 +85,13 @@ const inputElementCss = css({
     color: '$textDim',
   },
 
-  '&[disabled]': {
+  '&:disabled': {
     opacity: 0.5,
+  },
+
+  '&[readonly]': {
+    opacity: 0.7,
+    cursor: 'not-allowed'
   },
 });
 
@@ -121,6 +126,7 @@ export const Input: Component<
       classList={{
         ...local.classList,
         ...layoutCss,
+        'dm-disabled': rest.disabled,
         [local.class as string]: !!local.class,
         [inputFrameCss({
           size: local.size,

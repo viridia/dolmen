@@ -9,6 +9,7 @@ export default {
       <Input value="default" />
       <Input round value="round" />
       <Input disabled value="disabled" />
+      <Input readOnly value="readonly" />
       <Input placeholder="placeholder" />
     </Stack>
   ),

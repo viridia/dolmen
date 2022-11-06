@@ -4,6 +4,7 @@ import { Close } from '../../icons';
 import { css, FlexProps, scrollbars, styleProps, Z } from '../../styles';
 import { Button } from './Button';
 import { VariantProps } from '@stitches/core';
+import { Portal } from 'solid-js/web';
 
 interface IModalContext {
   onClose?: () => void;
@@ -221,22 +222,22 @@ const ModalDialogInner: ParentComponent<
   );
 };
 
-export const Modal: ParentComponent<ModalProps & VariantProps<typeof modalCss>> & {
-  Header: typeof ModalHeader;
-  Body: typeof ModalBody;
-  Footer: typeof ModalFooter;
-} = props => {
+interface ModalDialogProps extends JSX.HTMLAttributes<HTMLDialogElement> {
+  state: CssTransitionState;
+  withClose?: boolean;
+  onClose?: () => void;
+  onExited?: () => void;
+}
+
+export const ModalDialog: ParentComponent<
+  ModalDialogProps & VariantProps<typeof modalCss>
+> = props => {
   const [local, rest] = splitProps(props, ['withClose', 'children']);
-  const state = createCssTransition({
-    in: () => !!props.open,
-    delay: 300,
-    onExited: props.onExited,
-  });
 
   return (
-    <Show when={state() !== 'exited'}>
+    <Portal>
       <div
-        classList={{ [backdropCss()]: true, [state()]: true }}
+        classList={{ [backdropCss()]: true, 'dm-backdrop': true, [props.state]: true }}
         onClick={() => {
           props.onClose?.();
         }}
@@ -244,7 +245,6 @@ export const Modal: ParentComponent<ModalProps & VariantProps<typeof modalCss>> 
         <ModalContext.Provider value={{ onClose: props.withClose ? props.onClose : undefined }}>
           <ModalDialogInner
             {...rest}
-            state={state()}
             onClick={e => {
               e.stopPropagation();
             }}
@@ -253,6 +253,25 @@ export const Modal: ParentComponent<ModalProps & VariantProps<typeof modalCss>> 
           </ModalDialogInner>
         </ModalContext.Provider>
       </div>
+    </Portal>
+  );
+};
+
+export const Modal: ParentComponent<ModalProps & VariantProps<typeof modalCss>> & {
+  Header: typeof ModalHeader;
+  Body: typeof ModalBody;
+  Footer: typeof ModalFooter;
+  Dialog: typeof ModalDialog;
+} = props => {
+  const state = createCssTransition({
+    in: () => !!props.open,
+    delay: 300,
+    onExited: props.onExited,
+  });
+
+  return (
+    <Show when={state() !== 'exited'}>
+      <ModalDialog {...props} state={state()} />
     </Show>
   );
 };
@@ -260,3 +279,4 @@ export const Modal: ParentComponent<ModalProps & VariantProps<typeof modalCss>> 
 Modal.Header = ModalHeader;
 Modal.Body = ModalBody;
 Modal.Footer = ModalFooter;
+Modal.Dialog = ModalDialog;

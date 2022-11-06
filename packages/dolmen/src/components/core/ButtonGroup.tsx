@@ -1,5 +1,8 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { css } from '../../styles';
+// import styles from '../../styles/css/ButtonGroup.module.scss';
+
+// console.log('styles', buttonGroup);
 
 export const buttonGroupCss = css({
   display: 'flex',
@@ -15,6 +18,7 @@ export const ButtonGroup: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = 
       {...rest}
       classList={{
         ...local.classList,
+        // [styles.buttonGroup]: true,
         [local.class as string]: !!local.class,
         [buttonGroupCss()]: true,
       }}

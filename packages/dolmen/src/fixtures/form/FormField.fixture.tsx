@@ -16,6 +16,12 @@ export default () => (
     <FormField severity="warning" message="Warning">
       <Input value="default" />
     </FormField>
+    <FormField severity="info" message="info">
+      <Input value="default" />
+    </FormField>
+    <FormField severity="success" message="success">
+      <Input value="default" />
+    </FormField>
     <FormField
       severity="error"
       message="Error - a very long error message that should wrap to the next line."
