@@ -10,7 +10,7 @@ const stackCss = css({
 
 export const Stack: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> = props => {
   const [styleClass, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
   return (
     <div
@@ -21,8 +21,6 @@ export const Stack: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StylePr
         [local.class as string]: !!local.class,
         [stackCss()]: true,
       }}
-    >
-      {local.children}
-    </div>
+    />
   );
 };

@@ -220,7 +220,6 @@ export const Button: ParentComponent<ButtonProps> = props => {
     'selected',
     'class',
     'classList',
-    'children',
   ]);
   return (
     <button
@@ -236,8 +235,6 @@ export const Button: ParentComponent<ButtonProps> = props => {
           color: local.selected ? 'selected' : local.color,
         })]: true,
       }}
-    >
-      {local.children}
-    </button>
+    />
   );
 };

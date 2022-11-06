@@ -21,7 +21,7 @@ interface TitleProps {
 }
 
 export const Title: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & TitleProps> = props => {
-  const [local, rest] = splitProps(props, ['as', 'class', 'classList', 'children']);
+  const [local, rest] = splitProps(props, ['as', 'class', 'classList']);
 
   return (
     <Dynamic
@@ -32,8 +32,6 @@ export const Title: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & TitlePr
         [local.class as string]: !!local.class,
         [titleCss()]: true,
       }}
-    >
-      {local.children}
-    </Dynamic>
+    />
   );
 };

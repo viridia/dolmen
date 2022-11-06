@@ -38,7 +38,6 @@ const ListItem: ParentComponent<
     'disabled',
     'class',
     'classList',
-    'children',
   ]);
 
   return (
@@ -53,9 +52,7 @@ const ListItem: ParentComponent<
         [local.class as string]: !!local.class,
         [listItemCss()]: true,
       }}
-    >
-      {local.children}
-    </div>
+    />
   );
 };
 
@@ -82,7 +79,7 @@ export const List: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StylePro
   Item: typeof ListItem;
 } = props => {
   const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
   return (
     <div
@@ -94,9 +91,7 @@ export const List: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StylePro
         [local.class as string]: !!local.class,
         [listCss()]: true,
       }}
-    >
-      {local.children}
-    </div>
+    />
   );
 };
 

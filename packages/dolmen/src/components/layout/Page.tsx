@@ -13,7 +13,7 @@ const pageHeaderTitleCss = css({
 
 const PageHeaderTitle: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
   return (
     <span
@@ -24,9 +24,7 @@ const PageHeaderTitle: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StylePr
         [local.class as string]: !!local.class,
         [pageHeaderTitleCss()]: true,
       }}
-    >
-      {local.children}
-    </span>
+    />
   );
 };
 
@@ -46,7 +44,7 @@ const pageHeaderCss = css({
 
 const PageHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
   return (
     <header
@@ -57,9 +55,7 @@ const PageHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> 
         [local.class as string]: !!local.class,
         [pageHeaderCss()]: true,
       }}
-    >
-      {local.children}
-    </header>
+    />
   );
 };
 
@@ -84,7 +80,7 @@ export const Page: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps>
   Title: typeof PageHeaderTitle;
 } = props => {
   const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
   return (
     <main
@@ -95,9 +91,7 @@ export const Page: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps>
         [local.class as string]: !!local.class,
         [pageCss()]: true,
       }}
-    >
-      {local.children}
-    </main>
+    />
   );
 };
 

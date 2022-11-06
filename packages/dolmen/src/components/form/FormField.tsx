@@ -71,11 +71,11 @@ const fieldMessageCss = css({
 
 interface FormFieldProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'title'> {
   severity?: 'warning' | 'error' | 'success' | 'info';
-  message?: string;
-  error?: string;
-  warning?: string;
-  info?: string;
-  success?: string;
+  message?: JSX.Element;
+  error?: JSX.Element;
+  warning?: JSX.Element;
+  info?: JSX.Element;
+  success?: JSX.Element;
   title?: JSX.Element;
   description?: JSX.Element;
 }

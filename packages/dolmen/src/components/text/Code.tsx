@@ -31,7 +31,7 @@ interface CodeProps {
 export const Code: ParentComponent<
   JSX.HTMLAttributes<HTMLElement> & CodeProps & VariantProps<typeof codeCss>
 > = props => {
-  const [local, rest] = splitProps(props, ['size', 'class', 'classList', 'children']);
+  const [local, rest] = splitProps(props, ['size', 'class', 'classList']);
 
   return (
     <code
@@ -43,9 +43,7 @@ export const Code: ParentComponent<
           size: local.size,
         })]: true,
       }}
-    >
-      {local.children}
-    </code>
+    />
   );
 };
 
@@ -53,7 +51,7 @@ export const Code: ParentComponent<
 export const CodeBlock: ParentComponent<
   JSX.HTMLAttributes<HTMLElement> & CodeProps & VariantProps<typeof codeCss>
 > = props => {
-  const [local, rest] = splitProps(props, ['size', 'class', 'classList', 'children']);
+  const [local, rest] = splitProps(props, ['size', 'class', 'classList']);
 
   // Note: Prism requires that the <pre> element be a separate, surrounding element.
   // We can't just add a "whitespace: pre" style to the <code> element.
@@ -68,9 +66,7 @@ export const CodeBlock: ParentComponent<
             size: local.size,
           })]: true,
         }}
-      >
-        {local.children}
-      </code>
+      />
     </pre>
   );
 };

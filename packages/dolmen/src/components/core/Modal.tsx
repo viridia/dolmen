@@ -105,7 +105,7 @@ const modalBodyCss = css(
     alignItems: 'stretch',
     flexDirection: 'column',
     fontFamily: '$body',
-    padding: '1rem',
+    padding: '0.8rem 1rem 0.8rem 1rem',
     overflowY: 'auto',
   },
   scrollbars
@@ -117,12 +117,13 @@ const modalFooterCss = css({
   fontFamily: '$body',
   justifyContent: 'flex-end',
   gap: '4px',
-  padding: '1rem',
+  padding: '0.4rem 1rem 0.8rem 1rem',
 });
 
-const ModalHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement>> = props => {
+const ModalHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> = props => {
   const context = useContext(ModalContext);
-  const [local, rest] = splitProps(props, ['class', 'classList', 'children']);
+  const [layoutCss, nprops] = styleProps(props);
+  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
 
   if (!context) {
     throw new Error('ModalHeader used outside of Modal context');
@@ -133,6 +134,7 @@ const ModalHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement>> = props => {
       {...rest}
       classList={{
         ...local.classList,
+        ...layoutCss,
         [local.class as string]: !!local.class,
         [modalHeaderCss()]: true,
       }}
@@ -149,7 +151,7 @@ const ModalHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement>> = props => {
 
 const ModalBody: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & FlexProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(nprops, ['class', 'classList']);
   return (
     <div
       {...rest}
@@ -159,25 +161,23 @@ const ModalBody: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & FlexProps>
         [local.class as string]: !!local.class,
         [modalBodyCss()]: true,
       }}
-    >
-      {local.children}
-    </div>
+    />
   );
 };
 
-const ModalFooter: ParentComponent<JSX.HTMLAttributes<HTMLElement>> = props => {
-  const [local, rest] = splitProps(props, ['class', 'classList', 'children']);
+const ModalFooter: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> = props => {
+  const [layoutCss, nprops] = styleProps(props);
+  const [local, rest] = splitProps(nprops, ['class', 'classList']);
   return (
     <footer
       {...rest}
       classList={{
         ...local.classList,
+        ...layoutCss,
         [local.class as string]: !!local.class,
         [modalFooterCss()]: true,
       }}
-    >
-      {local.children}
-    </footer>
+    />
   );
 };
 
@@ -191,7 +191,6 @@ const ModalDialogInner: ParentComponent<
     'state',
     'class',
     'classList',
-    'children',
   ]);
   const { focusProps } = createFocusTrap({
     onKeyDown(e) {
@@ -216,9 +215,7 @@ const ModalDialogInner: ParentComponent<
         [props.state]: true,
       }}
       open
-    >
-      {local.children}
-    </dialog>
+    />
   );
 };
 

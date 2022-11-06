@@ -11,7 +11,7 @@ export const buttonGroupCss = css({
 });
 
 export const ButtonGroup: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = props => {
-  const [local, rest] = splitProps(props, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(props, ['class', 'classList']);
 
   return (
     <div
@@ -22,8 +22,6 @@ export const ButtonGroup: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = 
         [local.class as string]: !!local.class,
         [buttonGroupCss()]: true,
       }}
-    >
-      {local.children}
-    </div>
+    />
   );
 };

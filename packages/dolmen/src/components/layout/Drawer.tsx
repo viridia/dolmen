@@ -169,7 +169,7 @@ export type DrawerStyleProps = VariantProps<typeof drawerCoplanarCss>;
 
 const DrawerHeader: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
   return (
     <div
@@ -180,15 +180,13 @@ const DrawerHeader: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StylePr
         [local.class as string]: !!local.class,
         [drawerHeaderCss()]: true,
       }}
-    >
-      {local.children}
-    </div>
+    />
   );
 };
 
 const DrawerContent: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
   return (
     <div
@@ -199,9 +197,7 @@ const DrawerContent: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleP
         [local.class as string]: !!local.class,
         [drawerContentCss()]: true,
       }}
-    >
-      {local.children}
-    </div>
+    />
   );
 };
 
@@ -222,7 +218,6 @@ const DrawerInner: ParentComponent<JSX.HTMLAttributes<HTMLElement> & DrawerInner
     'parent',
     'class',
     'classList',
-    'children',
   ]);
   const [direction, setDirection] = createSignal<string | null>(null);
 
@@ -252,9 +247,7 @@ const DrawerInner: ParentComponent<JSX.HTMLAttributes<HTMLElement> & DrawerInner
         onClick={e => {
           e.stopPropagation();
         }}
-      >
-        {local.children}
-      </aside>
+      />
     </Show>
   );
 };
@@ -272,7 +265,6 @@ export const Drawer: ParentComponent<JSX.HTMLAttributes<HTMLElement> & DrawerPro
     'minSize',
     'class',
     'classList',
-    'children',
   ]);
   let containerElt: HTMLDivElement;
   const state = createCssTransition({ in: () => !!props.open, delay: 300 });
@@ -321,9 +313,7 @@ export const Drawer: ParentComponent<JSX.HTMLAttributes<HTMLElement> & DrawerPro
           state={state()}
           size={openSize()}
           parent={containerElt!}
-        >
-          {local.children}
-        </DrawerInner>
+        />
       </div>
     </Show>
   );

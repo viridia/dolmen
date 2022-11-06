@@ -12,7 +12,7 @@ const cardContentCss = css({
 
 const CardContent: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
   return (
     <div
@@ -23,9 +23,7 @@ const CardContent: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StylePro
         [local.class as string]: !!local.class,
         [cardContentCss()]: true,
       }}
-    >
-      {local.children}
-    </div>
+    />
   );
 };
 
@@ -44,7 +42,7 @@ export const Card: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps>
   Content: typeof CardContent;
 } = props => {
   const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
   return (
     <section
@@ -55,9 +53,7 @@ export const Card: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps>
         [local.class as string]: !!local.class,
         [cardCss()]: true,
       }}
-    >
-      {local.children}
-    </section>
+    />
   );
 };
 

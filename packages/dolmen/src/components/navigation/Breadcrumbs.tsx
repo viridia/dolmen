@@ -15,7 +15,7 @@ export const BreadcrumbsItem: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement> & StyleProps
 > = props => {
   const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
   return (
     <div
@@ -26,9 +26,7 @@ export const BreadcrumbsItem: ParentComponent<
         [local.class as string]: !!local.class,
         [breadcrumbsItemCss()]: true,
       }}
-    >
-      {local.children}
-    </div>
+    />
   );
 };
 
@@ -50,7 +48,7 @@ interface BreadcrumbsLinkProps {
 export const BreadcrumbsLink: ParentComponent<
   BreadcrumbsLinkProps & JSX.AnchorHTMLAttributes<HTMLAnchorElement>
 > = props => {
-  const [local, rest] = splitProps(props, ['class', 'classList', 'children', 'as']);
+  const [local, rest] = splitProps(props, ['class', 'classList', 'as']);
   return (
     <Dynamic
       component={local.as ?? 'a'}
@@ -60,9 +58,7 @@ export const BreadcrumbsLink: ParentComponent<
         [local.class as string]: !!local.class,
         [linkCss()]: true,
       }}
-    >
-      {local.children}
-    </Dynamic>
+    />
   );
 };
 

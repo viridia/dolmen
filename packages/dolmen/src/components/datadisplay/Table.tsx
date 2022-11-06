@@ -65,9 +65,7 @@ const TableCell: ParentComponent<
           textAlign: local.textAlign,
         })]: true,
       }}
-    >
-      {props.children}
-    </td>
+    />
   );
 };
 
@@ -88,9 +86,7 @@ const TableRow: ParentComponent<JSX.HTMLAttributes<HTMLTableRowElement>> = props
         [local.class as string]: !!local.class,
         [tableRowCss()]: true,
       }}
-    >
-      {props.children}
-    </tr>
+    />
   );
 };
 
@@ -109,9 +105,7 @@ const TableHead: ParentComponent<JSX.HTMLAttributes<HTMLTableSectionElement>> = 
         [local.class as string]: !!local.class,
         [tableHeadCss()]: true,
       }}
-    >
-      {props.children}
-    </thead>
+    />
   );
 };
 
@@ -140,9 +134,7 @@ const TableBody: ParentComponent<
         [local.class as string]: !!local.class,
         [tableBodyCss()]: true,
       }}
-    >
-      {props.children}
-    </tbody>
+    />
   );
 };
 
@@ -165,7 +157,7 @@ export const Table: ParentComponent<JSX.HTMLAttributes<HTMLTableElement> & Layou
   Cell: typeof TableCell;
 } = props => {
   const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
   return (
     <table
@@ -176,9 +168,7 @@ export const Table: ParentComponent<JSX.HTMLAttributes<HTMLTableElement> & Layou
         [local.class as string]: !!local.class,
         [tableCss()]: true,
       }}
-    >
-      {local.children}
-    </table>
+    />
   );
 };
 

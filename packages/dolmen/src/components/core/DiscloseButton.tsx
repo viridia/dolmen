@@ -1,4 +1,4 @@
-import { ParentComponent, JSX, splitProps } from 'solid-js';
+import { JSX, splitProps, VoidComponent } from 'solid-js';
 import { ChevronDown } from '../../icons';
 import { css, Z } from '../../styles';
 
@@ -45,7 +45,7 @@ interface DiscloseButtonProps extends JSX.ButtonHTMLAttributes<HTMLButtonElement
   open?: boolean;
 }
 
-export const DiscloseButton: ParentComponent<DiscloseButtonProps> = props => {
+export const DiscloseButton: VoidComponent<DiscloseButtonProps> = props => {
   const [local, rest] = splitProps(props, ['open', 'class', 'classList', 'children']);
   return (
     <button

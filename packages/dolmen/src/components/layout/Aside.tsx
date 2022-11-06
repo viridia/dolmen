@@ -15,7 +15,7 @@ const asideCss = css({
 
 export const Aside: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
   return (
     <aside
@@ -26,8 +26,6 @@ export const Aside: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps
         [local.class as string]: !!local.class,
         [asideCss()]: true,
       }}
-    >
-      {local.children}
-    </aside>
+    />
   );
 };

@@ -12,7 +12,7 @@ export const Label: ParentComponent<
   JSX.LabelHTMLAttributes<HTMLLabelElement> & StyleProps
 > = props => {
   const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
   return (
     <label
@@ -23,8 +23,6 @@ export const Label: ParentComponent<
         [local.class as string]: !!local.class,
         [groupCss()]: true,
       }}
-    >
-      {local.children}
-    </label>
+    />
   );
 };

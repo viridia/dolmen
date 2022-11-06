@@ -60,7 +60,6 @@ export const Badge: ParentComponent<
     'radius',
     'class',
     'classList',
-    'children',
   ]);
   const c = colord(local.color ?? '#888888');
   const textColor = c.isLight() ? '#000' : '#fff'; // Compute contrasting color.
@@ -81,8 +80,6 @@ export const Badge: ParentComponent<
           radius: local.radius,
         })]: true,
       }}
-    >
-      {local.children}
-    </div>
+    />
   );
 };

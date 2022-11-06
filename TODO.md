@@ -1,8 +1,5 @@
 # Components
 
-* Input
-  * readonly
-  * success field message.
 * TableGrid
 * Slider
   * Marks (redo?)
@@ -23,10 +20,8 @@
   * GradientSlider
   * Color Swatch
   * HueSaturationSelector
-* Color Grid - redo as radio buttons.
 * Tabs
 * Pagination
-* Breadcrumbs (incomplete - need links)
 * Toast
 * Snackbar
 * Progress Bar
@@ -61,10 +56,12 @@
 
 # Other
 
+* Fixture for createFocusTrap
+* Fixture for createFormValidation
+  * Async validation
 * Move Knob to its own package.
   * Figure out how we are going to handle theming in that case.
-* Prism support
-* Fixture for createFocusTrap
+* Highligher support
 * Tree view collapse
 * Tree view highlight
 * Tree view expand

@@ -58,7 +58,6 @@ export const Text: ParentComponent<
     'em',
     'class',
     'classList',
-    'children',
   ]);
 
   return (
@@ -74,8 +73,6 @@ export const Text: ParentComponent<
           em: local.em,
         })]: true,
       }}
-    >
-      {local.children}
-    </Dynamic>
+    />
   );
 };
