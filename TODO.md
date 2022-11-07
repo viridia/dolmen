@@ -1,6 +1,5 @@
 # Components
 
-* TableGrid
 * Slider
   * Marks (redo?)
   * Vertical
@@ -20,6 +19,7 @@
   * GradientSlider
   * Color Swatch
   * HueSaturationSelector
+* TableGrid
 * Tabs
 * Pagination
 * Toast
