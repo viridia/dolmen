@@ -224,15 +224,16 @@ interface ModalDialogProps extends JSX.HTMLAttributes<HTMLDialogElement> {
   withClose?: boolean;
   onClose?: () => void;
   onExited?: () => void;
+  mount?: Node;
 }
 
 export const ModalDialog: ParentComponent<
   ModalDialogProps & VariantProps<typeof modalCss>
 > = props => {
-  const [local, rest] = splitProps(props, ['withClose', 'children']);
+  const [local, rest] = splitProps(props, ['withClose', 'children', 'mount']);
 
   return (
-    <Portal>
+    <Portal mount={local.mount}>
       <div
         classList={{ [backdropCss()]: true, 'dm-backdrop': true, [props.state]: true }}
         onClick={() => {

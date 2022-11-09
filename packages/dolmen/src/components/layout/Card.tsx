@@ -7,7 +7,7 @@ const cardContentCss = css({
   flexDirection: 'column',
   justifyContent: 'start',
   margin: 0,
-  padding: '8px',
+  padding: '12px',
 });
 
 const CardContent: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> = props => {

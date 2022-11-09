@@ -188,7 +188,7 @@ export const MenuList: ParentComponent<
 
   createEffect(() => {
     const menuElt = menuRef();
-    if (menuElt) {
+    if (menuElt && anchor()) {
       // Listen for close events from menu items.
       const closeListener = () => {
         menuAction('close');
@@ -208,10 +208,10 @@ export const MenuList: ParentComponent<
         }
       };
 
-      window.addEventListener('mousedown', backgroundClickListener, true);
+      window.addEventListener('click', backgroundClickListener, true);
 
       onCleanup(() => {
-        window.removeEventListener('mousedown', backgroundClickListener, true);
+        window.removeEventListener('click', backgroundClickListener, true);
       });
     }
   });

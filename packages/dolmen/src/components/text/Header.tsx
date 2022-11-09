@@ -35,3 +35,5 @@ export const Title: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & TitlePr
     />
   );
 };
+
+export const Header = Title;

@@ -1,6 +1,7 @@
-import { ParentComponent, JSX, splitProps, Show, Switch, Match, createMemo } from 'solid-js';
-import { Error, Info, Success, Warning } from '../../icons';
-import { css, fontSize, space, styleProps, StyleProps, theme } from '../../styles';
+import { ParentComponent, JSX, splitProps, Show, createMemo, createUniqueId } from 'solid-js';
+import { css, fontSize, styleProps, StyleProps, theme } from '../../styles';
+import { FormFieldContext, IInputAriaAttrs, Severity } from './FormFieldContext';
+import { FormFieldStatus } from './FormFieldStatus';
 
 const fieldTitleCss = css({
   color: theme.colors.text,
@@ -26,52 +27,24 @@ const fieldCss = css({
 
   variants: {
     severity: {
-      success: {
-        color: theme.colors.successText,
-        '--icon-color': theme.colors.successIcon,
-      },
+      success: {},
 
-      info: {
-        color: theme.colors.infoText,
-        '--icon-color': theme.colors.infoIcon,
-      },
+      info: {},
 
       warning: {
-        color: theme.colors.warningText,
         [theme.colors.fieldBorder.variable]: theme.colors.warningIcon,
         [theme.colors.fieldBorderSlight.variable]: theme.colors.warningIcon,
-        '--icon-color': theme.colors.warningIcon,
       },
 
       error: {
-        color: theme.colors.errorText,
         [theme.colors.fieldBorder.variable]: theme.colors.errorIcon,
         [theme.colors.fieldBorderSlight.variable]: theme.colors.errorIcon,
-        '--icon-color': theme.colors.errorIcon,
       },
     },
   },
 });
 
-const fieldMessageContainerCss = css({
-  display: 'flex',
-  alignItems: 'start',
-  margin: '4px 0',
-});
-
-const fieldStatusIconCss = css({
-  flexShrink: 0,
-  marginRight: space.md,
-});
-
-const fieldMessageCss = css({
-  flex: '1 1 auto',
-  marginTop: '2px',
-});
-
 interface FormFieldProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'title'> {
-  severity?: 'warning' | 'error' | 'success' | 'info';
-  message?: JSX.Element;
   error?: JSX.Element;
   warning?: JSX.Element;
   info?: JSX.Element;
@@ -83,8 +56,6 @@ interface FormFieldProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'title
 export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, [
-    'severity',
-    'message',
     'error',
     'warning',
     'info',
@@ -96,10 +67,8 @@ export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => 
     'children',
   ]);
 
-  const severity = createMemo(() => {
-    return local.severity
-      ? local.severity
-      : local.error
+  const severity = createMemo<Severity | undefined>(() => {
+    return local.error
       ? 'error'
       : local.warning
       ? 'warning'
@@ -109,6 +78,29 @@ export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => 
       ? 'success'
       : undefined;
   });
+
+  const message = createMemo(() => local.error ?? local.warning ?? local.success ?? local.info);
+  const titleId = createMemo(() => (local.title ? createUniqueId() : undefined));
+  const descriptionId = createMemo(() => (local.description ? createUniqueId() : undefined));
+  const messageId = createMemo(() => (message() ? createUniqueId() : undefined));
+
+  const ariaProps = createMemo(() => {
+    const result: IInputAriaAttrs = {};
+    if (severity() === 'error') {
+      result['aria-invalid'] = true;
+      if (messageId()) {
+        result['aria-errormessage'] = messageId();
+      }
+    }
+    if (titleId()) {
+      result['aria-labelledby'] = titleId();
+    }
+    if (descriptionId()) {
+      result['aria-describedby'] = descriptionId();
+    }
+    return result;
+  });
+
   return (
     <div
       {...rest}
@@ -121,37 +113,20 @@ export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => 
         })]: true,
       }}
     >
-      <Show when={local.title}>
-        <div class={fieldTitleCss()}>{local.title}</div>
-      </Show>
-      <Show when={local.description}>
-        <div class={fieldDescriptionCss()}>{local.description}</div>
-      </Show>
-      {local.children}
-      <Show
-        when={local.message ?? local.error ?? local.warning ?? local.success ?? local.info}
-        keyed
-      >
-        {message => (
-          <div class={fieldMessageContainerCss()}>
-            <Switch>
-              <Match when={severity() === 'warning'}>
-                <Warning class={fieldStatusIconCss()} />
-              </Match>
-              <Match when={severity() === 'error'}>
-                <Error class={fieldStatusIconCss()} />
-              </Match>
-              <Match when={severity() === 'info'}>
-                <Info class={fieldStatusIconCss()} />
-              </Match>
-              <Match when={severity() === 'success'}>
-                <Success class={fieldStatusIconCss()} />
-              </Match>
-            </Switch>
-            <div class={fieldMessageCss()}>{message}</div>
+      <FormFieldContext.Provider value={{ ariaProps }}>
+        <Show when={local.title}>
+          <label class={fieldTitleCss()} id={titleId()}>
+            {local.title}
+          </label>
+        </Show>
+        <Show when={local.description}>
+          <div class={fieldDescriptionCss()} id={descriptionId()}>
+            {local.description}
           </div>
-        )}
-      </Show>
+        </Show>
+        {local.children}
+        <FormFieldStatus severity={severity()}>{message()}</FormFieldStatus>
+      </FormFieldContext.Provider>
     </div>
   );
 };

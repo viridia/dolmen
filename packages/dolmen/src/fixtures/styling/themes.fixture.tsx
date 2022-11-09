@@ -10,7 +10,7 @@ import {
   Menu,
   Slider,
   Spacer,
-  Title,
+  Header,
   ToggleSwitch,
 } from '../../components';
 import { dark, light } from '../../theme';
@@ -98,7 +98,7 @@ const ThemeDemo: VoidComponent<{ name: string; class: string }> = props => {
   return (
     <Card flex={1} class={props.class}>
       <Card.Content gap="lg">
-        <Title>{props.name}</Title>
+        <Header>{props.name}</Header>
         <Group>
           <ButtonGroup>
             <Button>Iron</Button>

@@ -62,6 +62,7 @@ export const Alert: ParentComponent<
     <Show when={local.when !== false}>
       <div
         {...rest}
+        role="alert"
         classList={{
           ...local.classList,
           [local.class as string]: !!local.class,

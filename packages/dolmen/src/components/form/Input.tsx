@@ -1,4 +1,4 @@
-import { JSX, splitProps, Component } from 'solid-js';
+import { JSX, splitProps, Component, useContext } from 'solid-js';
 import { VariantProps } from '@stitches/core';
 import {
   css,
@@ -9,6 +9,7 @@ import {
   styleProps,
   LayoutProps,
 } from '../../styles';
+import { FormFieldContext } from './FormFieldContext';
 
 interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
   adornLeft?: JSX.Element | JSX.Element[];
@@ -91,7 +92,7 @@ const inputElementCss = css({
 
   '&[readonly]': {
     opacity: 0.7,
-    cursor: 'not-allowed'
+    cursor: 'not-allowed',
   },
 });
 
@@ -121,6 +122,8 @@ export const Input: Component<
     'class',
     'classList',
   ]);
+
+  const fieldState = useContext(FormFieldContext);
   return (
     <div
       classList={{
@@ -135,7 +138,7 @@ export const Input: Component<
       }}
     >
       {props.adornLeft && <div class={adornLeftCss()}>{props.adornLeft}</div>}
-      <input {...rest} class={inputElementCss()} />
+      <input {...rest} {...fieldState?.ariaProps()} class={inputElementCss()} />
       {props.adornRight && <div class={adornRightCss()}>{props.adornRight}</div>}
     </div>
   );

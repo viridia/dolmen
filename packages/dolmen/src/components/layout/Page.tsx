@@ -59,6 +59,32 @@ const PageHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> 
   );
 };
 
+const pageContentCss = css({
+  alignItems: 'stretch',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'start',
+  margin: 0,
+  padding: '8px',
+});
+
+const PageContent: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> = props => {
+  const [layoutCss, nprops] = styleProps(props);
+  const [local, rest] = splitProps(nprops, ['class', 'classList']);
+
+  return (
+    <header
+      {...rest}
+      classList={{
+        ...local.classList,
+        ...layoutCss,
+        [local.class as string]: !!local.class,
+        [pageContentCss()]: true,
+      }}
+    />
+  );
+};
+
 const pageCss = css({
   backgroundColor: '$elevation0',
   color: '$text',
@@ -78,6 +104,7 @@ const pageCss = css({
 export const Page: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> & {
   Header: typeof PageHeader;
   Title: typeof PageHeaderTitle;
+  Content: typeof PageContent;
 } = props => {
   const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList']);
@@ -97,3 +124,4 @@ export const Page: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps>
 
 Page.Header = PageHeader;
 Page.Title = PageHeaderTitle;
+Page.Content = PageContent;

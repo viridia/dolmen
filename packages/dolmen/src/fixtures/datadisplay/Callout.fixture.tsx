@@ -1,5 +1,5 @@
 import { createSignal } from 'solid-js';
-import { Button, Callout, Group, Stack, Title } from '../../components';
+import { Button, Callout, Group, Stack, Header } from '../../components';
 
 export const $category = 'data display';
 
@@ -9,7 +9,7 @@ function AutoTooltipDemo() {
     <Stack>
       <Group gap="md" p="xl">
         <Callout anchor={anchor()} placement="right">
-          <Title>Note</Title>
+          <Header>Note</Header>
           This is a callout.
         </Callout>
         <Button ref={setAnchor} data-tooltip="Tooltip One">

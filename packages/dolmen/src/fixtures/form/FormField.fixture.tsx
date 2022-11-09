@@ -13,25 +13,18 @@ export default () => (
     <FormField>
       <Input value="default" />
     </FormField>
-    <FormField severity="warning" message="Warning">
+    <FormField warning="Warning">
       <Input value="default" />
     </FormField>
-    <FormField severity="info" message="info">
+    <FormField info="info">
       <Input value="default" />
     </FormField>
-    <FormField severity="success" message="success">
+    <FormField success="success">
       <Input value="default" />
     </FormField>
     <FormField
-      severity="error"
-      message="Error - a very long error message that should wrap to the next line."
+      error="Error - a very long error message that should wrap to the next line."
     >
-      <Input value="default" />
-    </FormField>
-    <FormField warning="Warning shortcut attribute">
-      <Input value="default" />
-    </FormField>
-    <FormField error="Error shortcut attribute">
       <Input value="default" />
     </FormField>
   </Stack>

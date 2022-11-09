@@ -1,4 +1,4 @@
-import { Button, Callout, Group, Stack, Title, Tooltip } from '../../components';
+import { Button, Callout, Group, Stack, Header, Tooltip } from '../../components';
 import { createTooltipWatcher } from '../../hooks';
 
 export const $category = 'data display';
@@ -22,7 +22,7 @@ function AutoTooltipDemo() {
         placement="top"
         content={
           <Stack>
-            <Title>Tip Title</Title>
+            <Header>Tip Title</Header>
             <div>Once upon a time, in a land very far away, there lived a young man.</div>
           </Stack>
         }
@@ -33,7 +33,7 @@ function AutoTooltipDemo() {
         placement="right"
         content={
           <Stack>
-            <Title>Tip Title</Title>
+            <Header>Tip Title</Header>
             <div>Once upon a time, in a land very far away, there lived a young man.</div>
           </Stack>
         }
@@ -44,7 +44,7 @@ function AutoTooltipDemo() {
         placement="left"
         content={
           <Stack>
-            <Title>Tip Title</Title>
+            <Header>Tip Title</Header>
             <div>Once upon a time, in a land very far away, there lived a young man.</div>
           </Stack>
         }
@@ -55,7 +55,7 @@ function AutoTooltipDemo() {
         placement="bottom"
         content={
           <Stack>
-            <Title>Tip Title</Title>
+            <Header>Tip Title</Header>
             <div>Once upon a time, in a land very far away, there lived a young man.</div>
           </Stack>
         }
