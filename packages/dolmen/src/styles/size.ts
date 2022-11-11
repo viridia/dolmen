@@ -1,21 +1,41 @@
-export const fontSizeRem = {
+export const sizeRem = {
   xl: 1.25,
   lg: 1.1,
   md: 1,
-  sm: 0.95,
-  xs: 0.85,
-  mini: 0.8,
-  tiny: 0.75,
+  sm: 0.9,
+  xs: 0.825,
+  x2s: 0.75,
+  x3s: 0.65,
+};
+
+export const fontSizeRem = {
+  xl: sizeRem.xl,
+  lg: sizeRem.lg,
+  md: sizeRem.md,
+  sm: sizeRem.sm,
+  xs: sizeRem.xs,
+  xxs: sizeRem.x2s * 1.1,
+  xxxs: sizeRem.x3s * 1.2,
 };
 
 export const fontSize = {
-  xl: '1.25rem',
-  lg: '1.1rem',
-  md: '1rem',
-  sm: '0.95rem',
-  xs: '0.85rem',
-  mini: '0.8rem',
-  tiny: '0.75rem',
+  xl: `${fontSizeRem.xl}rem`,
+  lg: `${fontSizeRem.lg}rem`,
+  md: `${fontSizeRem.md}rem`,
+  sm: `${fontSizeRem.sm}rem`,
+  xs: `${fontSizeRem.xs}rem`,
+  xxs: `${fontSizeRem.xxs}rem`,
+  xxxs: `${fontSizeRem.xxxs}rem`,
+};
+
+export const size = {
+  xl: '2.5rem',
+  lg: '2.2rem',
+  md: '2rem',
+  sm: '1.85rem',
+  xs: '1.65rem',
+  xxs: '1.45rem',
+  xxxs: '1.3rem',
 };
 
 export const space = {
@@ -27,17 +47,6 @@ export const space = {
   none: '0',
 };
 
-export const size = {
-  xl: '2.5rem',
-  lg: '2.2rem',
-  md: '2rem',
-  sm: '1.85rem',
-  xs: '1.65rem',
-  mini: '1.45rem',
-  tiny: '1.3rem',
-};
-
-export type FontSize = keyof typeof fontSize;
 export type SizeVariant = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
-export type ButtonSizeVariant = SizeVariant | 'mini' | 'tiny';
+export type ButtonSizeVariant = SizeVariant | 'xxs' | 'xxxs';
 export type Space = keyof typeof space;

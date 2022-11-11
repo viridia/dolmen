@@ -27,20 +27,20 @@ const checkboxCtrlCss = css({
   borderRadius: 3,
   color: '$btnPrimaryText',
   cursor: 'inherit',
-  height: '18px',
+  height: 16,
   fontSize: 'inherit',
   marginRight: 0,
   marginLeft: 0,
   outline: 'none',
   position: 'relative',
-  width: '18px',
+  width: 16,
 
   '&:focus-within:focus-visible': {
     boxShadow: '0 0 1px 3px $colors$focus',
     zIndex: Z.focused,
   },
 
-  '&:checked': {
+  '&:checked,&:indeterminate': {
     backgroundColor: '$btnPrimary',
     borderColor: '$btnPrimary',
   },
@@ -50,19 +50,31 @@ const checkboxCtrlCss = css({
     borderWidth: '0 3px 3px 0',
     borderStyle: 'solid',
     content: '',
-    height: '9px',
-    left: '4px',
+    height: '8px',
+    left: '3.5px',
     position: 'absolute',
-    top: '0',
-    transform: 'rotate(40deg)',
-    width: '5px',
+    top: '0.5px',
+    transform: 'rotate(35deg) scaleX(0.9)',
+    width: '4px',
+  },
+
+  '&:indeterminate::after': {
+    backgroundColor: '$btnPrimaryText',
+    content: '',
+    height: '3px',
+    left: '3.5px',
+    position: 'absolute',
+    top: '0.5px',
+    width: '4px',
   },
 });
 
-type CheckBoxProps = JSX.InputHTMLAttributes<HTMLInputElement>;
+type CheckBoxProps = JSX.InputHTMLAttributes<HTMLInputElement> & {
+  indeterminate?: boolean,
+ };
 
 export const CheckBox: ParentComponent<CheckBoxProps> = props => {
-  const [local, rest] = splitProps(props, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(props, ['class', 'classList', 'children', 'ref']);
   return (
     <label
       classList={{
@@ -72,7 +84,11 @@ export const CheckBox: ParentComponent<CheckBoxProps> = props => {
         disabled: props.disabled,
       }}
     >
-      <input {...rest} class={checkboxCtrlCss()} type="checkbox" />
+      <input
+        {...rest}
+        class={checkboxCtrlCss()}
+        type="checkbox"
+      />
       {local.children}
     </label>
   );

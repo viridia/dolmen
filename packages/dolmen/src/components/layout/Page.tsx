@@ -60,10 +60,12 @@ const PageHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> 
 };
 
 const pageContentCss = css({
+  alignSelf: 'stretch',
   alignItems: 'stretch',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'start',
+  flex: 1,
   margin: 0,
   padding: '8px',
 });
@@ -73,7 +75,7 @@ const PageContent: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps>
   const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
   return (
-    <header
+    <section
       {...rest}
       classList={{
         ...local.classList,

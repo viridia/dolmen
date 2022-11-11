@@ -16,6 +16,7 @@ const tableCellCss = css({
     position: 'sticky',
     top: 0,
     zIndex: Z.focused,
+    fontWeight: 'bold',
   },
 
   'thead &:after': {

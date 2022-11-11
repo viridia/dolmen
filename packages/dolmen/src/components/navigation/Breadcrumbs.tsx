@@ -107,7 +107,7 @@ export const Breadcrumbs: ParentComponent<
           <>
             <Show when={index() > 0}>
               <div class={breadcrumbsSeparatorCss()} aria-hidden={true}>
-                {local.separator ?? <ChevronRight />}
+                {local.separator ?? <ChevronRight width="1.5rem" />}
               </div>
             </Show>
             {child}

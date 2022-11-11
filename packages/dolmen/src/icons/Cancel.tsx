@@ -3,8 +3,8 @@ import { JSX } from 'solid-js';
 const SvgCancel = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    height="1em"
-    width="1em"
+    height={24}
+    width={24}
     viewBox="0 0 24 24"
     role="img"
     {...props}

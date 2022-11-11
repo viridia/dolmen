@@ -23,7 +23,7 @@ const placeholderCss = css({
 });
 
 export function Select<T>(
-  props: JSX.HTMLAttributes<HTMLButtonElement> & SelectProps<T> & StyleProps
+  props: Omit<JSX.HTMLAttributes<HTMLButtonElement>, 'onSelect'> & SelectProps<T> & StyleProps
 ) {
   const [local, rest] = splitProps(props, [
     'options',

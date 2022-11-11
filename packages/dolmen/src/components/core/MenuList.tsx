@@ -43,6 +43,14 @@ const menuListCss = css(
   scrollbars
 );
 
+const menuBackdropCss = css({
+  position: 'fixed',
+  left: 0,
+  top: 0,
+  right: 0,
+  bottom: 0,
+});
+
 export interface MenuListProps {
   inset?: boolean;
   anchor?: HTMLElement;
@@ -198,26 +206,19 @@ export const MenuList: ParentComponent<
       onCleanup(() => {
         menuElt.removeEventListener(menuCloseEvent, closeListener);
       });
-
-      // Listen for clicks on background
-      const backgroundClickListener = (e: Event) => {
-        if (!menuElt.contains(e.target as HTMLElement)) {
-          e.preventDefault();
-          e.stopPropagation();
-          menuAction('close');
-        }
-      };
-
-      window.addEventListener('click', backgroundClickListener, true);
-
-      onCleanup(() => {
-        window.removeEventListener('click', backgroundClickListener, true);
-      });
     }
   });
 
   return (
     <Show when={state() !== 'exited'}>
+      <div
+        class={menuBackdropCss()}
+        onClick={e => {
+          e.preventDefault();
+          e.stopPropagation();
+          menuAction('close');
+        }}
+      />
       <ul
         {...rest}
         ref={setMenuRef}

@@ -58,8 +58,8 @@ const buttonCss = css({
       md: buttonSize('md'),
       sm: buttonSize('sm'),
       xs: buttonSize('xs'),
-      mini: buttonSize('mini'),
-      tiny: buttonSize('tiny'),
+      xxs: buttonSize('xxs'),
+      xxxs: buttonSize('xxxs'),
     },
 
     color: {
@@ -183,14 +183,14 @@ const buttonCss = css({
       },
     },
     {
-      size: 'mini',
+      size: 'xxs',
       icon: true,
       css: {
         padding: 0,
       },
     },
     {
-      size: 'tiny',
+      size: 'xxxs',
       icon: true,
       css: {
         padding: 0,

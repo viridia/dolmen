@@ -1,9 +1,9 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, theme } from '../../styles';
+import { css, fontSize, theme } from '../../styles';
 
 const emptyResultCss = css({
   fontFamily: theme.fonts.body,
-  fontSize: '1rem',
+  fontSize: fontSize.sm,
   fontStyle: 'italic',
   color: theme.colors.textDim,
 });

@@ -150,7 +150,7 @@ const valueLabelCss = css({
   padding: '2px 4px',
   position: 'absolute',
   pointerEvents: 'none',
-  fontSize: fontSize.tiny,
+  fontSize: fontSize.xxxs,
   opacity: 0,
   textAlign: 'center',
   transition: 'opacity 0.05s linear',

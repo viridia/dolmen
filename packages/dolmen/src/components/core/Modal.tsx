@@ -57,11 +57,11 @@ const modalCss = css({
       xs: {
         width: 'min(20rem, 95vw)',
       },
-      mini: {
-        width: 'min(13rem, 95vw)',
+      xxs: {
+        width: 'min(16rem, 95vw)',
       },
-      tiny: {
-        width: 'min(11rem, 95vw)',
+      xxxs: {
+        width: 'min(14rem, 95vw)',
       },
     },
   },
@@ -142,7 +142,7 @@ const ModalHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> 
       {local.children}
       <Show when={context?.onClose}>
         <Button color="subtle" size="xs" icon onClick={() => context.onClose?.()} type="button">
-          <Close />
+          <Close width={20} />
         </Button>
       </Show>
     </header>

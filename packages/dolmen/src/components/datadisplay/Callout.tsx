@@ -9,7 +9,7 @@ const calloutCss = css({
   borderRadius: '3px',
   color: '$tooltipText',
   flexDirection: 'column',
-  fontSize: fontSize.tiny,
+  fontSize: fontSize.xxxs,
   minWidth: '12px',
   padding: '4px 8px',
   pointerEvents: 'none',

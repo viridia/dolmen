@@ -47,7 +47,7 @@ export default {
       <Input
         value="Adorn button"
         adornRight={
-          <Button round icon color="subtle" size="mini">
+          <Button round icon color="subtle" size="xxs">
             <Cancel />
           </Button>
         }

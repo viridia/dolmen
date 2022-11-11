@@ -12,7 +12,7 @@ export const swatchStyle = css({
   alignItems: 'center',
   justifyContent: 'start',
   display: 'flex',
-  fontSize: fontSize.mini,
+  fontSize: fontSize.xxs,
   padding: '0 8px',
 });
 

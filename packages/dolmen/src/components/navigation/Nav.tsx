@@ -19,7 +19,11 @@ const navLinkCss = css(navItemCss, {
   textDecoration: 'none',
   '--icon-color': theme.colors.text,
 
-  '&.active': {
+  '&:hover:not([aria-disabled])': {
+    backgroundColor: theme.colors.itemHoverBg,
+  },
+
+  '&&.active': {
     backgroundColor: theme.colors.itemSelectedBg,
     color: theme.colors.itemSelectedText,
     '--icon-color': theme.colors.itemSelectedText,
@@ -28,10 +32,6 @@ const navLinkCss = css(navItemCss, {
   '&:focus:focus-visible': {
     boxShadow: '0 0 1px 3px $colors$focus',
     zIndex: Z.focused,
-  },
-
-  '&:hover:not([aria-disabled])': {
-    backgroundColor: theme.colors.itemHoverBg,
   },
 
   '&[aria-disabled]': {

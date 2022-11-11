@@ -2,12 +2,16 @@
 import { Suspense } from 'solid-js';
 import { ErrorBoundary } from 'solid-start/error-boundary';
 import { Body, Head, Html, Meta, Route, Routes, Scripts, Title } from 'solid-start';
-import { dark } from 'dolmen';
+import { css, dark } from 'dolmen';
 import { createCodex, CodexContext } from 'solid-codex-api';
 import { getCssText } from 'dolmen';
 import { useFixtures } from '../data/fixtures';
 import { createUserSettings, UserSettingsContext } from '../settings';
 import { CodexPage } from './CodexPage';
+
+const rootCss = css({
+  fontSize: '14px',
+});
 
 export function App(props: { fixtures: Record<string, () => Promise<unknown>> }) {
   const fixtures = useFixtures(props.fixtures);
@@ -17,7 +21,7 @@ export function App(props: { fixtures: Record<string, () => Promise<unknown>> })
   return (
     <UserSettingsContext.Provider value={userSettings}>
       <CodexContext.Provider value={fixtureParams}>
-        <Html lang="en">
+        <Html lang="en" class={rootCss()}>
           <Head>
             <Title>SolidStart - With MDX</Title>
             <Meta charset="utf-8" />

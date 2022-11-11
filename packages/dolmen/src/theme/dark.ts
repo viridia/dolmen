@@ -36,7 +36,7 @@ export const dark = createTheme('dark', {
     errorIcon: '#d00',
     errorBg: '#332222',
 
-    itemHoverBg: palette.coolgray750,
+    itemHoverBg: colord(palette.coolgray400).alpha(0.1).toHex(),
     itemFocusBg: palette.coolgray700,
     itemSelectedText: palette.white,
     itemSelectedBg: primaryColor,

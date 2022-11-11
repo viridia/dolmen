@@ -51,7 +51,7 @@ export const MenuButton: ParentComponent<ButtonProps & { caret?: boolean }> = pr
     >
       <span class={menuButtonCaptionCss()}>{props.children}</span>
       <Show when={!props.icon || props.caret === false}>
-        <ChevronDown />
+        <ChevronDown width={16} />
       </Show>
     </Button>
   );

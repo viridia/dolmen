@@ -120,8 +120,8 @@ export const stdFontSizes = css({
       md: { fontSize: fontSize.md },
       sm: { fontSize: fontSize.sm },
       xs: { fontSize: fontSize.xs },
-      mini: { fontSize: fontSize.mini },
-      tiny: { fontSize: fontSize.tiny },
+      xxs: { fontSize: fontSize.xxs },
+      xxxs: { fontSize: fontSize.xxxs },
     },
   },
 });

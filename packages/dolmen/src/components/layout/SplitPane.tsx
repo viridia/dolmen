@@ -75,7 +75,7 @@ interface SplitPaneProps {
 
 export const SplitPane: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement> & SplitPaneProps & VariantProps<typeof splitPaneCss>
-> = props => {
+> & { Controlled: typeof SplitPaneControlled } = props => {
   const [positions, setPositions] = createSignal<number[]>([]);
 
   return <SplitPaneControlled {...props} positions={positions()} setPositions={setPositions} />;
@@ -255,3 +255,5 @@ export const SplitPaneControlled: ParentComponent<
     </div>
   );
 };
+
+SplitPane.Controlled = SplitPaneControlled;

@@ -3,8 +3,8 @@ import { JSX } from 'solid-js';
 const SvgError = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    height="1em"
-    width="1em"
+    height={20}
+    width={20}
     viewBox="0 0 20 20"
     role="img"
     {...props}

@@ -3,8 +3,8 @@ import { VoidComponent } from 'solid-js';
 import { css, StyleProps, styleProps, Z } from '../../styles';
 
 const colorSwatchCss = css({
-  minWidth: 16,
-  minHeight: 16,
+  minWidth: 8,
+  minHeight: 8,
 });
 
 const colorSwatchClickableCss = css(colorSwatchCss, {
@@ -14,6 +14,7 @@ const colorSwatchClickableCss = css(colorSwatchCss, {
   borderStyle: 'solid',
   borderColor: 'black',
   cursor: 'pointer',
+  padding: 0,
 
   '&:focus:focus-visible': {
     boxShadow: '0 0 1px 3px $colors$focus',
@@ -34,10 +35,14 @@ interface Props {
 export const ColorSwatch: VoidComponent<Props & StyleProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
   const c = colord(nprops.color);
-  const color = c.isLight() ? '#000' : '#fff'; // Compute contrasting color.
+  const contrastingColor = c.isLight() ? '#000' : '#fff'; // Compute contrasting color.
   return props.onClick ? (
     <button
-      style={{ 'background-color': nprops.color, color, 'border-color': color }}
+      style={{
+        'background-color': nprops.color,
+        color: contrastingColor,
+        'border-color': contrastingColor,
+      }}
       classList={{
         ...layoutCss,
         [colorSwatchClickableCss()]: true,
@@ -47,8 +52,15 @@ export const ColorSwatch: VoidComponent<Props & StyleProps> = props => {
     />
   ) : (
     <div
-      style={{ ...layoutCss, 'background-color': props.color, color, 'border-color': color }}
-      class={colorSwatchCss()}
+      style={{
+        'background-color': props.color,
+        color: contrastingColor,
+        'border-color': contrastingColor,
+      }}
+      classList={{
+        ...layoutCss,
+        [colorSwatchCss()]: true,
+      }}
     />
   );
 };

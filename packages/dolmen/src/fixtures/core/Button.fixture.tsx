@@ -28,10 +28,10 @@ function ButtonSizes() {
       <Button size="xs" disabled={params.disabled()} round={params.round()} onClick={click}>
         X-Small
       </Button>
-      <Button size="mini" disabled={params.disabled()} round={params.round()} onClick={click}>
+      <Button size="xxs" disabled={params.disabled()} round={params.round()} onClick={click}>
         Mini
       </Button>
-      <Button size="tiny" disabled={params.disabled()} round={params.round()} onClick={click}>
+      <Button size="xxxs" disabled={params.disabled()} round={params.round()} onClick={click}>
         Tiny
       </Button>
     </Group>
