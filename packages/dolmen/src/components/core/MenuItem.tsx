@@ -1,5 +1,5 @@
 import { ParentComponent, JSX, splitProps, VoidComponent, Show } from 'solid-js';
-import { css, styleProps, StyleProps } from '../../styles';
+import { css } from '../../styles';
 import { menuCloseEvent } from './MenuContext';
 
 const menuIconCss = css({
@@ -76,10 +76,9 @@ interface MenuItemProps {
 }
 
 const MenuItemBase: ParentComponent<
-  JSX.AnchorHTMLAttributes<HTMLAnchorElement> & StyleProps & MenuItemProps
+  JSX.AnchorHTMLAttributes<HTMLAnchorElement> & MenuItemProps
 > = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, [
+  const [local, rest] = splitProps(props, [
     'class',
     'classList',
     'children',
@@ -96,7 +95,6 @@ const MenuItemBase: ParentComponent<
         aria-disabled={local.disabled}
         classList={{
           ...local.classList,
-          ...layoutCss,
           [local.class as string]: !!local.class,
           [menuItemCss()]: true,
         }}
@@ -140,19 +138,19 @@ const MenuItemBase: ParentComponent<
 };
 
 export const MenuItem: ParentComponent<
-  JSX.AnchorHTMLAttributes<HTMLAnchorElement> & StyleProps & MenuItemProps
+  JSX.AnchorHTMLAttributes<HTMLAnchorElement> & MenuItemProps
 > = props => {
   return <MenuItemBase role="menuitem" {...props} />;
 };
 
 export const MenuItemCheckBox: ParentComponent<
-  JSX.HTMLAttributes<HTMLAnchorElement> & StyleProps & MenuItemProps
+  JSX.HTMLAttributes<HTMLAnchorElement> & MenuItemProps
 > = props => {
   return <MenuItemBase role="menuitemcheckbox" aria-checked={props.checked} {...props} />;
 };
 
 export const MenuItemRadio: ParentComponent<
-  JSX.HTMLAttributes<HTMLAnchorElement> & StyleProps & MenuItemProps
+  JSX.HTMLAttributes<HTMLAnchorElement> & MenuItemProps
 > = props => {
   return <MenuItemBase role="menuitemradio" aria-checked={props.checked} {...props} />;
 };

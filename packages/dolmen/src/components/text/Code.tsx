@@ -2,7 +2,7 @@ import { VariantProps } from '@stitches/core';
 import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { css, stdFontSizes } from '../../styles';
 
-const codeCss = css(
+export const codeCss = css(
   {
     fontFamily: '$mono',
     fontSize: '1rem',
@@ -10,7 +10,7 @@ const codeCss = css(
   stdFontSizes
 );
 
-const codeBlockCss = css(
+export const codeBlockCss = css(
   {
     fontFamily: '$mono',
     fontSize: '0.8rem',

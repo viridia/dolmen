@@ -1,6 +1,6 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { VariantProps } from '@stitches/core';
-import { css, ButtonSizeVariant, StyleProps, styleProps, Z, size, fontSize } from '../../styles';
+import { css, ButtonSizeVariant, Z, size, fontSize, theme } from '../../styles';
 import { buttonGroupCss } from './ButtonGroup';
 
 const buttonSize = (base: ButtonSizeVariant) => ({
@@ -16,6 +16,7 @@ const buttonCss = css({
   borderRadius: 3,
   borderStyle: 'solid',
   borderWidth: 0,
+  boxSizing: 'border-box',
   display: 'flex',
   flexDirection: 'row',
   fontWeight: '500',
@@ -105,7 +106,7 @@ const buttonCss = css({
       subtle: {
         backgroundColor: 'transparent',
         borderColor: 'transparent',
-        color: '$btnSecondaryContrast',
+        color: theme.colors.textDim,
         '&:hover:not([disabled])': {
           backgroundColor: '$itemHoverBg',
         },
@@ -113,7 +114,7 @@ const buttonCss = css({
           backgroundColor: '$itemHoverBg',
           filter: 'brightness(0.9)',
         },
-        '--icon-color': '$colors$btnSecondaryContrastDim',
+        '--icon-color': theme.colors.textDim,
       },
       // Used internally for menubuttons
       field: {
@@ -123,6 +124,10 @@ const buttonCss = css({
         borderWidth: 1,
         '--icon-color': '$colors$textDim',
       },
+    },
+
+    selected: {
+      true: {},
     },
 
     round: {
@@ -196,6 +201,24 @@ const buttonCss = css({
         padding: 0,
       },
     },
+    {
+      color: 'default',
+      selected: true,
+      css: {
+        backgroundColor: '$btnSelected',
+        borderColor: '$btnSelected',
+        color: '$btnSelectedContrast',
+        '--icon-color': '$colors$btnSelectedContrastDim',
+      },
+    },
+    {
+      color: 'subtle',
+      selected: true,
+      css: {
+        color: theme.colors.text,
+        '--icon-color': theme.colors.text,
+      },
+    },
   ],
 
   defaultVariants: {
@@ -205,14 +228,12 @@ const buttonCss = css({
 });
 
 export type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> &
-  StyleProps &
   VariantProps<typeof buttonCss> & {
     selected?: boolean;
   };
 
 export const Button: ParentComponent<ButtonProps> = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, [
+  const [local, rest] = splitProps(props, [
     'size',
     'color',
     'round',
@@ -226,13 +247,13 @@ export const Button: ParentComponent<ButtonProps> = props => {
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
         [buttonCss({
           size: local.size,
           round: local.round,
           icon: local.icon,
-          color: local.selected ? 'selected' : local.color,
+          color: local.color,
+          selected: local.selected,
         })]: true,
       }}
     />

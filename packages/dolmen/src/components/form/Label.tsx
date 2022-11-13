@@ -1,5 +1,5 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, StyleProps, styleProps } from '../../styles';
+import { css } from '../../styles';
 
 const groupCss = css({
   alignItems: 'center',
@@ -9,17 +9,15 @@ const groupCss = css({
 });
 
 export const Label: ParentComponent<
-  JSX.LabelHTMLAttributes<HTMLLabelElement> & StyleProps
+  JSX.LabelHTMLAttributes<HTMLLabelElement>
 > = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList']);
+  const [local, rest] = splitProps(props, ['class', 'classList']);
 
   return (
     <label
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
         [groupCss()]: true,
       }}

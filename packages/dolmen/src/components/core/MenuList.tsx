@@ -9,7 +9,7 @@ import {
   onCleanup,
   useContext,
 } from 'solid-js';
-import { css, scrollbars, styleProps, StyleProps, Z } from '../../styles';
+import { css, scrollbars, styleProps, Z } from '../../styles';
 import { autoUpdate, computePosition, flip, offset, Placement } from '@floating-ui/dom';
 import { Property } from '@stitches/core/types/css';
 import { createCssTransition } from '../../hooks';
@@ -59,7 +59,7 @@ export interface MenuListProps {
 }
 
 export const MenuList: ParentComponent<
-  JSX.HTMLAttributes<HTMLUListElement> & MenuListProps & StyleProps
+  JSX.HTMLAttributes<HTMLUListElement> & MenuListProps
 > = props => {
   const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList', 'children', 'inset', 'onClose']);

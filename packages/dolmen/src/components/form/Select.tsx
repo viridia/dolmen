@@ -1,5 +1,5 @@
 import { createMemo, createSignal, For, JSX, Show, splitProps } from 'solid-js';
-import { css, StyleProps } from '../../styles';
+import { css } from '../../styles';
 import { Menu } from '../core/Menu';
 import { IMenuContext, MenuContext } from '../core/MenuContext';
 
@@ -23,7 +23,7 @@ const placeholderCss = css({
 });
 
 export function Select<T>(
-  props: Omit<JSX.HTMLAttributes<HTMLButtonElement>, 'onSelect'> & SelectProps<T> & StyleProps
+  props: Omit<JSX.HTMLAttributes<HTMLButtonElement>, 'onSelect'> & SelectProps<T>
 ) {
   const [local, rest] = splitProps(props, [
     'options',

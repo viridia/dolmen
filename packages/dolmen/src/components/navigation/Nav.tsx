@@ -1,7 +1,7 @@
 import { ParentComponent, JSX, splitProps, Show } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 import { ChevronRight } from '../../icons';
-import { css, fontSize, size, styleProps, StyleProps, theme, Z } from '../../styles';
+import { css, fontSize, size, theme, Z } from '../../styles';
 
 const navItemCss = css({
   alignItems: 'center',
@@ -66,7 +66,7 @@ interface NavLinkProps {
 }
 
 const NavLink: ParentComponent<
-  NavLinkProps & JSX.AnchorHTMLAttributes<HTMLAnchorElement> & StyleProps
+  NavLinkProps & JSX.AnchorHTMLAttributes<HTMLAnchorElement>
 > = props => {
   const [local, rest] = splitProps(props, [
     'class',
@@ -103,7 +103,7 @@ const navTitleCss = css(navItemCss, {
   color: theme.colors.textDim,
 });
 
-const NavTitle: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> = props => {
+const NavTitle: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList']);
   return (
     <div
@@ -125,19 +125,17 @@ const navCss = css({
   justifyContent: 'start',
 });
 
-export const Nav: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> & {
+export const Nav: ParentComponent<JSX.HTMLAttributes<HTMLElement>> & {
   Link: typeof NavLink;
   Title: typeof NavTitle;
 } = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList']);
+  const [local, rest] = splitProps(props, ['class', 'classList']);
 
   return (
     <nav
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
         [navCss()]: true,
       }}

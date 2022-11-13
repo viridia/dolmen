@@ -1,7 +1,7 @@
 import { JSX, splitProps, VoidComponent } from 'solid-js';
 import { css } from '../../styles';
 
-const spacerCss = css({
+export const spacerCss = css({
   flex: 1,
 });
 

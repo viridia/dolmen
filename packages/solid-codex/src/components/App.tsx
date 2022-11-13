@@ -4,7 +4,7 @@ import { ErrorBoundary } from 'solid-start/error-boundary';
 import { Body, Head, Html, Meta, Route, Routes, Scripts, Title } from 'solid-start';
 import { css, dark } from 'dolmen';
 import { createCodex, CodexContext } from 'solid-codex-api';
-import { getCssText } from 'dolmen';
+import { getCssText, globalStyles } from 'dolmen';
 import { useFixtures } from '../data/fixtures';
 import { createUserSettings, UserSettingsContext } from '../settings';
 import { CodexPage } from './CodexPage';
@@ -17,6 +17,8 @@ export function App(props: { fixtures: Record<string, () => Promise<unknown>> })
   const fixtures = useFixtures(props.fixtures);
   const userSettings = createUserSettings();
   const fixtureParams = createCodex();
+
+  globalStyles();
 
   return (
     <UserSettingsContext.Provider value={userSettings}>

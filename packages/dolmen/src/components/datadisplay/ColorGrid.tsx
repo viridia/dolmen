@@ -1,5 +1,5 @@
 import { createMemo, createSignal, For, JSX, Show, splitProps, VoidComponent } from 'solid-js';
-import { css, StyleProps, styleProps, Z } from '../../styles';
+import { css, Space, styleProps, Z } from '../../styles';
 
 const colorGridCss = css({
   display: 'grid',
@@ -38,6 +38,7 @@ const colorGridCellCss = css({
 });
 
 interface Props {
+  gap?: Space;
   name?: string;
   colors: string[];
   onChange?: (color: string) => void;
@@ -48,7 +49,7 @@ interface Props {
 }
 
 export const ColorGrid: VoidComponent<
-  Props & StyleProps & JSX.HTMLAttributes<HTMLDivElement>
+  Props & JSX.HTMLAttributes<HTMLDivElement>
 > = props => {
   const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, [

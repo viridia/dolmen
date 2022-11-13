@@ -1,7 +1,7 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, space, StyleProps, styleProps, Z } from '../../styles';
+import { css, space, FlexProps, styleProps, Z } from '../../styles';
 
-const asideCss = css({
+export const asideCss = css({
   backgroundColor: '$elevation1',
   boxShadow: '0 0 2px 0 $colors$shadow',
   padding: space.lg,
@@ -13,7 +13,7 @@ const asideCss = css({
   zIndex: Z.sidebar,
 });
 
-export const Aside: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> = props => {
+export const Aside: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList']);
 

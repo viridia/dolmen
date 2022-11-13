@@ -1,11 +1,12 @@
 import { Button, Input, Page, Stack } from '../../components';
 import { Cancel } from '../../icons';
+import { cx } from '../../styles';
 
 export const $category = 'form';
 
 export default {
   Variants: () => (
-    <Stack gap="md" w="20rem">
+    <Stack gap="md" classList={cx({ w: '20rem' })}>
       <Input value="default" />
       <Input round value="round" />
       <Input disabled value="disabled" />
@@ -14,7 +15,7 @@ export default {
     </Stack>
   ),
   Sizes: () => (
-    <Stack gap="md" w="20rem">
+    <Stack gap="md" classList={cx({ w: '20rem' })}>
       <Input size="xl" value="X-Large" />
       <Input size="lg" value="Large" />
       <Input size="md" value="Medium" />
@@ -23,7 +24,7 @@ export default {
     </Stack>
   ),
   Adornments: () => (
-    <Stack gap="md" w="20rem">
+    <Stack gap="md" classList={cx({ w: '20rem' })}>
       <Input value="Adorn Left" adornLeft={<Cancel />} />
       <Input value="Adorn Right" adornRight={<Cancel />} />
       <Input value="Adorn Left" adornLeft={<Cancel />} round />

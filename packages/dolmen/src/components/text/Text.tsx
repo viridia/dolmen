@@ -3,10 +3,12 @@ import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 import { css, stdFontSizes } from '../../styles';
 
-const textCss = css(
+export const textCss = css(
   {
-    fontFamily: '$body',
-    fontSize: '1rem',
+    '@layer ui-base': {
+      fontFamily: '$body',
+      fontSize: '1rem',
+    },
 
     variants: {
       dim: {
@@ -51,14 +53,7 @@ interface TextProps {
 export const Text: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement> & TextProps & VariantProps<typeof textCss>
 > = props => {
-  const [local, rest] = splitProps(props, [
-    'size',
-    'as',
-    'dim',
-    'em',
-    'class',
-    'classList',
-  ]);
+  const [local, rest] = splitProps(props, ['size', 'as', 'dim', 'em', 'class', 'classList']);
 
   return (
     <Dynamic

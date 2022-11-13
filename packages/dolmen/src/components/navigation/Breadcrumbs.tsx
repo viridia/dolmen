@@ -1,7 +1,7 @@
 import { ParentComponent, JSX, splitProps, children, For, Show } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 import { ChevronRight } from '../../icons';
-import { css, styleProps, StyleProps } from '../../styles';
+import { css } from '../../styles';
 
 const breadcrumbsItemCss = css({
   alignItems: 'center',
@@ -12,17 +12,15 @@ const breadcrumbsItemCss = css({
 });
 
 export const BreadcrumbsItem: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
+  JSX.HTMLAttributes<HTMLDivElement>
 > = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList']);
+  const [local, rest] = splitProps(props, ['class', 'classList']);
 
   return (
     <div
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
         [breadcrumbsItemCss()]: true,
       }}
@@ -83,13 +81,12 @@ const breadcrumbsSeparatorCss = css({
 });
 
 export const Breadcrumbs: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & StyleProps & BreadcrumbsProps
+  JSX.HTMLAttributes<HTMLDivElement> & BreadcrumbsProps
 > & {
   Item: typeof BreadcrumbsItem;
   Link: typeof BreadcrumbsLink;
 } = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children', 'separator']);
+  const [local, rest] = splitProps(props, ['class', 'classList', 'children', 'separator']);
   const childNodes = children(() => local.children);
 
   return (
@@ -97,7 +94,6 @@ export const Breadcrumbs: ParentComponent<
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
         [breadcrumbsCss()]: true,
       }}

@@ -1,6 +1,6 @@
 import { JSX, splitProps, useContext, VoidComponent } from 'solid-js';
 import { VariantProps } from '@stitches/core';
-import { css, fontSize, SizeVariant, scrollbars, styleProps, LayoutProps } from '../../styles';
+import { css, fontSize, SizeVariant, scrollbars } from '../../styles';
 import { FormFieldContext } from './FormFieldContext';
 
 const inputSize = (base: SizeVariant) => ({
@@ -67,11 +67,10 @@ const textAreaCss = css(
   scrollbars
 );
 
-type TextAreaProps = JSX.TextareaHTMLAttributes<HTMLTextAreaElement> & LayoutProps;
+type TextAreaProps = JSX.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 export const TextArea: VoidComponent<TextAreaProps & VariantProps<typeof textAreaCss>> = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['size', 'color', 'class', 'classList']);
+  const [local, rest] = splitProps(props, ['size', 'color', 'class', 'classList']);
   const fieldState = useContext(FormFieldContext);
   return (
     <textarea
@@ -79,7 +78,6 @@ export const TextArea: VoidComponent<TextAreaProps & VariantProps<typeof textAre
       {...fieldState?.ariaProps()}
       classList={{
         ...local.classList,
-        ...layoutCss,
         'dm-disabled': rest.disabled,
         [local.class as string]: !!local.class,
         [textAreaCss({

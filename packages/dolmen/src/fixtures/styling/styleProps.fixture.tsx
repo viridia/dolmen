@@ -1,10 +1,14 @@
 import { ParentComponent } from 'solid-js';
 import { Stack } from '../../components';
-import { styleProps, StyleProps } from '../../styles';
+import { css, cx, styleProps } from '../../styles';
 
 export const $category = 'styling';
 
-const StyledComponent: ParentComponent<StyleProps> = props => {
+const redCss = css({
+  color: 'red',
+});
+
+const StyledComponent: ParentComponent<{ classList: Record<string, boolean> }> = props => {
   const [styles, rest] = styleProps(props);
 
   return (
@@ -17,9 +21,10 @@ const StyledComponent: ParentComponent<StyleProps> = props => {
 function StylePropsFixture() {
   return (
     <Stack gap="lg" alignItems="start">
-      <StyledComponent m={10}>m: 10</StyledComponent>
-      <StyledComponent m="1rem">m: 1rem</StyledComponent>
-      <StyledComponent m="xl">m: xl</StyledComponent>
+      <StyledComponent classList={cx({ m: 10 })}>m: 10</StyledComponent>
+      <StyledComponent classList={cx({ m: '1rem' })}>m: 1rem</StyledComponent>
+      <StyledComponent classList={cx({ m: 'xl' })}>m: xl</StyledComponent>
+      <StyledComponent classList={cx(redCss(), { m: 'xl' })}>m: xl red</StyledComponent>
     </Stack>
   );
 }

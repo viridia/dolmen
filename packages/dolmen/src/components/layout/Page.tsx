@@ -1,5 +1,5 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, styleProps, StyleProps, Z } from '../../styles';
+import { css, styleProps, FlexProps, Z } from '../../styles';
 
 const pageHeaderTitleCss = css({
   alignItems: 'center',
@@ -11,7 +11,7 @@ const pageHeaderTitleCss = css({
   padding: 0,
 });
 
-const PageHeaderTitle: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> = props => {
+const PageHeaderTitle: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
@@ -42,7 +42,7 @@ const pageHeaderCss = css({
   zIndex: Z.appbar,
 });
 
-const PageHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> = props => {
+const PageHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
@@ -70,7 +70,7 @@ const pageContentCss = css({
   padding: '8px',
 });
 
-const PageContent: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> = props => {
+const PageContent: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
@@ -103,7 +103,7 @@ const pageCss = css({
   fontFamily: '$body',
 });
 
-export const Page: ParentComponent<JSX.HTMLAttributes<HTMLElement> & StyleProps> & {
+export const Page: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> & {
   Header: typeof PageHeader;
   Title: typeof PageHeaderTitle;
   Content: typeof PageContent;

@@ -1,6 +1,6 @@
 import { colord } from 'colord';
 import { VoidComponent } from 'solid-js';
-import { css, StyleProps, styleProps, Z } from '../../styles';
+import { css, Z } from '../../styles';
 
 const colorSwatchCss = css({
   minWidth: 8,
@@ -30,25 +30,24 @@ interface Props {
   color: string;
   onClick?: (color: string) => void;
   selected?: boolean;
+  classList?: Record<string, boolean>;
 }
 
-export const ColorSwatch: VoidComponent<Props & StyleProps> = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const c = colord(nprops.color);
+export const ColorSwatch: VoidComponent<Props> = props => {
+  const c = colord(props.color);
   const contrastingColor = c.isLight() ? '#000' : '#fff'; // Compute contrasting color.
   return props.onClick ? (
     <button
       style={{
-        'background-color': nprops.color,
+        'background-color': props.color,
         color: contrastingColor,
         'border-color': contrastingColor,
       }}
       classList={{
-        ...layoutCss,
         [colorSwatchClickableCss()]: true,
         selected: props.selected,
       }}
-      onClick={() => props.onClick?.(nprops.color)}
+      onClick={() => props.onClick?.(props.color)}
     />
   ) : (
     <div
@@ -58,7 +57,6 @@ export const ColorSwatch: VoidComponent<Props & StyleProps> = props => {
         'border-color': contrastingColor,
       }}
       classList={{
-        ...layoutCss,
         [colorSwatchCss()]: true,
       }}
     />

@@ -1,7 +1,7 @@
 import { createMemo, createSignal, onMount, ParentComponent, Show } from 'solid-js';
 import { JSX, splitProps } from 'solid-js';
 import { createCssTransition, CssTransitionState } from '../../hooks';
-import { css, styleProps, StyleProps, Z } from '../../styles';
+import { css, styleProps, FlexProps, Z } from '../../styles';
 import { VariantProps } from '@stitches/core';
 
 type Side = 'start' | 'end' | 'left' | 'right' | 'top' | 'bottom';
@@ -167,7 +167,7 @@ const drawerContentCss = css({
 
 export type DrawerStyleProps = VariantProps<typeof drawerCoplanarCss>;
 
-const DrawerHeader: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> = props => {
+const DrawerHeader: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & FlexProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList']);
 
@@ -184,7 +184,7 @@ const DrawerHeader: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StylePr
   );
 };
 
-const DrawerContent: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> = props => {
+const DrawerContent: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & FlexProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList']);
 

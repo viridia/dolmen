@@ -1,6 +1,6 @@
 import { For } from 'solid-js';
 import { Stack, Table } from '../../components';
-import { css, scrollbars } from '../../styles';
+import { css, cx, scrollbars } from '../../styles';
 
 export const $category = 'data display';
 
@@ -15,11 +15,13 @@ const stackCss = css(
 
 function TableDemo() {
   return (
-    <Stack h="20rem" class={stackCss()}>
-      <Table maxWidth="40rem">
+    <Stack classList={cx({ h: '20rem' })} class={stackCss()}>
+      <Table classList={cx({ maxWidth: '40rem' })}>
         <Table.Head>
           <Table.Row>
-            <Table.Cell w="5rem" textAlign="center">Selected</Table.Cell>
+            <Table.Cell classList={cx({ w: '5rem' })} textAlign="center">
+              Selected
+            </Table.Cell>
             <Table.Cell>N</Table.Cell>
             <Table.Cell>2N</Table.Cell>
             <Table.Cell textAlign="end">

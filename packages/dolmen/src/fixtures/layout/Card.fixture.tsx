@@ -1,10 +1,11 @@
 import { Button, Stack, Card, Header, Group } from '../../components';
+import { cx } from '../../styles';
 
 export const $category = 'layout';
 
 function CardDemo() {
   return (
-    <Stack alignSelf="stretch" gap="lg">
+    <Stack classList={cx({ alignSelf: 'stretch', gap: 'lg' })}>
       <Card>
         <Card.Content>
           <Header>Sample Card</Header>

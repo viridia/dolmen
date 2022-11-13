@@ -1,6 +1,6 @@
 import { createSignal } from 'solid-js';
 import { ColorGrid, Stack } from '../../components';
-import { palette } from '../../styles';
+import { cx, palette } from '../../styles';
 
 export const $category = 'data display';
 
@@ -28,11 +28,11 @@ function ColorGridDemo() {
   return (
     <Stack gap="md">
       No Gap
-      <ColorGrid w="10rem" colors={colors} value={selected()} onChange={setSelected} name="nogap" />
+      <ColorGrid classList={cx({ w: '10rem' })} colors={colors} value={selected()} onChange={setSelected} name="nogap" />
       Gap (sm)
       <ColorGrid
         gap="sm"
-        w="10rem"
+        classList={cx({ w: '10rem' })}
         colors={colors}
         value={selected()}
         onChange={setSelected}
@@ -41,7 +41,7 @@ function ColorGridDemo() {
       Narrow
       <ColorGrid
         gap="sm"
-        w="5rem"
+        classList={cx({ w: '5rem' })}
         colors={colors}
         value={selected()}
         onChange={setSelected}
@@ -51,7 +51,7 @@ function ColorGridDemo() {
       <ColorGrid
         name="5columns"
         gap="sm"
-        w="10rem"
+        classList={cx({ w: '10rem' })}
         columns={5}
         colors={colors}
         value={selected()}
@@ -61,7 +61,7 @@ function ColorGridDemo() {
       <ColorGrid
         name="cmajor"
         gap="sm"
-        w="10rem"
+        classList={cx({ w: '10rem' })}
         columnMajor
         rows={4}
         colors={colors}
@@ -69,7 +69,7 @@ function ColorGridDemo() {
         onChange={setSelected}
       />
       Uncontrolled
-      <ColorGrid gap="sm" w="10rem" colors={colors} value={palette.coolgray100} />
+      <ColorGrid gap="sm" classList={cx({ w: '10rem' })} colors={colors} value={palette.coolgray100} />
     </Stack>
   );
 }

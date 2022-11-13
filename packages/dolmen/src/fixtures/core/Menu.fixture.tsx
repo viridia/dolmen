@@ -1,16 +1,17 @@
 import { createSignal } from 'solid-js';
 import { Button, Card, Group, Menu, Stack } from '../../components';
 import { Cancel } from '../../icons';
+import { cx } from '../../styles';
 
 export const $category = 'core';
 
 function ScrollingDemo() {
   const [anchorRef2, setAnchorRef2] = createSignal<HTMLElement>();
   return (
-    <Stack gap="xl" w="20rem">
-      <Card h="10rem"></Card>
-      <Card h="60rem">
-        <Card.Content p="1rem">
+    <Stack classList={cx({ gap: 'xl', w: '20rem' })}>
+      <Card classList={cx({ h: '10rem' })}></Card>
+      <Card  classList={cx({ h: '60rem' })}>
+        <Card.Content classList={cx({ p: '1rem' })}>
           <Button ref={setAnchorRef2}>Anchor Element</Button>
           <Menu.List anchor={anchorRef2()}>
             <Menu.Item>Alpha Wolf</Menu.Item>
@@ -31,8 +32,8 @@ function MenuListDemo() {
   const [anchorRef2, setAnchorRef2] = createSignal<HTMLElement>();
   return (
     <Group gap="xl">
-      <Card w="15rem">
-        <Card.Content p="1rem">
+      <Card classList={cx({ w: '15rem' })}>
+        <Card.Content classList={cx({ p: '1rem' })}>
           <Button ref={setAnchorRef}>Default</Button>
           <Menu.List anchor={anchorRef()}>
             <Menu.Item>Alpha Wolf</Menu.Item>
@@ -44,8 +45,8 @@ function MenuListDemo() {
           </Menu.List>
         </Card.Content>
       </Card>
-      <Card w="15rem">
-        <Card.Content p="1rem">
+      <Card classList={cx({ w: '15rem' })}>
+        <Card.Content classList={cx({ p: '1rem' })}>
           <Button ref={setAnchorRef2}>Inset</Button>
           <Menu.List inset anchor={anchorRef2()}>
             <Menu.ItemCheckBox checked>Alpha Wolf</Menu.ItemCheckBox>
@@ -64,9 +65,9 @@ function MenuListDemo() {
 function Controlled() {
   const [anchorRef, setAnchorRef] = createSignal<HTMLElement>();
   return (
-    <Stack gap="xl" w="20rem">
-      <Card h="20rem">
-        <Card.Content p="1rem">
+    <Stack gap="xl" classList={cx({ w: '20rem' })}>
+      <Card classList={cx({ h: '20rem' })}>
+        <Card.Content classList={cx({ p: '1rem' })}>
           <Button
             onClick={e => {
               if (anchorRef()) {
@@ -99,9 +100,9 @@ function Controlled() {
 
 function MenuButtonDemo() {
   return (
-    <Stack gap="xl" w="20rem">
-      <Card h="20rem">
-        <Card.Content p="1rem">
+    <Stack gap="xl" classList={cx({ w: '20rem' })}>
+      <Card classList={cx({ h: '20rem' })}>
+        <Card.Content classList={cx({ p: '1rem' })}>
           <Menu>
             <Menu.Button>Menu Button</Menu.Button>
             <Menu.List>

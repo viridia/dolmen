@@ -1,14 +1,14 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, StyleProps, styleProps } from '../../styles';
+import { css, FlexProps, styleProps } from '../../styles';
 
-const groupCss = css({
+export const groupCss = css({
   alignItems: 'center',
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'start',
 });
 
-export const Group: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> = props => {
+export const Group: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & FlexProps> = props => {
   const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['class', 'classList']);
 

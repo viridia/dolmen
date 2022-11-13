@@ -1,7 +1,7 @@
 import { VariantProps } from '@stitches/core';
 import { Colord, colord } from 'colord';
 import { ParentComponent, JSX, splitProps, Show } from 'solid-js';
-import { css, LayoutProps, SizeVariant, styleProps } from '../../styles';
+import { css, SizeVariant } from '../../styles';
 
 export const avatarSizeRem = {
   xl: 2.5,
@@ -72,10 +72,9 @@ interface AvatarProps {
 }
 
 export const Avatar: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & LayoutProps & AvatarProps & VariantProps<typeof avatarCss>
+  JSX.HTMLAttributes<HTMLDivElement> & AvatarProps & VariantProps<typeof avatarCss>
 > = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, [
+  const [local, rest] = splitProps(props, [
     'color',
     'colorHash',
     'size',
@@ -101,7 +100,6 @@ export const Avatar: ParentComponent<
       }}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
         [avatarCss({
           size: local.size,

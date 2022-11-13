@@ -1,6 +1,6 @@
 import { VariantProps } from '@stitches/core';
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, LayoutProps, scrollbars, styleProps, theme, Z } from '../../styles';
+import { css, scrollbars, styleProps, theme, Z } from '../../styles';
 
 const tableCellCss = css({
   padding: '6px 8px 8px 8px',
@@ -50,17 +50,15 @@ const tableCellCss = css({
 });
 
 const TableCell: ParentComponent<
-  JSX.HTMLAttributes<HTMLTableCellElement> & LayoutProps & VariantProps<typeof tableCellCss>
+  JSX.HTMLAttributes<HTMLTableCellElement> & VariantProps<typeof tableCellCss>
 > = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'textAlign']);
+  const [local, rest] = splitProps(props, ['class', 'classList', 'textAlign']);
 
   return (
     <td
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
         [tableCellCss({
           textAlign: local.textAlign,
@@ -120,18 +118,14 @@ const tableBodyCss = css(
   scrollbars
 );
 
-const TableBody: ParentComponent<
-  JSX.HTMLAttributes<HTMLTableSectionElement> & LayoutProps
-> = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList']);
+const TableBody: ParentComponent<JSX.HTMLAttributes<HTMLTableSectionElement>> = props => {
+  const [local, rest] = splitProps(props, ['class', 'classList']);
 
   return (
     <tbody
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
         [tableBodyCss()]: true,
       }}
@@ -151,7 +145,7 @@ const tableCss = css({
   position: 'relative',
 });
 
-export const Table: ParentComponent<JSX.HTMLAttributes<HTMLTableElement> & LayoutProps> & {
+export const Table: ParentComponent<JSX.HTMLAttributes<HTMLTableElement>> & {
   Row: typeof TableRow;
   Head: typeof TableHead;
   Body: typeof TableBody;

@@ -1,5 +1,6 @@
 import { useCodex } from 'solid-codex-api';
 import { ColorSwatch, Group, Stack } from '../../components';
+import { cx } from '../../styles';
 
 export const $category = 'data display';
 
@@ -24,10 +25,10 @@ function ColorSwatchDemo() {
       </Group>
       Sizes
       <Group gap="md">
-        <ColorSwatch color="#ff0000" w={8} />
-        <ColorSwatch color="#ff2200" w={12} />
-        <ColorSwatch color="#ff4400" w={16} />
-        <ColorSwatch color="#ff6600" w={24} />
+        <ColorSwatch color="#ff0000" classList={cx({ w: 8 })} />
+        <ColorSwatch color="#ff2200" classList={cx({ w: 12 })} />
+        <ColorSwatch color="#ff4400" classList={cx({ w: 16 })} />
+        <ColorSwatch color="#ff6600" classList={cx({ w: 24 })} />
       </Group>
     </Stack>
   );

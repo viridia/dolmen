@@ -1,8 +1,8 @@
 import { VariantProps } from '@stitches/core';
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, scrollbars, styleProps, StyleProps } from '../../styles';
+import { css, scrollbars } from '../../styles';
 
-const scrollAreaCss = css(
+export const scrollAreaCss = css(
   {
     backgroundColor: '$fieldBg',
     borderColor: '$fieldBorderSlight',
@@ -35,10 +35,9 @@ const scrollAreaCss = css(
 );
 
 export const ScrollArea: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & StyleProps & VariantProps<typeof scrollAreaCss>
+  JSX.HTMLAttributes<HTMLDivElement> & VariantProps<typeof scrollAreaCss>
 > = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children', 'direction']);
+  const [local, rest] = splitProps(props, ['class', 'classList', 'children', 'direction']);
 
   return (
     <div
@@ -46,7 +45,6 @@ export const ScrollArea: ParentComponent<
       role="list"
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
         [scrollAreaCss({
           direction: local.direction,

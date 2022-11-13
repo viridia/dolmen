@@ -1,7 +1,7 @@
 import { VariantProps } from '@stitches/core';
 import { colord } from 'colord';
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, fontSizeRem, LayoutProps, SizeVariant, styleProps } from '../../styles';
+import { css, fontSizeRem, SizeVariant } from '../../styles';
 
 const badgeSize = (base: SizeVariant) => ({
   height: `${fontSizeRem[base] * 1.1}rem`,
@@ -51,10 +51,9 @@ interface BadgeProps {
 }
 
 export const Badge: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & LayoutProps & BadgeProps & VariantProps<typeof badgeCss>
+  JSX.HTMLAttributes<HTMLDivElement> & BadgeProps & VariantProps<typeof badgeCss>
 > = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, [
+  const [local, rest] = splitProps(props, [
     'color',
     'size',
     'radius',
@@ -73,7 +72,6 @@ export const Badge: ParentComponent<
       }}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
         [badgeCss({
           size: local.size,

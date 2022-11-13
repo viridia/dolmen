@@ -29,6 +29,7 @@ export const MenuButton: ParentComponent<ButtonProps & { caret?: boolean }> = pr
       onClick={e => {
         context.open(e.currentTarget);
       }}
+      type="button"
       onKeyDown={e => {
         switch (e.key) {
           case 'Down':

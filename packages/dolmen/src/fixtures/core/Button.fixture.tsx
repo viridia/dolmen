@@ -79,6 +79,31 @@ function ButtonColors() {
           <Cancel />
         </Button>
       </Group>
+      <Group gap="md">
+        <Button color="default" icon disabled={params.disabled()} round={params.round()} onClick={click}>
+          <Cancel />
+        </Button>
+        <Button color="primary" icon disabled={params.disabled()} round={params.round()} onClick={click}>
+          <Cancel />
+        </Button>
+        <Button color="danger" icon disabled={params.disabled()} round={params.round()} onClick={click}>
+          <Cancel />
+        </Button>
+        <Button color="subtle" icon disabled={params.disabled()} round={params.round()} onClick={click}>
+          <Cancel />
+        </Button>
+      </Group>
+      Selected
+      <Group gap="md">
+        <Button color="default" selected disabled={params.disabled()} round={params.round()} onClick={click}>
+          Default
+          <Cancel />
+        </Button>
+        <Button color="subtle" selected disabled={params.disabled()} round={params.round()} onClick={click}>
+          Subtle
+          <Cancel />
+        </Button>
+      </Group>
     </Stack>
   );
 }

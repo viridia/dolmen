@@ -1,5 +1,5 @@
 import { ParentComponent, JSX, splitProps, Show, createMemo, createUniqueId } from 'solid-js';
-import { css, fontSize, styleProps, StyleProps, theme } from '../../styles';
+import { css, fontSize, theme } from '../../styles';
 import { FormFieldContext, IInputAriaAttrs, Severity } from './FormFieldContext';
 import { FormFieldStatus } from './FormFieldStatus';
 
@@ -53,9 +53,8 @@ interface FormFieldProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'title
   description?: JSX.Element;
 }
 
-export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, [
+export const FormField: ParentComponent<FormFieldProps> = props => {
+  const [local, rest] = splitProps(props, [
     'error',
     'warning',
     'info',
@@ -106,7 +105,6 @@ export const FormField: ParentComponent<FormFieldProps & StyleProps> = props => 
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
         [fieldCss({
           severity: severity(),

@@ -1,4 +1,5 @@
 import { Avatar, AvatarGroup, Stack } from '../../components';
+import { cx } from '../../styles';
 import avtest from './avtest.jpg';
 
 export const $category = 'data display';
@@ -6,25 +7,12 @@ export const $category = 'data display';
 function AvatarAvatarGroupDemo() {
   return (
     <Stack gap="xl">
-      <AvatarGroup w="10rem">
+      <AvatarGroup classList={cx({ w: '10rem' })}>
         <Avatar src={avtest} />
         <Avatar src={avtest} />
         <Avatar src={avtest} />
       </AvatarGroup>
-      <AvatarGroup w="10rem">
-        <Avatar src={avtest} />
-        <Avatar src={avtest} />
-        <Avatar src={avtest} />
-        <Avatar src={avtest} />
-        <Avatar src={avtest} />
-        <Avatar src={avtest} />
-      </AvatarGroup>
-      <AvatarGroup w="10rem">
-        <Avatar src={avtest} />
-        <Avatar src={avtest} />
-        <Avatar src={avtest} />
-        <Avatar src={avtest} />
-        <Avatar src={avtest} />
+      <AvatarGroup classList={cx({ w: '10rem' })}>
         <Avatar src={avtest} />
         <Avatar src={avtest} />
         <Avatar src={avtest} />
@@ -32,7 +20,20 @@ function AvatarAvatarGroupDemo() {
         <Avatar src={avtest} />
         <Avatar src={avtest} />
       </AvatarGroup>
-      <AvatarGroup w="10rem">
+      <AvatarGroup classList={cx({ w: '10rem' })}>
+        <Avatar src={avtest} />
+        <Avatar src={avtest} />
+        <Avatar src={avtest} />
+        <Avatar src={avtest} />
+        <Avatar src={avtest} />
+        <Avatar src={avtest} />
+        <Avatar src={avtest} />
+        <Avatar src={avtest} />
+        <Avatar src={avtest} />
+        <Avatar src={avtest} />
+        <Avatar src={avtest} />
+      </AvatarGroup>
+      <AvatarGroup classList={cx({ w: '10rem' })}>
         <Avatar color="#ff0000">abc</Avatar>
         <Avatar color="#cc0044">abc</Avatar>
         <Avatar color="#880066">abc</Avatar>

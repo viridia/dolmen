@@ -1,5 +1,5 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, scrollbars, styleProps, StyleProps } from '../../styles';
+import { css, scrollbars } from '../../styles';
 
 const listItemCss = css({
   alignItems: 'center',
@@ -30,10 +30,9 @@ interface ListItemProps {
 }
 
 const ListItem: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & StyleProps & ListItemProps
+  JSX.HTMLAttributes<HTMLDivElement> & ListItemProps
 > = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, [
+  const [local, rest] = splitProps(props, [
     'selected',
     'disabled',
     'class',
@@ -48,7 +47,6 @@ const ListItem: ParentComponent<
       aria-disabled={local.disabled ? true : undefined}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
         [listItemCss()]: true,
       }}
@@ -75,11 +73,10 @@ const listCss = css(
   scrollbars
 );
 
-export const List: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StyleProps> & {
+export const List: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> & {
   Item: typeof ListItem;
 } = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList']);
+  const [local, rest] = splitProps(props, ['class', 'classList']);
 
   return (
     <div
@@ -87,7 +84,6 @@ export const List: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & StylePro
       role="list"
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
         [listCss()]: true,
       }}

@@ -7,13 +7,14 @@ import {
   SizeVariant,
   scrollbars,
   styleProps,
-  LayoutProps,
 } from '../../styles';
 import { FormFieldContext } from './FormFieldContext';
 
 interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
   adornLeft?: JSX.Element | JSX.Element[];
   adornRight?: JSX.Element | JSX.Element[];
+  innerClass?: string;
+  innerClassList?: Record<string, boolean>;
 }
 
 const inputSize = (base: SizeVariant) => ({
@@ -30,6 +31,7 @@ const inputFrameCss = css(
     borderWidth: 1,
     borderStyle: 'solid',
     borderColor: '$fieldBorderSlight',
+    boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'row',
     fontWeight: '350',
@@ -111,7 +113,7 @@ const adornRightCss = css(adornCss, {
 });
 
 export const Input: Component<
-  InputProps & LayoutProps & VariantProps<typeof inputFrameCss>
+  InputProps & VariantProps<typeof inputFrameCss>
 > = props => {
   const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, [
@@ -121,6 +123,8 @@ export const Input: Component<
     'adornRight',
     'class',
     'classList',
+    'innerClass',
+    'innerClassList',
   ]);
 
   const fieldState = useContext(FormFieldContext);
@@ -138,7 +142,15 @@ export const Input: Component<
       }}
     >
       {props.adornLeft && <div class={adornLeftCss()}>{props.adornLeft}</div>}
-      <input {...rest} {...fieldState?.ariaProps()} class={inputElementCss()} />
+      <input
+        {...rest}
+        {...fieldState?.ariaProps()}
+        classList={{
+          ...local.innerClassList,
+          [local.innerClass as string]: !!local.innerClass,
+          [inputElementCss()]: true,
+        }}
+      />
       {props.adornRight && <div class={adornRightCss()}>{props.adornRight}</div>}
     </div>
   );

@@ -1,5 +1,5 @@
 import { ParentComponent, JSX, splitProps, children, For } from 'solid-js';
-import { css, StyleProps, styleProps } from '../../styles';
+import { css } from '../../styles';
 
 const avatarGroupCss = css({
   alignItems: 'center',
@@ -19,10 +19,9 @@ const avatarGroupCss = css({
 });
 
 export const AvatarGroup: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & StyleProps
+  JSX.HTMLAttributes<HTMLDivElement>
 > = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(props, ['class', 'classList', 'children']);
 
   const avatars = children(() => local.children);
   return (
@@ -30,7 +29,6 @@ export const AvatarGroup: ParentComponent<
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
         [avatarGroupCss()]: true,
       }}
