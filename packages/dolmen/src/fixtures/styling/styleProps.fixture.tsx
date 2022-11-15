@@ -1,6 +1,6 @@
 import { ParentComponent } from 'solid-js';
 import { Stack } from '../../components';
-import { css, cx, styleProps } from '../../styles';
+import { css, cx } from '../../styles';
 
 export const $category = 'styling';
 
@@ -9,10 +9,8 @@ const redCss = css({
 });
 
 const StyledComponent: ParentComponent<{ classList: Record<string, boolean> }> = props => {
-  const [styles, rest] = styleProps(props);
-
   return (
-    <div {...rest} classList={styles}>
+    <div {...props}>
       {props.children}
     </div>
   );

@@ -1,25 +1,29 @@
+import { VariantProps } from '@stitches/core';
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, FlexProps, styleProps } from '../../styles';
+import { css } from '../../styles';
+import { flexKeys, flexPropsCss } from './flexProps';
 
-export const groupCss = css({
-  alignItems: 'center',
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'start',
+export const groupCss = css(flexPropsCss, {
+  '@layer ui-base': {
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'start',
+  },
 });
 
-export const Group: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & FlexProps> = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList']);
+export const Group: ParentComponent<
+  JSX.HTMLAttributes<HTMLDivElement> & VariantProps<typeof groupCss>
+> = props => {
+  const [local, rest] = splitProps(props, ['class', 'classList', ...flexKeys]);
 
   return (
     <div
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
-        [groupCss()]: true,
+        [groupCss(local)]: true,
       }}
     />
   );

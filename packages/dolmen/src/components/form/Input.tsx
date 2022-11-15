@@ -1,13 +1,6 @@
 import { JSX, splitProps, Component, useContext } from 'solid-js';
 import { VariantProps } from '@stitches/core';
-import {
-  css,
-  fontSize,
-  size,
-  SizeVariant,
-  scrollbars,
-  styleProps,
-} from '../../styles';
+import { css, fontSize, size, SizeVariant, scrollbars } from '../../styles';
 import { FormFieldContext } from './FormFieldContext';
 
 interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
@@ -112,11 +105,8 @@ const adornRightCss = css(adornCss, {
   marginRight: -2,
 });
 
-export const Input: Component<
-  InputProps & VariantProps<typeof inputFrameCss>
-> = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, [
+export const Input: Component<InputProps & VariantProps<typeof inputFrameCss>> = props => {
+  const [local, rest] = splitProps(props, [
     'size',
     'round',
     'adornLeft',
@@ -132,7 +122,6 @@ export const Input: Component<
     <div
       classList={{
         ...local.classList,
-        ...layoutCss,
         'dm-disabled': rest.disabled,
         [local.class as string]: !!local.class,
         [inputFrameCss({

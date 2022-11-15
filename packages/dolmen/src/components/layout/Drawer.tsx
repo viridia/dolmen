@@ -1,8 +1,9 @@
 import { createMemo, createSignal, onMount, ParentComponent, Show } from 'solid-js';
 import { JSX, splitProps } from 'solid-js';
 import { createCssTransition, CssTransitionState } from '../../hooks';
-import { css, styleProps, FlexProps, Z } from '../../styles';
+import { css, Z } from '../../styles';
 import { VariantProps } from '@stitches/core';
+import { flexKeys, flexPropsCss } from './flexProps';
 
 type Side = 'start' | 'end' | 'left' | 'right' | 'top' | 'bottom';
 type DrawerMode = 'modal' | 'coplanar';
@@ -16,20 +17,22 @@ interface DrawerProps {
   onClose?: () => void;
 }
 
-const drawerCoplanarCss = css({
-  backgroundColor: '$elevation1',
-  boxShadow: '0 0 4px 0 $colors$shadow',
-  alignItems: 'stretch',
-  display: 'flex',
-  flexDirection: 'column',
-  overflow: 'hidden',
-  padding: 0,
-  position: 'absolute',
-  top: 0,
-  bottom: 0,
-  left: 0,
-  right: 0,
-  zIndex: Z.sidebar,
+const drawerCoplanarCss = css(flexPropsCss, {
+  '@layer ui-base': {
+    backgroundColor: '$elevation1',
+    boxShadow: '0 0 4px 0 $colors$shadow',
+    alignItems: 'stretch',
+    display: 'flex',
+    flexDirection: 'column',
+    overflow: 'hidden',
+    padding: 0,
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: Z.sidebar,
+  },
 
   variants: {
     side: {
@@ -55,20 +58,22 @@ const drawerCoplanarCss = css({
   },
 });
 
-const drawerModalCss = css({
-  backgroundColor: '$elevation1',
-  boxShadow: '0 0 4px 0 $colors$shadow',
-  alignItems: 'stretch',
-  display: 'flex',
-  flexDirection: 'column',
-  overflow: 'hidden',
-  padding: 0,
-  position: 'absolute',
-  top: 0,
-  bottom: 0,
-  left: 0,
-  right: 0,
-  transition: 'transform 0.5s ease',
+const drawerModalCss = css(flexPropsCss, {
+  '@layer ui-base': {
+    backgroundColor: '$elevation1',
+    boxShadow: '0 0 4px 0 $colors$shadow',
+    alignItems: 'stretch',
+    display: 'flex',
+    flexDirection: 'column',
+    overflow: 'hidden',
+    padding: 0,
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    transition: 'transform 0.5s ease',
+  },
 
   variants: {
     side: {
@@ -141,61 +146,63 @@ const drawerModalContainerCss = css({
   },
 });
 
-const drawerHeaderCss = css({
-  alignItems: 'center',
-  alignSelf: 'stretch',
-  boxShadow: '0 0 2px 0 $colors$shadow',
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  padding: '8px 1rem',
-  margin: 0,
-  height: '2rem',
-  // borderBottom: '1px solid $colors$btnSecondaryDivider',
+const drawerHeaderCss = css(flexPropsCss, {
+  '@layer ui-base': {
+    alignItems: 'center',
+    alignSelf: 'stretch',
+    boxShadow: '0 0 2px 0 $colors$shadow',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: '8px 1rem',
+    margin: 0,
+    height: '2rem',
+    // borderBottom: '1px solid $colors$btnSecondaryDivider',
+  },
 });
 
-const drawerContentCss = css({
-  alignItems: 'start',
-  alignSelf: 'stretch',
-  display: 'flex',
-  flex: 1,
-  flexDirection: 'column',
-  justifyContent: 'start',
-  padding: '8px 1rem',
-  margin: 0,
+const drawerContentCss = css(flexPropsCss, {
+  '@layer ui-base': {
+    alignItems: 'start',
+    alignSelf: 'stretch',
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'start',
+    padding: '8px 1rem',
+    margin: 0,
+  },
 });
 
 export type DrawerStyleProps = VariantProps<typeof drawerCoplanarCss>;
 
-const DrawerHeader: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & FlexProps> = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList']);
+const DrawerHeader: ParentComponent<
+  JSX.HTMLAttributes<HTMLDivElement> & VariantProps<typeof drawerHeaderCss>
+> = props => {
+  const [local, rest] = splitProps(props, ['class', 'classList', ...flexKeys]);
 
   return (
     <div
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
-        [drawerHeaderCss()]: true,
+        [drawerHeaderCss(local)]: true,
       }}
     />
   );
 };
 
-const DrawerContent: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & FlexProps> = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList']);
+const DrawerContent: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & VariantProps<typeof drawerContentCss>> = props => {
+  const [local, rest] = splitProps(props, ['class', 'classList', ...flexKeys]);
 
   return (
     <div
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
-        [drawerContentCss()]: true,
+        [drawerContentCss(local)]: true,
       }}
     />
   );

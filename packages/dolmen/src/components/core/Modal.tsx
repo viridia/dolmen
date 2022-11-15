@@ -1,10 +1,11 @@
 import { createContext, JSX, ParentComponent, Show, splitProps, useContext } from 'solid-js';
 import { createCssTransition, createFocusTrap, CssTransitionState } from '../../hooks';
 import { Close } from '../../icons';
-import { css, FlexProps, scrollbars, styleProps, Z } from '../../styles';
+import { css, scrollbars, Z } from '../../styles';
 import { Button } from './Button';
 import { VariantProps } from '@stitches/core';
 import { Portal } from 'solid-js/web';
+import { flexKeys, flexPropsCss } from '../layout/flexProps';
 
 interface IModalContext {
   onClose?: () => void;
@@ -86,44 +87,52 @@ const backdropCss = css({
   },
 });
 
-const modalHeaderCss = css({
-  display: 'flex',
-  alignItems: 'center',
-  fontFamily: '$title',
-  fontWeight: 'bold',
-  justifyContent: 'space-between',
-  gap: '4px',
-  padding: '0.8rem 1rem',
-  borderBottom: '1px solid $colors$elevation0',
-  borderRadius: '5px 5px 0 0',
-  backgroundColor: '$elevation2',
+const modalHeaderCss = css(flexPropsCss, {
+  '@layer ui-base': {
+    display: 'flex',
+    alignItems: 'center',
+    fontFamily: '$title',
+    fontWeight: 'bold',
+    justifyContent: 'space-between',
+    gap: '4px',
+    padding: '0.8rem 1rem',
+    borderBottom: '1px solid $colors$elevation0',
+    borderRadius: '5px 5px 0 0',
+    backgroundColor: '$elevation2',
+  },
 });
 
 const modalBodyCss = css(
+  flexPropsCss,
   {
-    display: 'flex',
-    alignItems: 'stretch',
-    flexDirection: 'column',
-    fontFamily: '$body',
-    padding: '0.8rem 1rem 0.8rem 1rem',
-    overflowY: 'auto',
+    '@layer ui-base': {
+      display: 'flex',
+      alignItems: 'stretch',
+      flexDirection: 'column',
+      fontFamily: '$body',
+      padding: '0.8rem 1rem 0.8rem 1rem',
+      overflowY: 'auto',
+    },
   },
   scrollbars
 );
 
-const modalFooterCss = css({
-  display: 'flex',
-  alignItems: 'center',
-  fontFamily: '$body',
-  justifyContent: 'flex-end',
-  gap: '4px',
-  padding: '0.4rem 1rem 0.8rem 1rem',
+const modalFooterCss = css(flexPropsCss, {
+  '@layer ui-base': {
+    display: 'flex',
+    alignItems: 'center',
+    fontFamily: '$body',
+    justifyContent: 'flex-end',
+    gap: '4px',
+    padding: '0.4rem 1rem 0.8rem 1rem',
+  },
 });
 
-const ModalHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> = props => {
+const ModalHeader: ParentComponent<
+  JSX.HTMLAttributes<HTMLElement> & VariantProps<typeof modalHeaderCss>
+> = props => {
   const context = useContext(ModalContext);
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList', 'children']);
+  const [local, rest] = splitProps(props, ['class', 'classList', 'children', ...flexKeys]);
 
   if (!context) {
     throw new Error('ModalHeader used outside of Modal context');
@@ -134,9 +143,8 @@ const ModalHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> 
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
-        [modalHeaderCss()]: true,
+        [modalHeaderCss(local)]: true,
       }}
     >
       {local.children}
@@ -149,33 +157,33 @@ const ModalHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> 
   );
 };
 
-const ModalBody: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & FlexProps> = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList']);
+const ModalBody: ParentComponent<
+  JSX.HTMLAttributes<HTMLDivElement> & VariantProps<typeof modalBodyCss>
+> = props => {
+  const [local, rest] = splitProps(props, ['class', 'classList', ...flexKeys]);
   return (
     <div
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
-        [modalBodyCss()]: true,
+        [modalBodyCss(local)]: true,
       }}
     />
   );
 };
 
-const ModalFooter: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList']);
+const ModalFooter: ParentComponent<
+  JSX.HTMLAttributes<HTMLElement> & VariantProps<typeof modalFooterCss>
+> = props => {
+  const [local, rest] = splitProps(props, ['class', 'classList']);
   return (
     <footer
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
-        [modalFooterCss()]: true,
+        [modalFooterCss(local)]: true,
       }}
     />
   );

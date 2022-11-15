@@ -1,6 +1,6 @@
 import { VariantProps } from '@stitches/core';
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, scrollbars, styleProps, theme, Z } from '../../styles';
+import { css, scrollbars, theme, Z } from '../../styles';
 
 const tableCellCss = css({
   padding: '6px 8px 8px 8px',
@@ -151,15 +151,13 @@ export const Table: ParentComponent<JSX.HTMLAttributes<HTMLTableElement>> & {
   Body: typeof TableBody;
   Cell: typeof TableCell;
 } = props => {
-  const [layoutCss, nprops] = styleProps(props);
-  const [local, rest] = splitProps(nprops, ['class', 'classList']);
+  const [local, rest] = splitProps(props, ['class', 'classList']);
 
   return (
     <table
       {...rest}
       classList={{
         ...local.classList,
-        ...layoutCss,
         [local.class as string]: !!local.class,
         [tableCss()]: true,
       }}
