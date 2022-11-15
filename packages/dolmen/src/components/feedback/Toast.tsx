@@ -12,7 +12,7 @@ import {
   VoidComponent,
 } from 'solid-js';
 import { Portal } from 'solid-js/web';
-import { createCssTransition } from '../../../dist/mjs';
+import { createCssTransition } from '../../hooks';
 import { Info, Success, Warning, Error } from '../../icons';
 import { css, fontSize, theme } from '../../styles';
 
