@@ -25,6 +25,17 @@ function ColorSwatchDemo() {
       </Group>
       Sizes
       <Group gap="md">
+        <ColorSwatch color="#ff0000" size="xs" />
+        <ColorSwatch color="#ff2200" size="sm" />
+        <ColorSwatch color="#ff4400" size="md" />
+        <ColorSwatch color="#ff6600" size="lg" />
+        <ColorSwatch color="#ff8800" size="xl" />
+        <ColorSwatch color="#ffaa00" w="xs" h="xl" />
+        <ColorSwatch color="#ffcc00" w="sm" h="xl" />
+      </Group>
+
+      Explicit width
+      <Group gap="md">
         <ColorSwatch color="#ff0000" classList={cx({ w: 8 })} />
         <ColorSwatch color="#ff2200" classList={cx({ w: 12 })} />
         <ColorSwatch color="#ff4400" classList={cx({ w: 16 })} />

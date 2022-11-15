@@ -1,0 +1,42 @@
+{
+  "name": "dolmen-css",
+  "version": "0.0.1",
+  "author": "Talin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viridia/dolmen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/viridia/dolmen/issues"
+  },
+  "homepage": "https://github.com/viridia/dolmen#readme",
+  "description": "CSS-in-JS solution that supports CSS layers",
+  "scripts": {
+    "build": "npm run build:mjs && npm run build:cjs",
+    "build:cjs": "tsc --project tsconfig.src.json --outDir ./dist/cjs --module CommonJS",
+    "build:mjs": "tsc --project tsconfig.src.json --outDir ./dist/mjs --module ESNext",
+    "clean": "rimraf ./dist",
+    "format": "prettier --write .",
+    "prepublishOnly": "npm run build",
+    "test:compile": "tsc --noEmit --project ./tsconfig.json"
+  },
+  "type": "module",
+  "source": "src/index.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/mjs/index.js",
+  "types": "./dist/mjs/index.d.js",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "colord": "^2.9.3",
+    "solid-js": "^1.6.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.3"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

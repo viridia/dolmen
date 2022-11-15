@@ -1,10 +1,39 @@
+import { VariantProps } from '@stitches/core';
 import { colord } from 'colord';
 import { VoidComponent } from 'solid-js';
-import { css, Z } from '../../styles';
+import { css, SizeVariant, Z } from '../../styles';
+
+const swatchSize: Record<SizeVariant, number> = {
+  xs: 8,
+  sm: 12,
+  md: 16,
+  lg: 24,
+  xl: 32,
+};
 
 const colorSwatchCss = css({
-  minWidth: 8,
-  minHeight: 8,
+  '@layer ui-base': {
+    minWidth: 8,
+    minHeight: 8,
+  },
+
+  variants: {
+    w: {
+      xs: { width: swatchSize.xs },
+      sm: { width: swatchSize.sm },
+      md: { width: swatchSize.md },
+      lg: { width: swatchSize.lg },
+      xl: { width: swatchSize.xl },
+    },
+
+    h: {
+      xs: { height: swatchSize.xs },
+      sm: { height: swatchSize.sm },
+      md: { height: swatchSize.md },
+      lg: { height: swatchSize.lg },
+      xl: { height: swatchSize.xl },
+    },
+  },
 });
 
 const colorSwatchClickableCss = css(colorSwatchCss, {
@@ -31,9 +60,10 @@ interface Props {
   onClick?: (color: string) => void;
   selected?: boolean;
   classList?: Record<string, boolean>;
+  size?: SizeVariant;
 }
 
-export const ColorSwatch: VoidComponent<Props> = props => {
+export const ColorSwatch: VoidComponent<Props & VariantProps<typeof colorSwatchCss>> = props => {
   const c = colord(props.color);
   const contrastingColor = c.isLight() ? '#000' : '#fff'; // Compute contrasting color.
   return props.onClick ? (
@@ -44,7 +74,11 @@ export const ColorSwatch: VoidComponent<Props> = props => {
         'border-color': contrastingColor,
       }}
       classList={{
-        [colorSwatchClickableCss()]: true,
+        ...props.classList,
+        [colorSwatchClickableCss({
+          w: props.w ?? props.size,
+          h: props.h ?? props.size,
+        })]: true,
         selected: props.selected,
       }}
       onClick={() => props.onClick?.(props.color)}
@@ -57,7 +91,11 @@ export const ColorSwatch: VoidComponent<Props> = props => {
         'border-color': contrastingColor,
       }}
       classList={{
-        [colorSwatchCss()]: true,
+        ...props.classList,
+        [colorSwatchCss({
+          w: props.w ?? props.size,
+          h: props.h ?? props.size,
+        })]: true,
       }}
     />
   );
