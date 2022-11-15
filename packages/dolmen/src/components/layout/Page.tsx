@@ -65,7 +65,7 @@ const PageHeader: ParentComponent<
   );
 };
 
-const pageContentCss = css({
+const pageContentCss = css(flexPropsCss, {
   '@layer ui-base': {
     alignSelf: 'stretch',
     alignItems: 'stretch',
@@ -81,7 +81,7 @@ const pageContentCss = css({
 const PageContent: ParentComponent<
   JSX.HTMLAttributes<HTMLElement> & VariantProps<typeof pageContentCss>
 > = props => {
-  const [local, rest] = splitProps(props, ['class', 'classList']);
+  const [local, rest] = splitProps(props, ['class', 'classList', ...flexKeys]);
 
   return (
     <section

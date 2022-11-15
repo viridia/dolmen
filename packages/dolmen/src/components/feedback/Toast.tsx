@@ -14,21 +14,9 @@ import {
 import { Portal } from 'solid-js/web';
 import { createCssTransition } from '../../hooks';
 import { Info, Success, Warning, Error } from '../../icons';
-import { css, fontSize, theme } from '../../styles';
+import { css, fontSize, theme, Z } from '../../styles';
 
 const defaultTimeout = 30000;
-
-const toastFrameCss = css({
-  position: 'fixed',
-  left: 0,
-  top: 0,
-  bottom: 0,
-  right: 0,
-  pointerEvents: 'none',
-  padding: 16,
-  fontFamily: theme.fonts.body,
-  gap: 8,
-});
 
 type ToastPlacement = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
@@ -211,6 +199,19 @@ const Toast: VoidComponent<IToast> = props => {
   );
 };
 
+const toastFrameCss = css({
+  position: 'fixed',
+  left: 0,
+  top: 0,
+  bottom: 0,
+  right: 0,
+  pointerEvents: 'none',
+  padding: 16,
+  fontFamily: theme.fonts.body,
+  gap: 8,
+  zIndex: Z.alert,
+});
+
 interface FrameProps {
   mount?: Node;
 }
@@ -251,12 +252,16 @@ export const ToastFrame: VoidComponent<FrameProps> = props => {
     }
   });
 
-  return (
+  return props.mount ? (
     <Portal mount={props.mount}>
       <div ref={setRef} class={toastFrameCss()}>
         <For each={toastQueue()}>{toast => <Toast {...toast} />}</For>
       </div>
     </Portal>
+  ) : (
+    <div ref={setRef} class={toastFrameCss()}>
+      <For each={toastQueue()}>{toast => <Toast {...toast} />}</For>
+    </div>
   );
 };
 

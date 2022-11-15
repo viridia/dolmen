@@ -8,7 +8,7 @@
     "test": "run-p test:*",
     "test:lint": "eslint -c .eslintrc.cjs \"packages/*/src/**/*.ts?(x)\"",
     "test:compile": "npm run -w dolmen -w solid-codex-api test:compile",
-    "test:unit": "vitest --run",
+    "test:unit": "vitest run",
     "watch": "vitest"
   },
   "workspaces": {

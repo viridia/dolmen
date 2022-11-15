@@ -5,7 +5,6 @@ export const $category = 'feedback';
 function ToastDemo() {
   return (
     <>
-      <ToastFrame />
       <Stack gap="md" alignItems="start">
         <Button
           onClick={() => {
@@ -102,6 +101,7 @@ function ToastDemo() {
           Bottom Right
         </Button>
       </Stack>
+      <ToastFrame />
     </>
   );
 }
