@@ -11,6 +11,7 @@ export const alertCss = css({
   backgroundColor: '$elevation2',
   padding: '12px 12px',
   gap: space.lg,
+  lineHeight: '1.1rem',
 
   variants: {
     severity: {
@@ -43,7 +44,8 @@ export const alertCss = css({
 });
 
 const alertMessageCss = css({
-  flex: 1
+  flex: 1,
+  marginTop: 2,
 });
 
 interface AlertProps {
@@ -73,16 +75,16 @@ export const Alert: ParentComponent<
       >
         <Switch>
           <Match when={local.severity === 'success'}>
-            <Success />
+            <Success width={20} />
           </Match>
           <Match when={local.severity === 'info'}>
-            <Info />
+            <Info width={20} />
           </Match>
           <Match when={local.severity === 'warning'}>
-            <Warning />
+            <Warning width={20} />
           </Match>
           <Match when={local.severity === 'error'}>
-            <Error />
+            <Error width={20} />
           </Match>
         </Switch>
         <div class={alertMessageCss()}>{local.children}</div>
