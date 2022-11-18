@@ -6,7 +6,6 @@ const menuIconCss = css({
   alignItems: 'center',
   justifyContent: 'center',
   display: 'flex',
-  marginRight: '6px',
   height: '20px',
   '--icon-color': '$colors$textDim',
 
@@ -34,6 +33,7 @@ const menuItemCss = css({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'start',
+  gap: '6px',
   padding: '6px 12px 6px 6px',
   margin: '2px',
   outline: 'none',
@@ -131,7 +131,9 @@ const MenuItemBase: ParentComponent<
             <div class={menuCheckCss()} />
           </Show>
         </div>
-        <div class={menuCaptionCss()}>{local.children}</div>
+        <Show when={local.children}>
+          <div class={menuCaptionCss()}>{local.children}</div>
+        </Show>
       </a>
     </li>
   );

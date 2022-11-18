@@ -12,6 +12,16 @@ const menuButtonCaptionCss = css({
   textAlign: 'start',
   minWidth: 0,
   flex: '1 1 0',
+
+  variants: {
+    icon: {
+      true: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+    },
+  },
 });
 
 export const MenuButton: ParentComponent<ButtonProps & { caret?: boolean }> = props => {
@@ -50,7 +60,7 @@ export const MenuButton: ParentComponent<ButtonProps & { caret?: boolean }> = pr
         }
       }}
     >
-      <span class={menuButtonCaptionCss()}>{props.children}</span>
+      <span class={menuButtonCaptionCss({ icon: props.icon })}>{props.children}</span>
       <Show when={!props.icon || props.caret === false}>
         <ChevronDown width={16} />
       </Show>
