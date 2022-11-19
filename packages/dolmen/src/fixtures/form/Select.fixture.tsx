@@ -1,15 +1,14 @@
 import { createSignal } from 'solid-js';
 import { Card, Select, Stack } from '../../components';
-import { cx } from '../../styles';
 
 export const $category = 'form';
 
 function SelectDemo() {
   const [selected, setSelected] = createSignal(-1);
   return (
-    <Stack gap="xl" classList={cx({ w: '20rem' })}>
-      <Card classList={cx({ h: '20rem' })}>
-        <Card.Content classList={cx({ p: '1rem' })}>
+    <Stack gap="xl" style={{ width: '20rem' }}>
+      <Card style={{ height: '20rem' }}>
+        <Card.Content style={{ padding: '1rem' }}>
           <Select
             selected={selected()}
             onSelect={setSelected}

@@ -1,11 +1,10 @@
 import { ScrollArea } from '../../components';
-import { cx } from '../../styles';
 
 export const $category = 'layout';
 
 function ScrollAreaDemo() {
   return (
-    <ScrollArea classList={cx({ w: '10rem', h: '10rem' })}>
+    <ScrollArea style={{ width: '10rem', height: '10rem' }}>
       <div>
         tlhaq DaQapmoH DeS lIj qoSDaq yaH roj waq muS 'etlh DIS qengneS 'uQ muQaghrup bIng qabDaq
         vIQIj SoS vIjegh wIgh pIH rav 'eng chav pagh

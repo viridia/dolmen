@@ -19,7 +19,7 @@ import { createTheme } from '../../styles/css';
 export const $category = 'styling';
 
 import { colord } from 'colord';
-import { cx, palette } from '../../styles';
+import { palette } from '../../styles';
 import { Cancel, ChevronDown } from '../../icons';
 const primaryColor = '#9a7e42';
 const dangerColor = '#7d248a';
@@ -96,7 +96,7 @@ const ThemeDemo: VoidComponent<{ name: string; class: string }> = props => {
   const [sliderValue, setSliderValue] = createSignal(30);
   const [anchorRef, setAnchorRef] = createSignal<HTMLElement>();
   return (
-    <Card classList={cx({ flex: 1 })} class={props.class}>
+    <Card style={{ flex: 1 }} class={props.class}>
       <Card.Content gap="lg">
         <Header>{props.name}</Header>
         <Group>
@@ -124,7 +124,7 @@ const ThemeDemo: VoidComponent<{ name: string; class: string }> = props => {
           <List.Item>Crackle</List.Item>
           <List.Item>Pop</List.Item>
         </List>
-        <Button ref={setAnchorRef} classList={cx({ w: '10rem' })}>
+        <Button ref={setAnchorRef} style={{ width: '10rem' }}>
           Menu
           <Spacer />
           <ChevronDown />
@@ -143,7 +143,7 @@ const ThemeDemo: VoidComponent<{ name: string; class: string }> = props => {
 
 export const Themes: VoidComponent = () => {
   return (
-    <Group classList={cx({ flex: 1, alignItems: 'stretch', alignSelf: 'stretch' })} gap="xl">
+    <Group style={{ flex: 1, 'align-items': 'stretch', 'align-self': 'stretch' }} gap="xl">
       <ThemeDemo name="Light" class={light.className} />
       <ThemeDemo name="Dark" class={dark.className} />
       <ThemeDemo name="Custom" class={custom.className} />

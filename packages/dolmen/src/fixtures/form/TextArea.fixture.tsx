@@ -1,5 +1,4 @@
 import { Stack, TextArea } from '../../components';
-import { cx } from '../../styles';
 
 export const $category = 'form';
 
@@ -8,20 +7,20 @@ const defaultText =
 
 export default {
   Sizes: () => (
-    <Stack gap="md" classList={cx({ w: '20rem' })}>
-      <TextArea size="xl" classList={cx({ h: '5rem' })} value={defaultText} />
-      <TextArea size="lg" classList={cx({ h: '5rem' })} value={defaultText} />
-      <TextArea size="md" classList={cx({ h: '5rem' })} value={defaultText} />
-      <TextArea size="sm" classList={cx({ h: '5rem' })} value={defaultText} />
-      <TextArea size="xs" classList={cx({ h: '5rem' })} value={defaultText} />
+    <Stack gap="md" style={{ width: '20rem' }}>
+      <TextArea size="xl" style={{ height: '5rem' }} value={defaultText} />
+      <TextArea size="lg" style={{ height: '5rem' }} value={defaultText} />
+      <TextArea size="md" style={{ height: '5rem' }} value={defaultText} />
+      <TextArea size="sm" style={{ height: '5rem' }} value={defaultText} />
+      <TextArea size="xs" style={{ height: '5rem' }} value={defaultText} />
     </Stack>
   ),
   Variants: () => (
-    <Stack gap="md" classList={cx({ w: '20rem' })}>
-      <TextArea classList={cx({ h: '5rem' })} value={defaultText} />
-      <TextArea classList={cx({ h: '5rem' })} disabled value="disabled" />
-      <TextArea classList={cx({ h: '5rem' })} readonly value="readonly" />
-      <TextArea classList={cx({ h: '5rem' })} placeholder="placeholder" value="" />
+    <Stack gap="md" style={{ width: '20rem' }}>
+      <TextArea style={{ height: '5rem' }} value={defaultText} />
+      <TextArea style={{ height: '5rem' }} disabled value="disabled" />
+      <TextArea style={{ height: '5rem' }} readonly value="readonly" />
+      <TextArea style={{ height: '5rem' }} placeholder="placeholder" value="" />
     </Stack>
   ),
 };

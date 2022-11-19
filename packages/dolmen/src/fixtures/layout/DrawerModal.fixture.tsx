@@ -1,7 +1,7 @@
 import { useCodex } from 'solid-codex-api';
 import { createMemo, createSignal } from 'solid-js';
 import { CheckBox, Drawer } from '../../components';
-import { demoPage } from './demoPage';
+import './demo.scss';
 
 export const $category = 'layout/Drawer';
 export const $name = 'modal';
@@ -17,7 +17,7 @@ function HorizontalModalDrawerDemo(props: { side: 'left' | 'right' | 'start' | '
   });
   return (
     <div
-      class={demoPage()}
+      class="demopage"
       style={{
         display: 'flex',
         'flex-direction': 'row',
@@ -60,7 +60,7 @@ function VerticalModalDrawerDemo(props: { side: 'top' | 'bottom' }) {
   const [open, setOpen] = createSignal(false);
   return (
     <div
-      class={demoPage()}
+      class="demopage"
       style={{
         display: 'flex',
         'flex-direction': 'column',

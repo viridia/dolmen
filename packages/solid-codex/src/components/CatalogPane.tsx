@@ -1,4 +1,4 @@
-import { Aside, css, dark, DiscloseButton, scrollbars } from 'dolmen';
+import { Aside, dark, DiscloseButton } from 'dolmen';
 import { For, Show, useContext } from 'solid-js';
 import { VoidComponent } from 'solid-js';
 import {
@@ -6,6 +6,8 @@ import {
   catalogGroup,
   catalogEntryName,
   selectableEntryName,
+  catalogPaneCss,
+  discloseAreaCss,
 } from './styles.css';
 import {
   createExpansionStateStore,
@@ -14,22 +16,6 @@ import {
   TreeExpansionContext,
 } from './tree';
 import { useNavigate, useParams } from '@solidjs/router';
-
-export const catalogPaneCss = css(
-  {
-    boxShadow: '0 0 3px 0 black',
-    alignItems: 'stretch !important',
-    color: '#fff',
-    overflowY: 'auto',
-    width: 300,
-    zIndex: 800,
-  },
-  scrollbars
-);
-
-export const discloseAreaCss = css({
-  width: '1.5rem',
-});
 
 interface ItemProps {
   node: IFixtureTreeNode;
@@ -60,7 +46,7 @@ const CatalogItem: VoidComponent<ItemProps> = props => {
           }
         }}
       >
-        <div class={discloseAreaCss()}>
+        <div classList={{ [discloseAreaCss]: true, 'dm-scrollbars': true }}>
           <Show when={props.node.children} keyed>
             <DiscloseButton
               open={isExpanded()}
@@ -106,7 +92,7 @@ export const CatalogPane: VoidComponent<CatalogProps> = props => {
   const expansion = createExpansionStateStore('catalog-view');
   return (
     <TreeExpansionContext.Provider value={expansion}>
-      <Aside classList={{ [dark.className]: true, [catalogPaneCss()]: true }} zIndex={600}>
+      <Aside classList={{ [dark.className]: true, [catalogPaneCss]: true }}>
         <CatalogGroup root nodes={props.tree.children ?? []} />
       </Aside>
     </TreeExpansionContext.Provider>

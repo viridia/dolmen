@@ -1,5 +1,4 @@
 import { Label, Stack } from '../../components';
-import { cx } from '../../styles';
 
 export const $category = 'form';
 
@@ -9,13 +8,13 @@ export default () => (
       <input type="color" />
       No spacing
     </Label>
-    <Label classList={cx({ gap: 'lg' })}>
+    <Label gap="lg">
       <input type="color" />
-      No spacing
+      gap="lg"
     </Label>
-    <Label classList={cx({ flexDirection: 'column' })}>
+    <Label flexDirection="column">
       <input type="color" />
-      No spacing
+      flexDirection="column"
     </Label>
   </Stack>
 );

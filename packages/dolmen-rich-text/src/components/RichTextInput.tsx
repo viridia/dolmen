@@ -1,12 +1,9 @@
 import { createSignal, JSX, splitProps, VoidComponent } from 'solid-js';
 import { VariantProps } from '@stitches/core';
 import {
-  css,
   fontSize,
   SizeVariant,
   scrollbars,
-  styleProps,
-  LayoutProps,
   Button,
   ButtonGroup,
 } from 'dolmen';
@@ -27,7 +24,7 @@ const inputSize = (base: SizeVariant) => ({
   fontSize: fontSize[base],
 });
 
-const rtInputCss = css(
+const rtInputCss = cssx(
   {
     backgroundColor: '$fieldBg',
     color: '$text',
@@ -148,8 +145,6 @@ export const RichTextInput: VoidComponent<
   const [layoutCss, nprops] = styleProps(props);
   const [local, rest] = splitProps(nprops, ['size', 'class', 'classList']);
   const [ref, setRef] = createSignal<HTMLElement>();
-
-  // globalStyles();
 
   const { editorView, isMarkActive } = createProseMirror(ref, schema, [
     inputRules({ rules: [ellipsis, emDash, codeBlockRule(schema.nodes.code_block)] }),

@@ -3,7 +3,6 @@ import { JSX } from 'solid-js/jsx-runtime';
 import { Aside } from '../../components';
 import { Nav } from '../../components/navigation';
 import { Cancel, Close, Success } from '../../icons';
-import { cx } from '../../styles';
 
 export const $category = 'navigation';
 
@@ -16,7 +15,7 @@ const A: ParentComponent<JSX.AnchorHTMLAttributes<HTMLAnchorElement>> = props =>
 function NavDemo() {
   return (
     <Aside>
-      <Nav classList={cx({ w: '15rem' })}>
+      <Nav style={{ width: '15rem' }}>
         <Nav.Title>Admin</Nav.Title>
         <Nav.Link as={A} href="/" icon={<Close />}>
           Site

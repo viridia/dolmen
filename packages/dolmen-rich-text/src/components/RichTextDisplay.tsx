@@ -10,7 +10,7 @@ const inputSize = (base: SizeVariant) => ({
   fontSize: fontSize[base],
 });
 
-const rtDisplayCss = css(
+const rtDisplayCss = xcss(
   {
     backgroundColor: '$fieldBg',
     color: '$text',

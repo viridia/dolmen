@@ -1,7 +1,6 @@
 import { useCodex } from 'solid-codex-api';
 import { createSignal } from 'solid-js';
 import { Card, Group, Slider, Stack } from '../../components';
-import { cx } from '../../styles';
 
 export const $category = 'core';
 
@@ -34,7 +33,7 @@ export default {
     });
     const [value, setValue] = createSignal(0);
     return (
-      <Card classList={cx({ w: '10rem' })}>
+      <Card style={{ width: '10rem' }}>
         <Card.Content>
           <Slider
             value={value()}

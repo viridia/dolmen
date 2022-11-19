@@ -1,6 +1,19 @@
 import { style } from '@vanilla-extract/css';
 // import { palette } from 'dolmen';
 
+export const canvasPaneCss = style(
+  {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'start',
+    padding: 8,
+    flex: 1,
+    overflowY: 'auto',
+    overflowX: 'hidden',
+  },
+  // scrollbars
+);
+
 export const canvasSectionStyle = style({
   flex: '1 1 0',
   minWidth: 0,
@@ -42,6 +55,21 @@ export const catalogGroup = style({
   },
 });
 
+export const catalogPaneCss = style(
+  {
+    boxShadow: '0 0 3px 0 black',
+    alignItems: 'stretch !important',
+    color: '#fff',
+    overflowY: 'auto',
+    width: 300,
+    zIndex: 800,
+  },
+);
+
+export const discloseAreaCss = style({
+  width: '1.5rem',
+});
+
 export const catalogEntryStyle = style({
   display: 'flex',
   flexDirection: 'column',
@@ -72,4 +100,26 @@ export const selectableEntryName = style({
       backgroundColor: 'rgba(255, 255, 255, 0.1)', // TODO: Replace with selected bg
     },
   },
+});
+
+export const paramGroupCss = style({
+  marginTop: 6,
+  marginBottom: 6,
+  display: 'flex',
+  flexDirection: 'column',
+  alignSelf: 'stretch',
+});
+
+export const paramSliderCss = style({
+  alignSelf: 'stretch',
+  flex: 1,
+});
+
+export const paramSliderValue = style({
+  width: '2rem',
+  display: 'flex',
+});
+
+export const rootCss = style({
+  fontSize: '14px',
 });

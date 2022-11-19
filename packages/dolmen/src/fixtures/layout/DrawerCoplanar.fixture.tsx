@@ -1,7 +1,7 @@
 import { createMemo, createSignal } from 'solid-js';
 import { CheckBox, Drawer, Stack } from '../../components';
-import { demoPage } from './demoPage';
 import { useCodex } from 'solid-codex-api';
+import './demo.scss';
 
 export const $category = 'layout/Drawer';
 export const $name = 'coplanar';
@@ -25,7 +25,7 @@ function HorizontalCoplanarDrawerDemo(props: { side: 'left' | 'right' | 'start' 
   });
   return (
     <div
-      class={demoPage()}
+      class="demopage"
       style={{
         display: 'flex',
         'flex-direction': reverse() ? 'row-reverse' : 'row',
@@ -63,7 +63,7 @@ function VerticalCoplanarDrawerDemo(props: { side: 'top' | 'bottom' }) {
   const { side } = props;
   return (
     <div
-      class={demoPage()}
+      class="demopage"
       style={{
         display: 'flex',
         'flex-direction': side === 'bottom' ? 'column-reverse' : 'column',
@@ -102,7 +102,7 @@ function MultiDrawerDemo() {
   const [open4, setOpen4] = createSignal(false);
   return (
     <div
-      class={demoPage()}
+      class="demopage"
       style={{
         display: 'flex',
         'flex-direction': 'row',

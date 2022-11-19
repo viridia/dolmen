@@ -1,0 +1,33 @@
+.transition {
+  background-color: gray;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: black;
+
+  &.enter-start {
+    background-color: red;
+  }
+
+  &.entering {
+    background-color: orange;
+  }
+
+  &.entered {
+    background-color: yellow;
+  }
+
+  &.exit-start {
+    background-color: lime;
+  }
+
+  &.exiting {
+    background-color: green;
+  }
+
+  &.exited {
+    background-color: blue;
+  }
+}

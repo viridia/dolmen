@@ -1,8 +1,36 @@
+@use './flex.scss';
+@use './defs.scss';
+
 @layer ui-base, ui-variants, ui-states;
-@import './flex.scss';
 
 html {
-  --dm-font-title: "Open Sans", Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  --dm-font-body: "Open Sans", Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  --dm-font-mono: "Source Code Pro", Consolas, Inconsolata, Menlo, monospace;
+  --dm-font-title: 'Open Sans', Gordita, Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue',
+    sans-serif;
+  --dm-font-body: 'Open Sans', Gordita, Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue',
+    sans-serif;
+  --dm-font-mono: 'Source Code Pro', Consolas, Inconsolata, Menlo, monospace;
+}
+
+.dm-scrollbars {
+  @include defs.scrollbars;
+}
+
+h1 {
+  font-size: '2rem';
+}
+
+h2 {
+  font-size: '1.4rem';
+}
+
+h3 {
+  font-size: '1.2rem';
+}
+
+h4 {
+  font-size: '1rem';
+}
+
+h5 {
+  font-size: '0.9rem';
 }

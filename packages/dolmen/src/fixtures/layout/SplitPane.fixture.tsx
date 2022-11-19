@@ -1,5 +1,5 @@
 import { SplitPane } from '../../components';
-import { demoPage } from './demoPage';
+import './demo.scss';
 
 export const $category = 'layout';
 
@@ -10,7 +10,7 @@ const ThirdChild = () => <div>Third Child</div>;
 export default {
   Horizontal: () => {
     return (
-      <div class={demoPage()} style={{ 'flex-direction': 'row' }}>
+      <div class="demopage" style={{ 'flex-direction': 'row' }}>
         <SplitPane direction="horizontal">
           <FirstChild />
           <SecondChild />
@@ -21,7 +21,7 @@ export default {
   },
   'Horizontal (rtl)': () => {
     return (
-      <div class={demoPage()} style={{ 'flex-direction': 'row' }} dir="rtl">
+      <div class="demopage" style={{ 'flex-direction': 'row' }} dir="rtl">
         <SplitPane direction="horizontal">
           <FirstChild />
           <SecondChild />
@@ -31,7 +31,7 @@ export default {
   },
   Vertical: () => {
     return (
-      <div class={demoPage()} style={{ 'flex-direction': 'row' }}>
+      <div class="demopage" style={{ 'flex-direction': 'row' }}>
         <SplitPane direction="vertical">
           <FirstChild />
           <SecondChild />
@@ -42,7 +42,7 @@ export default {
   },
   'Vertical - One Child Only': () => {
     return (
-      <div class={demoPage()} style={{ 'flex-direction': 'row' }}>
+      <div class="demopage" style={{ 'flex-direction': 'row' }}>
         <SplitPane direction="vertical">
           <FirstChild />
         </SplitPane>
