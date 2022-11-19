@@ -1,0 +1,135 @@
+@use 'sass:color';
+@use '../palette.scss';
+
+$primaryColor: #3f45d4;
+$dangerColor: #7d248a;
+$textHighlight: #6f6fcf66;
+
+.dm-theme-dark {
+  // Flat surfaces - page, card, modal, header
+  --dm-color-elevation-0: #{palette.$coolgray900};
+  --dm-color-elevation-1: #{palette.$coolgray850};
+  --dm-color-elevation-2: #{palette.$coolgray800};
+
+  // "Wells" are interactive regions such as input, list box, etc.
+  --dm-color-field-bg: #{palette.$coolgray800};
+  --dm-color-field-border: #{palette.$coolgray600};
+  --dm-color-field-border-slight: #{palette.$coolgray700};
+  --dm-color-field-hover-border: #{palette.$coolgray600};
+
+  //     textLink: colord(primaryColor).lighten(0.15).toHex(),
+
+  // Text colors
+  --dm-color-text: #{palette.$coolgray200};
+  --dm-color-text-dim: #{palette.$coolgray500};
+  --dm-color-text-selection: #{palette.$white};
+  --dm-color-text-selection-bg: #{$textHighlight};
+  --dm-color-text-link: colord(primaryColor) .darken(0.2) .desaturate(0.3) .toHex();
+
+  // Severities
+  --dm-color-success-text: #aea;
+  --dm-color-success-icon: #4a4;
+  --dm-color-success-bg: #223322;
+  --dm-color-info-text: #bbf;
+  --dm-color-info-icon: #66e;
+  --dm-color-info-bg: #333355;
+  --dm-color-warning-text: #eea;
+  --dm-color-warning-icon: #a80;
+  --dm-color-warning-bg: #333322;
+  --dm-color-error-text: #fbb;
+  --dm-color-error-icon: #d00;
+  --dm-color-error-bg: #332222;
+
+  // Colors for selected items (menus, list rows)
+  --dm-color-item-hover-bg: #{palette.$gray100};
+  --dm-color-item-focus-bg: #{palette.$gray100};
+  --dm-color-item-selected-text: #{palette.$white};
+  --dm-color-item-selected-bg: colord($primaryColor) .darken(0.3) .desaturate(0.7) .toHex();
+
+  // Various dynamic colors
+  --dm-color-focus: #11117733;
+  --dm-color-shadow: #{color.change(palette.$black, $alpha: 0.4)};
+  --dm-color-backdrop: #{color.change(palette.$gray900, $alpha: 0.4)};
+
+  // Buttons (also used by some other controls such as checkbox and radio)
+  --dm-color-btn-primary: #{$primaryColor};
+  --dm-color-btn-primary-text: #{color.adjust($primaryColor, $lightness: 40%)};
+  --dm-color-btn-primary-text-dim: #{color.adjust($primaryColor, $lightness: 25%)};
+
+  --dm-color-btn-bg: #{palette.$coolgray800};
+  --dm-color-btn-contrast: #{palette.$coolgray200};
+  --dm-color-btn-contrast-dim: #{palette.$coolgray500};
+
+  --dm-color-btn-danger: #{$dangerColor};
+  --dm-color-btn-danger-text: #{color.adjust($dangerColor, $lightness: 40%)};
+  --dm-color-btn-danger-text-dim: #{color.adjust($dangerColor, $lightness: 30%)};
+
+  --dm-color-btn-selected: #{palette.$coolgray600};
+  --dm-color-btn-selected-contrast: #{palette.$coolgray100};
+  --dm-color-btn-selected-contrast-dim: #{palette.$coolgray200};
+
+  // Scrollbars
+  --dm-color-scrollbar: rgba(0, 0, 0, 0.2);
+  --dm-color-scrollbar-inactive: rgba(0, 0, 0, 0.1);
+
+  // Slider
+  --dm-color-slider-fill: #{palette.$gray250};
+
+  // Toggle switches
+  --dm-color-toggle-fill: #{palette.$gray150};
+  --dm-color-toggle-fill-checked: #77dd77;
+  --dm-color-toggle-slide-fill: linear-gradient(
+      to bottom,
+      $palette.$gray50 0%,
+      $palette.$gray200 100%
+    );
+
+  // Tooltips have their own color scheme, also used by callouts.
+  --dm-color-tooltip-bg: #{palette.$gray700};
+  --dm-color-tooltip-text: #{palette.$white};
+
+  //     fonts: {
+  //       body: '"Open Sans", Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
+  //       title:
+  //         '"Open Sans", Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
+  //       mono: '"Source Code Pro", Consolas, Inconsolata, Menlo, monospace',
+  //     },
+  //   },
+}
+
+//     itemHoverBg: colord(palette.coolgray400).alpha(0.1).toHex(),
+//     itemFocusBg: palette.coolgray700,
+//     itemSelectedText: palette.white,
+//     itemSelectedBg: primaryColor,
+
+//     focus: '#8183ff88',
+//     shadow: palette.black,
+//     backdrop: colord(palette.black).alpha(0.3).toHex(),
+
+//     // Scrollbars
+//     scrollbar: colord(palette.coolgray500).alpha(0.3).toHex(),
+//     scrollbarInactive: colord(palette.coolgray500).alpha(0.15).toHex(),
+
+//     sliderFill: palette.coolgray750,
+
+//     toggleFill: palette.coolgray700,
+//     toggleFillChecked: '#118811',
+//     toggleSlideFill: `linear-gradient(to bottom, ${palette.coolgray100} 0%, ${palette.coolgray300} 100%)`,
+
+//     tooltipBg: palette.black,
+//     tooltipText: palette.coolgray300,
+
+//     // To migrate
+
+//     knobRim: `linear-gradient(
+//       to bottom,
+//       ${colord(palette.coolgray800).lighten(0.1).toHex()} 0,
+//       ${colord(palette.coolgray800).darken(0.1).toHex()}
+//     )`,
+//     knobCenter: `linear-gradient(
+//       to bottom,
+//       ${colord(palette.coolgray800).lighten(0.03).toHex()} 0,
+//       ${colord(palette.coolgray800).darken(0.03).toHex()}
+//     )`,
+//   },
+// });

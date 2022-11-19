@@ -13,10 +13,12 @@
   "homepage": "https://github.com/viridia/dolmen#readme",
   "description": "A UI component library that works with Solid SSR",
   "scripts": {
-    "build": "run-s build:svg build:mjs build:cjs",
+    "build": "run-s build:svg build:sass build:mjs build:cjs",
     "build:cjs": "tsc --project tsconfig.src.json --outDir ./dist/cjs --module CommonJS",
     "build:mjs": "tsc --project tsconfig.src.json --outDir ./dist/mjs --module ESNext",
     "build:svg": "svgr --no-svgo --template ./scripts/svg-template.cjs --typescript iconsrc/ -d src/icons/",
+    "build:sass": "sass --style=compressed src/css/:css/",
+    "sass:watch": "sass src/css/:css/ --watch",
     "clean": "rimraf ./dist",
     "format": "prettier --write ./src",
     "prepublishOnly": "npm run build",
@@ -30,7 +32,8 @@
   "module": "./dist/mjs/index.jsx",
   "types": "./dist/mjs/index.d.js",
   "files": [
-    "dist"
+    "dist",
+    "css"
   ],
   "dependencies": {
     "@floating-ui/dom": "^1.0.2",

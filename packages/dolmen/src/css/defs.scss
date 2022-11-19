@@ -1,0 +1,34 @@
+@use 'sass:map';
+
+@layer ui-base, ui-variants, ui-states;
+
+$zGround: 0;
+$zFocused: 100; // Let's focus indicators float above other controls.
+$zSidebar: 500; // For sidebars that lie below the appbar
+$zAppbar: 600;
+$zModal: 700;
+$zDropdown: 800;
+$zAlert: 900;
+$zTooltip: 1000;
+
+$size: (
+  'xl': 1.25,
+  'lg': 1.1,
+  'md': 1,
+  'sm': 0.9,
+  'xs': 0.825,
+  'xxs': 0.75,
+  'xxxs': 0.65,
+);
+
+// For small buttons, make the font size a bit more readable.
+$fontSize: map.set(map.set($size, 'xxs', 0.8), 'xxxs', 0.75);
+
+$space: (
+  xl: '12px',
+  lg: '8px',
+  md: '4px',
+  sm: '2px',
+  xs: '1px',
+  none: '0',
+);

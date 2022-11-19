@@ -25,7 +25,7 @@ export default defineConfig({
 
       // Aliases used during development
       // Mainly here because I can't seem to get TypeScript project references to work.
-      'dolmen': path.resolve(__dirname, './packages/dolmen/src'),
+      // 'dolmen': path.resolve(__dirname, './packages/dolmen/src'),
       'dolmen-gizmos': path.resolve(__dirname, './packages/dolmen-gizmos/src'),
       'dolmen-rich-text': path.resolve(__dirname, './packages/dolmen-rich-text/src'),
       'solid-codex': path.resolve(__dirname, './packages/solid-codex/src'),

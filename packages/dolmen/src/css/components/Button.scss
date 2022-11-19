@@ -1,0 +1,131 @@
+@use 'sass:map';
+@use '../defs.scss';
+
+@mixin buttonSize($base) {
+  &.dm-size-#{$base} {
+    height: map.get(defs.$size, $base) * 2rem;
+    font-size: map.get(defs.$fontSize, $base) * 1rem;
+  }
+}
+
+@layer ui-base {
+  .dm-button {
+    align-items: center;
+    appearance: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 0;
+    display: flex;
+    flex-direction: row;
+    font-weight: 500;
+    gap: 0.4rem;
+    justify-content: center;
+    margin: 0;
+    outline: none;
+    white-space: nowrap;
+    padding: 0 0.7em;
+
+    // Default color
+    color: var(--dm-color-btn-contrast);
+    background-color: var(--dm-color-btn-bg);
+    &:hover:not([disabled]) {
+      filter: contrast(85%) saturate(120%);
+    }
+    &:active:not([disabled]) {
+      filter: brightness(0.8) contrast(110%);
+    }
+    --icon-color: var(--dm-color-btn-contrast-dim);
+
+    // Default size
+    height: map.get(defs.$size, 'md') * 2rem;
+    font-size: map.get(defs.$fontSize, 'md') * 1rem;
+  }
+}
+
+@layer ui-variants {
+  .dm-button {
+    @include buttonSize('xl');
+    @include buttonSize('lg');
+    @include buttonSize('md');
+    @include buttonSize('sm');
+    @include buttonSize('xs');
+    @include buttonSize('xxs');
+    @include buttonSize('xxxs');
+
+    &.dm-color-primary {
+      color: var(--dm-color-btn-primary-text);
+      background-color: var(--dm-color-btn-primary);
+      &:hover:not([disabled]) {
+        filter: brightness(1.15) contrast(130%);
+      }
+      &:active:not([disabled]) {
+        filter: brightness(1.3);
+      }
+      --icon-color: var(--dm-color-btn-primary-text-dim);
+    }
+
+    &.dm-color-danger {
+      color: var(--dm-color-btn-danger-text);
+      background-color: var(--dm-color-btn-danger);
+      &:hover:not([disabled]) {
+        filter: brightness(1.15) contrast(130%);
+      }
+      &:active:not([disabled]) {
+        filter: brightness(1.3);
+      }
+      --icon-color: var(--dm-color-btn-danger-text-dim);
+    }
+
+    &.dm-color-subtle {
+      background-color: transparent;
+      border-color: transparent;
+      color: var(--dm-color-btn-contrast);
+      &:hover:not([disabled]) {
+        background-color: var(--dm-color-item-hover-bg);
+      }
+      &:active:not([disabled]) {
+        background-color: var(--dm-color-item-hover-bg);
+        filter: brightness(0.9);
+      }
+      --icon-color: var(--dm-color-btn-selected-contrast-dim);
+    }
+
+    // Used internally for menubuttons
+    &.dm-color-field {
+      background-color: var(--dm-color-field-bg);
+      border-color: var(--dm-color-field-border-slight);
+      color: var(--dm-color-text);
+      border-width: 1;
+      --icon-color: var(--dm-color-text-dim);
+    }
+
+    &.dm-round {
+      border-radius: 500px;
+    }
+
+    &.dm-icon {
+      padding: 0;
+      aspect-ratio: 1;
+    }
+  }
+}
+
+@layer ui-states {
+  .dm-button {
+    &[aria-selected] {
+      background-color: var(--dm-color-btn-selected);
+      border-color: var(--dm-color-btn-selected);
+      color: var(--dm-color-btn-selected-contrast);
+      --icon-color: var(--dm-color-btn-selected-contrast-dim);
+    }
+
+    &[disabled] {
+      opacity: 0.5;
+    }
+
+    &:focus:focus-visible {
+      box-shadow: 0 0 1px 3px var(--dm-focus);
+      z-index: defs.$zFocused;
+    }
+  }
+}

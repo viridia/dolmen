@@ -8,6 +8,9 @@ import { getCssText, globalStyles } from 'dolmen';
 import { useFixtures } from '../data/fixtures';
 import { createUserSettings, UserSettingsContext } from '../settings';
 import { CodexPage } from './CodexPage';
+import styles from 'dolmen/css/styles.css?raw';
+import lightTheme from 'dolmen/css/theme/light.css?raw';
+import darkTheme from 'dolmen/css/theme/dark.css?raw';
 
 const rootCss = css({
   fontSize: '14px',
@@ -29,8 +32,16 @@ export function App(props: { fixtures: Record<string, () => Promise<unknown>> })
             <Meta charset="utf-8" />
             <Meta name="viewport" content="width=device-width, initial-scale=1" />
             <style id="stitches" innerHTML={getCssText()} />
+            <style innerHTML={styles} />
+            <style innerHTML={lightTheme} />
+            <style innerHTML={darkTheme} />
           </Head>
-          <Body classList={{ [dark.className]: userSettings[0].theme === 'dark' }}>
+          <Body
+            classList={{
+              [dark.className]: userSettings[0].theme === 'dark',
+              [userSettings[0].theme === 'dark' ? 'dm-theme-dark' : 'dm-theme-light']: true,
+            }}
+          >
             <ErrorBoundary>
               <Suspense>
                 <Routes>
