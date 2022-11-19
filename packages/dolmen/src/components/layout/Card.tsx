@@ -1,9 +1,7 @@
-import { VariantProps } from '@stitches/core';
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css } from '../../styles';
-import { flexKeys, flexPropsCss } from './flexProps';
+import { css, flexKeys, flexProps, FlexProps } from '../../styles';
 
-const cardContentCss = css(flexPropsCss, {
+const cardContentCss = css({
   '@layer ui-base': {
     alignItems: 'stretch',
     display: 'flex',
@@ -15,7 +13,7 @@ const cardContentCss = css(flexPropsCss, {
 });
 
 const CardContent: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & VariantProps<typeof cardContentCss>
+  JSX.HTMLAttributes<HTMLDivElement> & FlexProps
 > = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', ...flexKeys]);
 
@@ -24,6 +22,7 @@ const CardContent: ParentComponent<
       {...rest}
       classList={{
         ...local.classList,
+        ...flexProps(local),
         [local.class as string]: !!local.class,
         [cardContentCss(local)]: true,
       }}
@@ -31,7 +30,7 @@ const CardContent: ParentComponent<
   );
 };
 
-const cardCss = css(flexPropsCss, {
+const cardCss = css({
   '@layer ui-base': {
     alignItems: 'stretch',
     backgroundColor: '$elevation1',
@@ -45,7 +44,7 @@ const cardCss = css(flexPropsCss, {
 });
 
 export const Card: ParentComponent<
-  JSX.HTMLAttributes<HTMLElement> & VariantProps<typeof cardCss>
+  JSX.HTMLAttributes<HTMLElement> & FlexProps
 > & {
   Content: typeof CardContent;
 } = props => {
@@ -56,6 +55,7 @@ export const Card: ParentComponent<
       {...rest}
       classList={{
         ...local.classList,
+        ...flexProps(local),
         [local.class as string]: !!local.class,
         [cardCss(local)]: true,
       }}

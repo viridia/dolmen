@@ -1,4 +1,5 @@
 @layer ui-base, ui-variants, ui-states;
+@import './flex.scss';
 
 html {
   --dm-font-title: "Open Sans", Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;

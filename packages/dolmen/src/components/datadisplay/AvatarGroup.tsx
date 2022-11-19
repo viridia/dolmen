@@ -1,22 +1,4 @@
 import { ParentComponent, JSX, splitProps, children, For } from 'solid-js';
-import { css } from '../../styles';
-
-const avatarGroupCss = css({
-  alignItems: 'center',
-  display: 'flex',
-  flexDirection: 'row-reverse',
-  justifyContent: 'start',
-  overflowX: 'hidden',
-  gap: 4,
-
-  '& > .dm-item': {
-    minWidth: 0,
-  },
-
-  '& > .dm-item:first-child': {
-    minWidth: 'auto',
-  },
-});
 
 export const AvatarGroup: ParentComponent<
   JSX.HTMLAttributes<HTMLDivElement>
@@ -30,7 +12,7 @@ export const AvatarGroup: ParentComponent<
       classList={{
         ...local.classList,
         [local.class as string]: !!local.class,
-        [avatarGroupCss()]: true,
+        'dm-avatar-group': true,
       }}
     >
       <For each={avatars.toArray().reverse()}>{av => <div class="dm-item">{av}</div>}</For>

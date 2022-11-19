@@ -1,7 +1,6 @@
-import { VariantProps } from '@stitches/core';
 import { Colord, colord } from 'colord';
 import { ParentComponent, JSX, splitProps, Show } from 'solid-js';
-import { css, SizeVariant } from '../../styles';
+import { SizeVariant } from '../../styles';
 
 export const avatarSizeRem = {
   xl: 2.5,
@@ -11,68 +10,18 @@ export const avatarSizeRem = {
   xs: 0.6,
 };
 
-const avatarSize = (base: SizeVariant) => ({
-  height: `${avatarSizeRem[base] * 2}rem`,
-  width: `${avatarSizeRem[base] * 2}rem`,
-  fontSize: `${avatarSizeRem[base] * 0.85}rem`,
-});
-
-const avatarCss = css({
-  ...avatarSize('md'),
-  alignItems: 'center',
-  borderRadius: 48,
-  display: 'flex',
-  flexDirection: 'row',
-  flexShrink: 0,
-  justifyContent: 'center',
-  overflow: 'hidden',
-  whiteSpace: 'nowrap',
-
-  variants: {
-    size: {
-      xl: avatarSize('xl'),
-      lg: avatarSize('lg'),
-      md: avatarSize('md'),
-      sm: avatarSize('sm'),
-      xs: avatarSize('xs'),
-    },
-
-    radius: {
-      xl: {
-        borderRadius: 32,
-      },
-      lg: {
-        borderRadius: '0.5em',
-      },
-      md: {
-        borderRadius: '0.3em',
-      },
-      sm: {
-        borderRadius: 2,
-      },
-      xs: {
-        borderRadius: 1,
-      },
-    },
-  },
-});
-
-const avatarImgCss = css({
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
-});
-
 interface AvatarProps {
   color?: string;
   colorHash?: string;
   title?: string;
   src?: string;
+  size?: SizeVariant;
+  radius?: SizeVariant;
   crossOrigin?: JSX.HTMLCrossorigin;
 }
 
 export const Avatar: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & AvatarProps & VariantProps<typeof avatarCss>
+  JSX.HTMLAttributes<HTMLDivElement> & AvatarProps
 > = props => {
   const [local, rest] = splitProps(props, [
     'color',
@@ -101,14 +50,13 @@ export const Avatar: ParentComponent<
       classList={{
         ...local.classList,
         [local.class as string]: !!local.class,
-        [avatarCss({
-          size: local.size,
-          radius: local.radius,
-        })]: true,
+        'dm-avatar': true,
+        [`dm-size-${local.size}`]: Boolean(local.size),
+        [`dm-radius-${local.radius}`]: Boolean(local.radius),
       }}
     >
       <Show when={local.src} fallback={local.children}>
-        <img class={avatarImgCss()} src={local.src} crossOrigin={local.crossOrigin} />
+        <img class="dm-avatar-img" src={local.src} crossOrigin={local.crossOrigin} />
       </Show>
     </div>
   );

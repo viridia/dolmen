@@ -1,23 +1,7 @@
-import { VariantProps } from '@stitches/core';
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, Z } from '../../styles';
-import { flexKeys, flexPropsCss } from './flexProps';
+import { flexKeys, flexProps, FlexProps } from '../../styles';
 
-const pageHeaderTitleCss = css(flexPropsCss, {
-  '@layer ui-base': {
-    alignItems: 'center',
-    display: 'flex',
-    flexDirection: 'row',
-    fontFamily: '$title',
-    fontWeight: 600,
-    justifyContent: 'start',
-    padding: 0,
-  },
-});
-
-const PageHeaderTitle: ParentComponent<
-  JSX.HTMLAttributes<HTMLElement> & VariantProps<typeof pageHeaderTitleCss>
-> = props => {
+const PageHeaderTitle: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', ...flexKeys]);
 
   return (
@@ -25,32 +9,15 @@ const PageHeaderTitle: ParentComponent<
       {...rest}
       classList={{
         ...local.classList,
+        ...flexProps(local),
         [local.class as string]: !!local.class,
-        [pageHeaderTitleCss(local)]: true,
+        'dm-page-header-title': true,
       }}
     />
   );
 };
 
-const pageHeaderCss = css(flexPropsCss, {
-  '@layer ui-base': {
-    alignItems: 'center',
-    backgroundColor: '$elevation1',
-    boxShadow: '0 0 2px 0 $colors$shadow',
-    display: 'flex',
-    flexDirection: 'row',
-    fontFamily: '$body',
-    gap: '$md',
-    justifyContent: 'space-between',
-    padding: '8px 1rem',
-    position: 'relative',
-    zIndex: Z.appbar,
-  },
-});
-
-const PageHeader: ParentComponent<
-  JSX.HTMLAttributes<HTMLElement> & VariantProps<typeof pageHeaderCss>
-> = props => {
+const PageHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', ...flexKeys]);
 
   return (
@@ -58,29 +25,15 @@ const PageHeader: ParentComponent<
       {...rest}
       classList={{
         ...local.classList,
+        ...flexProps(local),
         [local.class as string]: !!local.class,
-        [pageHeaderCss(local)]: true,
+        'dm-page-header': true,
       }}
     />
   );
 };
 
-const pageContentCss = css(flexPropsCss, {
-  '@layer ui-base': {
-    alignSelf: 'stretch',
-    alignItems: 'stretch',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'start',
-    flex: 1,
-    margin: 0,
-    padding: '8px',
-  },
-});
-
-const PageContent: ParentComponent<
-  JSX.HTMLAttributes<HTMLElement> & VariantProps<typeof pageContentCss>
-> = props => {
+const PageContent: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', ...flexKeys]);
 
   return (
@@ -88,34 +41,15 @@ const PageContent: ParentComponent<
       {...rest}
       classList={{
         ...local.classList,
+        ...flexProps(local),
         [local.class as string]: !!local.class,
-        [pageContentCss(local)]: true,
+        'dm-page-content': true,
       }}
     />
   );
 };
 
-const pageCss = css(flexPropsCss, {
-  '@layer ui-base': {
-    backgroundColor: '$elevation0',
-    color: '$text',
-    position: 'fixed',
-    left: 0,
-    top: 0,
-    bottom: 0,
-    right: 0,
-    alignItems: 'stretch',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'start',
-    padding: 0,
-    fontFamily: '$body',
-  },
-});
-
-export const Page: ParentComponent<
-  JSX.HTMLAttributes<HTMLElement> & VariantProps<typeof pageCss>
-> & {
+export const Page: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> & {
   Header: typeof PageHeader;
   Title: typeof PageHeaderTitle;
   Content: typeof PageContent;
@@ -128,7 +62,7 @@ export const Page: ParentComponent<
       classList={{
         ...local.classList,
         [local.class as string]: !!local.class,
-        [pageCss(local)]: true,
+        'dm-page': true,
       }}
     />
   );

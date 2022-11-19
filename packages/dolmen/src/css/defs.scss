@@ -23,10 +23,10 @@ $size: (
 $fontSize: map.set(map.set($size, 'xxs', 0.8), 'xxxs', 0.75);
 
 $space: (
-  xl: '12px',
-  lg: '8px',
-  md: '4px',
-  sm: '2px',
-  xs: '1px',
-  none: '0',
+  xl: 12px,
+  lg: 8px,
+  md: 4px,
+  sm: 2px,
+  xs: 1px,
+  none: 0,
 );

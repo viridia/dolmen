@@ -1,82 +1,55 @@
 @use 'sass:map';
-@use '../defs.scss';
+@use './defs.scss';
 
 @mixin flexGap($sz) {
-  .dm-flex-gap-#{$sz} {
-    gap: map.get(defs.$space, $sz) * 1px;
+  .dm-gap-#{$sz} {
+    gap: map.get(defs.$space, $sz);
   }
 }
 
-// .dm-flex-gap-xs {
-//   gap: map.get(defs.$space, 'xs') * 1px;
-// }
+@mixin flexAttr($id, $name, $value) {
+  .dm-#{$id}-#{$value} {
+    #{$name}: #{$value};
+  }
+}
 
+@include flexGap('xl');
+@include flexGap('lg');
+@include flexGap('md');
+@include flexGap('sm');
+@include flexGap('xs');
 
-/** Utility styles for flexbox components. */
-// export const flexPropsCss = css({
-//   variants: {
-//     gap: {
-//       xs: { gap: space.xs },
-//       sm: { gap: space.sm },
-//       md: { gap: space.md },
-//       lg: { gap: space.lg },
-//       xl: { gap: space.xl },
-//     },
+@include flexAttr('ai', 'align-items', 'start');
+@include flexAttr('ai', 'align-items', 'end');
+@include flexAttr('ai', 'align-items', 'flex-start');
+@include flexAttr('ai', 'align-items', 'flex-end');
+@include flexAttr('ai', 'align-items', 'stretch');
+@include flexAttr('ai', 'align-items', 'center');
 
-//     alignItems: {
-//       start: { alignItems: 'start' },
-//       end: { alignItems: 'end' },
-//       'flex-start': { alignItems: 'flex-start' },
-//       'flex-end': { alignItems: 'flex-end' },
-//       stretch: { alignItems: 'stretch' },
-//       center: { alignItems: 'center' },
-//     },
+@include flexAttr('jc', 'justify-content', 'start');
+@include flexAttr('jc', 'justify-content', 'end');
+@include flexAttr('jc', 'justify-content', 'center');
+@include flexAttr('jc', 'justify-content', 'flex-start');
+@include flexAttr('jc', 'justify-content', 'flex-end');
+@include flexAttr('jc', 'justify-content', 'space-around');
+@include flexAttr('jc', 'justify-content', 'space-between');
+@include flexAttr('jc', 'justify-content', 'space-evenly');
 
-//     justifyContent: {
-//       start: { justifyContent: 'start' },
-//       end: { justifyContent: 'end' },
-//       center: { justifyContent: 'center' },
-//       'flex-start': { justifyContent: 'flex-start' },
-//       'flex-end': { justifyContent: 'flex-end' },
-//       'space-around': { justifyContent: 'space-around' },
-//       'space-between': { justifyContent: 'space-between' },
-//       'space-evenly': { justifyContent: 'space-evenly' },
-//     },
+@include flexAttr('ji', 'justify-items', 'start');
+@include flexAttr('ji', 'justify-items', 'end');
+@include flexAttr('ji', 'justify-items', 'flex-start');
+@include flexAttr('ji', 'justify-items', 'flex-end');
+@include flexAttr('ji', 'justify-items', 'left');
+@include flexAttr('ji', 'justify-items', 'right');
+@include flexAttr('ji', 'justify-items', 'stretch');
+@include flexAttr('ji', 'justify-items', 'center');
+@include flexAttr('ji', 'justify-items', 'baseline');
 
-//     justifyItems: {
-//       start: { justifyItems: 'start' },
-//       end: { justifyItems: 'end' },
-//       'flex-start': { justifyItems: 'flex-start' },
-//       'flex-end': { justifyItems: 'flex-end' },
-//       left: { justifyItems: 'left' },
-//       right: { justifyItems: 'right' },
-//       stretch: { justifyItems: 'stretch' },
-//       center: { justifyItems: 'center' },
-//       baseline: { justifyItems: 'baseline' },
-//     },
+@include flexAttr('fd', 'flex-direction', 'row');
+@include flexAttr('fd', 'flex-direction', 'row-reverse');
+@include flexAttr('fd', 'flex-direction', 'column');
+@include flexAttr('fd', 'flex-direction', 'column-reverse');
 
-//     flexDirection: {
-//       row: { flexDirection: 'row' },
-//       'row-reverse': { flexDirection: 'row-reverse' },
-//       column: { flexDirection: 'column' },
-//       'column-reverse': { flexDirection: 'column-reverse' },
-//     },
-
-//     flexWrap: {
-//       wrap: { flexWrap: 'wrap' },
-//       wrapReverse: { flexWrap: 'wrap-reverse' },
-//       nowrap: { flexWrap: 'nowrap' },
-//     },
-//   },
-// });
-
-// type FlexKeys = VariantProps<typeof flexPropsCss>;
-
-// export const flexKeys: (keyof FlexKeys)[] = [
-//   'gap',
-//   'alignItems',
-//   'justifyContent',
-//   'justifyItems',
-//   'flexDirection',
-//   'flexWrap',
-// ];
+@include flexAttr('fw', 'flex-wrap', 'wrap');
+@include flexAttr('fw', 'flex-wrap', 'wrap-reverse');
+@include flexAttr('fw', 'flex-wrap', 'nowrap');

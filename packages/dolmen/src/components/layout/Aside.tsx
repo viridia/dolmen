@@ -1,9 +1,7 @@
-import { VariantProps } from '@stitches/core';
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, space, Z } from '../../styles';
-import { flexKeys, flexPropsCss } from './flexProps';
+import { css, flexKeys, flexProps, FlexProps, space, Z } from '../../styles';
 
-export const asideCss = css(flexPropsCss, {
+export const asideCss = css({
   '@layer ui-base': {
     backgroundColor: '$elevation1',
     boxShadow: '0 0 2px 0 $colors$shadow',
@@ -18,7 +16,7 @@ export const asideCss = css(flexPropsCss, {
 });
 
 export const Aside: ParentComponent<
-  JSX.HTMLAttributes<HTMLElement> & VariantProps<typeof asideCss>
+  JSX.HTMLAttributes<HTMLElement> & FlexProps
 > = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', ...flexKeys]);
 
@@ -27,6 +25,7 @@ export const Aside: ParentComponent<
       {...rest}
       classList={{
         ...local.classList,
+        ...flexProps(local),
         [local.class as string]: !!local.class,
         [asideCss(local)]: true,
       }}
