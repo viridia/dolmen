@@ -1,0 +1,103 @@
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-modal {
+    background-color: var(--dm-color-elevation-1);
+    box-shadow: 0 0 3px 0 var(--dm-color-shadow);
+    color: var(--dm-color-text);
+    align-items: stretch;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: min(30rem, 95vw);
+    opacity: 0;
+    padding: 0;
+    transform: scale(0.7);
+    transition: opacity 0.3s linear, transform 0.3s ease;
+    max-height: 85vh;
+
+    &.entered,
+    &.entering {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .dm-modal-backdrop {
+    background-color: var(--dm-color-backdrop);
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: defs.$zModal;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s linear;
+
+    &.entered,
+    &.entering {
+      opacity: 1;
+    }
+  }
+
+  .dm-modal-header {
+    display: flex;
+    align-items: center;
+    font-family: var(--dm-font-title);
+    font-weight: bold;
+    justify-content: space-between;
+    gap: 4px;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--dm-color-elevation-0);
+    border-radius: 5px 5px 0 0;
+    background-color: var(--dm-color-elevation-2);
+  }
+
+  .dm-modal-body {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    font-family: var(--dm-font-body);
+    padding: 0.8rem 1rem 0.8rem 1rem;
+    overflow-y: auto;
+  }
+
+  .dm-modal-footer {
+    display: flex;
+    align-items: center;
+    font-family: var(--dm-font-body);
+    justify-content: flex-end;
+    gap: 4px;
+    padding: 0.4rem 1rem 0.8rem 1rem;
+  }
+}
+
+@layer ui-variants {
+  .dm-modal {
+    &.dm-size-xl {
+      width: min(60rem, 95vw);
+    }
+    &.dm-size-lg {
+      width: min(50rem, 95vw);
+    }
+    &.dm-size-md {
+      width: min(40rem, 95vw);
+    }
+    &.dm-size-sm {
+      width: min(32rem, 95vw);
+    }
+    &.dm-size-xs {
+      width: min(26rem, 95vw);
+    }
+    &.dm-size-xxs {
+      width: min(22rem, 95vw);
+    }
+    &.dm-size-xxxs {
+      width: min(18rem, 95vw);
+    }
+  }
+}

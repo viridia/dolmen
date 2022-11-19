@@ -1,10 +1,10 @@
 @use 'sass:map';
 @use '../defs.scss';
 
-@mixin buttonSize($base) {
-  &.dm-size-#{$base} {
-    height: map.get(defs.$size, $base) * 2rem;
-    font-size: map.get(defs.$fontSize, $base) * 1rem;
+@mixin buttonSize($sz) {
+  &.dm-size-#{$sz} {
+    height: map.get(defs.$size, $sz) * 2rem;
+    font-size: map.get(defs.$fontSize, $sz) * 1rem;
   }
 }
 
@@ -26,7 +26,7 @@
     padding: 0 0.7em;
 
     // Default color
-    color: var(--dm-color-btn-contrast);
+    color: var(--dm-color-text);
     background-color: var(--dm-color-btn-bg);
     &:hover:not([disabled]) {
       filter: contrast(85%) saturate(120%);
@@ -34,7 +34,7 @@
     &:active:not([disabled]) {
       filter: brightness(0.8) contrast(110%);
     }
-    --icon-color: var(--dm-color-btn-contrast-dim);
+    --icon-color: var(--dm-color-text-dim);
 
     // Default size
     height: map.get(defs.$size, 'md') * 2rem;
@@ -79,7 +79,7 @@
     &.dm-color-subtle {
       background-color: transparent;
       border-color: transparent;
-      color: var(--dm-color-btn-contrast);
+      color: var(--dm-color-text);
       &:hover:not([disabled]) {
         background-color: var(--dm-color-item-hover-bg);
       }
@@ -87,7 +87,7 @@
         background-color: var(--dm-color-item-hover-bg);
         filter: brightness(0.9);
       }
-      --icon-color: var(--dm-color-btn-selected-contrast-dim);
+      --icon-color: var(--dm-color-text-dim);
     }
 
     // Used internally for menubuttons
@@ -117,6 +117,13 @@
       border-color: var(--dm-color-btn-selected);
       color: var(--dm-color-btn-selected-contrast);
       --icon-color: var(--dm-color-btn-selected-contrast-dim);
+
+      &.dm-color-subtle {
+        background-color: transparent;
+        border-color: transparent;
+        color: var(--dm-color-text);
+        --icon-color: var(--dm-color-text-dim);
+      }
     }
 
     &[disabled] {
@@ -124,7 +131,7 @@
     }
 
     &:focus:focus-visible {
-      box-shadow: 0 0 1px 3px var(--dm-focus);
+      box-shadow: 0 0 1px 3px var(--dm-color-focus);
       z-index: defs.$zFocused;
     }
   }

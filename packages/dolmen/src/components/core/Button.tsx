@@ -1,27 +1,6 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { ButtonSizeVariant } from '../../styles';
 
-//   compoundVariants: [
-//     {
-//       color: 'default',
-//       selected: true,
-//       css: {
-//         backgroundColor: '$btnSelected',
-//         borderColor: '$btnSelected',
-//         color: '$btnSelectedContrast',
-//         '--icon-color': '$colors$btnSelectedContrastDim',
-//       },
-//     },
-//     {
-//       color: 'subtle',
-//       selected: true,
-//       css: {
-//         color: theme.colors.text,
-//         '--icon-color': theme.colors.text,
-//       },
-//     },
-//   ],
-
 export type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: ButtonSizeVariant;
   selected?: boolean;

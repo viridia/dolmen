@@ -1,10 +1,10 @@
 import { Component, createSignal } from 'solid-js';
 import { Button, Group, Modal } from '../../components';
-import { SizeVariant } from '../../styles';
+import { DialogSizeVariant } from '../../styles';
 
 export const $category = 'core';
 
-const DialogDemo: Component<{ size: SizeVariant }> = props => {
+const DialogDemo: Component<{ size: DialogSizeVariant }> = props => {
   const [open, setOpen] = createSignal(false);
   return (
     <>
@@ -59,6 +59,8 @@ export default () => {
       <DialogDemo size="md" />
       <DialogDemo size="sm" />
       <DialogDemo size="xs" />
+      <DialogDemo size="xxs" />
+      <DialogDemo size="xxxs" />
     </Group>
   );
 };

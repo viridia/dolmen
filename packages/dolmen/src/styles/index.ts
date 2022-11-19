@@ -5,3 +5,4 @@ export { createTheme, css, getCssText, theme, stdFontSizes, globalCss } from './
 export * from './size';
 export { cx } from './cx';
 export * from './z';
+export * from './FlexProps';

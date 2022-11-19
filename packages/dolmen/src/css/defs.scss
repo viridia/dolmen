@@ -1,7 +1,5 @@
 @use 'sass:map';
 
-@layer ui-base, ui-variants, ui-states;
-
 $zGround: 0;
 $zFocused: 100; // Let's focus indicators float above other controls.
 $zSidebar: 500; // For sidebars that lie below the appbar

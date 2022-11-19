@@ -9,47 +9,10 @@ import {
   onCleanup,
   useContext,
 } from 'solid-js';
-import { css, scrollbars, Z } from '../../styles';
 import { autoUpdate, computePosition, flip, offset, Placement } from '@floating-ui/dom';
 import { Property } from '@stitches/core/types/css';
 import { createCssTransition } from '../../hooks';
 import { MenuAction, menuCloseEvent, MenuContext } from './MenuContext';
-
-const menuListCss = css(
-  {
-    alignItems: 'stretch',
-    backgroundColor: '$elevation2',
-    boxShadow: '0 1px 4px $colors$shadow',
-    borderRadius: '3px',
-    color: '$text',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'start',
-    overflowY: 'auto',
-    overflowX: 'hidden',
-    zIndex: Z.dropdown,
-    margin: 0,
-    padding: 0,
-    position: 'absolute',
-    opacity: 0,
-    transform: 'scale(.95)',
-    transition: 'transform 0.1s ease, opacity 0.1s linear',
-
-    '&.entering,&.entered': {
-      transform: 'scale(1)',
-      opacity: 1,
-    },
-  },
-  scrollbars
-);
-
-const menuBackdropCss = css({
-  position: 'fixed',
-  left: 0,
-  top: 0,
-  right: 0,
-  bottom: 0,
-});
 
 export interface MenuListProps {
   inset?: boolean;
@@ -211,7 +174,7 @@ export const MenuList: ParentComponent<
   return (
     <Show when={state() !== 'exited'}>
       <div
-        class={menuBackdropCss()}
+        class="dm-menu-backdrop"
         onClick={e => {
           e.preventDefault();
           e.stopPropagation();
@@ -227,7 +190,7 @@ export const MenuList: ParentComponent<
           'dm-inset': local.inset,
           [local.class as string]: !!local.class,
           [state()]: true,
-          [menuListCss()]: true,
+          "dm-menu-list": true,
         }}
         style={popupStyle()}
         onFocusIn={() => {

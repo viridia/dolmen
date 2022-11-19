@@ -1,6 +1,6 @@
 import { createSignal } from 'solid-js';
 import { Button, Card, Group, Menu, Stack } from '../../components';
-import { Cancel } from '../../icons';
+import { Cancel, Close } from '../../icons';
 import { cx } from '../../styles';
 
 export const $category = 'core';
@@ -10,7 +10,7 @@ function ScrollingDemo() {
   return (
     <Stack classList={cx({ gap: 'xl', w: '20rem' })}>
       <Card classList={cx({ h: '10rem' })}></Card>
-      <Card  classList={cx({ h: '60rem' })}>
+      <Card classList={cx({ h: '60rem' })}>
         <Card.Content classList={cx({ p: '1rem' })}>
           <Button ref={setAnchorRef2}>Anchor Element</Button>
           <Menu.List anchor={anchorRef2()}>
@@ -120,9 +120,32 @@ function MenuButtonDemo() {
   );
 }
 
+function IconMenuDemo() {
+  return (
+    <Group gap="xl">
+      <Card>
+        <Card.Content>
+          <Menu>
+            <Menu.Button icon>
+              <Cancel />
+            </Menu.Button>
+            <Menu.List>
+              <Menu.Item icon={<Cancel />} />
+              <Menu.Item icon={<Close />} />
+              <Menu.Item icon={<Cancel />} />
+              <Menu.Item icon={<Close />} />
+            </Menu.List>
+          </Menu>
+        </Card.Content>
+      </Card>
+    </Group>
+  );
+}
+
 export default {
   MenuButton: () => <MenuButtonDemo />,
   MenuList: () => <MenuListDemo />,
   Scrolling: () => <ScrollingDemo />,
   Controlled: () => <Controlled />,
+  IconMenu: () => <IconMenuDemo />,
 };

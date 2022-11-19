@@ -1,72 +1,5 @@
 import { ParentComponent, JSX, splitProps, VoidComponent, Show } from 'solid-js';
-import { css } from '../../styles';
 import { menuCloseEvent } from './MenuContext';
-
-const menuIconCss = css({
-  alignItems: 'center',
-  justifyContent: 'center',
-  display: 'flex',
-  height: '20px',
-  '--icon-color': '$colors$textDim',
-
-  '.dm-inset > li > * > &': {
-    width: '24px',
-  },
-});
-
-const menuCheckCss = css({
-  borderColor: '$text',
-  borderWidth: '0 2px 2px 0',
-  borderStyle: 'solid',
-  content: '',
-  height: '12px',
-  left: '13px',
-  position: 'absolute',
-  top: '7px',
-  transform: 'rotate(40deg)',
-  width: '5px',
-});
-
-const menuItemCss = css({
-  alignItems: 'center',
-  color: '$text',
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'start',
-  gap: '6px',
-  padding: '6px 12px 6px 6px',
-  margin: '2px',
-  outline: 'none',
-  position: 'relative',
-  textDecoration: 'none',
-  cursor: 'pointer', // Only for items that are clickable
-
-  '&[aria-disabled]': {
-    opacity: 0.5,
-    cursor: 'default',
-  },
-
-  '&&&[aria-selected]': {
-    color: '$itemSelectedText',
-    backgroundColor: '$itemSelectedBg',
-  },
-
-  '&:focus:focus-visible': {
-    boxShadow: 'inset 0 0 2px 1px $colors$focus',
-    backgroundColor: '$itemFocusBg',
-  },
-
-  '&:hover:not([aria-disabled])': {
-    backgroundColor: '$itemHoverBg',
-  },
-});
-
-const menuCaptionCss = css({
-  display: 'block',
-  overflowX: 'hidden',
-  textOverflow: 'ellipsis',
-  flex: '1 1 0',
-});
 
 interface MenuItemProps {
   disabled?: boolean;
@@ -96,7 +29,8 @@ const MenuItemBase: ParentComponent<
         classList={{
           ...local.classList,
           [local.class as string]: !!local.class,
-          [menuItemCss()]: true,
+          'dm-menu-item': true,
+          'dm-icon': Boolean(local.icon && !local.children),
         }}
         onClick={e => {
           e.stopPropagation();
@@ -126,13 +60,13 @@ const MenuItemBase: ParentComponent<
           }
         }}
       >
-        <div class={menuIconCss()}>
+        <div class="dm-menu-icon">
           <Show when={local.checked} fallback={local.icon}>
-            <div class={menuCheckCss()} />
+            <div class="dm-menu-check" />
           </Show>
         </div>
         <Show when={local.children}>
-          <div class={menuCaptionCss()}>{local.children}</div>
+          <div class="dm-menu-caption">{local.children}</div>
         </Show>
       </a>
     </li>
@@ -157,10 +91,6 @@ export const MenuItemRadio: ParentComponent<
   return <MenuItemBase role="menuitemradio" aria-checked={props.checked} {...props} />;
 };
 
-const menuDividerCss = css({
-  borderBottom: '1px solid $colors$elevation0',
-});
-
 export const MenuDivider: VoidComponent = () => {
-  return <div class={menuDividerCss({})} />;
+  return <div class="dm-menu-divider" />;
 };

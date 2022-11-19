@@ -1,28 +1,7 @@
 import { ParentComponent, Show, useContext } from 'solid-js';
 import { ChevronDown } from '../../icons';
-import { css } from '../../styles';
 import { Button, ButtonProps } from './Button';
 import { MenuContext } from './MenuContext';
-
-const menuButtonCaptionCss = css({
-  display: 'block',
-  overflowX: 'hidden',
-  whiteSpace: 'nowrap',
-  textOverflow: 'ellipsis',
-  textAlign: 'start',
-  minWidth: 0,
-  flex: '1 1 0',
-
-  variants: {
-    icon: {
-      true: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
-    },
-  },
-});
 
 export const MenuButton: ParentComponent<ButtonProps & { caret?: boolean }> = props => {
   const context = useContext(MenuContext);
@@ -60,7 +39,14 @@ export const MenuButton: ParentComponent<ButtonProps & { caret?: boolean }> = pr
         }
       }}
     >
-      <span class={menuButtonCaptionCss({ icon: props.icon })}>{props.children}</span>
+      <span
+        classList={{
+          'dm-menu-button-caption': true,
+          'dm-icon': Boolean(props.icon),
+        }}
+      >
+        {props.children}
+      </span>
       <Show when={!props.icon || props.caret === false}>
         <ChevronDown width={16} />
       </Show>

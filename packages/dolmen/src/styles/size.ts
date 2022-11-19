@@ -49,4 +49,5 @@ export const space = {
 
 export type SizeVariant = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type ButtonSizeVariant = SizeVariant | 'xxs' | 'xxxs';
+export type DialogSizeVariant = SizeVariant | 'xxs' | 'xxxs';
 export type Space = keyof typeof space;
