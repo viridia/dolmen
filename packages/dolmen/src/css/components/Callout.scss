@@ -1,0 +1,37 @@
+@use 'sass:map';
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-callout {
+    align-items: center;
+    background-color: var(--dm-color-tooltip-bg);
+    border-radius: 3px;
+    color: var(--dm-color-tooltip-text);
+    flex-direction: column;
+    font-size: map.get(defs.$fontSize, 'xxxs');
+    min-width: 12px;
+    padding: 4px 8px;
+    pointer-events: none;
+    position: absolute;
+    justify-content: start;
+    max-width: 20rem;
+    width: fit-content(10rem);
+    opacity: 0;
+    transition: opacity 0.3s linear;
+    z-index: defs.$zTooltip;
+
+    &.entering,
+    &.entered {
+      opacity: 1;
+    }
+  }
+
+  .dm-callout-arrow {
+    background-color: var(--dm-color-tooltip-bg);
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+}

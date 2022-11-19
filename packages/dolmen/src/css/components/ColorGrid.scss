@@ -1,0 +1,43 @@
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-color-grid {
+    display: grid;
+  }
+
+  .dm-color-grid-cell {
+    appearance: none;
+    outline: none;
+    border-width: 0;
+    border-style: solid;
+    border-color: white;
+    cursor: pointer;
+    min-width: 16px;
+    min-height: 16px;
+    margin: 0;
+    position: relative;
+  }
+}
+
+@layer ui-states {
+  .dm-color-grid-cell {
+    &:focus:focus-visible {
+      box-shadow: 0 0 1px 3px var(--dm-color-focus);
+      z-index: defs.$zFocused;
+    }
+
+    &:checked {
+      border-width: 1px;
+    }
+
+    &:checked:after {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      content: '';
+      border: 2px solid black;
+    }
+  }
+}

@@ -1,39 +1,6 @@
 import { ParentComponent, createSignal, createEffect, batch, Show } from 'solid-js';
-import { css, fontSize, Z } from '../../styles';
 import { computePosition, flip, offset, arrow, Placement } from '@floating-ui/dom';
 import { createCssTransition } from '../../hooks/createCssTransition';
-
-const calloutCss = css({
-  alignItems: 'center',
-  backgroundColor: '$tooltipBg',
-  borderRadius: '3px',
-  color: '$tooltipText',
-  flexDirection: 'column',
-  fontSize: fontSize.xxxs,
-  minWidth: '12px',
-  padding: '4px 8px',
-  pointerEvents: 'none',
-  position: 'absolute',
-  justifyContent: 'start',
-  maxWidth: '20rem',
-  width: 'fit-content(10rem)',
-  opacity: 0,
-  transition: 'opacity 0.3s linear',
-  zIndex: Z.tooltip,
-
-  '&.entering,&.entered': {
-    opacity: 1,
-  },
-});
-
-const calloutArrowCss = css({
-  backgroundColor: '$tooltipBg',
-  width: '8px',
-  height: '8px',
-  position: 'absolute',
-  transform: 'rotate(45deg)',
-  zIndex: -1,
-});
 
 interface CalloutProps {
   anchor?: HTMLElement | null;
@@ -87,13 +54,13 @@ export const Callout: ParentComponent<CalloutProps> = props => {
       <div
         ref={setCalloutRef}
         classList={{
-          [calloutCss()]: true,
+          'dm-callout': true,
           [state()]: true,
         }}
         style={calloutStyle()}
       >
         {props.children}
-        <div ref={setArrowRef} class={calloutArrowCss()} style={arrowStyle()} />
+        <div ref={setArrowRef} class="dm-callout-arrow" style={arrowStyle()} />
       </div>
     </Show>
   );

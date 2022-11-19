@@ -1,7 +1,7 @@
-import { SizeVariant } from './size';
+import { Space } from './size';
 
 export interface FlexProps {
-  gap?: SizeVariant;
+  gap?: Space;
   alignItems?: 'start' | 'end' | 'flex-start' | 'flex-end' | 'stretch' | 'center';
   justifyContent?:
     | 'start'

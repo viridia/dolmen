@@ -26,7 +26,7 @@ const colors = [
 function ColorGridDemo() {
   const [selected, setSelected] = createSignal(palette.black);
   return (
-    <Stack gap="md">
+    <Stack gap="md" alignItems="start">
       No Gap
       <ColorGrid classList={cx({ w: '10rem' })} colors={colors} value={selected()} onChange={setSelected} name="nogap" />
       Gap (sm)

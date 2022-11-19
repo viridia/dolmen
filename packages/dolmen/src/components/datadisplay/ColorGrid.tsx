@@ -1,41 +1,5 @@
 import { createMemo, createSignal, For, JSX, Show, splitProps, VoidComponent } from 'solid-js';
-import { css, Space, Z } from '../../styles';
-
-const colorGridCss = css({
-  display: 'grid',
-});
-
-const colorGridCellCss = css({
-  appearance: 'none',
-  outline: 'none',
-  borderWidth: 0,
-  borderStyle: 'solid',
-  borderColor: 'white',
-  cursor: 'pointer',
-  minWidth: 16,
-  minHeight: 16,
-  margin: 0,
-  position: 'relative',
-
-  '&:focus:focus-visible': {
-    boxShadow: '0 0 1px 3px $colors$focus',
-    zIndex: Z.focused,
-  },
-
-  '&:checked': {
-    borderWidth: '1px',
-  },
-
-  '&:checked:after': {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    content: '',
-    border: '2px solid black',
-  },
-});
+import { flexProps, Space } from '../../styles';
 
 interface Props {
   gap?: Space;
@@ -55,6 +19,7 @@ export const ColorGrid: VoidComponent<
     'name',
     'colors',
     'rows',
+    'gap',
     'columns',
     'columnMajor',
     'onChange',
@@ -68,16 +33,20 @@ export const ColorGrid: VoidComponent<
     <div
       {...rest}
       classList={{
-        [colorGridCss()]: true,
-        [css({
-          gridTemplateColumns: `repeat(${local.columns ?? 8}, 1fr)`,
-          gridAutoFlow: 'row',
-        })()]: !local.columnMajor,
-        [css({
-          gridTemplateRows: `repeat(${local.rows ?? 8}, 1fr)`,
-          gridAutoFlow: 'column',
-        })()]: !!local.columnMajor,
+        'dm-color-grid': true,
+        ...flexProps(local),
       }}
+      style={
+        local.columnMajor ? {
+          'grid-template-rows': `repeat(${local.rows ?? 8}, 1fr)`,
+          'grid-auto-flow': 'column',
+
+        } : {
+          'grid-template-columns': `repeat(${local.columns ?? 8}, 1fr)`,
+          'grid-auto-flow': 'row',
+
+        }
+      }
       onKeyDown={e => {
         const advance = (delta: number) => {
           const selectedValue = selected();
@@ -149,7 +118,7 @@ export const ColorGrid: VoidComponent<
               type="radio"
               style={{ 'background-color': color }}
               classList={{
-                [colorGridCellCss()]: true,
+                'dm-color-grid-cell': true,
               }}
               color={color}
               name={local.name ?? 'colors'}

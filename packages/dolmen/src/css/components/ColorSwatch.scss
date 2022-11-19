@@ -1,0 +1,69 @@
+@use 'sass:map';
+@use '../defs.scss';
+
+$swatchSize: (
+  xs: 8,
+  sm: 12,
+  md: 16,
+  lg: 24,
+  xl: 32,
+);
+
+@mixin swatchWidth($sz) {
+  &.dm-w-#{$sz} {
+    width: map.get($swatchSize, $sz) * 1px;
+  }
+}
+
+@mixin swatchHeight($sz) {
+  &.dm-h-#{$sz} {
+    height: map.get($swatchSize, $sz) * 1px;
+  }
+}
+
+@layer ui-base {
+  .dm-color-swatch,
+  .dm-color-swatch-ctrl {
+    min-width: 8px;
+    min-height: 8px;
+  }
+
+  .dm-color-swatch-ctrl {
+    appearance: 'none';
+    outline: 'none';
+    border-width: 0;
+    border-style: 'solid';
+    border-color: 'black';
+    cursor: 'pointer';
+    padding: 0;
+  }
+}
+
+@layer ui-variants {
+  .dm-color-swatch {
+    @include swatchWidth('xl');
+    @include swatchWidth('lg');
+    @include swatchWidth('md');
+    @include swatchWidth('sm');
+    @include swatchWidth('xs');
+
+    @include swatchHeight('xl');
+    @include swatchHeight('lg');
+    @include swatchHeight('md');
+    @include swatchHeight('sm');
+    @include swatchHeight('xs');
+  }
+}
+
+@layer ui-states {
+  .dm-color-swatch-ctrl {
+    &:focus:focus-visible {
+      box-shadow: '0 0 1px 3px $colors$focus';
+      z-index: defs.$zFocused;
+    }
+
+    [aria-selected] {
+      border-width: '2px';
+    }
+  }
+}
