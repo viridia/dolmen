@@ -67,8 +67,8 @@ $textHighlight: #6f6fcf66;
   --dm-color-btn-selected-contrast-dim: #{palette.$coolgray200};
 
   // Scrollbars
-  --dm-color-scrollbar: rgba(0, 0, 0, 0.2);
-  --dm-color-scrollbar-inactive: rgba(0, 0, 0, 0.1);
+  --dm-color-scrollbar: #{color.change(palette.$coolgray500, $alpha: 0.2)};
+  --dm-color-scrollbar-inactive: #{color.change(palette.$coolgray500, $alpha: 0.1)};
 
   // Slider
   --dm-color-slider-fill: #{palette.$coolgray750};
@@ -86,10 +86,6 @@ $textHighlight: #6f6fcf66;
   --dm-color-tooltip-bg: #{palette.$black};
   --dm-color-tooltip-text: #{palette.$coolgray300};
 }
-
-//     // Scrollbars
-//     scrollbar: colord(palette.coolgray500).alpha(0.3).toHex(),
-//     scrollbarInactive: colord(palette.coolgray500).alpha(0.15).toHex(),
 
 //     toggleFill: palette.coolgray700,
 //     toggleFillChecked: '#118811',

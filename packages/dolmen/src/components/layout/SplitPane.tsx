@@ -1,81 +1,15 @@
-import { VariantProps } from '@stitches/core';
 import { children, createMemo, createSignal, Index, ParentComponent, Show } from 'solid-js';
 import { JSX, splitProps } from 'solid-js';
-import { css } from '../../styles';
 
 type Direction = 'horizontal' | 'vertical';
-
-const splitPaneCss = css({
-  alignItems: 'stretch',
-  flex: '1 0 0',
-  display: 'flex',
-  padding: 0,
-  overflow: 'hidden',
-
-  variants: {
-    direction: {
-      horizontal: {
-        flexDirection: 'row',
-      },
-      vertical: {
-        flexDirection: 'column',
-      },
-    },
-  },
-});
-
-const splitBarCss = css({
-  alignSelf: 'stretch',
-  backgroundColor: '$elevation1',
-  boxShadow: '0 0 2px 0 $colors$shadow',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  minWidth: '6px',
-  minHeight: '6px',
-  userSelect: 'none',
-
-  '&.horizontal': {
-    cursor: 'col-resize',
-  },
-
-  '&.vertical': {
-    cursor: 'row-resize',
-  },
-});
-
-const splitBarDetailCss = css({
-  backgroundColor: '$fieldBorderSlight',
-  userSelect: 'none',
-
-  '.horizontal > &': {
-    width: '1px',
-    height: '64px',
-  },
-
-  '.vertical > &': {
-    width: '64px',
-    height: '1px',
-  },
-});
-
-const splitSegmentCss = css({
-  display: 'flex',
-  alignItems: 'stretch',
-  justifyContent: 'stretch',
-  overflow: 'hidden',
-  minWidth: 0,
-  minHeight: 0,
-  flexBasis: 0,
-});
 
 interface SplitPaneProps {
   direction: Direction;
 }
 
-export const SplitPane: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & SplitPaneProps & VariantProps<typeof splitPaneCss>
-> & { Controlled: typeof SplitPaneControlled } = props => {
+export const SplitPane: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & SplitPaneProps> & {
+  Controlled: typeof SplitPaneControlled;
+} = props => {
   const [positions, setPositions] = createSignal<number[]>([]);
 
   return <SplitPaneControlled {...props} positions={positions()} setPositions={setPositions} />;
@@ -88,7 +22,7 @@ interface SplitPaneControlledProps {
 }
 
 export const SplitPaneControlled: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & SplitPaneControlledProps & VariantProps<typeof splitPaneCss>
+  JSX.HTMLAttributes<HTMLDivElement> & SplitPaneControlledProps
 > = props => {
   const [local, rest] = splitProps(props, [
     'class',
@@ -221,7 +155,8 @@ export const SplitPaneControlled: ParentComponent<
       classList={{
         ...local.classList,
         [local.class as string]: !!local.class,
-        [splitPaneCss({ direction: local.direction })]: true,
+        'dm-split-pane': true,
+        [`dm-${local.direction ?? 'horizontal'}`]: true,
       }}
     >
       <Index each={childPanes.toArray()}>
@@ -231,20 +166,20 @@ export const SplitPaneControlled: ParentComponent<
               <Show when={index > 0}>
                 <div
                   ref={splitBarRef!}
-                  class={`${splitBarCss()} ${local.direction}`}
+                  class="dm-split-bar"
                   onPointerDown={onPointerDown}
                   onPointerUp={onPointerUp}
                   onPointerMove={onPointerMove}
                   data-splitindex={index - 1}
                 >
-                  <div class={splitBarDetailCss()} />
+                  <div class="dm-split-bar-detail" />
                 </div>
               </Show>
               <div
                 style={{
                   'flex-grow': paneWidths()[index],
                 }}
-                class={splitSegmentCss()}
+                class="dm-split-segment"
               >
                 {pane()}
               </div>

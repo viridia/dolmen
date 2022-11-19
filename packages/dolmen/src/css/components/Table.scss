@@ -1,0 +1,77 @@
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-table-cell {
+    padding: 6px 8px 8px 8px;
+    border-width: 0;
+    // border-right: `1px solid ${theme.colors.field-border-slight}`;
+
+    &:last-child {
+      border-right-width: 0;
+    }
+
+    thead & {
+      background-color: var(--dm-color-elevation-0);
+      position: sticky;
+      top: 0;
+      z-index: defs.$zFocused;
+      font-weight: bold;
+    }
+
+    thead &:after {
+      content: '';
+      bottom: 0;
+      border-bottom: 2px solid var(--dm-color-field-border-slight);
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  .dm-table-row {
+    tbody > &:nth-child(even) {
+      background-color: var(--dm-color-elevation-1);
+    }
+  }
+
+  .dm-table-body {
+    @include defs.scrollbars();
+
+    overflow-y: auto;
+    // &:hover: {
+    //   background-color: $item-hover-bg;
+    // }
+  }
+
+  .dm-table {
+    // align-items: stretch;
+    background-color: var(--dm-color-elevation-0);
+    // border-width: 0;
+    // border-color: $field-border-slight;
+    // border-width: 1px;
+    // border-style: solid;
+    color: var(--dm-color-text);
+    border-collapse: collapse;
+    position: relative;
+  }
+}
+
+@layer ui-variants {
+  .dm-table-cell {
+    &.dm-align-center {
+      text-align: center;
+    }
+    &.dm-align-start {
+      text-align: start;
+    }
+    &.dm-align-end {
+      text-align: end;
+    }
+    &.dm-align-left {
+      text-align: left;
+    }
+    &.dm-align-right {
+      text-align: right;
+    }
+  }
+}

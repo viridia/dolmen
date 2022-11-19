@@ -1,5 +1,9 @@
+@use '../defs.scss';
+
 @layer ui-base {
   .dm-stack {
+    @include defs.scrollbars();
+
     align-items: stretch;
     display: flex;
     flex-direction: column;
