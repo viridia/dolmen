@@ -1,0 +1,47 @@
+@use 'sass:map';
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-disclose-button {
+    align-items: center;
+    appearance: none;
+    aspect-ratio: 1;
+    background-color: transparent;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    font-weight: 500;
+    gap: 0.4rem;
+    height: 1.5rem;
+    justify-content: center;
+    outline: none;
+    padding: 0;
+    transform: rotate(-90deg);
+    transition: transform 0.5s ease;
+    width: 1.5rem;
+    --icon-color: var(--dm-color-btn-contrast-dim);
+  }
+}
+
+@layer ui-states {
+  .dm-disclose-button {
+    &.dm-open {
+      transform: rotate(0);
+    }
+
+    &:focus:focus-visible {
+      box-shadow: 0 0 1px 3px var(--dm-focus);
+      z-index: defs.$zFocused;
+    }
+
+    &[disabled] {
+      opacity: 0.5;
+    }
+
+    &:hover:not([disabled]) {
+      --icon-color: var(--dm-color-btn-contrast);
+    }
+  }
+}
