@@ -49,7 +49,7 @@ $textHighlight: #6f6fcf66;
   // Various dynamic colors
   --dm-color-focus: #8183ff88;
   --dm-color-shadow: #{palette.$black};
-  --dm-color-backdrop: #{color.change(palette.$gray900, $alpha: 0.4)};
+  --dm-color-backdrop: #{color.change(palette.$black, $alpha: 0.3)};
 
   --dm-color-btn-bg: #{palette.$coolgray800};
 
@@ -87,28 +87,10 @@ $textHighlight: #6f6fcf66;
   --dm-color-tooltip-text: #{palette.$coolgray300};
 }
 
-//     backdrop: colord(palette.black).alpha(0.3).toHex(),
-
 //     // Scrollbars
 //     scrollbar: colord(palette.coolgray500).alpha(0.3).toHex(),
 //     scrollbarInactive: colord(palette.coolgray500).alpha(0.15).toHex(),
 
-
 //     toggleFill: palette.coolgray700,
 //     toggleFillChecked: '#118811',
 //     toggleSlideFill: `linear-gradient(to bottom, ${palette.coolgray100} 0%, ${palette.coolgray300} 100%)`,
-
-//     // To migrate
-
-//     knobRim: `linear-gradient(
-//       to bottom,
-//       ${colord(palette.coolgray800).lighten(0.1).toHex()} 0,
-//       ${colord(palette.coolgray800).darken(0.1).toHex()}
-//     )`,
-//     knobCenter: `linear-gradient(
-//       to bottom,
-//       ${colord(palette.coolgray800).lighten(0.03).toHex()} 0,
-//       ${colord(palette.coolgray800).darken(0.03).toHex()}
-//     )`,
-//   },
-// });

@@ -23,7 +23,7 @@ $grayBase: #8c8c8c;
   --dm-color-text-dim: #{palette.$gray500};
   --dm-color-text-selection: #{palette.$gray900};
   --dm-color-text-selection-bg: #{$textHighlight};
-  --dm-color-text-link: colord(primaryColor) .darken(0.2) .desaturate(0.3) .toHex();
+  --dm-color-text-link: #{color.adjust($primaryColor, $lightness: -20%, $saturation: -30%)};
 
   // Severities
   --dm-color-success-text: #040;
@@ -43,7 +43,7 @@ $grayBase: #8c8c8c;
   --dm-color-item-hover-bg: #{palette.$gray100};
   --dm-color-item-focus-bg: #{palette.$gray100};
   --dm-color-item-selected-text: #{palette.$white};
-  --dm-color-item-selected-bg: colord($primaryColor) .darken(0.3) .desaturate(0.7) .toHex();
+  --dm-color-item-selected-bg: #{color.adjust($primaryColor, $lightness: -30%, $saturation: -50%)};
 
   // Various dynamic colors
   --dm-color-focus: #11117733;

@@ -1,0 +1,46 @@
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-list-item {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    padding: 4px 8px;
+    cursor: pointer; // Only for items that are clickable
+  }
+
+  .dm-list {
+    align-items: stretch;
+    background-color: var(--dm-color-field-bg);
+    border-color: var(--dm-color-field-border-slight);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    color: var(--dm-color-text);
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    justify-content: start;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@layer ui-states {
+  .dm-list-item {
+    &:hover {
+      background-color: var(--dm-color-item-hover-bg);
+    }
+
+    &[aria-disabled] {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    &[aria-selected] {
+      background-color: var(--dm-color-item-selected-bg);
+      color: var(--dm-color-item-selected-text);
+    }
+  }
+}
