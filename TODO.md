@@ -103,6 +103,6 @@ letterSpacing
   * tree expansion state
   * SSR in general makes design hard
 
-<!-- export default function Root() {
 
-  useAssets(() => <style id="stitches" innerHTML={getCssText()} $ServerOnly />)); -->
+([a-z])([A-Z])
+$1-\L$2

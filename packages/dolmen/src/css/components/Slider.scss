@@ -1,0 +1,146 @@
+@use 'sass:map';
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-slider {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    height: calc(var(--slider-size) * 0.6);
+    min-width: 100px;
+    outline: none;
+    position: relative;
+    pointer-events: none;
+    user-select: none;
+    --slider-size: 2rem;
+  }
+
+  .dm-slider-track {
+    background-color: var(--dm-color-slider-fill);
+    border-radius: 500px;
+    height: calc(var(--slider-size) * 0.2);
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    pointer-events: all;
+
+    :focus-within:focus-visible > & {
+      box-shadow: 0 0 0 3px var(--dm-color-focus);
+    }
+  }
+
+  .dm-slider-marks-container {
+    position: absolute;
+    left: calc(var(--slider-size) * 0.25);
+    right: calc(var(--slider-size) * 0.25);
+    top: 50%;
+    bottom: 50%;
+  }
+
+  .dm-slider-mark {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    height: calc(var(--slider-size) * 0.13);
+    width: calc(var(--slider-size) * 0.13);
+    transform: translate(-50%, -50%);
+  }
+
+  .dm-slider-bar {
+    background-color: var(--dm-color-btn-primary);
+    filter: saturate(0.7);
+    height: 100%;
+  }
+
+  .dm-slider-thumb-container {
+    border-radius: 50%;
+    position: absolute;
+    height: calc(var(--slider-size) * 0.6);
+    pointer-events: all;
+    width: calc(var(--slider-size) * 0.6);
+    top: 0;
+  }
+
+  .dm-slider-thumb {
+    background-color: var(--dm-color-btn-primary);
+    border-radius: 50%;
+    box-shadow: 0 1px 4px var(--dm-color-shadow);
+    filter: brightness(1.1) saturate(0.9);
+    position: absolute;
+    height: 100%;
+    pointer-events: all;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .dm-slider-thumb-focus {
+    background-color: var(--dm-color-focus);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+    transform: scale(1);
+
+    :hover > & {
+      transform: scale(1.6);
+    }
+  }
+
+  .dm-slider-value-label {
+    background-color: var(--dm-color-tooltip-bg);
+    color: var(--dm-color-tooltip-text);
+    border-radius: 3px;
+    min-width: 12px;
+    padding: 2px 4px;
+    position: absolute;
+    pointer-events: none;
+    font-size: map.get(defs.$fontSize, 'xxxs') * 1rem;
+    opacity: 0;
+    text-align: center;
+    transition: opacity 0.05s linear;
+    z-index: defs.$zTooltip;
+
+    :hover > & {
+      opacity: 1;
+    }
+
+    &.dm-visible {
+      opacity: 1;
+    }
+  }
+
+  .dm-slider-value-label-arrow {
+    background-color: var(--dm-color-tooltip-bg);
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+}
+
+@layer ui-variants {
+  .dm-slider {
+    &.dm-size-xl {
+      --slider-size: 3rem;
+    }
+    &.dm-size-lg {
+      --slider-size: 2.5rem;
+    }
+    &.dm-size-md {
+      --slider-size: 2rem;
+    }
+    &.dm-size-sm {
+      --slider-size: 1.5rem;
+    }
+    &.dm-size-xs {
+      --slider-size: 1.3rem;
+    }
+  }
+}

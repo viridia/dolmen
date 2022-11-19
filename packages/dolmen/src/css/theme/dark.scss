@@ -71,7 +71,7 @@ $textHighlight: #6f6fcf66;
   --dm-color-scrollbar-inactive: rgba(0, 0, 0, 0.1);
 
   // Slider
-  --dm-color-slider-fill: #{palette.$gray250};
+  --dm-color-slider-fill: #{palette.$coolgray750};
 
   // Toggle switches
   --dm-color-toggle-fill: #{palette.$gray150};
@@ -83,16 +83,8 @@ $textHighlight: #6f6fcf66;
     );
 
   // Tooltips have their own color scheme, also used by callouts.
-  --dm-color-tooltip-bg: #{palette.$gray700};
-  --dm-color-tooltip-text: #{palette.$white};
-
-  //     fonts: {
-  //       body: '"Open Sans", Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
-  //       title:
-  //         '"Open Sans", Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
-  //       mono: '"Source Code Pro", Consolas, Inconsolata, Menlo, monospace',
-  //     },
-  //   },
+  --dm-color-tooltip-bg: #{palette.$black};
+  --dm-color-tooltip-text: #{palette.$coolgray300};
 }
 
 //     backdrop: colord(palette.black).alpha(0.3).toHex(),
@@ -101,14 +93,10 @@ $textHighlight: #6f6fcf66;
 //     scrollbar: colord(palette.coolgray500).alpha(0.3).toHex(),
 //     scrollbarInactive: colord(palette.coolgray500).alpha(0.15).toHex(),
 
-//     sliderFill: palette.coolgray750,
 
 //     toggleFill: palette.coolgray700,
 //     toggleFillChecked: '#118811',
 //     toggleSlideFill: `linear-gradient(to bottom, ${palette.coolgray100} 0%, ${palette.coolgray300} 100%)`,
-
-//     tooltipBg: palette.black,
-//     tooltipText: palette.coolgray300,
 
 //     // To migrate
 

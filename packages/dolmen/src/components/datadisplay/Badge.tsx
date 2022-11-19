@@ -1,57 +1,15 @@
-import { VariantProps } from '@stitches/core';
 import { colord } from 'colord';
 import { ParentComponent, JSX, splitProps } from 'solid-js';
-import { css, fontSizeRem, SizeVariant } from '../../styles';
-
-const badgeSize = (base: SizeVariant) => ({
-  height: `${fontSizeRem[base] * 1.1}rem`,
-  fontSize: `${fontSizeRem[base] * 0.7}rem`,
-  padding: '0 0.7em',
-});
-
-const badgeCss = css({
-  ...badgeSize('md'),
-  alignItems: 'center',
-  borderRadius: '0.3em',
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'center',
-
-  variants: {
-    size: {
-      xl: badgeSize('xl'),
-      lg: badgeSize('lg'),
-      md: badgeSize('md'),
-      sm: badgeSize('sm'),
-      xs: badgeSize('xs'),
-    },
-
-    radius: {
-      xl: {
-        borderRadius: 32,
-      },
-      lg: {
-        borderRadius: '0.5em',
-      },
-      md: {
-        borderRadius: '0.3em',
-      },
-      sm: {
-        borderRadius: 2,
-      },
-      xs: {
-        borderRadius: 1,
-      },
-    },
-  },
-});
+import { SizeVariant } from '../../styles';
 
 interface BadgeProps {
   color?: string;
+  size?: SizeVariant;
+  radius?: SizeVariant;
 }
 
 export const Badge: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & BadgeProps & VariantProps<typeof badgeCss>
+  JSX.HTMLAttributes<HTMLDivElement> & BadgeProps
 > = props => {
   const [local, rest] = splitProps(props, [
     'color',
@@ -73,10 +31,9 @@ export const Badge: ParentComponent<
       classList={{
         ...local.classList,
         [local.class as string]: !!local.class,
-        [badgeCss({
-          size: local.size,
-          radius: local.radius,
-        })]: true,
+        'dm-badge': true,
+        [`dm-size-${local.size}`]: Boolean(local.size),
+        [`dm-radius-${local.radius}`]: Boolean(local.radius),
       }}
     />
   );

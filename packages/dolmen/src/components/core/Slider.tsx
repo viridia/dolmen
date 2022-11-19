@@ -10,7 +10,7 @@ import {
   For,
 } from 'solid-js';
 import { createElementSize } from '../../hooks';
-import { css, fontSize, SizeVariant, Z } from '../../styles';
+import { SizeVariant } from '../../styles';
 import { computePosition, flip, offset, arrow } from '@floating-ui/dom';
 
 interface SliderMark {
@@ -31,152 +31,6 @@ interface SliderProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'onChange
   valueLabelFormat?: (value: number) => string;
   onChange?: (value: number) => void;
 }
-
-const sliderCss = css({
-  alignItems: 'center',
-  cursor: 'pointer',
-  display: 'flex',
-  height: 'calc(var(--slider-size) * 0.6)',
-  minWidth: '100px',
-  outline: 'none',
-  position: 'relative',
-  pointerEvents: 'none',
-  userSelect: 'none',
-  '--slider-size': '2rem',
-
-  variants: {
-    size: {
-      xl: {
-        '--slider-size': '3rem',
-      },
-      lg: {
-        '--slider-size': '2.5rem',
-      },
-      md: {
-        '--slider-size': '2rem',
-      },
-      sm: {
-        '--slider-size': '1.5rem',
-      },
-      xs: {
-        '--slider-size': '1.3rem',
-      },
-    },
-  },
-});
-
-const trackCss = css({
-  backgroundColor: '$sliderFill',
-  borderRadius: '500px',
-  height: 'calc(var(--slider-size) * 0.2)',
-  overflow: 'hidden',
-  position: 'relative',
-  width: '100%',
-  pointerEvents: 'all',
-
-  ':focus-within:focus-visible > &': {
-    boxShadow: '0 0 0 3px $colors$focus',
-  },
-});
-
-const marksContainerCss = css({
-  position: 'absolute',
-  left: 'calc(var(--slider-size) * 0.25)',
-  right: 'calc(var(--slider-size) * 0.25)',
-  top: '50%',
-  bottom: '50%',
-});
-
-const markCss = css({
-  backgroundColor: 'rgba(255, 255, 255, 0.3)',
-  borderRadius: '50%',
-  position: 'absolute',
-  top: '50%',
-  height: 'calc(var(--slider-size) * 0.13)',
-  width: 'calc(var(--slider-size) * 0.13)',
-  transform: 'translate(-50%, -50%)',
-});
-
-const barCss = css({
-  backgroundColor: '$btnPrimary',
-  filter: 'saturate(0.7)',
-  height: '100%',
-});
-
-const thumbContainerCss = css({
-  borderRadius: '50%',
-  position: 'absolute',
-  height: 'calc(var(--slider-size) * 0.6)',
-  pointerEvents: 'all',
-  width: 'calc(var(--slider-size) * 0.6)',
-  top: 0,
-});
-
-const thumbCss = css({
-  backgroundColor: '$btnPrimary',
-  borderRadius: '50%',
-  boxShadow: '0 1px 4px $colors$shadow',
-  filter: 'brightness(1.1) saturate(0.9)',
-  position: 'absolute',
-  height: '100%',
-  pointerEvents: 'all',
-  left: 0,
-  top: 0,
-  width: '100%',
-});
-
-const thumbFocusCss = css({
-  backgroundColor: '$focus',
-  borderRadius: '50%',
-  position: 'absolute',
-  left: 0,
-  top: 0,
-  bottom: 0,
-  right: 0,
-  pointerEvents: 'none',
-  transition: 'transform 0.3s ease',
-  transform: 'scale(1)',
-
-  ':hover > &': {
-    transform: 'scale(1.6)',
-  },
-});
-
-const valueLabelCss = css({
-  backgroundColor: '$tooltipBg',
-  color: '$tooltipText',
-  borderRadius: '3px',
-  minWidth: '12px',
-  padding: '2px 4px',
-  position: 'absolute',
-  pointerEvents: 'none',
-  fontSize: fontSize.xxxs,
-  opacity: 0,
-  textAlign: 'center',
-  transition: 'opacity 0.05s linear',
-  zIndex: Z.tooltip,
-
-  ':hover > &': {
-    opacity: 1,
-  },
-
-  variants: {
-    on: {
-      true: {
-        opacity: 1,
-      },
-    },
-  },
-});
-
-const valueLabelArrowCss = css({
-  backgroundColor: '$tooltipBg',
-  width: '8px',
-  height: '8px',
-  position: 'absolute',
-  transform: 'rotate(45deg)',
-  zIndex: -1,
-});
 
 export const Slider: VoidComponent<SliderProps> = props => {
   const [local, rest] = splitProps(props, [
@@ -313,9 +167,8 @@ export const Slider: VoidComponent<SliderProps> = props => {
       classList={{
         ...local.classList,
         [local.class as string]: !!local.class,
-        [sliderCss({
-          size: local.size,
-        })]: true,
+        'dm-slider': true,
+        [`dm-size-${local.size}`]: Boolean(local.size),
       }}
       onPointerDown={e => {
         // Don't want to prevent default because we want focus
@@ -369,14 +222,14 @@ export const Slider: VoidComponent<SliderProps> = props => {
       }}
       tabIndex={props.tabIndex ?? 0}
     >
-      <div role="presentation" class={trackCss()}>
-        <div class={barCss()} style={{ width: `${position() * elementSize().width}px` }} />
+      <div role="presentation" class="dm-slider-track">
+        <div class="dm-slider-bar" style={{ width: `${position() * elementSize().width}px` }} />
         <Show when={marks().length > 0}>
-          <div class={marksContainerCss()}>
+          <div class="dm-slider-marks-container">
             <For each={marks()}>
               {mark => (
                 <div
-                  classList={{ [markCss()]: true, 'dm-above': mark.value >= local.value }}
+                  classList={{ 'dm-slider-mark': true, 'dm-above': mark.value >= local.value }}
                   style={{ left: `${markPosition(mark.value) * 100}%` }}
                 />
               )}
@@ -386,7 +239,7 @@ export const Slider: VoidComponent<SliderProps> = props => {
       </div>
       <div
         ref={setThumbRef}
-        class={thumbContainerCss()}
+        class="dm-slider-thumb-container"
         style={{ left: `calc(${position()} * calc(100% - calc(var(--slider-size) * 0.5)))` }}
         onPointerDown={e => {
           // Don't want to prevent default because we want focus
@@ -411,18 +264,19 @@ export const Slider: VoidComponent<SliderProps> = props => {
           }
         }}
       >
-        <div class={thumbFocusCss()} />
-        <div class={thumbCss()} />
+        <div class="dm-slider-thumb-focus" />
+        <div class="dm-slider-thumb" />
         <Show when={local.valueLabelDisplay === 'auto' || local.valueLabelDisplay === 'on'}>
           <div
             ref={setLabelRef}
-            class={valueLabelCss({
-              on: local.valueLabelDisplay === 'on',
-            })}
+            classList={{
+              'dm-slider-value-label': true,
+              'dm-visible': local.valueLabelDisplay === 'on',
+            }}
             style={labelStyle()}
           >
             {formattedValue()}
-            <div ref={setArrowRef} class={valueLabelArrowCss()} style={arrowStyle()} />
+            <div ref={setArrowRef} class="dm-slider-value-label-arrow" style={arrowStyle()} />
           </div>
         </Show>
       </div>
