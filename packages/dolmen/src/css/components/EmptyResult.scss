@@ -1,0 +1,11 @@
+@use 'sass:map';
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-empty-result {
+    font-family: var(--dm-font-body);
+    font-size: map.get(defs.$fontSize, 'sm');
+    font-style: italic;
+    color: var(--dm-color-text-dim);
+  }
+}

@@ -11,6 +11,8 @@
   }
 
   .dm-list {
+    @include defs.scrollbars();
+
     align-items: stretch;
     background-color: var(--dm-color-field-bg);
     border-color: var(--dm-color-field-border-slight);

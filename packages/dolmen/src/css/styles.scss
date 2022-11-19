@@ -1,5 +1,6 @@
 @use './common.scss';
 
+@use './components/Alert.scss';
 @use './components/Aside.scss';
 @use './components/Avatar.scss';
 @use './components/Button.scss';
@@ -10,11 +11,15 @@
 @use './components/ColorGrid.scss';
 @use './components/ColorSwatch.scss';
 @use './components/DiscloseButton.scss';
+@use './components/EmptyResult.scss';
 @use './components/Group.scss';
+@use './components/Label.scss';
 @use './components/List.scss';
 @use './components/Menu.scss';
 @use './components/Modal.scss';
 @use './components/Page.scss';
+@use './components/ScrollArea.scss';
 @use './components/Slider.scss';
 @use './components/Spacer.scss';
 @use './components/Stack.scss';
+@use './components/Tooltip.scss';

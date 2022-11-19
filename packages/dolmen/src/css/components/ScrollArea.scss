@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-scroll-area {
+    @include defs.scrollbars();
+
+    background-color: var(--dm-color-field-bg);
+    border-color: var(--dm-color-field-border-slight);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    color: var(--dm-color-text);
+    padding: 4px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    variants: {
+      direction: {
+        vertical: {
+          overflow-y: auto;
+          overflow-x: hidden;
+        }
+        horizontal: {
+          overflow-y: hidden;
+          overflow-x: auto;
+        }
+        both: {
+          overflow-y: auto;
+          overflow-x: auto;
+        }
+      }
+    }
+  }
+}

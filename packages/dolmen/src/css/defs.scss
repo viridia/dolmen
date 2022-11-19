@@ -30,3 +30,26 @@ $space: (
   xs: 1px,
   none: 0,
 );
+
+@mixin scrollbars {
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 11px;
+    height: 11px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--dm-color-scrollbar);
+    border-radius: 6px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+  }
+
+  &::-webkit-scrollbar-thumb:window-inactive {
+    background-color: var(--dm-color-scrollbar-inactive);
+  }
+
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+}

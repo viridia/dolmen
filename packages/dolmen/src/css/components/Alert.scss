@@ -1,0 +1,45 @@
+@use 'sass:map';
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-alert {
+    display: flex;
+    flex-direction: row;
+    font-size: map.get(defs.$fontSize, 'sm');
+    border-radius: 3px;
+    background-color: var(--dm-color-elevation-2);
+    padding: 12px 12px;
+    gap: map.get(defs.$space, 'lg');
+    line-height: 1.1rem;
+  }
+
+  .dm-alert-message {
+    flex: 1;
+    margin-top: 2px;
+  }
+}
+
+@layer ui-variants {
+  .dm-alert {
+    &.dm-success {
+      background-color: var(--dm-color-success-bg);
+      color: var(--dm-color-success-text);
+      --icon-color: var(--dm-color-success-icon);
+    }
+    &.dm-info {
+      background-color: var(--dm-color-info-bg);
+      color: var(--dm-color-info-text);
+      --icon-color: var(--dm-color-info-icon);
+    }
+    &.dm-warning {
+      background-color: var(--dm-color-warning-bg);
+      color: var(--dm-color-warning-text);
+      --icon-color: var(--dm-color-warning-icon);
+    }
+    &.dm-error {
+      background-color: var(--dm-color-error-bg);
+      color: var(--dm-color-error-text);
+      --icon-color: var(--dm-color-error-icon);
+    }
+  }
+}

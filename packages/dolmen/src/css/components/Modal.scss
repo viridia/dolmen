@@ -58,6 +58,8 @@
   }
 
   .dm-modal-body {
+    @include defs.scrollbars();
+
     display: flex;
     align-items: stretch;
     flex-direction: column;

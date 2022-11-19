@@ -26,6 +26,8 @@
   }
 
   .dm-menu-list {
+    @include defs.scrollbars();
+
     align-items: stretch;
     background-color: var(--dm-color-elevation-2);
     box-shadow: 0 1px 4px var(--dm-color-shadow);

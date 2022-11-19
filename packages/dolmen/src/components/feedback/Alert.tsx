@@ -1,63 +1,16 @@
-import { VariantProps } from '@stitches/core';
 import { ParentComponent, JSX, splitProps, Switch, Match, Show } from 'solid-js';
 import { Error, Info, Success, Warning } from '../../icons';
-import { css, fontSize, space, theme } from '../../styles';
-
-export const alertCss = css({
-  display: 'flex',
-  flexDirection: 'row',
-  fontSize: fontSize.sm,
-  borderRadius: 3,
-  backgroundColor: '$elevation2',
-  padding: '12px 12px',
-  gap: space.lg,
-  lineHeight: '1.1rem',
-
-  variants: {
-    severity: {
-      success: {
-        backgroundColor: theme.colors.successBg,
-        color: theme.colors.successText,
-        '--icon-color': theme.colors.successIcon,
-      },
-      info: {
-        backgroundColor: theme.colors.infoBg,
-        color: theme.colors.infoText,
-        '--icon-color': theme.colors.infoIcon,
-      },
-      warning: {
-        backgroundColor: theme.colors.warningBg,
-        color: theme.colors.warningText,
-        '--icon-color': theme.colors.warningIcon,
-      },
-      error: {
-        backgroundColor: theme.colors.errorBg,
-        color: theme.colors.errorText,
-        '--icon-color': theme.colors.errorIcon,
-      },
-    },
-  },
-
-  defaultVariants: {
-    severity: 'error',
-  },
-});
-
-const alertMessageCss = css({
-  flex: 1,
-  marginTop: 2,
-});
+import { Severity } from '../form';
 
 interface AlertProps {
   /** Allows the alert to be shown conditionally. If false, the alert will not be shown.
       If true or undefined, the alert will be visible.
    */
   when?: boolean;
+  severity?: Severity;
 }
 
-export const Alert: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertCss> & AlertProps
-> = props => {
+export const Alert: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & AlertProps> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', 'children', 'severity', 'when']);
 
   return (
@@ -68,9 +21,8 @@ export const Alert: ParentComponent<
         classList={{
           ...local.classList,
           [local.class as string]: !!local.class,
-          [alertCss({
-            severity: local.severity,
-          })]: true,
+          'dm-alert': true,
+          [`dm-${local.severity || 'error'}`]: true,
         }}
       >
         <Switch>
@@ -87,7 +39,7 @@ export const Alert: ParentComponent<
             <Error width={20} />
           </Match>
         </Switch>
-        <div class={alertMessageCss()}>{local.children}</div>
+        <div class="dm-alert-message">{local.children}</div>
       </div>
     </Show>
   );

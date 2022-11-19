@@ -1,11 +1,6 @@
 import { createEffect, createSignal, JSX, onCleanup, ParentComponent } from 'solid-js';
 import { Callout } from './Callout';
 import { Placement } from '@floating-ui/dom';
-import { css } from '../../styles';
-
-const anchorContainerCss = css({
-  width: 'fit-content',
-});
 
 interface Props {
   content: JSX.Element | string;
@@ -33,7 +28,7 @@ export const Tooltip: ParentComponent<Props> = props => {
   return (
     <div
       ref={setRef}
-      class={anchorContainerCss()}
+      class="dm-anchor-container"
       onMouseOver={() => {
         setOver(true);
       }}
