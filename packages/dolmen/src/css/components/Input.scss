@@ -1,0 +1,104 @@
+@use 'sass:map';
+@use '../defs.scss';
+
+@mixin inputSize($sz) {
+  &.dm-size-#{$sz} {
+    height: map.get(defs.$size, $sz) * 2rem;
+    font-size: map.get(defs.$fontSize, $sz) * 1rem;
+  }
+}
+
+@layer ui-base {
+  .dm-input-frame {
+    @include defs.scrollbars;
+
+    background-color: var(--dm-color-field-bg);
+    align-items: center;
+    border-radius: 3px;
+    border-width: 1;
+    border-style: solid;
+    border-color: var(--dm-color-field-border-slight);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    font-weight: 350;
+    outline: none;
+    justify-content: center;
+    padding: 0 6px;
+    --icon-color: var(--dm-color-text-dim);
+
+    height: map.get(defs.$size, 'md') * 2rem;
+    font-size: map.get(defs.$fontSize, 'md') * 1rem;
+
+    &:hover:not(.dm-disabled) {
+      border-color: var(--dm-color-field-hover-border);
+    }
+
+    &:focus-within {
+      box-shadow: 0 0 0 2px inset var(--dm-color-focus);
+    }
+
+    variants: {
+      round: {
+        true: {
+          border-radius: 500px;
+          padding: 0 8px;
+        }
+      }
+    }
+  }
+
+  .dm-input-element {
+    align-self: stretch;
+    background-color: transparent;
+    border: none;
+    color: var(--dm-color-text);
+    outline: none;
+    font-family: var(--dm-font-body);
+    font-size: inherit;
+    margin: 0 2px;
+    flex: 1;
+
+    &::selection {
+      background: var(--dm-color-text-selection-bg);
+      color: var(--dm-color-text-selection);
+    }
+
+    &::placeholder {
+      color: var(--dm-color-text-dim);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+
+    &[readonly] {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+
+  .dm-adorn-left, .dm-adorn-right {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+  }
+
+  .dm-adorn-left {
+    margin-left: -2;
+  }
+
+  .dm-adorn-right {
+    margin-right: -2;
+  }
+}
+
+@layer ui-variants {
+  .dm-input-frame {
+    @include inputSize('xl');
+    @include inputSize('lg');
+    @include inputSize('md');
+    @include inputSize('sm');
+    @include inputSize('xs');
+  }
+}

@@ -1,4 +1,3 @@
-@use 'sass:map';
 @use '../defs.scss';
 
 @layer ui-base {
@@ -7,7 +6,7 @@
 
     background-color: var(--dm-color-elevation-1);
     box-shadow: 0 0 2px 0 var(--dm-color-shadow);
-    padding: map.get(defs.$space, 'lg');
+    padding: defs.space('lg');
     align-items: center;
     display: flex;
     position: relative;

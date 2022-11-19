@@ -1,15 +1,14 @@
-@use 'sass:map';
 @use '../defs.scss';
 
 @layer ui-base {
   .dm-alert {
-    @include defs.fontSize('sm');
     display: flex;
     flex-direction: row;
     border-radius: 3px;
     background-color: var(--dm-color-elevation-2);
+    font-size: defs.fontSize('sm');
     padding: 12px 12px;
-    gap: map.get(defs.$space, 'lg');
+    gap: defs.space('lg');
     line-height: 1.1rem;
   }
 

@@ -22,8 +22,8 @@ $size: (
 // For small buttons, make the font size a bit more readable.
 $fontSize: map.set(map.set($size, 'xxs', 0.8), 'xxxs', 0.75);
 
-@mixin fontSize($sz) {
-  font-size: map.get($fontSize, $sz) * 1rem;
+@function fontSize($sz) {
+  @return map.get($fontSize, $sz) * 1rem;
 }
 
 @mixin fontSizeVariants() {
@@ -42,6 +42,10 @@ $space: (
   xs: 1px,
   none: 0,
 );
+
+@function space($sz) {
+  @return map.get($space, $sz);
+}
 
 @mixin scrollbars {
   &::-webkit-scrollbar {

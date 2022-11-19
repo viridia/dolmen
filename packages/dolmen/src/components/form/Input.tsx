@@ -1,6 +1,5 @@
 import { JSX, splitProps, Component, useContext } from 'solid-js';
-import { VariantProps } from '@stitches/core';
-import { css, fontSize, size, SizeVariant, scrollbars } from '../../styles';
+import { SizeVariant } from '../../styles';
 import { FormFieldContext } from './FormFieldContext';
 
 interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
@@ -8,104 +7,11 @@ interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
   adornRight?: JSX.Element | JSX.Element[];
   innerClass?: string;
   innerClassList?: Record<string, boolean>;
+  size?: SizeVariant;
+  round?: boolean;
 }
 
-const inputSize = (base: SizeVariant) => ({
-  height: size[base],
-  fontSize: fontSize[base],
-});
-
-const inputFrameCss = css(
-  {
-    ...inputSize('md'),
-    backgroundColor: '$fieldBg',
-    alignItems: 'center',
-    borderRadius: 3,
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: '$fieldBorderSlight',
-    boxSizing: 'border-box',
-    display: 'flex',
-    flexDirection: 'row',
-    fontWeight: '350',
-    outline: 'none',
-    justifyContent: 'center',
-    padding: '0 6px',
-    '--icon-color': '$colors$textDim',
-
-    '&:hover:not(.dm-disabled)': {
-      borderColor: '$fieldHoverBorder',
-    },
-
-    '&:focus-within': {
-      boxShadow: '0 0 0 2px inset $colors$focus',
-    },
-
-    variants: {
-      size: {
-        xl: inputSize('xl'),
-        lg: inputSize('lg'),
-        md: inputSize('md'),
-        sm: inputSize('sm'),
-        xs: inputSize('xs'),
-      },
-
-      round: {
-        true: {
-          borderRadius: '500px',
-          padding: '0 8px',
-        },
-      },
-    },
-  },
-  scrollbars
-);
-
-const inputElementCss = css({
-  alignSelf: 'stretch',
-  backgroundColor: 'transparent',
-  border: 'none',
-  color: '$text',
-  outline: 'none',
-  fontFamily: '$body',
-  fontSize: 'inherit',
-  margin: '0 2px',
-  flex: 1,
-
-  '&::selection': {
-    background: '$textSelectionBg',
-    color: '$textSelection',
-  },
-
-  '&::placeholder': {
-    color: '$textDim',
-  },
-
-  '&:disabled': {
-    opacity: 0.5,
-  },
-
-  '&[readonly]': {
-    opacity: 0.7,
-    cursor: 'not-allowed',
-  },
-});
-
-const adornCss = css({
-  alignSelf: 'stretch',
-  display: 'flex',
-  alignItems: 'center',
-});
-
-const adornLeftCss = css(adornCss, {
-  marginLeft: -2,
-});
-
-const adornRightCss = css(adornCss, {
-  marginRight: -2,
-});
-
-export const Input: Component<InputProps & VariantProps<typeof inputFrameCss>> = props => {
+export const Input: Component<InputProps> = props => {
   const [local, rest] = splitProps(props, [
     'size',
     'round',
@@ -122,25 +28,24 @@ export const Input: Component<InputProps & VariantProps<typeof inputFrameCss>> =
     <div
       classList={{
         ...local.classList,
-        'dm-disabled': rest.disabled,
         [local.class as string]: !!local.class,
-        [inputFrameCss({
-          size: local.size,
-          round: local.round,
-        })]: true,
+        'dm-disabled': rest.disabled,
+        'dm-input-frame': true,
+        'dm-round': Boolean(local.round),
+        [`dm-size-${local.size}`]: Boolean(local.size),
       }}
     >
-      {props.adornLeft && <div class={adornLeftCss()}>{props.adornLeft}</div>}
+      {props.adornLeft && <div class="dm-adorn-left">{props.adornLeft}</div>}
       <input
         {...rest}
         {...fieldState?.ariaProps()}
         classList={{
           ...local.innerClassList,
           [local.innerClass as string]: !!local.innerClass,
-          [inputElementCss()]: true,
+          'dm-input-element': true,
         }}
       />
-      {props.adornRight && <div class={adornRightCss()}>{props.adornRight}</div>}
+      {props.adornRight && <div class="dm-adorn-right">{props.adornRight}</div>}
     </div>
   );
 };

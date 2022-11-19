@@ -77,8 +77,8 @@ $grayBase: #8c8c8c;
   --dm-color-toggle-fill-checked: #77dd77;
   --dm-color-toggle-slide-fill: linear-gradient(
     to bottom,
-    $palette.$gray50 0%,
-    $palette.$gray200 100%
+    #{palette.$gray50} 0%,
+    #{palette.$gray200} 100%
   );
 
   // Tooltips have their own color scheme, also used by callouts.

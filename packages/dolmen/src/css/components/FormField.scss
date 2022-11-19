@@ -1,0 +1,78 @@
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-form-field-title {
+    color: var(--dm-color-text);
+    font: var(--dm-font-title);
+    font-size: defs.fontSize('md');
+    font-weight: bold;
+    margin-bottom: 4px;
+    margin-top: 4px;
+  }
+
+  .dm-form-field-description {
+    color: var(--dm-color-text-dim);
+    font: var(--dm-font-body);
+    font-size: defs.fontSize('xs');
+    margin-bottom: 4px;
+  }
+
+  .dm-form-field {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+  }
+
+  .dm-form-field-message-container {
+    display: flex;
+    align-items: start;
+    margin: 4px 0;
+  }
+
+  .dm-form-field-status-icon {
+    flex-shrink: 0;
+    margin-right: defs.space('md');
+  }
+
+  .dm-form-field-message {
+    flex: 1 1 auto;
+    margin-top: 2px;
+  }
+}
+
+@layer ui-variants {
+  .dm-form-field {
+    &.dm-success {
+      .dm-form-field-message-container {
+        color: var(--dm-color-success-text);
+        --icon-color: var(--dm-color-success-icon);
+      }
+    }
+
+    &.dm-info {
+      .dm-form-field-message-container {
+        color: var(--dm-color-info-text);
+        --icon-color: var(--dm-color-info-icon);
+      }
+    }
+
+    &.dm-warning {
+      --dm-color-field-border: var(--dm-color-warning-icon);
+      --dm-color-field-border-slight: var(--dm-color-warning-icon);
+      .dm-form-field-message-container {
+        color: var(--dm-color-warning-text);
+        --icon-color: var(--dm-color-warning-icon);
+      }
+    }
+
+    &.dm-error {
+      --dm-color-field-border: var(--dm-color-error-icon);
+      --dm-color-field-border-slight: var(--dm-color-error-icon);
+      .dm-form-field-message-container {
+        color: var(--dm-color-error-text);
+        --icon-color: var(--dm-color-error-icon);
+      }
+    }
+  }
+}

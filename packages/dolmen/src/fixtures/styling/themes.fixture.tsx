@@ -13,7 +13,6 @@ import {
   Header,
   ToggleSwitch,
 } from '../../components';
-import { dark, light } from '../../theme';
 import { createTheme } from '../../styles/css';
 
 export const $category = 'styling';
@@ -99,7 +98,7 @@ const ThemeDemo: VoidComponent<{ name: string; class: string }> = props => {
     <Card style={{ flex: 1 }} class={props.class}>
       <Card.Content gap="lg">
         <Header>{props.name}</Header>
-        <Group>
+        <Group gap="md">
           <ButtonGroup>
             <Button>Iron</Button>
             <Button>Gold</Button>
@@ -144,9 +143,9 @@ const ThemeDemo: VoidComponent<{ name: string; class: string }> = props => {
 export const Themes: VoidComponent = () => {
   return (
     <Group style={{ flex: 1, 'align-items': 'stretch', 'align-self': 'stretch' }} gap="xl">
-      <ThemeDemo name="Light" class={light.className} />
-      <ThemeDemo name="Dark" class={dark.className} />
-      <ThemeDemo name="Custom" class={custom.className} />
+      <ThemeDemo name="Light" class="dm-theme-light" />
+      <ThemeDemo name="Dark" class="dm-theme-dark" />
+      <ThemeDemo name="Custom" class="dm-theme-warm" />
     </Group>
   );
 };

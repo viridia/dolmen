@@ -1,4 +1,3 @@
-@use 'sass:map';
 @use '../defs.scss';
 
 @layer ui-base {
@@ -42,8 +41,8 @@
     border-radius: 50%;
     position: absolute;
     top: 50%;
-    height: calc(var(--slider-size) * 0.13);
-    width: calc(var(--slider-size) * 0.13);
+    height: calc(var(--slider-size) * 0.1);
+    width: calc(var(--slider-size) * 0.1);
     transform: translate(-50%, -50%);
   }
 
@@ -93,11 +92,10 @@
   }
 
   .dm-slider-value-label {
-    @include defs.fontSize('xxxs');
-
     background-color: var(--dm-color-tooltip-bg);
     color: var(--dm-color-tooltip-text);
     border-radius: 3px;
+    font-size: defs.fontSize('xxxs');
     min-width: 12px;
     padding: 2px 4px;
     position: absolute;

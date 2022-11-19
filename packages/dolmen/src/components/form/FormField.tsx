@@ -1,48 +1,6 @@
 import { ParentComponent, JSX, splitProps, Show, createMemo, createUniqueId } from 'solid-js';
-import { css, fontSize, theme } from '../../styles';
 import { FormFieldContext, IInputAriaAttrs, Severity } from './FormFieldContext';
 import { FormFieldStatus } from './FormFieldStatus';
-
-const fieldTitleCss = css({
-  color: theme.colors.text,
-  font: theme.fonts.title,
-  fontSize: fontSize.md,
-  fontWeight: 'bold',
-  marginBottom: '4px',
-  marginTop: '4px',
-});
-
-const fieldDescriptionCss = css({
-  color: theme.colors.textDim,
-  font: theme.fonts.body,
-  fontSize: fontSize.xs,
-  marginBottom: '4px',
-});
-
-const fieldCss = css({
-  alignItems: 'stretch',
-  display: 'flex',
-  flexDirection: 'column',
-  fontSize: '0.8rem',
-
-  variants: {
-    severity: {
-      success: {},
-
-      info: {},
-
-      warning: {
-        [theme.colors.fieldBorder.variable]: theme.colors.warningIcon,
-        [theme.colors.fieldBorderSlight.variable]: theme.colors.warningIcon,
-      },
-
-      error: {
-        [theme.colors.fieldBorder.variable]: theme.colors.errorIcon,
-        [theme.colors.fieldBorderSlight.variable]: theme.colors.errorIcon,
-      },
-    },
-  },
-});
 
 interface FormFieldProps extends Omit<JSX.HTMLAttributes<HTMLDivElement>, 'title'> {
   error?: JSX.Element;
@@ -106,19 +64,18 @@ export const FormField: ParentComponent<FormFieldProps> = props => {
       classList={{
         ...local.classList,
         [local.class as string]: !!local.class,
-        [fieldCss({
-          severity: severity(),
-        })]: true,
+        'dm-form-field': true,
+        [`dm-${severity()}`]: Boolean(severity()),
       }}
     >
       <FormFieldContext.Provider value={{ ariaProps }}>
         <Show when={local.title}>
-          <label class={fieldTitleCss()} id={titleId()}>
+          <label class="dm-form-field-title" id={titleId()}>
             {local.title}
           </label>
         </Show>
         <Show when={local.description}>
-          <div class={fieldDescriptionCss()} id={descriptionId()}>
+          <div class="dm-form-field-description" id={descriptionId()}>
             {local.description}
           </div>
         </Show>

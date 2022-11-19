@@ -1,0 +1,78 @@
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-checkbox-label {
+    color: var(--dm-color-text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    outline: none;
+    font-family: var(--dm-font-body);
+    font-size: defs.fontSize('md');
+    gap: 6px;
+  }
+
+  .dm-checkbox-ctrl {
+    appearance: none;
+    background-color: var(--dm-color-field-bg);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--dm-color-field-border);
+    border-radius: 3px;
+    color: var(--dm-color-btn-primary-text);
+    cursor: inherit;
+    height: 16px;
+    font-size: inherit;
+    margin-right: 0;
+    margin-left: 0;
+    outline: none;
+    position: relative;
+    width: 16px;
+  }
+}
+
+@layer ui-states {
+  .dm-checkbox-label {
+    &[aria-disabled] {
+      cursor: default;
+      opacity: 0.5;
+    }
+  }
+
+  .dm-checkbox-ctrl {
+    &:focus-within:focus-visible {
+      box-shadow: 0 0 1px 3px var(--dm-color-focus);
+      z-index: defs.$zFocused;
+    }
+
+    &:checked,
+    &:indeterminate {
+      background-color: var(--dm-color-btn-primary);
+      border-color: var(--dm-color-btn-primary);
+    }
+
+    &:checked::after {
+      border-color: var(--dm-color-btn-primary-text);
+      border-width: 0 3px 3px 0;
+      border-style: solid;
+      content: '';
+      height: 8px;
+      left: 3.5px;
+      position: absolute;
+      top: 0.5px;
+      transform: rotate(35deg) scaleX(0.9);
+      width: 4px;
+    }
+
+    &:indeterminate::after {
+      background-color: var(--dm-color-btn-primary-text);
+      content: '';
+      height: 3px;
+      left: 3.5px;
+      position: absolute;
+      top: 0.5px;
+      width: 4px;
+    }
+  }
+}
