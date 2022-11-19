@@ -22,6 +22,18 @@ $size: (
 // For small buttons, make the font size a bit more readable.
 $fontSize: map.set(map.set($size, 'xxs', 0.8), 'xxxs', 0.75);
 
+@mixin fontSize($sz) {
+  font-size: map.get($fontSize, $sz) * 1rem;
+}
+
+@mixin fontSizeVariants() {
+  @each $sz, $value in $size {
+    &*.dm-#{$sz} {
+      font-size: $value;
+    }
+  }
+}
+
 $space: (
   xl: 12px,
   lg: 8px,

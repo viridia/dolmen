@@ -3,9 +3,9 @@
 
 @layer ui-base {
   .dm-alert {
+    @include defs.fontSize('sm');
     display: flex;
     flex-direction: row;
-    font-size: map.get(defs.$fontSize, 'sm');
     border-radius: 3px;
     background-color: var(--dm-color-elevation-2);
     padding: 12px 12px;

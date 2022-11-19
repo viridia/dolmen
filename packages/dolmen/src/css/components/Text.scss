@@ -1,0 +1,22 @@
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-text {
+    font-family: var(--dm-fonts-body);
+    font-size: 1rem;
+  }
+}
+
+@layer ui-variants {
+  .dm-text {
+    @include defs.fontSizeVariants();
+
+    &.dm-dim {
+      color: var(--dm-color-text-dim);
+    }
+
+    &.dm-em {
+      font-style: italic;
+    }
+  }
+}

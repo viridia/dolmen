@@ -93,6 +93,8 @@
   }
 
   .dm-slider-value-label {
+    @include defs.fontSize('xxxs');
+
     background-color: var(--dm-color-tooltip-bg);
     color: var(--dm-color-tooltip-text);
     border-radius: 3px;
@@ -100,7 +102,6 @@
     padding: 2px 4px;
     position: absolute;
     pointer-events: none;
-    font-size: map.get(defs.$fontSize, 'xxxs') * 1rem;
     opacity: 0;
     text-align: center;
     transition: opacity 0.05s linear;

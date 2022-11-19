@@ -3,12 +3,13 @@
 
 @layer ui-base {
   .dm-callout {
+    @include defs.fontSize('xxxs');
+
     align-items: center;
     background-color: var(--dm-color-tooltip-bg);
     border-radius: 3px;
     color: var(--dm-color-tooltip-text);
     flex-direction: column;
-    font-size: map.get(defs.$fontSize, 'xxxs');
     min-width: 12px;
     padding: 4px 8px;
     pointer-events: none;

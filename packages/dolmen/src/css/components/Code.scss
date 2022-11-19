@@ -1,0 +1,20 @@
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-code {
+    font-family: var(--dm-fonts-mono);
+    font-size: 1rem;
+  }
+
+  pre.dm-code {
+    font-size: 0.8rem;
+    line-height: 1.1rem;
+    margin: 0;
+  }
+}
+
+@layer ui-variants {
+  .dm-code {
+    @include defs.fontSizeVariants();
+  }
+}

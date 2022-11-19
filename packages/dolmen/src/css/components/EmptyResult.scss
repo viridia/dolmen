@@ -3,8 +3,9 @@
 
 @layer ui-base {
   .dm-empty-result {
+    @include defs.fontSize('sm');
+
     font-family: var(--dm-font-body);
-    font-size: map.get(defs.$fontSize, 'sm');
     font-style: italic;
     color: var(--dm-color-text-dim);
   }
