@@ -1,0 +1,62 @@
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-textarea {
+    @include defs.scrollbars;
+
+    background-color: var(--dm-color-field-bg);
+    color: var(--dm-color-text);
+    align-items: center;
+    appearance: none;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--dm-color-field-border-slight);
+    display: flex;
+    flex-direction: row;
+    font-family: var(--dm-font-body);
+    font-size: defs.fontSize('md');
+    font-weight: 350;
+    outline: none;
+    justify-content: center;
+    padding: 4px 6px;
+    resize: none;
+    --icon-color: var(--dm-color-text-dim);
+
+    &:hover:not(.dm-disabled) {
+      border-color: var(--dm-color-field-hover-border);
+    }
+
+    &:focus-within {
+      box-shadow: 0 0 0 2px inset var(--dm-color-focus);
+    }
+
+    &::selection {
+      background: var(--dm-color-text-selection-bg);
+      color: var(--dm-color-text-selection);
+    }
+
+    &::placeholder {
+      color: var(--dm-color-text-dim);
+    }
+  }
+}
+
+@layer ui-variants {
+  .dm-textarea {
+    &:disabled {
+      opacity: 0.5;
+    }
+
+    &[readonly] {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    @each $sz, $value in defs.$size {
+      &.dm-size-#{$sz} {
+        font-size: $value * 1rem;
+      }
+    }
+  }
+}

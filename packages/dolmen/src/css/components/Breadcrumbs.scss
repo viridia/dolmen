@@ -1,0 +1,38 @@
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-breadcrumbs-item,
+  .dm-breadcrumbs-link {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    color: var(--dm-color-text);
+  }
+
+  .dm-breadcrumbs-link {
+    text-decoration: none;
+    color: var(--dm-color-text-link);
+    font-weight: normal;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .dm-breadcrumbs {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+  }
+
+  .dm-breadcrumbs-separator {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    padding: 0, 8px;
+    --icon-color: var(--dm-color-text-dim);
+  }
+}

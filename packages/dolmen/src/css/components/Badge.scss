@@ -1,13 +1,6 @@
 @use 'sass:map';
 @use '../defs.scss';
 
-@mixin badgeSize($sz) {
-  &.dm-size-#{$sz} {
-    height: map.get(defs.$size, $sz) * 1.1rem;
-    font-size: map.get(defs.$fontSize, $sz) * 0.7rem;
-  }
-}
-
 @layer ui-base {
   .dm-badge {
     align-items: center;
@@ -24,11 +17,12 @@
 
 @layer ui-variants {
   .dm-badge {
-    @include badgeSize('xl');
-    @include badgeSize('lg');
-    @include badgeSize('md');
-    @include badgeSize('sm');
-    @include badgeSize('xs');
+    @each $sz, $value in defs.$size {
+      &.dm-size-#{$sz} {
+        height: map.get(defs.$size, $sz) * 1.1rem;
+        font-size: map.get(defs.$fontSize, $sz) * 0.7rem;
+      }
+    }
 
     &.dm-radius-xl {
       border-radius: 32px;

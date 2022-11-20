@@ -14,7 +14,6 @@ import {
 import { Portal } from 'solid-js/web';
 import { createCssTransition } from '../../hooks';
 import { Info, Success, Warning, Error } from '../../icons';
-import { css, fontSize, theme, Z } from '../../styles';
 
 const defaultTimeout = 30000;
 
@@ -35,101 +34,6 @@ interface IToast extends IToastInput {
   timeout: number;
   placement: ToastPlacement;
 }
-
-const toastCss = css({
-  backgroundColor: theme.colors.elevation2,
-  borderRadius: '4px',
-  borderLeft: `8px solid ${theme.colors.btnSelected.value}`,
-  color: theme.colors.text,
-  display: 'flex',
-  flexDirection: 'row',
-  fontSize: fontSize.md,
-  gap: 6,
-  padding: '4px 8px',
-  width: '18rem',
-  boxShadow: '0 0 3px 0 $colors$shadow',
-  pointerEvents: 'all',
-  cursor: 'pointer',
-  transform: 'translate(0, 0)',
-  transition: 'transform 0.4s ease, top 0.4s ease, bottom 0.4s ease',
-  position: 'absolute',
-
-  '&.entering, &.entered': {
-    transform: 'translate(0, 0)',
-  },
-
-  variants: {
-    severity: {
-      success: {
-        borderColor: theme.colors.successIcon,
-        backgroundColor: theme.colors.successBg,
-        color: theme.colors.successText,
-        '--icon-color': theme.colors.successIcon,
-      },
-      info: {
-        borderColor: theme.colors.infoIcon,
-        backgroundColor: theme.colors.infoBg,
-        color: theme.colors.infoText,
-        '--icon-color': theme.colors.infoIcon,
-      },
-      warning: {
-        borderColor: theme.colors.warningIcon,
-        backgroundColor: theme.colors.warningBg,
-        color: theme.colors.warningText,
-        '--icon-color': theme.colors.warningIcon,
-      },
-      error: {
-        borderColor: theme.colors.errorIcon,
-        backgroundColor: theme.colors.errorBg,
-        color: theme.colors.errorText,
-        '--icon-color': theme.colors.errorIcon,
-      },
-    },
-
-    placement: {
-      'top-left': {
-        transform: 'translateX(-120%)',
-        left: 16,
-      },
-
-      'top-right': {
-        transform: 'translateX(120%)',
-        right: 16,
-      },
-
-      'bottom-left': {
-        transform: 'translateX(-120%)',
-        left: 16,
-      },
-
-      'bottom-right': {
-        transform: 'translateX(120%)',
-        right: 16,
-      },
-    },
-  },
-});
-
-const toastContentCss = css({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'stretch',
-  gap: 8,
-  padding: '2px 0',
-});
-
-const toastIconCss = css({
-  width: 20,
-});
-
-const toastTitleCss = css({
-  fontWeight: 'bold',
-});
-
-const toastBodyCss = css({
-  fontWeight: 'normal',
-  fontSize: fontSize.sm,
-});
 
 const Toast: VoidComponent<IToast> = props => {
   const state = createCssTransition({
@@ -154,10 +58,8 @@ const Toast: VoidComponent<IToast> = props => {
     <div
       role="alert"
       classList={{
-        [toastCss({
-          severity: props.severity,
-          placement: props.placement,
-        })]: true,
+        "dm-toast": true,
+        [`dm-${props.severity}`]: Boolean(props.severity),
         [state()]: true,
       }}
       onClick={() => {
@@ -167,50 +69,37 @@ const Toast: VoidComponent<IToast> = props => {
     >
       <Switch>
         <Match when={props.severity === 'success'}>
-          <div class={toastIconCss()}>
+          <div class="dm-toast-icon">
             <Success width={16} />
           </div>
         </Match>
         <Match when={props.severity === 'info'}>
-          <div class={toastIconCss()}>
+          <div class="dm-toast-icon">
             <Info width={16} />
           </div>
         </Match>
         <Match when={props.severity === 'warning'}>
-          <div class={toastIconCss()}>
+          <div class="dm-toast-icon">
             <Warning width={16} />
           </div>
         </Match>
         <Match when={props.severity === 'error'}>
-          <div class={toastIconCss()}>
+          <div class="dm-toast-icon">
             <Error width="16px" />
           </div>
         </Match>
       </Switch>
-      <div class={toastContentCss()}>
+      <div class="dm-toast-content">
         <Show when={props.title}>
-          <div class={toastTitleCss()}>{props.title}</div>
+          <div class="dm-toast-title">{props.title}</div>
         </Show>
         <Show when={props.body}>
-          <div class={toastBodyCss()}>{props.body}</div>
+          <div class="dm-toast-body">{props.body}</div>
         </Show>
       </div>
     </div>
   );
 };
-
-const toastFrameCss = css({
-  position: 'fixed',
-  left: 0,
-  top: 0,
-  bottom: 0,
-  right: 0,
-  pointerEvents: 'none',
-  padding: 16,
-  fontFamily: theme.fonts.body,
-  gap: 8,
-  zIndex: Z.alert,
-});
 
 interface FrameProps {
   mount?: Node;
@@ -254,12 +143,12 @@ export const ToastFrame: VoidComponent<FrameProps> = props => {
 
   return props.mount ? (
     <Portal mount={props.mount}>
-      <div ref={setRef} class={toastFrameCss()}>
+      <div ref={setRef} class="dm-toast-frame">
         <For each={toastQueue()}>{toast => <Toast {...toast} />}</For>
       </div>
     </Portal>
   ) : (
-    <div ref={setRef} class={toastFrameCss()}>
+    <div ref={setRef} class="dm-toast-frame">
       <For each={toastQueue()}>{toast => <Toast {...toast} />}</For>
     </div>
   );

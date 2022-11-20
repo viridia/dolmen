@@ -1,13 +1,6 @@
 @use 'sass:map';
 @use '../defs.scss';
 
-@mixin inputSize($sz) {
-  &.dm-size-#{$sz} {
-    height: map.get(defs.$size, $sz) * 2rem;
-    font-size: map.get(defs.$fontSize, $sz) * 1rem;
-  }
-}
-
 @layer ui-base {
   .dm-input-frame {
     @include defs.scrollbars;
@@ -95,10 +88,11 @@
 
 @layer ui-variants {
   .dm-input-frame {
-    @include inputSize('xl');
-    @include inputSize('lg');
-    @include inputSize('md');
-    @include inputSize('sm');
-    @include inputSize('xs');
+    @each $sz, $value in defs.$size {
+      &.dm-size-#{$sz} {
+        height: map.get(defs.$size, $sz) * 2rem;
+        font-size: map.get(defs.$fontSize, $sz) * 1rem;
+      }
+    }
   }
 }

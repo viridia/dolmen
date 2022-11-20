@@ -1,6 +1,6 @@
 import { createMemo, createSignal, For, JSX, Show, splitProps } from 'solid-js';
-import { css } from '../../styles';
 import { Menu } from '../core/Menu';
+import { Text } from '../text/Text';
 import { IMenuContext, MenuContext } from '../core/MenuContext';
 
 interface Option<T> {
@@ -17,10 +17,6 @@ interface SelectProps<T> {
   name?: string;
   placeholder?: JSX.Element;
 }
-
-const placeholderCss = css({
-  color: '$textDim',
-});
 
 export function Select<T>(
   props: Omit<JSX.HTMLAttributes<HTMLButtonElement>, 'onSelect'> & SelectProps<T>
@@ -50,7 +46,7 @@ export function Select<T>(
         <Show
           when={selectedOption()}
           keyed
-          fallback={<div class={placeholderCss()}>{local.placeholder ?? ''}</div>}
+          fallback={<Text dim>{local.placeholder ?? ''}</Text>}
         >
           {selected => selected.label}
         </Show>

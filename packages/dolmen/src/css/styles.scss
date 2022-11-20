@@ -5,6 +5,7 @@
 @use './components/Avatar.scss';
 @use './components/Button.scss';
 @use './components/Badge.scss';
+@use './components/Breadcrumbs.scss';
 @use './components/ButtonGroup.scss';
 @use './components/Callout.scss';
 @use './components/Card.scss';
@@ -23,6 +24,7 @@
 @use './components/List.scss';
 @use './components/Menu.scss';
 @use './components/Modal.scss';
+@use './components/Nav.scss';
 @use './components/Page.scss';
 @use './components/ScrollArea.scss';
 @use './components/Slider.scss';
@@ -31,5 +33,7 @@
 @use './components/Stack.scss';
 @use './components/Table.scss';
 @use './components/Text.scss';
+@use './components/TextArea.scss';
+@use './components/Toast.scss';
 @use './components/ToggleSwitch.scss';
 @use './components/Tooltip.scss';

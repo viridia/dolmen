@@ -16,17 +16,17 @@ function NavDemo() {
   return (
     <Aside>
       <Nav style={{ width: '15rem' }}>
-        <Nav.Title>Admin</Nav.Title>
-        <Nav.Link as={A} href="/" icon={<Close />}>
-          Site
+        <Nav.Title aria-label="admin">Admin</Nav.Title>
+        <Nav.Link aria-label="site" as={A} href="/" icon={<Close />}>
+          <span>Site</span>
         </Nav.Link>
-        <Nav.Link as={A} href="/" active icon={<Cancel />}>
+        <Nav.Link aria-label="channels" as={A} href="/" active icon={<Cancel />}>
           Channels
         </Nav.Link>
-        <Nav.Link as={A} href="/" icon={<Success />}>
+        <Nav.Link aria-label="users" as={A} href="/" icon={<Success />}>
           Users
         </Nav.Link>
-        <Nav.Link as={A} href="/" disabled>
+        <Nav.Link aria-label="settings" as={A} href="/" disabled>
           Settings
         </Nav.Link>
       </Nav>

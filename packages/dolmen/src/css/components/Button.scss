@@ -1,13 +1,6 @@
 @use 'sass:map';
 @use '../defs.scss';
 
-@mixin buttonSize($sz) {
-  &.dm-size-#{$sz} {
-    height: map.get(defs.$size, $sz) * 2rem;
-    font-size: map.get(defs.$fontSize, $sz) * 1rem;
-  }
-}
-
 @layer ui-base {
   .dm-button {
     align-items: center;
@@ -44,13 +37,12 @@
 
 @layer ui-variants {
   .dm-button {
-    @include buttonSize('xl');
-    @include buttonSize('lg');
-    @include buttonSize('md');
-    @include buttonSize('sm');
-    @include buttonSize('xs');
-    @include buttonSize('xxs');
-    @include buttonSize('xxxs');
+    @each $sz, $value in defs.$size {
+      &.dm-size-#{$sz} {
+        height: map.get(defs.$size, $sz) * 2rem;
+        font-size: map.get(defs.$fontSize, $sz) * 1rem;
+      }
+    }
 
     &.dm-color-primary {
       color: var(--dm-color-btn-primary-text);

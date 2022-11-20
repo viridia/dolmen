@@ -1,7 +1,6 @@
 import { createStitches } from '@stitches/core';
 import { colord } from 'colord';
 import { palette } from './palette';
-import { fontSize } from './size';
 
 const primaryColor = '#6469ff';
 const dangerColor = '#992ca9';
@@ -111,17 +110,3 @@ const { getCssText, css, createTheme, theme, config, globalCss } = createStitche
 });
 
 export { getCssText, css, createTheme, theme, config, globalCss };
-
-export const stdFontSizes = css({
-  variants: {
-    size: {
-      xl: { fontSize: fontSize.xl },
-      lg: { fontSize: fontSize.lg },
-      md: { fontSize: fontSize.md },
-      sm: { fontSize: fontSize.sm },
-      xs: { fontSize: fontSize.xs },
-      xxs: { fontSize: fontSize.xxs },
-      xxxs: { fontSize: fontSize.xxxs },
-    },
-  },
-});
