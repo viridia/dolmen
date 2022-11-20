@@ -3,6 +3,7 @@
 @layer ui-base {
   .dm-text {
     font-family: var(--dm-fonts-body);
+    font-weight: normal;
     font-size: 1rem;
   }
 }
@@ -17,6 +18,10 @@
 
     &.dm-em {
       font-style: italic;
+    }
+
+    &.dm-strong {
+      font-weight: bold;
     }
   }
 }

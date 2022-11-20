@@ -25,11 +25,20 @@ interface TextProps {
     | 'var';
   dim?: boolean;
   em?: boolean;
+  strong?: boolean;
   size?: TextSizeVariant;
 }
 
 export const Text: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & TextProps> = props => {
-  const [local, rest] = splitProps(props, ['size', 'as', 'dim', 'em', 'class', 'classList']);
+  const [local, rest] = splitProps(props, [
+    'size',
+    'as',
+    'dim',
+    'em',
+    'strong',
+    'class',
+    'classList',
+  ]);
 
   return (
     <Dynamic
@@ -41,6 +50,7 @@ export const Text: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & TextProp
         'dm-text': true,
         'dm-dim': Boolean(local.dim),
         'dm-em': Boolean(local.em),
+        'dm-strong': Boolean(local.strong),
         [`dm-size-${local.size}`]: Boolean(local.size),
       }}
     />

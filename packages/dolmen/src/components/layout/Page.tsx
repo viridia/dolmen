@@ -61,6 +61,7 @@ export const Page: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> 
       {...rest}
       classList={{
         ...local.classList,
+        ...flexProps(local),
         [local.class as string]: !!local.class,
         'dm-page': true,
       }}
