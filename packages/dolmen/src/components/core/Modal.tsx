@@ -122,6 +122,7 @@ const ModalDialogInner: ParentComponent<
 
 interface ModalDialogProps extends JSX.HTMLAttributes<HTMLDialogElement> {
   state: CssTransitionState;
+  size?: DialogSizeVariant;
   withClose?: boolean;
   onClose?: () => void;
   onExited?: () => void;
