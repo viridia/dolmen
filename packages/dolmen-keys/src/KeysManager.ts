@@ -95,7 +95,7 @@ export class KeysManager {
         entry.listener(this.heldKeys, code);
       }
 
-      const scList = entry.shortcuts?.[e.key];
+      const scList = entry.shortcuts?.[e.code];
       if (scList) {
         const sc = scList.find(s => s.modifiers === modifiers);
         if (sc) {

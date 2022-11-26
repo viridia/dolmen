@@ -38,6 +38,9 @@ function ShortcutsDemo() {
     'meta+z': () => {
       codex.log('meta+z');
     },
+    'space': () => {
+      codex.log('space');
+    },
   });
 
   // const click = codex.action('click');

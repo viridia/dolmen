@@ -95,13 +95,13 @@ export function getBaseKeyCodes(combos: string | string[]): string[] {
       return [];
     }
 
+    const group = keyGroups[key];
+    if (group) {
+      return group;
+    }
+
     const code = convertKeyNameToKeyCode(key);
     if (!code) {
-      const group = keyGroups[key];
-      if (group) {
-        return group;
-      }
-
       console.error(key);
       throw new Error(`Invalid key code: ${key}`);
     }

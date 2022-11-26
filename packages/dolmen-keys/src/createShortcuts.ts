@@ -1,6 +1,6 @@
 import { KeysManagerContext, ShortcutMap } from './KeysManager';
 import equals from 'fast-deep-equal';
-import { convertSpecialKeyNameToKeyCode } from './keyNames';
+import { convertKeyNameToKeyCode } from './keyNames';
 import { createEffect, createSignal, useContext } from 'solid-js';
 
 type Callback = (e: KeyboardEvent) => void;
@@ -34,7 +34,7 @@ export function createShortcutMap(inputMap: { [key: string]: Callback }) {
       return;
     }
 
-    const triggerKey = convertSpecialKeyNameToKeyCode(nonMods[0]);
+    const triggerKey = convertKeyNameToKeyCode(nonMods[0]);
     if (!triggerKey) {
       console.error(`Invalid key name: ${nonMods[0]}`);
       return;

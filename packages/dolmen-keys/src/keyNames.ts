@@ -39,10 +39,10 @@ export function convertKeyNameToKeyCode(keyName: string): KeyCode | undefined {
   } else if (/^[a-zA-Z]$/.test(keyName)) {
     return `Key${keyName.toUpperCase()}` as KeyCode;
   } else {
-    return keyCodeNames[keyName];
+    return keyCodeNames[keyName] ?? keyName;
   }
 }
 
-export function convertSpecialKeyNameToKeyCode(keyName: string): KeyCode | undefined {
-  return specialKeyNames[keyName] || keyName.toLowerCase();
-}
+// export function convertSpecialKeyNameToKeyCode(keyName: string): KeyCode | undefined {
+//   return specialKeyNames[keyName] || convertKeyNameToKeyCode(keyName);
+// }
