@@ -1,10 +1,13 @@
 # Components
 
+* Shortcuts prevent dialog-Escape key from working.
 * More flexible 'Text'
   * margins
+  * "size" property doesn't work.
 * Hud overlay?
 * Radio / RadioGroup
 * Divided button
+* Kbd
 * Chip
 * Tabs
 * Progress Bar

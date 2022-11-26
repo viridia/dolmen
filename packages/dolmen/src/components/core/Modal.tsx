@@ -107,7 +107,7 @@ const ModalDialogInner: ParentComponent<
     <dialog
       {...rest}
       {...focusProps}
-      aria-role="dialog"
+      role="dialog"
       classList={{
         ...local.classList,
         [local.class as string]: !!local.class,

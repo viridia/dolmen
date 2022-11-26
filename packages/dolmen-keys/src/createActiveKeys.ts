@@ -17,9 +17,6 @@ export function createActiveKeys<T extends Record<string, string>, K extends key
       const exList = exclusionMap.get(key) ?? [];
       exList.forEach(k => exclusions.add(k));
     }
-    if (exclusions.size > 0) {
-      console.log(signal, 'x', Array.from(exclusions));
-    }
     const exclusionsArray = Array.from(exclusions);
     Object.defineProperty(state, signal, {
       get: () => {

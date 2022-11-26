@@ -1,7 +1,7 @@
 import { KeysManagerContext, ShortcutMap } from './KeysManager';
 import equals from 'fast-deep-equal';
 import { convertKeyNameToKeyCode } from './keyNames';
-import { createEffect, createSignal, useContext } from 'solid-js';
+import { createEffect, createSignal, onCleanup, useContext } from 'solid-js';
 
 type Callback = (e: KeyboardEvent) => void;
 
@@ -81,7 +81,7 @@ export const createShortcuts = <T extends object>(
   createEffect(() => {
     const shortcuts = createShortcutMap(currentMap());
     if (Object.keys(shortcuts).length > 0) {
-      return mgr.push({ shortcuts, modal });
+      onCleanup(mgr.push({ shortcuts, modal }));
     }
   }, [currentMap, mgr, modal]);
 };

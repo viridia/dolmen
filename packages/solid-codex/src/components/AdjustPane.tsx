@@ -3,7 +3,12 @@ import { useCodex } from 'solid-codex-api';
 import { createEffect, createSignal, Show, VoidComponent } from 'solid-js';
 import { unstable_clientOnly } from 'solid-start';
 import { useUserSettings } from '../settings';
-import { adjustPaneStyle } from './styles.css';
+import {
+  adjustPaneStyle,
+  adjustPaneParamsSection,
+  adjustPaneLogSection,
+  adjustPaneEventLog,
+} from './styles.css';
 
 const ParamsEditorClient = unstable_clientOnly(() => import('./ParamsEditor'));
 
@@ -33,12 +38,12 @@ export const AdjustPane: VoidComponent = () => {
         <Drawer.Header>
           <Title>Adjust Parameters</Title>
         </Drawer.Header>
-        <Drawer.Content flex="0 1 auto">
+        <Drawer.Content class={adjustPaneParamsSection}>
           <ParamsEditorClient />
         </Drawer.Content>
-        <Drawer.Content flex="1 1 auto">
+        <Drawer.Content class={adjustPaneLogSection}>
           <Title>Event Log</Title>
-          <ScrollArea alignSelf="stretch" flex="1 1 0" mb="lg">
+          <ScrollArea class={adjustPaneEventLog}>
             <CodeBlock size="xs">{codex.logs().join('\n')}</CodeBlock>
           </ScrollArea>
         </Drawer.Content>

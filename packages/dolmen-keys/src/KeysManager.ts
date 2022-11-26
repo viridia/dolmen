@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { createContext, useContext } from 'solid-js';
 import { createStore, SetStoreFunction, Store } from 'solid-js/store';
 import { KeyCode, KeyCodes } from './KeyCodes';
@@ -33,20 +32,18 @@ export class KeysManager {
     this.onKeyUp = this.onKeyUp.bind(this);
     this.onBlur = this.onBlur.bind(this);
     this.watch = this.watch.bind(this);
-    /** @ts-ignore */
-    if (globalThis.addEventListener) {
-      globalThis.addEventListener('keydown', this.onKeyDown);
-      globalThis.addEventListener('keyup', this.onKeyUp);
-      globalThis.addEventListener('blur', this.onBlur);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('keydown', this.onKeyDown);
+      window.addEventListener('keyup', this.onKeyUp);
+      window.addEventListener('blur', this.onBlur);
     }
   }
 
   public dispose() {
-    /** @ts-ignore */
-    if (globalThis.addEventListener) {
-      globalThis.removeEventListener('keydown', this.onKeyDown);
-      globalThis.removeEventListener('keyup', this.onKeyUp);
-      globalThis.removeEventListener('blur', this.onBlur);
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('keydown', this.onKeyDown);
+      window.removeEventListener('keyup', this.onKeyUp);
+      window.removeEventListener('blur', this.onBlur);
     }
     this.watchers = [];
   }
@@ -110,8 +107,6 @@ export class KeysManager {
         return;
       }
     }
-
-    // this.notifyWatchers(code);
   }
 
   // Remove from the set of held keys.

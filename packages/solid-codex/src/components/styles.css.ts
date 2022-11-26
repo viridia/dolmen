@@ -33,6 +33,20 @@ export const adjustPaneStyle = style({
   zIndex: 300,
 });
 
+export const adjustPaneParamsSection = style({
+  flex: '1 1 auto',
+});
+
+export const adjustPaneLogSection = style({
+  flex: '1 1 auto',
+});
+
+export const adjustPaneEventLog = style({
+  flex: '1 1 0',
+  alignSelf: 'stretch',
+  marginBottom: '8px'
+});
+
 export const catalogGroup = style({
   paddingLeft: '1rem',
   height: 0,

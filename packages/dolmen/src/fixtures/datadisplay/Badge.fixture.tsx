@@ -41,6 +41,37 @@ function BadgeDemo() {
           radius = xl
         </Badge>
       </Group>
+      Inline
+      <Group gap="md" alignItems="center">
+        <Badge size="xs" color="#00ff88">
+          Welcome
+        </Badge>{' '}
+        Size = xs
+      </Group>
+      <Group gap="md">
+        <Badge size="sm" color="#00ff88">
+          Welcome
+        </Badge>{' '}
+        Size = sm
+      </Group>
+      <Group gap="md">
+        <Badge size="md" color="#00ff88">
+          Welcome
+        </Badge>{' '}
+        Size = md
+      </Group>
+      <Group gap="md">
+        <Badge size="lg" color="#00ff88">
+          Welcome
+        </Badge>{' '}
+        Size = lg
+      </Group>
+      <Group gap="md">
+        <Badge size="xl" color="#00ff88">
+          Welcome
+        </Badge>{' '}
+        Size = xl
+      </Group>
     </Stack>
   );
 }
