@@ -1,3 +1,3 @@
 export * from './Code';
-export * from './Text';
+export * from './TextSpan';
 export * from './Header';

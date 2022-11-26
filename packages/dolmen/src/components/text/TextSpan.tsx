@@ -12,6 +12,7 @@ interface TextProps {
     | 'bdo'
     | 'cite'
     | 'dfn'
+    | 'div'
     | 'em'
     | 'i'
     | 'kbd'
@@ -29,7 +30,7 @@ interface TextProps {
   size?: TextSizeVariant;
 }
 
-export const Text: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & TextProps> = props => {
+export const TextSpan: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & TextProps> = props => {
   const [local, rest] = splitProps(props, [
     'size',
     'as',
@@ -56,3 +57,5 @@ export const Text: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & TextProp
     />
   );
 };
+
+export const Text = TextSpan;

@@ -1,36 +1,35 @@
 # Components
 
-* Slider
-  * Marks (redo?)
-  * Vertical
-  * Quantization
-* Hud overlay?
 * More flexible 'Text'
+* Hud overlay?
 * Radio / RadioGroup
 * Divided button
 * Chip
-* Select
-  * Test events
-  * Test form submit
+* Tabs
+* Progress Bar
+* ToolBar
+* ToolPalette
 * Menu
   * Shortcuts
   * Submenus
   * forward ref
   * Prefix navigation
+* Slider
+  * Marks (redo?)
+  * Vertical
+  * Quantization
+* Select
+  * Test events
+  * Test form submit
 * Color Picker
   * GradientSlider
   * Color Swatch
   * HueSaturationSelector
 * TableGrid
-* Tabs
 * Pagination
-* Toast
 * Snackbar
-* Progress Bar
 * Collapse
 * Divider
-* ToolBar
-* ToolPalette
 
 ## Possible
 

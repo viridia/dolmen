@@ -1,6 +1,6 @@
 import { createMemo, createSignal, For, JSX, Show, splitProps } from 'solid-js';
 import { Menu } from '../core/Menu';
-import { Text } from '../text/Text';
+import { Text } from '../text/TextSpan';
 import { IMenuContext, MenuContext } from '../core/MenuContext';
 
 interface Option<T> {
