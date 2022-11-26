@@ -15,6 +15,7 @@
     justify-content: center;
     margin: 0;
     outline: none;
+    text-decoration: none;
     white-space: nowrap;
     padding: 0 0.7em;
 
@@ -71,15 +72,17 @@
     &.dm-color-subtle {
       background-color: transparent;
       border-color: transparent;
-      color: var(--dm-color-text);
+      color: var(--dm-color-text-dim);
+      --icon-color: var(--dm-color-text-dim);
       &:hover:not([disabled]) {
         background-color: var(--dm-color-item-hover-bg);
+        --icon-color: var(--dm-color-text);
       }
       &:active:not([disabled]) {
         background-color: var(--dm-color-item-hover-bg);
         filter: brightness(0.9);
+        --icon-color: var(--dm-color-text);
       }
-      --icon-color: var(--dm-color-text-dim);
     }
 
     // Used internally for menubuttons
@@ -114,7 +117,7 @@
         background-color: transparent;
         border-color: transparent;
         color: var(--dm-color-text);
-        --icon-color: var(--dm-color-text-dim);
+        --icon-color: var(--dm-color-text);
       }
     }
 

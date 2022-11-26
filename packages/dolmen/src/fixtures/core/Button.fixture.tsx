@@ -80,26 +80,62 @@ function ButtonColors() {
         </Button>
       </Group>
       <Group gap="md">
-        <Button color="default" icon disabled={params.disabled()} round={params.round()} onClick={click}>
+        <Button
+          color="default"
+          icon
+          disabled={params.disabled()}
+          round={params.round()}
+          onClick={click}
+        >
           <Cancel />
         </Button>
-        <Button color="primary" icon disabled={params.disabled()} round={params.round()} onClick={click}>
+        <Button
+          color="primary"
+          icon
+          disabled={params.disabled()}
+          round={params.round()}
+          onClick={click}
+        >
           <Cancel />
         </Button>
-        <Button color="danger" icon disabled={params.disabled()} round={params.round()} onClick={click}>
+        <Button
+          color="danger"
+          icon
+          disabled={params.disabled()}
+          round={params.round()}
+          onClick={click}
+        >
           <Cancel />
         </Button>
-        <Button color="subtle" icon disabled={params.disabled()} round={params.round()} onClick={click}>
+        <Button
+          color="subtle"
+          icon
+          disabled={params.disabled()}
+          round={params.round()}
+          onClick={click}
+        >
           <Cancel />
         </Button>
       </Group>
       Selected
       <Group gap="md">
-        <Button color="default" selected disabled={params.disabled()} round={params.round()} onClick={click}>
+        <Button
+          color="default"
+          selected
+          disabled={params.disabled()}
+          round={params.round()}
+          onClick={click}
+        >
           Default
           <Cancel />
         </Button>
-        <Button color="subtle" selected disabled={params.disabled()} round={params.round()} onClick={click}>
+        <Button
+          color="subtle"
+          selected
+          disabled={params.disabled()}
+          round={params.round()}
+          onClick={click}
+        >
           Subtle
           <Cancel />
         </Button>
@@ -127,8 +163,30 @@ function ButtonVariants() {
   );
 }
 
+function ButtonLinks() {
+  const codex = useCodex();
+  const click = codex.action('click');
+  return (
+    <Group gap="md">
+      <Button.Link href="core-button-colors" target="new" onClick={click}>
+        Regular
+      </Button.Link>
+      <Button.Link href="core-button-colors" target="new" round onClick={click}>
+        Rounded
+      </Button.Link>
+      <Button.Link href="core-button-colors" target="new" icon onClick={click}>
+        <Cancel />
+      </Button.Link>
+      <Button.Link href="core-button-colors" target="new" icon round onClick={click}>
+        <Cancel />
+      </Button.Link>
+    </Group>
+  );
+}
+
 export default {
   sizes: () => <ButtonSizes />,
   colors: () => <ButtonColors />,
   variants: () => <ButtonVariants />,
+  links: () => <ButtonLinks />,
 };

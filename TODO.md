@@ -4,6 +4,8 @@
   * Marks (redo?)
   * Vertical
   * Quantization
+* Hud overlay?
+* More flexible 'Text'
 * Radio / RadioGroup
 * Divided button
 * Chip

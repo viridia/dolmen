@@ -1,9 +1,11 @@
-import { ParentComponent, Show, useContext } from 'solid-js';
+import { JSX, ParentComponent, Show, useContext } from 'solid-js';
 import { ChevronDown } from '../../icons';
 import { Button, ButtonProps } from './Button';
 import { MenuContext } from './MenuContext';
 
-export const MenuButton: ParentComponent<ButtonProps & { caret?: boolean }> = props => {
+export const MenuButton: ParentComponent<
+  JSX.ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps & { caret?: boolean }
+> = props => {
   const context = useContext(MenuContext);
   if (!context) {
     throw new Error('MenuButton must be inside of a Menu');
