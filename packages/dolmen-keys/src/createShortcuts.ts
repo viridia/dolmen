@@ -63,19 +63,19 @@ const EMPTY_MAP = {};
 export const createShortcuts = <T extends object>(
   shortcuts: KeyMap<T>,
   modal = false,
-  enabled = true
+  enabled?: () => boolean
 ) => {
   const mgr = useContext(KeysManagerContext);
   const [currentMap, setCurrentMap] = createSignal<KeyMap<T>>(EMPTY_MAP as KeyMap<T>);
 
   // Memoize map: prevent keymaps from being unbound and rebound on every render.
   createEffect(() => {
-    if (!enabled) {
+    if (enabled && !enabled()) {
       setCurrentMap(() => EMPTY_MAP as KeyMap<T>);
     } else if (!equals(shortcuts, currentMap())) {
       setCurrentMap(() => shortcuts);
     }
-  }, [shortcuts, currentMap, enabled]);
+  });
 
   // Build map of shortcut key names and modifiers.
   createEffect(() => {
@@ -83,5 +83,5 @@ export const createShortcuts = <T extends object>(
     if (Object.keys(shortcuts).length > 0) {
       onCleanup(mgr.push({ shortcuts, modal }));
     }
-  }, [currentMap, mgr, modal]);
+  });
 };
