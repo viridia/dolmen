@@ -1,6 +1,7 @@
 # Components
 
 * More flexible 'Text'
+  * margins
 * Hud overlay?
 * Radio / RadioGroup
 * Divided button
