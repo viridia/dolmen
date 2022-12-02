@@ -8,16 +8,8 @@ interface BadgeProps {
   radius?: SizeVariant;
 }
 
-export const Badge: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & BadgeProps
-> = props => {
-  const [local, rest] = splitProps(props, [
-    'color',
-    'size',
-    'radius',
-    'class',
-    'classList',
-  ]);
+export const Badge: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & BadgeProps> = props => {
+  const [local, rest] = splitProps(props, ['color', 'size', 'radius', 'class', 'classList']);
   const c = colord(local.color ?? '#888888');
   const textColor = c.isLight() ? '#000' : '#fff'; // Compute contrasting color.
 

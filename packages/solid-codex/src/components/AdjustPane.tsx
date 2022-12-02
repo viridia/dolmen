@@ -1,4 +1,4 @@
-import { Drawer, dark, Title, ScrollArea, CodeBlock } from 'dolmen';
+import { Drawer, Title, ScrollArea, CodeBlock } from 'dolmen';
 import { useCodex } from 'solid-codex-api';
 import { createEffect, createSignal, Show, VoidComponent } from 'solid-js';
 import { unstable_clientOnly } from 'solid-start';
@@ -30,7 +30,7 @@ export const AdjustPane: VoidComponent = () => {
   return (
     <Drawer
       side="start"
-      classList={{ [dark.className]: true, [adjustPaneStyle]: true }}
+      classList={{ 'dm-theme-dark': true, [adjustPaneStyle]: true }}
       open={settings.showAdjust}
       size="300px"
     >

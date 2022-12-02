@@ -1,8 +1,7 @@
 import { colord } from 'colord';
 import { For, VoidComponent } from 'solid-js';
 import { Group } from '../../components';
-import { theme } from '../../styles';
-import { dark, light } from '../../theme';
+import { designTokens, DesignTokens } from '../../styles';
 import './styles.scss';
 
 export const $name = 'theme colors';
@@ -19,12 +18,14 @@ const Swatch: VoidComponent<{ color: string; key?: string }> = props => {
   );
 };
 
-const Palette: VoidComponent<{ name: string; colors: typeof light.colors }> = props => {
-  const keys = Object.keys(theme.colors) as (keyof typeof light.colors)[];
+const Palette: VoidComponent<{ name: string; class: string }> = props => {
+  const keys = Object.keys(designTokens.color) as (keyof DesignTokens['color'])[];
   return (
-    <div>
+    <div class={props.class}>
       <div class="name">{props.name}</div>
-      <For each={keys}>{key => <Swatch color={props.colors[key].value} key={key} />}</For>
+      <For each={keys}>
+        {key => <Swatch color={designTokens.color[key].value} key={designTokens.color[key].var} />}
+      </For>
     </div>
   );
 };
@@ -32,8 +33,8 @@ const Palette: VoidComponent<{ name: string; colors: typeof light.colors }> = pr
 function ThemeColors() {
   return (
     <Group gap="lg" alignItems="start">
-      <Palette name="light" colors={light.colors} />
-      <Palette name="dark" colors={dark.colors} />
+      <Palette name="light" class="dm-theme-light" />
+      <Palette name="dark" class="dm-theme-dark" />
     </Group>
   );
 }

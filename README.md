@@ -5,9 +5,9 @@ Dolmen is a themeable UI component library designed to work with Solid.js and op
 
 ## Themes
 
-Themes are implemented using [Stitches](https://stitches.dev/) and CSS variables.
-Once a theme has been defined, you can add it to any element (and it's descendants) by adding
-the theme's class to that element. There is no need for a theme provider or context.
+Themes are implemented using CSS variables. Once a theme has been defined, you can add it to
+any element (and it's descendants) by adding the theme's class to that element. There is no
+need for a theme provider or context.
 
 Multiple themes are supported, so you can have (for example) a sidebar with a different color
 scheme than the main page.

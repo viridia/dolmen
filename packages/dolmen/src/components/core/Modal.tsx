@@ -47,9 +47,7 @@ const ModalHeader: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> 
   );
 };
 
-const ModalBody: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & FlexProps
-> = props => {
+const ModalBody: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & FlexProps> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', ...flexKeys]);
   return (
     <div
@@ -64,9 +62,7 @@ const ModalBody: ParentComponent<
   );
 };
 
-const ModalFooter: ParentComponent<
-  JSX.HTMLAttributes<HTMLElement> & FlexProps
-> = props => {
+const ModalFooter: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', ...flexKeys]);
   return (
     <footer
@@ -81,9 +77,7 @@ const ModalFooter: ParentComponent<
   );
 };
 
-const ModalDialogInner: ParentComponent<
-  ModalProps & { state: CssTransitionState }
-> = props => {
+const ModalDialogInner: ParentComponent<ModalProps & { state: CssTransitionState }> = props => {
   const [local, rest] = splitProps(props, [
     'size',
     'open',
@@ -129,9 +123,7 @@ interface ModalDialogProps extends JSX.HTMLAttributes<HTMLDialogElement> {
   mount?: Node;
 }
 
-export const ModalDialog: ParentComponent<
-  ModalDialogProps
-> = props => {
+export const ModalDialog: ParentComponent<ModalDialogProps> = props => {
   const [local, rest] = splitProps(props, ['withClose', 'children', 'mount']);
 
   return (

@@ -1,9 +1,7 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { flexKeys, flexProps, FlexProps } from '../../styles';
 
-const CardContent: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & FlexProps
-> = props => {
+const CardContent: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & FlexProps> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', ...flexKeys]);
 
   return (
@@ -19,9 +17,7 @@ const CardContent: ParentComponent<
   );
 };
 
-export const Card: ParentComponent<
-  JSX.HTMLAttributes<HTMLElement> & FlexProps
-> & {
+export const Card: ParentComponent<JSX.HTMLAttributes<HTMLElement> & FlexProps> & {
   Content: typeof CardContent;
 } = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', ...flexKeys]);

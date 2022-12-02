@@ -1,9 +1,7 @@
 import { ParentComponent, JSX, splitProps } from 'solid-js';
 import { flexKeys, flexProps, FlexProps } from '../../styles';
 
-export const Group: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & FlexProps
-> = props => {
+export const Group: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & FlexProps> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', ...flexKeys]);
 
   return (

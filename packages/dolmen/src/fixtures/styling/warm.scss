@@ -1,0 +1,86 @@
+@use 'sass:color';
+@use '../../css/palette.scss';
+
+$primaryColor: #9a7e42;
+$dangerColor: #7d248a;
+$textHighlight: #81665566;
+
+.dm-theme-warm {
+  // Flat surfaces - page, card, modal, header
+  --dm-color-elevation-0: #{palette.$warmgray900};
+  --dm-color-elevation-1: #{palette.$warmgray850};
+  --dm-color-elevation-2: #{palette.$warmgray800};
+
+  // "Wells" are interactive regions such as input, list box, etc.
+  --dm-color-field-bg: #{palette.$warmgray800};
+  --dm-color-field-border: #{palette.$warmgray600};
+  --dm-color-field-border-slight: #{palette.$warmgray700};
+  --dm-color-field-hover-border: #{palette.$warmgray600};
+
+  // Text colors
+  --dm-color-text: #{palette.$warmgray200};
+  --dm-color-text-dim: #{palette.$warmgray500};
+  --dm-color-text-selection: #{palette.$white};
+  --dm-color-text-selection-bg: #{$textHighlight};
+  --dm-color-text-link: #{color.adjust($primaryColor, $lightness: 15%, $saturation: -10%)};
+
+  // Severities
+  --dm-color-success-text: #aea;
+  --dm-color-success-icon: #4a4;
+  --dm-color-success-bg: #223322;
+  --dm-color-info-text: #bbf;
+  --dm-color-info-icon: #66e;
+  --dm-color-info-bg: #333355;
+  --dm-color-warning-text: #eea;
+  --dm-color-warning-icon: #a80;
+  --dm-color-warning-bg: #333322;
+  --dm-color-error-text: #fbb;
+  --dm-color-error-icon: #d00;
+  --dm-color-error-bg: #332222;
+
+  // Colors for selected items (menus, list rows)
+  --dm-color-item-hover-bg: #{color.change(palette.$warmgray400, $alpha: 0.1)};
+  --dm-color-item-focus-bg: #{palette.$warmgray700};
+  --dm-color-item-selected-text: #{palette.$white};
+  --dm-color-item-selected-bg: #{$primaryColor};
+
+  // Various dynamic colors
+  --dm-color-focus: #8183ff88;
+  --dm-color-shadow: #{palette.$black};
+  --dm-color-backdrop: #{color.change(palette.$black, $alpha: 0.3)};
+
+  --dm-color-btn-bg: #{palette.$warmgray800};
+
+  // Buttons (also used by some other controls such as checkbox and radio)
+  --dm-color-btn-primary: #{$primaryColor};
+  --dm-color-btn-primary-text: #{color.adjust($primaryColor, $lightness: 40%)};
+  --dm-color-btn-primary-text-dim: #{color.adjust($primaryColor, $lightness: 25%)};
+
+  --dm-color-btn-danger: #{$dangerColor};
+  --dm-color-btn-danger-text: #{color.adjust($dangerColor, $lightness: 40%)};
+  --dm-color-btn-danger-text-dim: #{color.adjust($dangerColor, $lightness: 25%)};
+
+  --dm-color-btn-selected: #{palette.$warmgray600};
+  --dm-color-btn-selected-contrast: #{palette.$warmgray100};
+  --dm-color-btn-selected-contrast-dim: #{palette.$warmgray200};
+
+  // Scrollbars
+  --dm-color-scrollbar: #{color.change(palette.$warmgray500, $alpha: 0.2)};
+  --dm-color-scrollbar-inactive: #{color.change(palette.$warmgray500, $alpha: 0.1)};
+
+  // Slider
+  --dm-color-slider-fill: #{palette.$warmgray750};
+
+  // Toggle switches
+  --dm-color-toggle-fill: #{palette.$warmgray700};
+  --dm-color-toggle-fill-checked: #118811;
+  --dm-color-toggle-slide-fill: linear-gradient(
+    to bottom,
+    #{palette.$warmgray100} 0%,
+    #{palette.$warmgray300} 100%
+  );
+
+  // Tooltips have their own color scheme, also used by callouts.
+  --dm-color-tooltip-bg: #{palette.$black};
+  --dm-color-tooltip-text: #{palette.$warmgray300};
+}

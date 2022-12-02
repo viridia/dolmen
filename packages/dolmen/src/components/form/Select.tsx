@@ -43,11 +43,7 @@ export function Select<T>(
   return (
     <MenuContext.Provider value={context}>
       <Menu.Button {...rest} color="field" role="combobox">
-        <Show
-          when={selectedOption()}
-          keyed
-          fallback={<Text dim>{local.placeholder ?? ''}</Text>}
-        >
+        <Show when={selectedOption()} keyed fallback={<Text dim>{local.placeholder ?? ''}</Text>}>
           {selected => selected.label}
         </Show>
       </Menu.Button>

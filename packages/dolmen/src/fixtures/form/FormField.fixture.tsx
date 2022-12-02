@@ -22,9 +22,7 @@ export default () => (
     <FormField success="success">
       <Input value="default" />
     </FormField>
-    <FormField
-      error="Error - a very long error message that should wrap to the next line."
-    >
+    <FormField error="Error - a very long error message that should wrap to the next line.">
       <Input value="default" />
     </FormField>
   </Stack>

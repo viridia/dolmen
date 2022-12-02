@@ -1,30 +1,19 @@
-import { colord } from 'colord';
 import { For, VoidComponent } from 'solid-js';
 import { Group } from '../../components';
-import { colorKeys, palette } from '../../styles';
 import './styles.scss';
 
 export const $category = 'styling';
+export const colorKeys = [50, 100, 150, 200, 250, 300, 400, 500, 600, 700, 750, 800, 850, 900, 950];
 
 const Swatch: VoidComponent<{ color: string; key?: number }> = props => {
-  const c = colord(props.color);
-  const color = c.isLight() ? '#000' : '#fff';
-  return (
-    <div class="swatch" style={{ 'background-color': props.color, color: color }}>
-      {props.key}
-    </div>
-  );
+  return <div class={`swatch swatch-${props.color}`}>{props.key}</div>;
 };
 
 const Palette: VoidComponent<{ name: string }> = props => {
   return (
     <div>
       <div class="name">{props.name}</div>
-      <For each={colorKeys}>
-        {key => (
-          <Swatch color={(palette as Record<string, string>)[`${props.name}${key}`]} key={key} />
-        )}
-      </For>
+      <For each={colorKeys}>{key => <Swatch color={`${props.name}${key}`} key={key} />}</For>
     </div>
   );
 };

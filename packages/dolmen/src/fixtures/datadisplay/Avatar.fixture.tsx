@@ -62,45 +62,19 @@ function AvatarDemo() {
       </Group>
       Color Hashing
       <Group gap="lg">
-        <Avatar colorHash="One">
-          abc
-        </Avatar>
-        <Avatar colorHash="Two">
-          abc
-        </Avatar>
-        <Avatar colorHash="Three">
-          abc
-        </Avatar>
-        <Avatar colorHash="Four">
-          abc
-        </Avatar>
-        <Avatar colorHash="Five">
-          abc
-        </Avatar>
-        <Avatar colorHash="Six">
-          abc
-        </Avatar>
-        <Avatar colorHash="Seven">
-          abc
-        </Avatar>
-        <Avatar colorHash="Eight">
-          abc
-        </Avatar>
-        <Avatar colorHash="Nine">
-          abc
-        </Avatar>
-        <Avatar colorHash="Ten">
-          abc
-        </Avatar>
-        <Avatar colorHash="Eleven">
-          abc
-        </Avatar>
-        <Avatar colorHash="Twelve">
-          abc
-        </Avatar>
-        <Avatar colorHash="Thirteen">
-          abc
-        </Avatar>
+        <Avatar colorHash="One">abc</Avatar>
+        <Avatar colorHash="Two">abc</Avatar>
+        <Avatar colorHash="Three">abc</Avatar>
+        <Avatar colorHash="Four">abc</Avatar>
+        <Avatar colorHash="Five">abc</Avatar>
+        <Avatar colorHash="Six">abc</Avatar>
+        <Avatar colorHash="Seven">abc</Avatar>
+        <Avatar colorHash="Eight">abc</Avatar>
+        <Avatar colorHash="Nine">abc</Avatar>
+        <Avatar colorHash="Ten">abc</Avatar>
+        <Avatar colorHash="Eleven">abc</Avatar>
+        <Avatar colorHash="Twelve">abc</Avatar>
+        <Avatar colorHash="Thirteen">abc</Avatar>
       </Group>
     </Stack>
   );

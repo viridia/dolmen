@@ -1,4 +1,4 @@
-import { Aside, dark, DiscloseButton } from 'dolmen';
+import { Aside, DiscloseButton } from 'dolmen';
 import { For, Show, useContext } from 'solid-js';
 import { VoidComponent } from 'solid-js';
 import {
@@ -92,7 +92,7 @@ export const CatalogPane: VoidComponent<CatalogProps> = props => {
   const expansion = createExpansionStateStore('catalog-view');
   return (
     <TreeExpansionContext.Provider value={expansion}>
-      <Aside classList={{ [dark.className]: true, [catalogPaneCss]: true }}>
+      <Aside classList={{ 'dm-theme-dark': true, [catalogPaneCss]: true }}>
         <CatalogGroup root nodes={props.tree.children ?? []} />
       </Aside>
     </TreeExpansionContext.Provider>

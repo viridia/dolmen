@@ -30,7 +30,6 @@
     "dist"
   ],
   "dependencies": {
-    "@stitches/core": "^1.2.8",
     "colord": "^2.9.3",
     "dolmen": "*",
     "prosemirror-commands": "^1.3.1",

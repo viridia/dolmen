@@ -30,9 +30,8 @@
     "dist"
   ],
   "dependencies": {
-    "dolmen": "*",
-    "@stitches/core": "^1.2.8",
     "colord": "^2.9.3",
+    "dolmen": "*",
     "solid-js": "^1.6.0"
   },
   "devDependencies": {

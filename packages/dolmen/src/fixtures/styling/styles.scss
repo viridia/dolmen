@@ -1,3 +1,7 @@
+@use 'sass:map';
+@use 'sass:color';
+@use '../../css/palette.scss';
+
 .swatch {
   width: 192px;
   height: 20px;
@@ -14,3 +18,64 @@
   display: flex;
   padding: 8px;
 }
+
+@mixin swatch($color, $colorValue) {
+  .swatch-#{$color} {
+    background-color: $colorValue;
+    color: black;
+    @if color.lightness($colorValue) < 50 {
+      color: white;
+    }
+  }
+}
+
+@include swatch('white', palette.$white);
+@include swatch('black', palette.$black);
+
+@include swatch('gray50', palette.$gray50);
+@include swatch('gray100', palette.$gray100);
+@include swatch('gray150', palette.$gray150);
+@include swatch('gray200', palette.$gray200);
+@include swatch('gray250', palette.$gray250);
+@include swatch('gray300', palette.$gray300);
+@include swatch('gray400', palette.$gray400);
+@include swatch('gray500', palette.$gray500);
+@include swatch('gray600', palette.$gray600);
+@include swatch('gray700', palette.$gray700);
+@include swatch('gray750', palette.$gray750);
+@include swatch('gray800', palette.$gray800);
+@include swatch('gray850', palette.$gray850);
+@include swatch('gray900', palette.$gray900);
+@include swatch('gray950', palette.$gray950);
+
+@include swatch('coolgray50', palette.$coolgray50);
+@include swatch('coolgray100', palette.$coolgray100);
+@include swatch('coolgray150', palette.$coolgray150);
+@include swatch('coolgray200', palette.$coolgray200);
+@include swatch('coolgray250', palette.$coolgray250);
+@include swatch('coolgray300', palette.$coolgray300);
+@include swatch('coolgray400', palette.$coolgray400);
+@include swatch('coolgray500', palette.$coolgray500);
+@include swatch('coolgray600', palette.$coolgray600);
+@include swatch('coolgray700', palette.$coolgray700);
+@include swatch('coolgray750', palette.$coolgray750);
+@include swatch('coolgray800', palette.$coolgray800);
+@include swatch('coolgray850', palette.$coolgray850);
+@include swatch('coolgray900', palette.$coolgray900);
+@include swatch('coolgray950', palette.$coolgray950);
+
+@include swatch('warmgray50', palette.$warmgray50);
+@include swatch('warmgray100', palette.$warmgray100);
+@include swatch('warmgray150', palette.$warmgray150);
+@include swatch('warmgray200', palette.$warmgray200);
+@include swatch('warmgray250', palette.$warmgray250);
+@include swatch('warmgray300', palette.$warmgray300);
+@include swatch('warmgray400', palette.$warmgray400);
+@include swatch('warmgray500', palette.$warmgray500);
+@include swatch('warmgray600', palette.$warmgray600);
+@include swatch('warmgray700', palette.$warmgray700);
+@include swatch('warmgray750', palette.$warmgray750);
+@include swatch('warmgray800', palette.$warmgray800);
+@include swatch('warmgray850', palette.$warmgray850);
+@include swatch('warmgray900', palette.$warmgray900);
+@include swatch('warmgray950', palette.$warmgray950);

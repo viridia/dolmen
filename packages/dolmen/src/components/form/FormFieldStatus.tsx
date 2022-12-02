@@ -12,10 +12,7 @@ export const FormFieldStatus: ParentComponent<FormFieldStatusProps> = props => {
   return (
     <Show when={local.severity && local.children}>
       {() => (
-        <div
-          {...rest}
-          class="dm-form-field-message-container"
-        >
+        <div {...rest} class="dm-form-field-message-container">
           <Switch>
             <Match when={local.severity === 'warning'}>
               <Warning class="dm-form-field-status-icon" />

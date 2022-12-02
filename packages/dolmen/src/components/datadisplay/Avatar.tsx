@@ -20,9 +20,7 @@ interface AvatarProps {
   crossOrigin?: JSX.HTMLCrossorigin;
 }
 
-export const Avatar: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & AvatarProps
-> = props => {
+export const Avatar: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & AvatarProps> = props => {
   const [local, rest] = splitProps(props, [
     'color',
     'colorHash',

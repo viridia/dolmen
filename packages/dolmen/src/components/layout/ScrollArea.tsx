@@ -4,9 +4,7 @@ interface Props {
   direction?: 'vertical' | 'horizontal' | 'both';
 }
 
-export const ScrollArea: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & Props
-> = props => {
+export const ScrollArea: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & Props> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', 'children', 'direction']);
 
   return (

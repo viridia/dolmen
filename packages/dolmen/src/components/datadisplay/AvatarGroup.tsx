@@ -1,8 +1,6 @@
 import { ParentComponent, JSX, splitProps, children, For } from 'solid-js';
 
-export const AvatarGroup: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement>
-> = props => {
+export const AvatarGroup: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList', 'children']);
 
   const avatars = children(() => local.children);

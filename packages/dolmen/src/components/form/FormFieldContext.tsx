@@ -3,10 +3,10 @@ import { Accessor, createContext } from 'solid-js';
 export type Severity = 'warning' | 'error' | 'success' | 'info';
 
 export interface IInputAriaAttrs {
-  'aria-labelledby'?: string,
-  'aria-describedby'?: string,
-  'aria-invalid'?: boolean,
-  'aria-errormessage'?: string,
+  'aria-labelledby'?: string;
+  'aria-describedby'?: string;
+  'aria-invalid'?: boolean;
+  'aria-errormessage'?: string;
 }
 
 export interface IFormFieldState {

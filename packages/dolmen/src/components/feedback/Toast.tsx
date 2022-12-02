@@ -58,7 +58,7 @@ const Toast: VoidComponent<IToast> = props => {
     <div
       role="alert"
       classList={{
-        "dm-toast": true,
+        'dm-toast': true,
         [`dm-${props.severity}`]: Boolean(props.severity),
         [state()]: true,
       }}

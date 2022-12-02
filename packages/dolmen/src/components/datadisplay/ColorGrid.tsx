@@ -12,9 +12,7 @@ interface Props {
   columnMajor?: boolean;
 }
 
-export const ColorGrid: VoidComponent<
-  Props & JSX.HTMLAttributes<HTMLDivElement>
-> = props => {
+export const ColorGrid: VoidComponent<Props & JSX.HTMLAttributes<HTMLDivElement>> = props => {
   const [local, rest] = splitProps(props, [
     'name',
     'colors',
@@ -37,15 +35,15 @@ export const ColorGrid: VoidComponent<
         ...flexProps(local),
       }}
       style={
-        local.columnMajor ? {
-          'grid-template-rows': `repeat(${local.rows ?? 8}, 1fr)`,
-          'grid-auto-flow': 'column',
-
-        } : {
-          'grid-template-columns': `repeat(${local.columns ?? 8}, 1fr)`,
-          'grid-auto-flow': 'row',
-
-        }
+        local.columnMajor
+          ? {
+              'grid-template-rows': `repeat(${local.rows ?? 8}, 1fr)`,
+              'grid-auto-flow': 'column',
+            }
+          : {
+              'grid-template-columns': `repeat(${local.columns ?? 8}, 1fr)`,
+              'grid-auto-flow': 'row',
+            }
       }
       onKeyDown={e => {
         const advance = (delta: number) => {

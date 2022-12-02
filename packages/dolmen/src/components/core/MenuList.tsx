@@ -10,9 +10,9 @@ import {
   useContext,
 } from 'solid-js';
 import { autoUpdate, computePosition, flip, offset, Placement } from '@floating-ui/dom';
-import { Property } from '@stitches/core/types/css';
 import { createCssTransition } from '../../hooks';
 import { MenuAction, menuCloseEvent, MenuContext } from './MenuContext';
+import type * as CSS from 'csstype';
 
 export interface MenuListProps {
   inset?: boolean;
@@ -31,8 +31,8 @@ export const MenuList: ParentComponent<
   const [popupStyle, setPopupStyle] = createSignal<{
     left?: string;
     top?: string;
-    position?: Property.Position;
-    minWidth?: Property.MinWidth;
+    position?: CSS.Property.Position;
+    'min-width'?: string;
   }>({});
 
   const context = useContext(MenuContext);
@@ -190,7 +190,7 @@ export const MenuList: ParentComponent<
           'dm-inset': local.inset,
           [local.class as string]: !!local.class,
           [state()]: true,
-          "dm-menu-list": true,
+          'dm-menu-list': true,
         }}
         style={popupStyle()}
         onFocusIn={() => {

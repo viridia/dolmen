@@ -21,8 +21,8 @@ export function App(props: { fixtures: Record<string, () => Promise<unknown>> })
       <CodexContext.Provider value={fixtureParams}>
         <Html lang="en" class={rootCss}>
           <Head>
-            <Title>SolidStart - With MDX</Title>
             <Meta charset="utf-8" />
+            <Title>SolidStart - With MDX</Title>
             <Meta name="viewport" content="width=device-width, initial-scale=1" />
             <style innerHTML={styles} />
             <style innerHTML={lightTheme} />

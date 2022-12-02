@@ -5,15 +5,8 @@ interface ListItemProps {
   disabled?: boolean;
 }
 
-const ListItem: ParentComponent<
-  JSX.HTMLAttributes<HTMLDivElement> & ListItemProps
-> = props => {
-  const [local, rest] = splitProps(props, [
-    'selected',
-    'disabled',
-    'class',
-    'classList',
-  ]);
+const ListItem: ParentComponent<JSX.HTMLAttributes<HTMLDivElement> & ListItemProps> = props => {
+  const [local, rest] = splitProps(props, ['selected', 'disabled', 'class', 'classList']);
 
   return (
     <div

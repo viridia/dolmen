@@ -13,83 +13,11 @@ import {
   Header,
   ToggleSwitch,
 } from '../../components';
-import { createTheme } from '../../styles/css';
+import './warm.scss';
 
 export const $category = 'styling';
 
-import { colord } from 'colord';
-import { palette } from '../../styles';
 import { Cancel, ChevronDown } from '../../icons';
-const primaryColor = '#9a7e42';
-const dangerColor = '#7d248a';
-const textHighlight = '#81665566';
-
-export const custom = createTheme('custom', {
-  colors: {
-    elevation0: palette.warmgray900,
-    elevation1: palette.warmgray850,
-    elevation2: palette.warmgray800,
-
-    fieldBg: colord(palette.warmgray850).darken(0.025).toHex(),
-    fieldBorder: palette.warmgray500,
-    fieldBorderSlight: palette.warmgray750,
-    fieldHoverBorder: palette.warmgray700,
-
-    text: palette.warmgray200,
-    textDim: palette.warmgray500,
-    textSelection: palette.white,
-    textSelectionBg: textHighlight,
-
-    itemHoverBg: palette.warmgray800,
-    itemFocusBg: palette.warmgray700,
-    itemSelectedBg: textHighlight,
-
-    focus: '#8183ff88',
-    shadow: palette.black,
-    backdrop: colord(palette.black).alpha(0.3).toHex(),
-
-    btnPrimary: primaryColor,
-    btnPrimaryText: palette.warmgray50,
-    btnPrimaryTextDim: colord(primaryColor).lighten(0.25).toHex(),
-
-    btnSecondary: palette.warmgray750,
-    btnSecondaryContrast: palette.warmgray200,
-    btnSecondaryContrastDim: palette.warmgray500,
-
-    btnDanger: dangerColor,
-    btnDangerText: palette.warmgray100,
-    btnDangerTextDim: colord(dangerColor).lighten(0.3).toHex(),
-
-    btnSelected: palette.warmgray600,
-    btnSelectedContrast: palette.warmgray100,
-    btnSelectedContrastDim: palette.warmgray200,
-
-    scrollbar: colord(palette.warmgray500).alpha(0.3).toHex(),
-    scrollbarInactive: colord(palette.warmgray500).alpha(0.15).toHex(),
-
-    sliderFill: palette.warmgray750,
-
-    toggleFill: palette.warmgray700,
-    toggleFillChecked: '#118811',
-    toggleSlideFill: `linear-gradient(to bottom, ${palette.warmgray100} 0%, ${palette.warmgray300} 100%)`,
-
-    tooltipBg: palette.black,
-    tooltipText: palette.warmgray300,
-
-    // To migrate
-
-    knobRim: `linear-gradient(
-      to bottom,
-      ${colord(palette.warmgray800).lighten(0.1).toHex()} 0,
-      ${colord(palette.warmgray800).darken(0.1).toHex()}
-    )`,
-    knobCenter: `linear-gradient(
-      to bottom,
-      ${colord(palette.warmgray800).lighten(0.03).toHex()} 0,
-      ${colord(palette.warmgray800).darken(0.03).toHex()}
-    )`,
-  },
-});
 
 const ThemeDemo: VoidComponent<{ name: string; class: string }> = props => {
   const [sliderValue, setSliderValue] = createSignal(30);

@@ -37,7 +37,6 @@
   ],
   "dependencies": {
     "@floating-ui/dom": "^1.0.2",
-    "@stitches/core": "^1.2.8",
     "colord": "^2.9.3",
     "solid-js": "^1.6.0"
   },
