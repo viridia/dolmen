@@ -1,0 +1,42 @@
+import { Table, Group, DiscloseButton } from 'dolmen';
+import { DemoSection, SourceCode } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# DiscloseButton
+
+A `DiscloseButton` is used to hide or reveal a section of content.
+
+<DemoSection>
+  {() => {
+    const [expand, setExpand] = createSignal(false);
+    return <DiscloseButton open={expand()} onClick={() => setExpand(v => !v)} />;
+  }}
+</DemoSection>
+<SourceCode>
+```tsx
+const [expand, setExpand] = createSignal(false);
+return (<DiscloseButton open={expand()} onClick={() => setExpand(v => !v)} />);
+```
+</SourceCode>
+
+## DiscloseButton properties
+
+<Table>
+  <Table.Head>
+    <Table.Row>
+      <Table.Cell>Name</Table.Cell>
+      <Table.Cell>Description</Table.Cell>
+      <Table.Cell>Type</Table.Cell>
+    </Table.Row>
+  </Table.Head>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>open</Table.Cell>
+      <Table.Cell>Open or close state of the button</Table.Cell>
+      <Table.Cell>boolean</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+
+In addition, the `DiscloseButton` element accepts all of the standard attributes of the HTML `&lt;button&gt;`
+element.

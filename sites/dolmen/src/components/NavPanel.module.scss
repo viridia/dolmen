@@ -76,3 +76,10 @@
     color: var(--dm-color-item-selected-text);
   }
 }
+
+.disabled {
+  opacity: 0.7;
+  color: var(--dm-color-text-dim);
+  padding: 3px 8px;
+  cursor: not-allowed;
+}

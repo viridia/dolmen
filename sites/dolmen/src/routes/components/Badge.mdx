@@ -1,0 +1,135 @@
+import { Table, Group, Badge } from 'dolmen';
+import { DemoSection, SourceCode } from '../../components/mdx';
+
+# Badge
+
+A `Badge` is used to indicate that a group of buttons are related or part of a set.
+
+## Badge Colors
+
+The `color` property of a `Badge` can be set to any CSS color expression. The component
+automatically selects a high-contrast text color to go with the specified fill color.
+
+<DemoSection>
+  <Group gap="md">
+    <Badge color="#4400cc">we</Badge>
+    <Badge color="#6622cc">don't</Badge>
+    <Badge color="#8844cc">need</Badge>
+    <Badge color="#cc66cc">no</Badge>
+    <Badge color="#ee88cc">stinkin'</Badge>
+    <Badge color="#ffaacc">badges!</Badge>
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <Badge color="#4400cc">we</Badge>
+  <Badge color="#6622cc">don't</Badge>
+  <Badge color="#8844cc">need</Badge>
+  <Badge color="#cc66cc">no</Badge>
+  <Badge color="#ee88cc">stinkin'</Badge>
+  <Badge color="#ffaacc">badges!</Badge>
+</>
+```
+</SourceCode>
+
+## Badge Sizes
+
+<DemoSection>
+  <Group gap="md">
+    <Badge size="xl" color="#4400cc">size = xl</Badge>
+    <Badge size="lg" color="#880088">size = lg</Badge>
+    <Badge size="md" color="#880066">size = md</Badge>
+    <Badge size="sm" color="#cc0044">size = sm</Badge>
+    <Badge size="xs" color="#ff0000">size = xs</Badge>
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <Badge size="xl" color="#4400cc">size = xl</Badge>
+  <Badge size="lg" color="#880088">size = lg</Badge>
+  <Badge size="md" color="#880066">size = md</Badge>
+  <Badge size="sm" color="#cc0044">size = sm</Badge>
+  <Badge size="xs" color="#ff0000">size = xs</Badge>
+</>
+```
+</SourceCode>
+
+## Badge Radius
+The `radius` property determines the roundness of the badge corners. Setting the radius to `xl`
+converts the badge into a pill shape.
+
+<DemoSection>
+  <Group gap="md">
+    <Badge radius="xs" color="#00ff88">radius = xs</Badge>
+    <Badge radius="sm" color="#00cc88">radius = sm</Badge>
+    <Badge radius="md" color="#008888">radius = md</Badge>
+    <Badge radius="lg" color="#004488">radius = lg</Badge>
+    <Badge radius="xl" color="#0044cc">radius = xl</Badge>
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <Badge radius="xs" color="#00ff88">radius = xs</Badge>
+  <Badge radius="sm" color="#00cc88">radius = sm</Badge>
+  <Badge radius="md" color="#008888">radius = md</Badge>
+  <Badge radius="lg" color="#004488">radius = lg</Badge>
+  <Badge radius="xl" color="#0044cc">radius = xl</Badge>
+</>
+```
+</SourceCode>
+
+## Badge properties
+
+<Table>
+  <Table.Head>
+    <Table.Row>
+      <Table.Cell>Name</Table.Cell>
+      <Table.Cell>Description</Table.Cell>
+      <Table.Cell>Type</Table.Cell>
+    </Table.Row>
+  </Table.Head>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>color</Table.Cell>
+      <Table.Cell>Color of the badge</Table.Cell>
+      <Table.Cell>
+        CSS color expression
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>size</Table.Cell>
+      <Table.Cell>Badge size</Table.Cell>
+      <Table.Cell>
+        <ul>
+          <li>`xl`</li>
+          <li>`lg`</li>
+          <li>`md`</li>
+          <li>`sm`</li>
+          <li>`xl`</li>
+          <li>`xs`</li>
+        </ul>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>radius</Table.Cell>
+      <Table.Cell>
+        Indicates how 'rounded' the badge should appear,
+      </Table.Cell>
+      <Table.Cell>
+        <ul>
+          <li>`xl`</li>
+          <li>`lg`</li>
+          <li>`md`</li>
+          <li>`sm`</li>
+          <li>`xl`</li>
+          <li>`xs`</li>
+        </ul>
+      </Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+
+`Badge` also accepts all of the standard attributes for a `div` element.

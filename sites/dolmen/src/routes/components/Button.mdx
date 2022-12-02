@@ -1,11 +1,21 @@
 import { Table, Group, Button } from 'dolmen';
 import { DemoSection, SourceCode } from '../../components/mdx';
+import { Tune } from '../../icons';
 
 # Button
 
 Buttons help people initiate actions, from sending an email, to sharing a document, to liking a post.
 
-### Button Colors
+## Button Colors
+Dolmen supports a small number color variants out of the box, although this can be extended
+with custom styles.
+
+**Primary** buttons are intended for calls to action. There should only be one primary button
+within any page section or modal dialog.
+
+**Danger** buttons are used to warn the user that the action is irreversible and may have serious
+consequences.
+
 <DemoSection>
   <Group gap="md">
     <Button>Default</Button>
@@ -25,7 +35,31 @@ Buttons help people initiate actions, from sending an email, to sharing a docume
 ```
 </SourceCode>
 
-### Button Sizes
+## Button Icon Colors
+Icons can be used as children of a `Button` component. The CSS variable `--icon-color` is set to
+the icon color corresponding to the button's color scheme and theme. If you are using SVG icons,
+you can add `fill="var(--icon-color)"` to your SVG elements, and they will automtically pick up the
+icon color from the button.
+<DemoSection>
+  <Group gap="md">
+    <Button>Default <Tune /></Button>
+    <Button color="primary">Primary <Tune /></Button>
+    <Button color="danger">Danger <Tune /></Button>
+    <Button color="subtle">Subtle <Tune /></Button>
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <Button>Default</Button>
+  <Button color="primary">Primary</Button>
+  <Button color="danger">Danger</Button>
+  <Button color="subtle">Subtle</Button>
+</>
+```
+</SourceCode>
+
+## Button Sizes
 <DemoSection>
   <Group gap="md">
     <Button size="xl">size="xl"</Button>
@@ -51,12 +85,13 @@ Buttons help people initiate actions, from sending an email, to sharing a docume
 ```
 </SourceCode>
 
-### Button Variants
+## Button Variants
 <DemoSection>
   <Group gap="md">
     <Button>Normal</Button>
     <Button round>Round</Button>
     <Button icon>icon</Button>
+    <Button icon round>r/i</Button>
   </Group>
 </DemoSection>
 <SourceCode>
@@ -65,11 +100,12 @@ Buttons help people initiate actions, from sending an email, to sharing a docume
   <Button>Normal</Button>
   <Button round>Round</Button>
   <Button icon>icon</Button>
+  <Button icon round>r/i</Button>
 </>
 ```
 </SourceCode>
 
-### Button States
+## Button States
 <DemoSection>
   <Group gap="md">
     <Button>Normal</Button>

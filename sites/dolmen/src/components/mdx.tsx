@@ -11,7 +11,7 @@ export const SourceCode: ParentComponent = props => {
   createEffect(() => {
     const elt = ref();
     if (elt) {
-      hljs.highlightAll();
+      hljs.highlightElement(elt.firstChild?.firstChild as HTMLElement);
     }
   });
 

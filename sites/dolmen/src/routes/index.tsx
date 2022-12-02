@@ -1,4 +1,4 @@
-import { Aside, Button, Page, Spacer } from 'dolmen';
+import { Button, Page, Spacer } from 'dolmen';
 import { Show } from 'solid-js';
 import { Outlet } from 'solid-start';
 import { DarkMode, LightMode } from '../icons';
@@ -26,8 +26,6 @@ export default () => {
         </Button>
       </Page.Header>
       <Page.Content as="main" flexDirection="row" p="none">
-        <Aside>Aside</Aside>
-        AA
         <Outlet />
       </Page.Content>
     </Page>

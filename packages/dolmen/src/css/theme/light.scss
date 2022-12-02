@@ -43,7 +43,7 @@ $grayBase: #8c8c8c;
   --dm-color-item-hover-bg: #{palette.$gray100};
   --dm-color-item-focus-bg: #{palette.$gray100};
   --dm-color-item-selected-text: #{palette.$white};
-  --dm-color-item-selected-bg: #{color.adjust($primaryColor, $lightness: -30%, $saturation: -50%)};
+  --dm-color-item-selected-bg: #{color.adjust($primaryColor, $lightness: -15%, $saturation: -60%)};
 
   // Various dynamic colors
   --dm-color-focus: #11117733;
