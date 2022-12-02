@@ -7,6 +7,12 @@
   }
 }
 
+@mixin flexPadding($sz) {
+  .dm-padding-#{$sz} {
+    padding: map.get(defs.$space, $sz);
+  }
+}
+
 @mixin flexAttr($id, $name, $value) {
   .dm-#{$id}-#{$value} {
     #{$name}: #{$value};
@@ -20,6 +26,15 @@
 @include flexGap('xs');
 .dm-gap-none {
   gap: 0;
+}
+
+@include flexPadding('xl');
+@include flexPadding('lg');
+@include flexPadding('md');
+@include flexPadding('sm');
+@include flexPadding('xs');
+.dm-padding-none {
+  padding: 0;
 }
 
 @include flexAttr('ai', 'align-items', 'start');

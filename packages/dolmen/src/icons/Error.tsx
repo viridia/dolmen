@@ -1,5 +1,4 @@
 import { JSX } from 'solid-js';
-
 const SvgError = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -15,5 +14,4 @@ const SvgError = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default SvgError;

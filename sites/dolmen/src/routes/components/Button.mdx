@@ -1,0 +1,100 @@
+import { Table, Group, Button } from 'dolmen';
+
+# Button
+
+Buttons help people initiate actions, from sending an email, to sharing a document, to liking a post.
+
+### Button Colors
+<div>
+  <Group gap="md">
+    <Button>Default</Button>
+    <Button color="primary">Primary</Button>
+    <Button color="danger">Danger</Button>
+    <Button color="subtle">Subtle</Button>
+  </Group>
+</div>
+
+### Button Sizes
+<div>
+  <Group gap="md">
+    <Button size="xl">size="xl"</Button>
+    <Button size="lg">size="lg"</Button>
+    <Button size="md">size="md"</Button>
+    <Button size="sm">size="sm"</Button>
+    <Button size="xs">size="xs"</Button>
+    <Button size="xxs">size="xxs"</Button>
+    <Button size="xxxs">size="xxxs"</Button>
+  </Group>
+</div>
+
+### Button Variants
+<div>
+  <Group gap="md">
+    <Button>Normal</Button>
+    <Button round>Round</Button>
+    <Button icon>icon</Button>
+  </Group>
+</div>
+
+### Button States
+<div>
+  <Group gap="md">
+    <Button>Normal</Button>
+    <Button disabled>disabled</Button>
+    <Button selected>selected</Button>
+  </Group>
+</div>
+
+## Button Properties
+
+<Table>
+  <Table.Head>
+    <Table.Row>
+      <Table.Cell>Name</Table.Cell>
+      <Table.Cell>Description</Table.Cell>
+      <Table.Cell>Type</Table.Cell>
+    </Table.Row>
+  </Table.Head>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>color</Table.Cell>
+      <Table.Cell>Button color scheme</Table.Cell>
+      <Table.Cell>"primary" | "default" | "danger" | "subtle"</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>size</Table.Cell>
+      <Table.Cell>Button size</Table.Cell>
+      <Table.Cell>"xl" | "lg" | "md" | "sm" | "xs" </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>selected</Table.Cell>
+      <Table.Cell>
+        Whether the button should be rendered in a selected or "toggled" state.
+      </Table.Cell>
+      <Table.Cell>
+        boolean
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>round</Table.Cell>
+      <Table.Cell>
+        If true, render the button as a circle or pill shape.
+      </Table.Cell>
+      <Table.Cell>
+        boolean
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>icon</Table.Cell>
+      <Table.Cell>
+        If true, removes the button padding and ensures the width is the same as the height.
+      </Table.Cell>
+      <Table.Cell>
+        boolean
+      </Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+
+In addition, the `Button` element accepts all of the standard attributes of the HTML &lt;button&gt;
+element.

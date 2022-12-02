@@ -1,10 +1,13 @@
-# Components
+# Bugs / Issues
 
 * Shortcuts prevent dialog-Escape key from working.
-* More flexible 'Text'
-  * margins
-  * "size" property doesn't work.
-* Hud overlay?
+* TextSpan 'size' not working
+* TextSpan options for margins, etc.
+* Firefox drawer bugs
+* Need docs
+
+# Components
+
 * Radio / RadioGroup
 * Divided button
 * Kbd
@@ -57,7 +60,6 @@
     * Select
     * Radio?
     * Vertical button group?
-* Event listeners / log
 
 # Other
 

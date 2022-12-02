@@ -2,6 +2,8 @@ import { Space } from './size';
 
 export interface FlexProps {
   gap?: Space;
+  padding?: Space;
+  p?: Space;
   alignItems?: 'start' | 'end' | 'flex-start' | 'flex-end' | 'stretch' | 'center';
   justifyContent?:
     | 'start'
@@ -28,6 +30,8 @@ export interface FlexProps {
 
 export const flexMap: Record<keyof FlexProps, string> = {
   gap: 'gap',
+  padding: 'padding',
+  p: 'padding',
   alignItems: 'ai',
   justifyContent: 'jc',
   justifyItems: 'ji',
@@ -37,6 +41,8 @@ export const flexMap: Record<keyof FlexProps, string> = {
 
 export const flexKeys: (keyof FlexProps)[] = [
   'gap',
+  'p',
+  'padding',
   'alignItems',
   'justifyContent',
   'justifyItems',
