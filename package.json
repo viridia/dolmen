@@ -39,6 +39,7 @@
     "@solidjs/router": "^0.5.0",
     "@vanilla-extract/css": "^1.9.1",
     "dolmen": "*",
+    "highlight.js": "^11.7.0",
     "solid-codex": "*",
     "solid-js": "^1.6.1",
     "solid-mdx": "^0.0.6",

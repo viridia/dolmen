@@ -1,0 +1,22 @@
+.demo {
+  background-color: var(--dm-color-elevation-0);
+  border-radius: 4px;
+  box-shadow: 0 0 2px var(--dm-color-shadow);
+  padding: 12px;
+}
+
+.source {
+  // box-shadow: 0 0 2px var(--dm-color-shadow);
+  background-color: black;
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 8px;
+
+  > pre {
+    margin: 0;
+
+    > code {
+      padding: 0 !important;
+    }
+  }
+}

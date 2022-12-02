@@ -27,7 +27,7 @@ export default () => {
           </Show>
         </Button>
       </Page.Header>
-      <Page.Content as="main" flexDirection="row" p="none">
+      <Page.Content class={styles.main} as="main" flexDirection="row" p="none">
         <NavPanel />
         <Page.Content class={styles.docs}>
           <Outlet />

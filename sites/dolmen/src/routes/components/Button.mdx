@@ -1,21 +1,32 @@
 import { Table, Group, Button } from 'dolmen';
+import { DemoSection, SourceCode } from '../../components/mdx';
 
 # Button
 
 Buttons help people initiate actions, from sending an email, to sharing a document, to liking a post.
 
 ### Button Colors
-<div>
+<DemoSection>
   <Group gap="md">
     <Button>Default</Button>
     <Button color="primary">Primary</Button>
     <Button color="danger">Danger</Button>
     <Button color="subtle">Subtle</Button>
   </Group>
-</div>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <Button>Default</Button>
+  <Button color="primary">Primary</Button>
+  <Button color="danger">Danger</Button>
+  <Button color="subtle">Subtle</Button>
+</>
+```
+</SourceCode>
 
 ### Button Sizes
-<div>
+<DemoSection>
   <Group gap="md">
     <Button size="xl">size="xl"</Button>
     <Button size="lg">size="lg"</Button>
@@ -25,27 +36,58 @@ Buttons help people initiate actions, from sending an email, to sharing a docume
     <Button size="xxs">size="xxs"</Button>
     <Button size="xxxs">size="xxxs"</Button>
   </Group>
-</div>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <Button size="xl">size="xl"</Button>
+  <Button size="lg">size="lg"</Button>
+  <Button size="md">size="md"</Button>
+  <Button size="sm">size="sm"</Button>
+  <Button size="xs">size="xs"</Button>
+  <Button size="xxs">size="xxs"</Button>
+  <Button size="xxxs">size="xxxs"</Button>
+</>
+```
+</SourceCode>
 
 ### Button Variants
-<div>
+<DemoSection>
   <Group gap="md">
     <Button>Normal</Button>
     <Button round>Round</Button>
     <Button icon>icon</Button>
   </Group>
-</div>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <Button>Normal</Button>
+  <Button round>Round</Button>
+  <Button icon>icon</Button>
+</>
+```
+</SourceCode>
 
 ### Button States
-<div>
+<DemoSection>
   <Group gap="md">
     <Button>Normal</Button>
     <Button disabled>disabled</Button>
     <Button selected>selected</Button>
   </Group>
-</div>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <Button>Normal</Button>
+  <Button disabled>disabled</Button>
+  <Button selected>selected</Button>
+</>
+```
+</SourceCode>
 
-## Button Properties
+## Button properties
 
 <Table>
   <Table.Head>
@@ -59,12 +101,30 @@ Buttons help people initiate actions, from sending an email, to sharing a docume
     <Table.Row>
       <Table.Cell>color</Table.Cell>
       <Table.Cell>Button color scheme</Table.Cell>
-      <Table.Cell>"primary" | "default" | "danger" | "subtle"</Table.Cell>
+      <Table.Cell>
+        <ul>
+          <li>`default`</li>
+          <li>`primary`</li>
+          <li>`danger`</li>
+          <li>`subtle`</li>
+        </ul>
+      </Table.Cell>
     </Table.Row>
     <Table.Row>
       <Table.Cell>size</Table.Cell>
       <Table.Cell>Button size</Table.Cell>
-      <Table.Cell>"xl" | "lg" | "md" | "sm" | "xs" </Table.Cell>
+      <Table.Cell>
+        <ul>
+          <li>`xl`</li>
+          <li>`lg`</li>
+          <li>`md`</li>
+          <li>`sm`</li>
+          <li>`xl`</li>
+          <li>`xs`</li>
+          <li>`xxs`</li>
+          <li>`xxxs`</li>
+        </ul>
+      </Table.Cell>
     </Table.Row>
     <Table.Row>
       <Table.Cell>selected</Table.Cell>

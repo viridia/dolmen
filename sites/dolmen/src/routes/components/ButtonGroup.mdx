@@ -1,0 +1,32 @@
+import { Table, Group, Button, ButtonGroup } from 'dolmen';
+import { DemoSection, SourceCode } from '../../components/mdx';
+
+# Button
+
+A `ButtonGroup` is used to indicate that a group of buttons are related or part of a set.
+
+<DemoSection>
+  <Group gap="md">
+    <ButtonGroup>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button selected>Three</Button>
+      <Button>Four</Button>
+    </ButtonGroup>
+  </Group>
+</DemoSection>
+
+<SourceCode>
+```tsx
+<ButtonGroup>
+  <Button>One</Button>
+  <Button>Two</Button>
+  <Button selected>Three</Button>
+  <Button>Four</Button>
+</ButtonGroup>
+```
+</SourceCode>
+
+## ButtonGroup properties
+
+`ButtonGroup` accepts all of the parameters that a div element accepts.
