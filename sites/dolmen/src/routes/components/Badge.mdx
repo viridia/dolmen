@@ -1,5 +1,5 @@
 import { Table, Group, Badge } from 'dolmen';
-import { DemoSection, SourceCode } from '../../components/mdx';
+import { DemoSection, SourceCode, PropsTable } from '../../components/mdx';
 
 # Badge
 
@@ -83,53 +83,44 @@ converts the badge into a pill shape.
 
 ## Badge properties
 
-<Table>
-  <Table.Head>
-    <Table.Row>
-      <Table.Cell>Name</Table.Cell>
-      <Table.Cell>Description</Table.Cell>
-      <Table.Cell>Type</Table.Cell>
-    </Table.Row>
-  </Table.Head>
-  <Table.Body>
-    <Table.Row>
-      <Table.Cell>color</Table.Cell>
-      <Table.Cell>Color of the badge</Table.Cell>
-      <Table.Cell>
-        CSS color expression
-      </Table.Cell>
-    </Table.Row>
-    <Table.Row>
-      <Table.Cell>size</Table.Cell>
-      <Table.Cell>Badge size</Table.Cell>
-      <Table.Cell>
-        <ul>
-          <li>`xl`</li>
-          <li>`lg`</li>
-          <li>`md`</li>
-          <li>`sm`</li>
-          <li>`xl`</li>
-          <li>`xs`</li>
-        </ul>
-      </Table.Cell>
-    </Table.Row>
-    <Table.Row>
-      <Table.Cell>radius</Table.Cell>
-      <Table.Cell>
-        Indicates how 'rounded' the badge should appear,
-      </Table.Cell>
-      <Table.Cell>
-        <ul>
-          <li>`xl`</li>
-          <li>`lg`</li>
-          <li>`md`</li>
-          <li>`sm`</li>
-          <li>`xl`</li>
-          <li>`xs`</li>
-        </ul>
-      </Table.Cell>
-    </Table.Row>
-  </Table.Body>
-</Table>
+<PropsTable>
+  <Table.Row>
+    <Table.Cell>color</Table.Cell>
+    <Table.Cell>Color of the badge</Table.Cell>
+    <Table.Cell>
+      CSS color expression
+    </Table.Cell>
+  </Table.Row>
+  <Table.Row>
+    <Table.Cell>size</Table.Cell>
+    <Table.Cell>Badge size</Table.Cell>
+    <Table.Cell>
+      <ul>
+        <li>`xl`</li>
+        <li>`lg`</li>
+        <li>`md`</li>
+        <li>`sm`</li>
+        <li>`xl`</li>
+        <li>`xs`</li>
+      </ul>
+    </Table.Cell>
+  </Table.Row>
+  <Table.Row>
+    <Table.Cell>radius</Table.Cell>
+    <Table.Cell>
+      Indicates how 'rounded' the badge should appear,
+    </Table.Cell>
+    <Table.Cell>
+      <ul>
+        <li>`xl`</li>
+        <li>`lg`</li>
+        <li>`md`</li>
+        <li>`sm`</li>
+        <li>`xl`</li>
+        <li>`xs`</li>
+      </ul>
+    </Table.Cell>
+  </Table.Row>
+</PropsTable>
 
 `Badge` also accepts all of the standard attributes for a `div` element.

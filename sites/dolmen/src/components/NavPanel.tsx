@@ -24,6 +24,7 @@ export const NavPanel = () => {
             <ul class={styles.linkList}>
               <NavItem href="/start/overview" disabled>Overview</NavItem>
               <NavItem href="/start/installation" disabled>Installation</NavItem>
+              <NavItem href="/start/philosophy">Philosophy</NavItem>
               <NavItem href="/start/themes" disabled>Themes</NavItem>
             </ul>
           </li>
@@ -109,7 +110,7 @@ export const NavPanel = () => {
                   <NavItem href="/components/Group" disabled>
                     Group
                   </NavItem>
-                  <NavItem href="/components/Page" disabled>
+                  <NavItem href="/components/Page">
                     Page
                   </NavItem>
                   <NavItem href="/components/ScrollArea" disabled>

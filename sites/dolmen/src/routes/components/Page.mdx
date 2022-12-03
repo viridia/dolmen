@@ -1,0 +1,72 @@
+import { Table, Page } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# Page
+
+The `Page` component defines the root element of the application, and functions as a container
+for other layout elements.
+
+<DemoSection>
+  <PageOutline>
+    <Page style={{ position: 'relative' }}>
+      <Page.Header>
+        <Page.Title>
+          Header
+        </Page.Title>
+      </Page.Header>
+      <Page.Content style={{ 'min-height': '5rem' }}>
+        Page content goes here
+      </Page.Content>
+    </Page>
+  </PageOutline>
+</DemoSection>
+<SourceCode>
+```tsx
+<Page>
+  <Page.Header>
+    <Page.Title>
+      Header
+    </Page.Title>
+  </Page.Header>
+  <Page.Content>
+    Page content goes here
+  </Page.Content>
+</Page>
+```
+</SourceCode>
+
+### properties
+
+The `Page` component has no special properties of its own. However, like all layout components,
+it accepts both the standard Dolmen 'flex props' properies as well as the standard HTML element
+properties.
+
+By default, `Page` uses flex layout in the 'column' direction. This can be overridden using flex
+props.
+
+## Page.Header
+
+The `Page.Header` component creates a header element for the page. It accepts flex props, and
+HTML div props.
+
+## Page.Title
+
+The `Page.Title` component styles the page title, which is a child of the header.
+
+## Page.Content
+
+The `Page.Content` component represents the middle portion of the page, below the header. By
+default, it is a vertical flexbox, but this can be overridden with flex props.
+
+### Properties
+
+<PropsTable>
+  <PropsItem name="as" description="Element type to render." type={
+    <ul>
+      <li>"main"</li>
+      <li>"section"</li>
+      <li>"div"</li>
+    </ul>
+  } />
+</PropsTable>
