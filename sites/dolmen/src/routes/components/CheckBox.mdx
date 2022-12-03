@@ -1,0 +1,66 @@
+import { Table, Group, CheckBox } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# CheckBox
+
+Checkboxes can be used to turn an option on or off.
+
+<DemoSection>
+  {() => {
+    const [checked, setChecked] = createSignal(false);
+    return (
+      <CheckBox checked={checked()} onClick={() => setChecked(v => !v)} >
+        I like Chocolate!
+      </CheckBox>
+    );
+  }}
+</DemoSection>
+<SourceCode>
+```tsx
+const [checked, setChecked] = createSignal(false); return{' '}
+<CheckBox checked={checked()} onClick={() => setChecked(v => !v)} >
+  I like Chocolate!
+</CheckBox>
+```
+</SourceCode>
+
+### Indeterminate state
+
+The "indeterminate" attribute is used to indicate a checkbox is neither checked or unchecked.
+This is typically used in cases where you have a table of selectable rows, each with its own
+checkbox, and a single "summary" checkbox that can be used to select or deselect the entire
+list at once. The summary checkbox should be displayed as checked when all rows are selected,
+unchecked when none of the rows are selected, and indeterminate when only some of the rows
+are selected.
+
+<DemoSection>
+  {() => {
+    const [checked, setChecked] = createSignal(false);
+    return (
+      <CheckBox indeterminate >
+        Some items selected
+      </CheckBox>
+    );
+  }}
+</DemoSection>
+<SourceCode>
+```tsx
+<CheckBox indeterminate >
+  Some items selected
+</CheckBox>
+```
+</SourceCode>
+
+## CheckBox properties
+
+Checkboxes accept all of the standard properties for an HTML checkbox element. The only additional
+attribute is the "indeterminate" option:
+
+<PropsTable>
+  <PropsItem
+    name="indeterminate"
+    description="Render the checkbox in an 'indeterminate' state."
+    type="boolean"
+  />
+</PropsTable>

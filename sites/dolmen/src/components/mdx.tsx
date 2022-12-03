@@ -51,3 +51,5 @@ export const PropsItem: VoidComponent<{
     <Table.Cell>{props.type}</Table.Cell>
   </Table.Row>
 );
+
+export const HTMLTag: ParentComponent = props => (<code>&lt;{props.children}&gt;</code>)

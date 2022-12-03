@@ -1,0 +1,67 @@
+import { Table, Stack, Alert } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# Alert
+
+An alert is used to notify the user of important changes or conditions in the application.
+Use this if you need to communicate to users in a prominent way.
+
+Alerts should not be used to display form validation errors. Instead use the `FormField`
+component to display an error associated with a specific input field. Alerts *can* be used,
+once a form has been submitted, to display an error that pertains to the entire form, or at
+least is not tied to any specific field.
+
+<DemoSection>
+  <Stack gap="lg">
+    <Alert severity="success">Hey, it actually worked!</Alert>
+    <Alert severity="info">Just so you know...</Alert>
+    <Alert severity="warning">I've got a bad feeling about this...</Alert>
+    <Alert severity="error">Meeee-Maaaaw! Meeee-Maaaaw! Meeee-Maaaaw!</Alert>
+    <Alert severity="success" when={false}>
+      This should not be visible.
+    </Alert>
+  </Stack>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <Alert severity="success">Hey, it actually worked!</Alert>
+  <Alert severity="info">Just so you know...</Alert>
+  <Alert severity="warning">I've got a bad feeling about this...</Alert>
+  <Alert severity="error">Meeee-Maaaaw! Meeee-Maaaaw! Meeee-Maaaaw!</Alert>
+  <Alert severity="success" when={false}>
+    This should not be visible.
+  </Alert>
+</>
+```
+</SourceCode>
+
+The `when={condition}` property can be used to prevent the alert from being shown. Since alerts are
+often displayed conditionally, depending on whether there is a current error condition, this
+removes the need to surround the alert with an extra layer of conditional logic.
+
+## Alert properties
+
+Checkboxes accept all of the standard properties for an HTML checkbox element. The only additional
+attribute is the "indeterminate" option:
+
+<PropsTable>
+  <PropsItem
+    name="severity"
+    description="Indicates the severity (and thus, the color scheme) of the alert."
+    type={
+      <ul>
+        <li><code>success</code></li>
+        <li><code>info</code></li>
+        <li><code>warning</code></li>
+        <li><code>error</code></li>
+      </ul>
+    }
+  />
+  <PropsItem
+    name="when"
+    description="An optional property which can be used to conditionally hide the alert. If not present, the alert will always be shown."
+    type="boolean"
+  />
+</PropsTable>

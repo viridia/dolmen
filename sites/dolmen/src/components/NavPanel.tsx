@@ -87,12 +87,8 @@ export const NavPanel = () => {
               <li>
                 <header>Feedback</header>
                 <ul class={styles.linkList}>
-                  <NavItem href="/components/Alert" disabled>
-                    Alert
-                  </NavItem>
-                  <NavItem href="/components/EmptyResult" disabled>
-                    EmptyResult
-                  </NavItem>
+                  <NavItem href="/components/Alert">Alert</NavItem>
+                  <NavItem href="/components/EmptyResult">EmptyResult</NavItem>
                   <NavItem href="/components/Toast" disabled>
                     Toast
                   </NavItem>
@@ -101,9 +97,7 @@ export const NavPanel = () => {
               <li>
                 <header>Forms</header>
                 <ul class={styles.linkList}>
-                  <NavItem href="/components/CheckBox" disabled>
-                    CheckBox
-                  </NavItem>
+                  <NavItem href="/components/CheckBox">CheckBox</NavItem>
                   <NavItem href="/components/FormField" disabled>
                     FormField
                   </NavItem>

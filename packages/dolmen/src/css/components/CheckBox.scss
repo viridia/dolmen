@@ -68,11 +68,11 @@
     &:indeterminate::after {
       background-color: var(--dm-color-btn-primary-text);
       content: '';
-      height: 3px;
-      left: 3.5px;
+      height: 2px;
+      left: 2px;
       position: absolute;
-      top: 0.5px;
-      width: 4px;
+      top: 6px;
+      width: 10px;
     }
   }
 }

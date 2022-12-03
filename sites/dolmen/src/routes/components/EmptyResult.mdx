@@ -1,0 +1,26 @@
+import { EmptyResult } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, HTMLTag } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# EmptyResult
+
+The `EmptyResult` component is used to display a message indicating that a 'null' result
+was returned. A 'null' result could be the result of a search or query that returned zero
+records. It can also be used to describe a non-serious error or empty state. (Serious errors
+should use a more prominent message such as an `Alert`).
+
+As a general rule, any UI that can display a variable number of results (zero or more) should
+display an `EmptyResult` when there is no data to display, instead of displaying nothing.
+
+<DemoSection>
+  <EmptyResult>No records found</EmptyResult>
+</DemoSection>
+<SourceCode>
+```tsx
+<EmptyResult>No records found</EmptyResult>
+```
+</SourceCode>
+
+## Properties
+
+`EmptyResult` has no special properties, it acts like a <HTMLTag>div</HTMLTag> element.

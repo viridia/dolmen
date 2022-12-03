@@ -7,7 +7,7 @@ some of the design trade-offs that have shaped the library.
 ## Styling and CSS
 
 One of the most important goals of Dolmen is that it be able to load quickly, without the
-dreader "Flash of Unstyled Content" (FOUC) that is the bane of server-side rendering. This means
+dreaded "Flash of Unstyled Content" (FOUC) that is the bane of server-side rendering. This means
 that stylesheets need to be loaded up-front, before the body of the page is rendered by the
 browser.
 
@@ -18,7 +18,7 @@ of these approaches in an SSR context: either you end up importing a lot of CSS 
 actully need or want (because CSS is not tree-shakeable), or you have to generate the whole page
 synchronously so that the dynamically-computed styles can go in the page &lt;head&gt;.
 
-The solution that was eventually adopted was to go back to the "old" way of doing CSS: using
+The solution that was eventually adopted was to revert back to the "old" way of doing CSS: using
 SASS. Because of the problems involved with import side-effects (basically, all bundlers treat
 CSS imports as side-effectful, which means that the styles get included even if the module importing
 those styles is dead-code eliminated), Dolmen does not automatically import any stylesheets, and
@@ -31,7 +31,7 @@ end-user experience. And adding a few extra import lines is not that difficult f
 
 Also, the author of an application using Dolmen is in no way restricted to making the same set of
 technical styling choices as Dolmen itself. The tradeoff calculation for an application is very
-different than that of a library - because most apps only use a portion of the functionality of
+different than that of a library - most apps only use a portion of the functionality of
 a library, which means that the library contains a lot of things that the app will never use,
 and *should not have to pay for*. An app, on the other hand, presumably only contains things
 that it actually needs.
