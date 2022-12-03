@@ -24,7 +24,7 @@ jobs:
     - run: npm test
     - name: docs
       run: npm run build
-      working_directory: sites/dolmen
+      working-directory: sites/dolmen
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
       with:
