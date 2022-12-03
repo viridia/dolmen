@@ -1,0 +1,33 @@
+import { Stack, Button } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# Stack
+
+A `Stack` is a layout component which arranges its children vertically. (Basically it's
+a flexbox with flex-direction set to `column`).
+
+<DemoSection>
+  <Stack gap="xl">
+    <Button>Buffy</Button>
+    <Button>Angel</Button>
+    <Button>Xander</Button>
+    <Button>Willow</Button>
+  </Stack>
+</DemoSection>
+<SourceCode>
+```tsx
+<Stack gap="xl">
+  <Button>Buffy</Button>
+  <Button>Angel</Button>
+  <Button>Xander</Button>
+  <Button>Willow</Button>
+</Stack>
+```
+</SourceCode>
+
+### Properties
+
+The `Stack` component has no special properties of its own. However, like all layout components,
+it accepts both the standard Dolmen 'flex props' properies as well as the standard HTML element
+properties.

@@ -22,10 +22,19 @@ export const NavPanel = () => {
           <li>
             <header>Getting Started</header>
             <ul class={styles.linkList}>
-              <NavItem href="/start/overview" disabled>Overview</NavItem>
-              <NavItem href="/start/installation" disabled>Installation</NavItem>
+              <NavItem href="/start/overview" disabled>
+                Overview
+              </NavItem>
+              <NavItem href="/start/installation" disabled>
+                Installation
+              </NavItem>
               <NavItem href="/start/philosophy">Philosophy</NavItem>
-              <NavItem href="/start/themes" disabled>Themes</NavItem>
+              <NavItem href="/start/themes" disabled>
+                Themes
+              </NavItem>
+              <NavItem href="/start/flexprops" disabled>
+                Flex Props
+              </NavItem>
             </ul>
           </li>
           <li>
@@ -51,22 +60,42 @@ export const NavPanel = () => {
               <li>
                 <header>Data Display</header>
                 <ul class={styles.linkList}>
-                  <NavItem href="/components/Avatar" disabled>Avatar</NavItem>
+                  <NavItem href="/components/Avatar" disabled>
+                    Avatar
+                  </NavItem>
                   <NavItem href="/components/Badge">Badge</NavItem>
-                  <NavItem href="/components/Callout" disabled>Callout</NavItem>
-                  <NavItem href="/components/ColorGrid" disabled>ColorGrid</NavItem>
-                  <NavItem href="/components/ColorSwatch" disabled>ColorSwatch</NavItem>
-                  <NavItem href="/components/List" disabled>List</NavItem>
-                  <NavItem href="/components/Table" disabled>Table</NavItem>
-                  <NavItem href="/components/Tooltip" disabled>Tooltip</NavItem>
+                  <NavItem href="/components/Callout" disabled>
+                    Callout
+                  </NavItem>
+                  <NavItem href="/components/ColorGrid" disabled>
+                    ColorGrid
+                  </NavItem>
+                  <NavItem href="/components/ColorSwatch" disabled>
+                    ColorSwatch
+                  </NavItem>
+                  <NavItem href="/components/List" disabled>
+                    List
+                  </NavItem>
+                  <NavItem href="/components/Table" disabled>
+                    Table
+                  </NavItem>
+                  <NavItem href="/components/Tooltip" disabled>
+                    Tooltip
+                  </NavItem>
                 </ul>
               </li>
               <li>
                 <header>Feedback</header>
                 <ul class={styles.linkList}>
-                  <NavItem href="/components/Alert" disabled>Alert</NavItem>
-                  <NavItem href="/components/EmptyResult" disabled>EmptyResult</NavItem>
-                  <NavItem href="/components/Toast" disabled>Toast</NavItem>
+                  <NavItem href="/components/Alert" disabled>
+                    Alert
+                  </NavItem>
+                  <NavItem href="/components/EmptyResult" disabled>
+                    EmptyResult
+                  </NavItem>
+                  <NavItem href="/components/Toast" disabled>
+                    Toast
+                  </NavItem>
                 </ul>
               </li>
               <li>
@@ -83,6 +112,9 @@ export const NavPanel = () => {
                   </NavItem>
                   <NavItem href="/components/Label" disabled>
                     Label
+                  </NavItem>
+                  <NavItem href="/components/RadioButton" disabled>
+                    RadioButton [planned]
                   </NavItem>
                   <NavItem href="/components/Select" disabled>
                     Select
@@ -107,46 +139,73 @@ export const NavPanel = () => {
                   <NavItem href="/components/Drawer" disabled>
                     Drawer
                   </NavItem>
-                  <NavItem href="/components/Group" disabled>
-                    Group
-                  </NavItem>
-                  <NavItem href="/components/Page">
-                    Page
-                  </NavItem>
+                  <NavItem href="/components/Group">Group</NavItem>
+                  <NavItem href="/components/Page">Page</NavItem>
                   <NavItem href="/components/ScrollArea" disabled>
                     ScrollArea
                   </NavItem>
-                  <NavItem href="/components/Spacer" disabled>
-                    Spacer
-                  </NavItem>
+                  <NavItem href="/components/Spacer">Spacer</NavItem>
                   <NavItem href="/components/SplitPane" disabled>
                     SplitPane
                   </NavItem>
-                  <NavItem href="/components/Stack" disabled>
-                    Stack
-                  </NavItem>
+                  <NavItem href="/components/Stack">Stack</NavItem>
                 </ul>
               </li>
               <li>
                 <header>Navigation</header>
                 <ul class={styles.linkList}>
-                  <NavItem href="/components/Breadcrumbs" disabled>Breadcrumbs</NavItem>
-                  <NavItem href="/components/Nav" disabled>Nav</NavItem>
+                  <NavItem href="/components/Breadcrumbs" disabled>
+                    Breadcrumbs
+                  </NavItem>
+                  <NavItem href="/components/Nav" disabled>
+                    Nav
+                  </NavItem>
                 </ul>
               </li>
               <li>
                 <header>Text</header>
-                <NavItem href="/components/Code" disabled>Code</NavItem>
-                <NavItem href="/components/Header" disabled>Header</NavItem>
-                <NavItem href="/components/TextSpan" disabled>TextSpan</NavItem>
+                <NavItem href="/components/Code" disabled>
+                  Code
+                </NavItem>
+                <NavItem href="/components/Header" disabled>
+                  Header
+                </NavItem>
+                <NavItem href="/components/TextSpan" disabled>
+                  TextSpan
+                </NavItem>
               </li>
             </ul>
           </li>
           <li>
             <header>Hooks</header>
+            <ul class={styles.linkList}>
+              <NavItem href="/hooks/createCssTransition" disabled>
+                createCssTransition
+              </NavItem>
+              <NavItem href="/hooks/createDialogState" disabled>
+                createDialogState
+              </NavItem>
+              <NavItem href="/hooks/createElementState" disabled>
+                createElementState
+              </NavItem>
+              <NavItem href="/hooks/createFocusTrap" disabled>
+                createFocusTrap
+              </NavItem>
+              <NavItem href="/hooks/createFormValidation" disabled>
+                createFormValidation
+              </NavItem>
+              <NavItem href="/hooks/createTooltipWatcher" disabled>
+                createTooltipWatcher
+              </NavItem>
+            </ul>
           </li>
           <li>
-            <header>Extending</header>
+            <header>Customization</header>
+            <ul class={styles.linkList}>
+              <NavItem href="/customization/tokens" disabled>
+                Design Tokens
+              </NavItem>
+            </ul>
           </li>
           <li>
             <header>Packages</header>

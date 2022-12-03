@@ -1,0 +1,33 @@
+import { Group, Button } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# Group
+
+A `Group` is a layout component which arranges its children horizontally. (Basically it's
+a flexbox with flex-direction set to `row`).
+
+<DemoSection>
+  <Group gap="xl">
+    <Button>Groucho</Button>
+    <Button>Chico</Button>
+    <Button>Harpo</Button>
+    <Button>Zeppo</Button>
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+<Group gap="xl">
+  <Button>Groucho</Button>
+  <Button>Chico</Button>
+  <Button>Harpo</Button>
+  <Button>Zeppo</Button>
+</Group>
+```
+</SourceCode>
+
+### Properties
+
+The `Group` component has no special properties of its own. However, like all layout components,
+it accepts both the standard Dolmen 'flex props' properies as well as the standard HTML element
+properties.

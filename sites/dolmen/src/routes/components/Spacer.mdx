@@ -1,0 +1,29 @@
+import { Group, Button, Spacer } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# Spacer
+
+A `Spacer` is an invisible component that has a `flex` value set to 1. This makes it useful
+when you want to insert some flexible space in-between other elements in a flex layout.
+
+<DemoSection>
+  <Group>
+    <Button>Alpha</Button>
+    <Spacer />
+    <Button>Omega</Button>
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+<Group>
+  <Button>Alpha</Button>
+  <Spacer />
+  <Button>Omega</Button>
+</Group>
+```
+</SourceCode>
+
+### Properties
+
+The `Spacer` element has no defined properties, although it accepts the standard HTML attributes.
