@@ -1,4 +1,4 @@
-import{M as c}from"./index.851bda99.js";import{B as r}from"./SplitPane.abdc1c79.js";import{c as e,m as a}from"./entry-client.0e18877c.js";import{S as i}from"./Stack.1415a2e9.js";import{D as l,S as s}from"./mdx.00edb165.js";function o(t){const n=Object.assign({h1:"h1",p:"p",code:"code",pre:"pre",h3:"h3"},c(),t.components);return[e(n.h1,{children:"Stack"}),`
+import{M as c}from"./index.afa9dd74.js";import{B as r}from"./SplitPane.75581b8f.js";import{c as e,m as a}from"./entry-client.0af9de6f.js";import{S as i}from"./Stack.78e65729.js";import{D as l,S as s}from"./mdx.1370b2ae.js";function o(t){const n=Object.assign({h1:"h1",p:"p",code:"code",pre:"pre",h3:"h3"},c(),t.components);return[e(n.h1,{children:"Stack"}),`
 `,e(n.p,{get children(){return["A ",e(n.code,{children:"Stack"}),` is a layout component which arranges its children vertically. (Basically it's
 a flexbox with flex-direction set to `,e(n.code,{children:"column"}),")."]}}),`
 `,e(l,{get children(){return e(i,{gap:"xl",get children(){return[e(r,{children:"Buffy"}),`

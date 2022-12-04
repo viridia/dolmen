@@ -28,968 +28,968 @@
   "../../node_modules/solid-start/entry-client/StartClient.tsx": [],
   "src/entry-client.tsx": [],
   "src/routes/[...404].mdx": [
-    "/assets/_...404_.a891dfec.js"
+    "/dolmen/assets/_...404_.3059bbb0.js"
   ],
   "../../node_modules/solid-mdx/dist/index.mjs": [
-    "/assets/index.851bda99.js"
+    "/dolmen/assets/index.afa9dd74.js"
   ],
   "src/routes/components.tsx": [
-    "/assets/components.8b546303.js"
+    "/dolmen/assets/components.0c5eb287.js"
   ],
   "../../packages/dolmen/dist/mjs/components/core/Button.jsx": [
-    "/assets/SplitPane.abdc1c79.js"
+    "/dolmen/assets/SplitPane.75581b8f.js"
   ],
   "../../packages/dolmen/dist/mjs/components/core/MenuList.jsx": [
-    "/assets/SplitPane.abdc1c79.js"
+    "/dolmen/assets/SplitPane.75581b8f.js"
   ],
   "../../packages/dolmen/dist/mjs/styles/FlexProps.js": [
-    "/assets/SplitPane.abdc1c79.js"
+    "/dolmen/assets/SplitPane.75581b8f.js"
   ],
   "../../packages/dolmen/dist/mjs/components/core/Modal.jsx": [
-    "/assets/SplitPane.abdc1c79.js"
+    "/dolmen/assets/SplitPane.75581b8f.js"
   ],
   "../../packages/dolmen/dist/mjs/components/core/Slider.jsx": [
-    "/assets/SplitPane.abdc1c79.js"
+    "/dolmen/assets/SplitPane.75581b8f.js"
   ],
   "../../packages/dolmen/dist/mjs/components/datadisplay/ColorGrid.jsx": [
-    "/assets/SplitPane.abdc1c79.js"
+    "/dolmen/assets/SplitPane.75581b8f.js"
   ],
   "../../packages/dolmen/dist/mjs/components/datadisplay/ColorSwatch.jsx": [
-    "/assets/SplitPane.abdc1c79.js"
+    "/dolmen/assets/SplitPane.75581b8f.js"
   ],
   "../../packages/dolmen/dist/mjs/components/datadisplay/Table.jsx": [
-    "/assets/SplitPane.abdc1c79.js"
+    "/dolmen/assets/SplitPane.75581b8f.js"
   ],
   "../../packages/dolmen/dist/mjs/components/datadisplay/Tooltip.jsx": [
-    "/assets/SplitPane.abdc1c79.js"
+    "/dolmen/assets/SplitPane.75581b8f.js"
   ],
   "../../packages/dolmen/dist/mjs/components/feedback/Toast.jsx": [
-    "/assets/SplitPane.abdc1c79.js"
+    "/dolmen/assets/SplitPane.75581b8f.js"
   ],
   "../../packages/dolmen/dist/mjs/components/layout/Card.jsx": [
-    "/assets/SplitPane.abdc1c79.js"
+    "/dolmen/assets/SplitPane.75581b8f.js"
   ],
   "../../packages/dolmen/dist/mjs/components/layout/Drawer.jsx": [
-    "/assets/SplitPane.abdc1c79.js"
+    "/dolmen/assets/SplitPane.75581b8f.js"
   ],
   "../../packages/dolmen/dist/mjs/components/layout/Page.jsx": [
-    "/assets/SplitPane.abdc1c79.js"
+    "/dolmen/assets/SplitPane.75581b8f.js"
   ],
   "../../packages/dolmen/dist/mjs/components/layout/SplitPane.jsx": [
-    "/assets/SplitPane.abdc1c79.js"
+    "/dolmen/assets/SplitPane.75581b8f.js"
   ],
   "src/components/AppBar.tsx": [
-    "/assets/AppBar.048ac8e2.js"
+    "/dolmen/assets/AppBar.d60a1b5c.js"
   ],
   "src/components/NavPanel.module.scss?used": [
-    "/assets/styles.module.dcf73ee8.js",
-    "/assets/styles.f3569e65.css"
+    "/dolmen/assets/styles.module.89c7188e.js",
+    "/dolmen/assets/styles.f3569e65.css"
   ],
   "src/components/NavPanel.tsx": [
-    "/assets/styles.module.dcf73ee8.js",
-    "/assets/styles.f3569e65.css"
+    "/dolmen/assets/styles.module.89c7188e.js",
+    "/dolmen/assets/styles.f3569e65.css"
   ],
   "src/routes/styles.module.scss?used": [
-    "/assets/styles.module.dcf73ee8.js",
-    "/assets/styles.f3569e65.css"
+    "/dolmen/assets/styles.module.89c7188e.js",
+    "/dolmen/assets/styles.f3569e65.css"
   ],
   "../../packages/dolmen/dist/mjs/components/layout/Spacer.jsx": [
-    "/assets/Spacer.ed2a6aaf.js"
+    "/dolmen/assets/Spacer.aff46a8e.js"
   ],
   "src/icons/DarkMode.tsx": [
-    "/assets/LightMode.17e7ee86.js"
+    "/dolmen/assets/LightMode.0db679b1.js"
   ],
   "src/icons/LightMode.tsx": [
-    "/assets/LightMode.17e7ee86.js"
+    "/dolmen/assets/LightMode.0db679b1.js"
   ],
   "../../packages/dolmen/dist/mjs/components/layout/Aside.jsx": [
-    "/assets/Aside.51638252.js"
+    "/dolmen/assets/Aside.8103f41d.js"
   ],
   "../../packages/dolmen/dist/mjs/icons/Error.jsx": [
-    "/assets/Alert.c3ff029c.js"
+    "/dolmen/assets/Alert.b41037f5.js"
   ],
   "../../packages/dolmen/dist/mjs/icons/Info.jsx": [
-    "/assets/Alert.c3ff029c.js"
+    "/dolmen/assets/Alert.b41037f5.js"
   ],
   "../../packages/dolmen/dist/mjs/icons/Success.jsx": [
-    "/assets/Alert.c3ff029c.js"
+    "/dolmen/assets/Alert.b41037f5.js"
   ],
   "../../packages/dolmen/dist/mjs/icons/Warning.jsx": [
-    "/assets/Alert.c3ff029c.js"
+    "/dolmen/assets/Alert.b41037f5.js"
   ],
   "../../packages/dolmen/dist/mjs/components/feedback/Alert.jsx": [
-    "/assets/Alert.c3ff029c.js"
+    "/dolmen/assets/Alert.b41037f5.js"
   ],
   "src/routes/components/Alert.mdx": [
-    "/assets/Alert.c3ff029c.js"
+    "/dolmen/assets/Alert.b41037f5.js"
   ],
   "../../packages/dolmen/dist/mjs/components/layout/Stack.jsx": [
-    "/assets/Stack.1415a2e9.js"
+    "/dolmen/assets/Stack.78e65729.js"
   ],
   "src/components/mdx.module.scss?used": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/core.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/1c.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/abnf.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/accesslog.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/actionscript.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/ada.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/angelscript.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/apache.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/applescript.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/arcade.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/arduino.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/armasm.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/xml.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/asciidoc.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/aspectj.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/autohotkey.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/autoit.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/avrasm.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/awk.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/axapta.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/bash.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/basic.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/bnf.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/brainfuck.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/c.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/cal.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/capnproto.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/ceylon.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/clean.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/clojure.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/clojure-repl.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/cmake.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/coffeescript.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/coq.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/cos.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/cpp.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/crmsh.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/crystal.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/csharp.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/csp.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/css.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/d.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/markdown.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/dart.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/delphi.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/diff.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/django.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/dns.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/dockerfile.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/dos.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/dsconfig.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/dts.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/dust.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/ebnf.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/elixir.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/elm.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/ruby.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/erb.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/erlang-repl.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/erlang.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/excel.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/fix.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/flix.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/fortran.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/fsharp.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/gams.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/gauss.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/gcode.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/gherkin.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/glsl.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/gml.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/go.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/golo.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/gradle.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/graphql.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/groovy.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/haml.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/handlebars.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/haskell.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/haxe.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/hsp.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/http.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/hy.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/inform7.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/ini.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/irpf90.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/isbl.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/java.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/javascript.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/jboss-cli.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/json.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/julia.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/julia-repl.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/kotlin.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/lasso.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/latex.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/ldif.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/leaf.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/less.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/lisp.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/livecodeserver.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/livescript.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/llvm.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/lsl.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/lua.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/makefile.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/mathematica.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/matlab.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/maxima.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/mel.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/mercury.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/mipsasm.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/mizar.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/perl.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/mojolicious.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/monkey.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/moonscript.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/n1ql.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/nestedtext.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/nginx.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/nim.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/nix.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/node-repl.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/nsis.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/objectivec.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/ocaml.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/openscad.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/oxygene.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/parser3.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/pf.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/pgsql.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/php.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/php-template.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/plaintext.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/pony.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/powershell.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/processing.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/profile.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/prolog.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/properties.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/protobuf.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/puppet.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/purebasic.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/python.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/python-repl.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/q.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/qml.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/r.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/reasonml.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/rib.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/roboconf.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/routeros.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/rsl.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/ruleslanguage.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/rust.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/sas.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/scala.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/scheme.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/scilab.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/scss.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/shell.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/smali.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/smalltalk.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/sml.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/sqf.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/sql.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/stan.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/stata.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/step21.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/stylus.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/subunit.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/swift.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/taggerscript.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/yaml.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/tap.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/tcl.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/thrift.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/tp.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/twig.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/typescript.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/vala.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/vbnet.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/vbscript.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/vbscript-html.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/verilog.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/vhdl.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/vim.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/wasm.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/wren.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/x86asm.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/xl.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/xquery.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/languages/zephir.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/lib/index.js": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "../../node_modules/highlight.js/styles/hybrid.css": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "src/components/mdx.tsx": [
-    "/assets/mdx.00edb165.js",
-    "/assets/mdx.9c826d5f.css"
+    "/dolmen/assets/mdx.1370b2ae.js",
+    "/dolmen/assets/mdx.9c826d5f.css"
   ],
   "src/routes/components/Aside.mdx": [
-    "/assets/Aside.5fc0baf1.js"
+    "/dolmen/assets/Aside.ebb7410b.js"
   ],
   "../../packages/dolmen/dist/mjs/components/layout/Group.jsx": [
-    "/assets/Group.e2a1de10.js"
+    "/dolmen/assets/Group.8dd857b5.js"
   ],
   "../../node_modules/colord/index.mjs": [
-    "/assets/Badge.56240c46.js"
+    "/dolmen/assets/Badge.16bd0504.js"
   ],
   "../../packages/dolmen/dist/mjs/components/datadisplay/Badge.jsx": [
-    "/assets/Badge.56240c46.js"
+    "/dolmen/assets/Badge.16bd0504.js"
   ],
   "src/routes/components/Badge.mdx": [
-    "/assets/Badge.56240c46.js"
+    "/dolmen/assets/Badge.16bd0504.js"
   ],
   "src/icons/Tune.tsx": [
-    "/assets/Button.acfbaa3f.js"
+    "/dolmen/assets/Button.a05b7fd2.js"
   ],
   "src/routes/components/Button.mdx": [
-    "/assets/Button.acfbaa3f.js"
+    "/dolmen/assets/Button.a05b7fd2.js"
   ],
   "../../packages/dolmen/dist/mjs/components/core/ButtonGroup.jsx": [
-    "/assets/ButtonGroup.6c2dd24f.js"
+    "/dolmen/assets/ButtonGroup.38f9b938.js"
   ],
   "src/routes/components/ButtonGroup.mdx": [
-    "/assets/ButtonGroup.6c2dd24f.js"
+    "/dolmen/assets/ButtonGroup.38f9b938.js"
   ],
   "src/routes/components/Card.mdx": [
-    "/assets/Card.3c099c9b.js"
+    "/dolmen/assets/Card.d58f30e4.js"
   ],
   "../../packages/dolmen/dist/mjs/components/form/CheckBox.jsx": [
-    "/assets/CheckBox.1229eb29.js"
+    "/dolmen/assets/CheckBox.e3aa3f3c.js"
   ],
   "src/routes/components/CheckBox.mdx": [
-    "/assets/CheckBox.1229eb29.js"
+    "/dolmen/assets/CheckBox.e3aa3f3c.js"
   ],
   "../../packages/dolmen/dist/mjs/icons/ChevronDown.jsx": [
-    "/assets/DiscloseButton.b3aa9b4b.js"
+    "/dolmen/assets/DiscloseButton.47683a49.js"
   ],
   "../../packages/dolmen/dist/mjs/components/core/DiscloseButton.jsx": [
-    "/assets/DiscloseButton.b3aa9b4b.js"
+    "/dolmen/assets/DiscloseButton.47683a49.js"
   ],
   "src/routes/components/DiscloseButton.mdx": [
-    "/assets/DiscloseButton.b3aa9b4b.js"
+    "/dolmen/assets/DiscloseButton.47683a49.js"
   ],
   "../../packages/dolmen/dist/mjs/components/feedback/EmptyResult.jsx": [
-    "/assets/EmptyResult.6d3e75f5.js"
+    "/dolmen/assets/EmptyResult.3d903d92.js"
   ],
   "src/routes/components/EmptyResult.mdx": [
-    "/assets/EmptyResult.6d3e75f5.js"
+    "/dolmen/assets/EmptyResult.3d903d92.js"
   ],
   "src/routes/components/Group.mdx": [
-    "/assets/Group.8664ad3f.js"
+    "/dolmen/assets/Group.177fd7af.js"
   ],
   "src/routes/components/Page.mdx": [
-    "/assets/Page.4a2a79fe.js"
+    "/dolmen/assets/Page.9cfb591b.js"
   ],
   "src/routes/components/Spacer.mdx": [
-    "/assets/Spacer.0ef16c41.js"
+    "/dolmen/assets/Spacer.b5b0c421.js"
   ],
   "src/routes/components/Stack.mdx": [
-    "/assets/Stack.67fdf6f2.js"
+    "/dolmen/assets/Stack.07ecbbb4.js"
   ],
   "src/routes/components/[...404].mdx": [
-    "/assets/_...404_.a1605aa7.js"
+    "/dolmen/assets/_...404_.3e659607.js"
   ],
   "src/routes/docs.mdx": [
-    "/assets/docs.6a19f5bf.js"
+    "/dolmen/assets/docs.dada1305.js"
   ],
   "src/routes/index.tsx": [
-    "/assets/index.9ee2530d.js"
+    "/dolmen/assets/index.78888f3f.js"
   ],
   "src/routes/start.tsx": [
-    "/assets/start.bc31c038.js"
+    "/dolmen/assets/start.3af2673d.js"
   ],
   "src/routes/start/philosophy.mdx": [
-    "/assets/philosophy.7ae75537.js"
+    "/dolmen/assets/philosophy.c533e6df.js"
   ]
 }

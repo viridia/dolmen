@@ -1,4 +1,4 @@
-import{M as c}from"./index.851bda99.js";import{C as r}from"./SplitPane.abdc1c79.js";import{c as e,m as a}from"./entry-client.0e18877c.js";import{D as i,S as s}from"./mdx.00edb165.js";function o(t){const n=Object.assign({h1:"h1",p:"p",code:"code",pre:"pre",h3:"h3"},c(),t.components);return r||d("Card",!1),r.Content||d("Card.Content",!0),[e(n.h1,{children:"Card"}),`
+import{M as c}from"./index.afa9dd74.js";import{C as r}from"./SplitPane.75581b8f.js";import{c as e,m as a}from"./entry-client.0af9de6f.js";import{D as i,S as s}from"./mdx.1370b2ae.js";function o(t){const n=Object.assign({h1:"h1",p:"p",code:"code",pre:"pre",h3:"h3"},c(),t.components);return r||d("Card",!1),r.Content||d("Card.Content",!0),[e(n.h1,{children:"Card"}),`
 `,e(n.p,{get children(){return["A ",e(n.code,{children:"Card"})," displays a section of content."]}}),`
 `,e(i,{get children(){return e(r,{get children(){return e(r.Content,{get children(){return e(n.p,{children:"This is a card"})}})}})}}),`
 `,e(s,{get children(){return e(n.pre,{get children(){return e(n.code,{className:"language-tsx",children:`<Card>

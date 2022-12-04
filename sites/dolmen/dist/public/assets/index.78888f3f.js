@@ -1,0 +1,1 @@
+import{P as t}from"./SplitPane.75581b8f.js";import{c as r,O as e}from"./entry-client.0af9de6f.js";import{A as o}from"./AppBar.d60a1b5c.js";import"./Spacer.aff46a8e.js";import"./LightMode.0db679b1.js";const s=()=>r(t,{get children(){return[r(o,{}),r(t.Content,{as:"main",flexDirection:"row",p:"none",get children(){return r(e,{})}})]}});export{s as default};

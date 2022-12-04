@@ -1,6 +1,6 @@
 {
   "src/entry-client.tsx": {
-    "file": "assets/entry-client.0e18877c.js",
+    "file": "assets/entry-client.0af9de6f.js",
     "src": "src/entry-client.tsx",
     "isEntry": true,
     "dynamicImports": [
@@ -30,310 +30,310 @@
     ]
   },
   "src/routes/[...404].mdx": {
-    "file": "assets/_...404_.a891dfec.js",
+    "file": "assets/_...404_.3059bbb0.js",
     "src": "src/routes/[...404].mdx",
     "isDynamicEntry": true,
     "imports": [
-      "_index.851bda99.js",
+      "_index.afa9dd74.js",
       "src/entry-client.tsx"
     ]
   },
-  "_index.851bda99.js": {
-    "file": "assets/index.851bda99.js",
+  "_index.afa9dd74.js": {
+    "file": "assets/index.afa9dd74.js",
     "imports": [
       "src/entry-client.tsx"
     ]
   },
   "src/routes/components.tsx": {
-    "file": "assets/components.8b546303.js",
+    "file": "assets/components.0c5eb287.js",
     "src": "src/routes/components.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "_SplitPane.abdc1c79.js",
+      "_SplitPane.75581b8f.js",
       "src/entry-client.tsx",
-      "_AppBar.048ac8e2.js",
-      "_styles.module.dcf73ee8.js",
-      "_Spacer.ed2a6aaf.js",
-      "_LightMode.17e7ee86.js",
-      "_Aside.51638252.js"
+      "_AppBar.d60a1b5c.js",
+      "_styles.module.89c7188e.js",
+      "_Spacer.aff46a8e.js",
+      "_LightMode.0db679b1.js",
+      "_Aside.8103f41d.js"
     ]
   },
-  "_SplitPane.abdc1c79.js": {
-    "file": "assets/SplitPane.abdc1c79.js",
+  "_SplitPane.75581b8f.js": {
+    "file": "assets/SplitPane.75581b8f.js",
     "imports": [
       "src/entry-client.tsx"
     ]
   },
-  "_AppBar.048ac8e2.js": {
-    "file": "assets/AppBar.048ac8e2.js",
+  "_AppBar.d60a1b5c.js": {
+    "file": "assets/AppBar.d60a1b5c.js",
     "imports": [
-      "_SplitPane.abdc1c79.js",
+      "_SplitPane.75581b8f.js",
       "src/entry-client.tsx",
-      "_Spacer.ed2a6aaf.js",
-      "_LightMode.17e7ee86.js"
+      "_Spacer.aff46a8e.js",
+      "_LightMode.0db679b1.js"
     ]
   },
-  "_styles.module.dcf73ee8.js": {
-    "file": "assets/styles.module.dcf73ee8.js",
+  "_styles.module.89c7188e.js": {
+    "file": "assets/styles.module.89c7188e.js",
     "imports": [
       "src/entry-client.tsx",
-      "_SplitPane.abdc1c79.js",
-      "_Aside.51638252.js"
+      "_SplitPane.75581b8f.js",
+      "_Aside.8103f41d.js"
     ],
     "css": [
       "assets/styles.f3569e65.css"
     ]
   },
-  "_Spacer.ed2a6aaf.js": {
-    "file": "assets/Spacer.ed2a6aaf.js",
+  "_Spacer.aff46a8e.js": {
+    "file": "assets/Spacer.aff46a8e.js",
     "imports": [
       "src/entry-client.tsx"
     ]
   },
-  "_LightMode.17e7ee86.js": {
-    "file": "assets/LightMode.17e7ee86.js",
+  "_LightMode.0db679b1.js": {
+    "file": "assets/LightMode.0db679b1.js",
     "imports": [
       "src/entry-client.tsx"
     ]
   },
-  "_Aside.51638252.js": {
-    "file": "assets/Aside.51638252.js",
+  "_Aside.8103f41d.js": {
+    "file": "assets/Aside.8103f41d.js",
     "imports": [
       "src/entry-client.tsx",
-      "_SplitPane.abdc1c79.js"
+      "_SplitPane.75581b8f.js"
     ]
   },
   "src/routes/components/Alert.mdx": {
-    "file": "assets/Alert.c3ff029c.js",
+    "file": "assets/Alert.b41037f5.js",
     "src": "src/routes/components/Alert.mdx",
     "isDynamicEntry": true,
     "imports": [
-      "_index.851bda99.js",
-      "_SplitPane.abdc1c79.js",
+      "_index.afa9dd74.js",
+      "_SplitPane.75581b8f.js",
       "src/entry-client.tsx",
-      "_Stack.1415a2e9.js",
-      "_mdx.00edb165.js"
+      "_Stack.78e65729.js",
+      "_mdx.1370b2ae.js"
     ]
   },
-  "_Stack.1415a2e9.js": {
-    "file": "assets/Stack.1415a2e9.js",
+  "_Stack.78e65729.js": {
+    "file": "assets/Stack.78e65729.js",
     "imports": [
       "src/entry-client.tsx",
-      "_SplitPane.abdc1c79.js"
+      "_SplitPane.75581b8f.js"
     ]
   },
-  "_mdx.00edb165.js": {
-    "file": "assets/mdx.00edb165.js",
+  "_mdx.1370b2ae.js": {
+    "file": "assets/mdx.1370b2ae.js",
     "imports": [
       "src/entry-client.tsx",
-      "_SplitPane.abdc1c79.js"
+      "_SplitPane.75581b8f.js"
     ],
     "css": [
       "assets/mdx.9c826d5f.css"
     ]
   },
   "src/routes/components/Aside.mdx": {
-    "file": "assets/Aside.5fc0baf1.js",
+    "file": "assets/Aside.ebb7410b.js",
     "src": "src/routes/components/Aside.mdx",
     "isDynamicEntry": true,
     "imports": [
-      "_index.851bda99.js",
-      "_SplitPane.abdc1c79.js",
+      "_index.afa9dd74.js",
+      "_SplitPane.75581b8f.js",
       "src/entry-client.tsx",
-      "_Aside.51638252.js",
-      "_Group.e2a1de10.js",
-      "_mdx.00edb165.js"
+      "_Aside.8103f41d.js",
+      "_Group.8dd857b5.js",
+      "_mdx.1370b2ae.js"
     ]
   },
-  "_Group.e2a1de10.js": {
-    "file": "assets/Group.e2a1de10.js",
+  "_Group.8dd857b5.js": {
+    "file": "assets/Group.8dd857b5.js",
     "imports": [
       "src/entry-client.tsx",
-      "_SplitPane.abdc1c79.js"
+      "_SplitPane.75581b8f.js"
     ]
   },
   "src/routes/components/Badge.mdx": {
-    "file": "assets/Badge.56240c46.js",
+    "file": "assets/Badge.16bd0504.js",
     "src": "src/routes/components/Badge.mdx",
     "isDynamicEntry": true,
     "imports": [
       "src/entry-client.tsx",
-      "_index.851bda99.js",
-      "_SplitPane.abdc1c79.js",
-      "_Group.e2a1de10.js",
-      "_mdx.00edb165.js"
+      "_index.afa9dd74.js",
+      "_SplitPane.75581b8f.js",
+      "_Group.8dd857b5.js",
+      "_mdx.1370b2ae.js"
     ]
   },
   "src/routes/components/Button.mdx": {
-    "file": "assets/Button.acfbaa3f.js",
+    "file": "assets/Button.a05b7fd2.js",
     "src": "src/routes/components/Button.mdx",
     "isDynamicEntry": true,
     "imports": [
       "src/entry-client.tsx",
-      "_index.851bda99.js",
-      "_SplitPane.abdc1c79.js",
-      "_Group.e2a1de10.js",
-      "_mdx.00edb165.js",
-      "_LightMode.17e7ee86.js"
+      "_index.afa9dd74.js",
+      "_SplitPane.75581b8f.js",
+      "_Group.8dd857b5.js",
+      "_mdx.1370b2ae.js",
+      "_LightMode.0db679b1.js"
     ]
   },
   "src/routes/components/ButtonGroup.mdx": {
-    "file": "assets/ButtonGroup.6c2dd24f.js",
+    "file": "assets/ButtonGroup.38f9b938.js",
     "src": "src/routes/components/ButtonGroup.mdx",
     "isDynamicEntry": true,
     "imports": [
-      "_index.851bda99.js",
-      "_SplitPane.abdc1c79.js",
+      "_index.afa9dd74.js",
+      "_SplitPane.75581b8f.js",
       "src/entry-client.tsx",
-      "_Group.e2a1de10.js",
-      "_mdx.00edb165.js"
+      "_Group.8dd857b5.js",
+      "_mdx.1370b2ae.js"
     ]
   },
   "src/routes/components/Card.mdx": {
-    "file": "assets/Card.3c099c9b.js",
+    "file": "assets/Card.d58f30e4.js",
     "src": "src/routes/components/Card.mdx",
     "isDynamicEntry": true,
     "imports": [
-      "_index.851bda99.js",
-      "_SplitPane.abdc1c79.js",
+      "_index.afa9dd74.js",
+      "_SplitPane.75581b8f.js",
       "src/entry-client.tsx",
-      "_mdx.00edb165.js"
+      "_mdx.1370b2ae.js"
     ]
   },
   "src/routes/components/CheckBox.mdx": {
-    "file": "assets/CheckBox.1229eb29.js",
+    "file": "assets/CheckBox.e3aa3f3c.js",
     "src": "src/routes/components/CheckBox.mdx",
     "isDynamicEntry": true,
     "imports": [
-      "_index.851bda99.js",
-      "_SplitPane.abdc1c79.js",
+      "_index.afa9dd74.js",
+      "_SplitPane.75581b8f.js",
       "src/entry-client.tsx",
-      "_mdx.00edb165.js"
+      "_mdx.1370b2ae.js"
     ]
   },
   "src/routes/components/DiscloseButton.mdx": {
-    "file": "assets/DiscloseButton.b3aa9b4b.js",
+    "file": "assets/DiscloseButton.47683a49.js",
     "src": "src/routes/components/DiscloseButton.mdx",
     "isDynamicEntry": true,
     "imports": [
-      "_index.851bda99.js",
-      "_SplitPane.abdc1c79.js",
+      "_index.afa9dd74.js",
+      "_SplitPane.75581b8f.js",
       "src/entry-client.tsx",
-      "_mdx.00edb165.js"
+      "_mdx.1370b2ae.js"
     ]
   },
   "src/routes/components/EmptyResult.mdx": {
-    "file": "assets/EmptyResult.6d3e75f5.js",
+    "file": "assets/EmptyResult.3d903d92.js",
     "src": "src/routes/components/EmptyResult.mdx",
     "isDynamicEntry": true,
     "imports": [
-      "_index.851bda99.js",
-      "_SplitPane.abdc1c79.js",
+      "_index.afa9dd74.js",
+      "_SplitPane.75581b8f.js",
       "src/entry-client.tsx",
-      "_mdx.00edb165.js"
+      "_mdx.1370b2ae.js"
     ]
   },
   "src/routes/components/Group.mdx": {
-    "file": "assets/Group.8664ad3f.js",
+    "file": "assets/Group.177fd7af.js",
     "src": "src/routes/components/Group.mdx",
     "isDynamicEntry": true,
     "imports": [
-      "_index.851bda99.js",
-      "_SplitPane.abdc1c79.js",
+      "_index.afa9dd74.js",
+      "_SplitPane.75581b8f.js",
       "src/entry-client.tsx",
-      "_Group.e2a1de10.js",
-      "_mdx.00edb165.js"
+      "_Group.8dd857b5.js",
+      "_mdx.1370b2ae.js"
     ]
   },
   "src/routes/components/Page.mdx": {
-    "file": "assets/Page.4a2a79fe.js",
+    "file": "assets/Page.9cfb591b.js",
     "src": "src/routes/components/Page.mdx",
     "isDynamicEntry": true,
     "imports": [
-      "_index.851bda99.js",
-      "_SplitPane.abdc1c79.js",
+      "_index.afa9dd74.js",
+      "_SplitPane.75581b8f.js",
       "src/entry-client.tsx",
-      "_mdx.00edb165.js"
+      "_mdx.1370b2ae.js"
     ]
   },
   "src/routes/components/Spacer.mdx": {
-    "file": "assets/Spacer.0ef16c41.js",
+    "file": "assets/Spacer.b5b0c421.js",
     "src": "src/routes/components/Spacer.mdx",
     "isDynamicEntry": true,
     "imports": [
-      "_index.851bda99.js",
-      "_SplitPane.abdc1c79.js",
+      "_index.afa9dd74.js",
+      "_SplitPane.75581b8f.js",
       "src/entry-client.tsx",
-      "_Group.e2a1de10.js",
-      "_Spacer.ed2a6aaf.js",
-      "_mdx.00edb165.js"
+      "_Group.8dd857b5.js",
+      "_Spacer.aff46a8e.js",
+      "_mdx.1370b2ae.js"
     ]
   },
   "src/routes/components/Stack.mdx": {
-    "file": "assets/Stack.67fdf6f2.js",
+    "file": "assets/Stack.07ecbbb4.js",
     "src": "src/routes/components/Stack.mdx",
     "isDynamicEntry": true,
     "imports": [
-      "_index.851bda99.js",
-      "_SplitPane.abdc1c79.js",
+      "_index.afa9dd74.js",
+      "_SplitPane.75581b8f.js",
       "src/entry-client.tsx",
-      "_Stack.1415a2e9.js",
-      "_mdx.00edb165.js"
+      "_Stack.78e65729.js",
+      "_mdx.1370b2ae.js"
     ]
   },
   "src/routes/components/[...404].mdx": {
-    "file": "assets/_...404_.a1605aa7.js",
+    "file": "assets/_...404_.3e659607.js",
     "src": "src/routes/components/[...404].mdx",
     "isDynamicEntry": true,
     "imports": [
-      "_index.851bda99.js",
+      "_index.afa9dd74.js",
       "src/entry-client.tsx"
     ]
   },
   "src/routes/docs.mdx": {
-    "file": "assets/docs.6a19f5bf.js",
+    "file": "assets/docs.dada1305.js",
     "src": "src/routes/docs.mdx",
     "isDynamicEntry": true,
     "imports": [
-      "_index.851bda99.js",
+      "_index.afa9dd74.js",
       "src/entry-client.tsx"
     ]
   },
   "src/routes/index.tsx": {
-    "file": "assets/index.9ee2530d.js",
+    "file": "assets/index.78888f3f.js",
     "src": "src/routes/index.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "_SplitPane.abdc1c79.js",
+      "_SplitPane.75581b8f.js",
       "src/entry-client.tsx",
-      "_AppBar.048ac8e2.js",
-      "_Spacer.ed2a6aaf.js",
-      "_LightMode.17e7ee86.js"
+      "_AppBar.d60a1b5c.js",
+      "_Spacer.aff46a8e.js",
+      "_LightMode.0db679b1.js"
     ]
   },
   "src/routes/start.tsx": {
-    "file": "assets/start.bc31c038.js",
+    "file": "assets/start.3af2673d.js",
     "src": "src/routes/start.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "_SplitPane.abdc1c79.js",
+      "_SplitPane.75581b8f.js",
       "src/entry-client.tsx",
-      "_AppBar.048ac8e2.js",
-      "_styles.module.dcf73ee8.js",
-      "_Spacer.ed2a6aaf.js",
-      "_LightMode.17e7ee86.js",
-      "_Aside.51638252.js"
+      "_AppBar.d60a1b5c.js",
+      "_styles.module.89c7188e.js",
+      "_Spacer.aff46a8e.js",
+      "_LightMode.0db679b1.js",
+      "_Aside.8103f41d.js"
     ]
   },
   "src/routes/start/philosophy.mdx": {
-    "file": "assets/philosophy.7ae75537.js",
+    "file": "assets/philosophy.c533e6df.js",
     "src": "src/routes/start/philosophy.mdx",
     "isDynamicEntry": true,
     "imports": [
-      "_index.851bda99.js",
-      "_mdx.00edb165.js",
+      "_index.afa9dd74.js",
+      "_mdx.1370b2ae.js",
       "src/entry-client.tsx",
-      "_SplitPane.abdc1c79.js"
+      "_SplitPane.75581b8f.js"
     ]
   },
   "styles.css": {

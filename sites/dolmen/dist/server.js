@@ -360,643 +360,643 @@ var manifest = {
 	"/*404": [
 	{
 		type: "script",
-		href: "/assets/_...404_.a891dfec.js"
+		href: "/dolmen/assets/_...404_.3059bbb0.js"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	}
 ],
 	"/components": [
 	{
 		type: "script",
-		href: "/assets/components.8b546303.js"
+		href: "/dolmen/assets/components.0c5eb287.js"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/AppBar.048ac8e2.js"
+		href: "/dolmen/assets/AppBar.d60a1b5c.js"
 	},
 	{
 		type: "script",
-		href: "/assets/Spacer.ed2a6aaf.js"
+		href: "/dolmen/assets/Spacer.aff46a8e.js"
 	},
 	{
 		type: "script",
-		href: "/assets/LightMode.17e7ee86.js"
+		href: "/dolmen/assets/LightMode.0db679b1.js"
 	},
 	{
 		type: "script",
-		href: "/assets/styles.module.dcf73ee8.js"
+		href: "/dolmen/assets/styles.module.89c7188e.js"
 	},
 	{
 		type: "script",
-		href: "/assets/Aside.51638252.js"
+		href: "/dolmen/assets/Aside.8103f41d.js"
 	},
 	{
 		type: "style",
-		href: "/assets/styles.f3569e65.css"
+		href: "/dolmen/assets/styles.f3569e65.css"
 	}
 ],
 	"/components/Alert": [
 	{
 		type: "script",
-		href: "/assets/Alert.c3ff029c.js"
+		href: "/dolmen/assets/Alert.b41037f5.js"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/Stack.1415a2e9.js"
+		href: "/dolmen/assets/Stack.78e65729.js"
 	},
 	{
 		type: "script",
-		href: "/assets/mdx.00edb165.js"
+		href: "/dolmen/assets/mdx.1370b2ae.js"
 	},
 	{
 		type: "style",
-		href: "/assets/mdx.9c826d5f.css"
+		href: "/dolmen/assets/mdx.9c826d5f.css"
 	}
 ],
 	"/components/Aside": [
 	{
 		type: "script",
-		href: "/assets/Aside.5fc0baf1.js"
+		href: "/dolmen/assets/Aside.ebb7410b.js"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/Aside.51638252.js"
+		href: "/dolmen/assets/Aside.8103f41d.js"
 	},
 	{
 		type: "script",
-		href: "/assets/Group.e2a1de10.js"
+		href: "/dolmen/assets/Group.8dd857b5.js"
 	},
 	{
 		type: "script",
-		href: "/assets/mdx.00edb165.js"
+		href: "/dolmen/assets/mdx.1370b2ae.js"
 	},
 	{
 		type: "style",
-		href: "/assets/mdx.9c826d5f.css"
+		href: "/dolmen/assets/mdx.9c826d5f.css"
 	}
 ],
 	"/components/Badge": [
 	{
 		type: "script",
-		href: "/assets/Badge.56240c46.js"
+		href: "/dolmen/assets/Badge.16bd0504.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/Group.e2a1de10.js"
+		href: "/dolmen/assets/Group.8dd857b5.js"
 	},
 	{
 		type: "script",
-		href: "/assets/mdx.00edb165.js"
+		href: "/dolmen/assets/mdx.1370b2ae.js"
 	},
 	{
 		type: "style",
-		href: "/assets/mdx.9c826d5f.css"
+		href: "/dolmen/assets/mdx.9c826d5f.css"
 	}
 ],
 	"/components/Button": [
 	{
 		type: "script",
-		href: "/assets/Button.acfbaa3f.js"
+		href: "/dolmen/assets/Button.a05b7fd2.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/Group.e2a1de10.js"
+		href: "/dolmen/assets/Group.8dd857b5.js"
 	},
 	{
 		type: "script",
-		href: "/assets/mdx.00edb165.js"
+		href: "/dolmen/assets/mdx.1370b2ae.js"
 	},
 	{
 		type: "style",
-		href: "/assets/mdx.9c826d5f.css"
+		href: "/dolmen/assets/mdx.9c826d5f.css"
 	},
 	{
 		type: "script",
-		href: "/assets/LightMode.17e7ee86.js"
+		href: "/dolmen/assets/LightMode.0db679b1.js"
 	}
 ],
 	"/components/ButtonGroup": [
 	{
 		type: "script",
-		href: "/assets/ButtonGroup.6c2dd24f.js"
+		href: "/dolmen/assets/ButtonGroup.38f9b938.js"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/Group.e2a1de10.js"
+		href: "/dolmen/assets/Group.8dd857b5.js"
 	},
 	{
 		type: "script",
-		href: "/assets/mdx.00edb165.js"
+		href: "/dolmen/assets/mdx.1370b2ae.js"
 	},
 	{
 		type: "style",
-		href: "/assets/mdx.9c826d5f.css"
+		href: "/dolmen/assets/mdx.9c826d5f.css"
 	}
 ],
 	"/components/Card": [
 	{
 		type: "script",
-		href: "/assets/Card.3c099c9b.js"
+		href: "/dolmen/assets/Card.d58f30e4.js"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/mdx.00edb165.js"
+		href: "/dolmen/assets/mdx.1370b2ae.js"
 	},
 	{
 		type: "style",
-		href: "/assets/mdx.9c826d5f.css"
+		href: "/dolmen/assets/mdx.9c826d5f.css"
 	}
 ],
 	"/components/CheckBox": [
 	{
 		type: "script",
-		href: "/assets/CheckBox.1229eb29.js"
+		href: "/dolmen/assets/CheckBox.e3aa3f3c.js"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/mdx.00edb165.js"
+		href: "/dolmen/assets/mdx.1370b2ae.js"
 	},
 	{
 		type: "style",
-		href: "/assets/mdx.9c826d5f.css"
+		href: "/dolmen/assets/mdx.9c826d5f.css"
 	}
 ],
 	"/components/DiscloseButton": [
 	{
 		type: "script",
-		href: "/assets/DiscloseButton.b3aa9b4b.js"
+		href: "/dolmen/assets/DiscloseButton.47683a49.js"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/mdx.00edb165.js"
+		href: "/dolmen/assets/mdx.1370b2ae.js"
 	},
 	{
 		type: "style",
-		href: "/assets/mdx.9c826d5f.css"
+		href: "/dolmen/assets/mdx.9c826d5f.css"
 	}
 ],
 	"/components/EmptyResult": [
 	{
 		type: "script",
-		href: "/assets/EmptyResult.6d3e75f5.js"
+		href: "/dolmen/assets/EmptyResult.3d903d92.js"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/mdx.00edb165.js"
+		href: "/dolmen/assets/mdx.1370b2ae.js"
 	},
 	{
 		type: "style",
-		href: "/assets/mdx.9c826d5f.css"
+		href: "/dolmen/assets/mdx.9c826d5f.css"
 	}
 ],
 	"/components/Group": [
 	{
 		type: "script",
-		href: "/assets/Group.8664ad3f.js"
+		href: "/dolmen/assets/Group.177fd7af.js"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/Group.e2a1de10.js"
+		href: "/dolmen/assets/Group.8dd857b5.js"
 	},
 	{
 		type: "script",
-		href: "/assets/mdx.00edb165.js"
+		href: "/dolmen/assets/mdx.1370b2ae.js"
 	},
 	{
 		type: "style",
-		href: "/assets/mdx.9c826d5f.css"
+		href: "/dolmen/assets/mdx.9c826d5f.css"
 	}
 ],
 	"/components/Page": [
 	{
 		type: "script",
-		href: "/assets/Page.4a2a79fe.js"
+		href: "/dolmen/assets/Page.9cfb591b.js"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/mdx.00edb165.js"
+		href: "/dolmen/assets/mdx.1370b2ae.js"
 	},
 	{
 		type: "style",
-		href: "/assets/mdx.9c826d5f.css"
+		href: "/dolmen/assets/mdx.9c826d5f.css"
 	}
 ],
 	"/components/Spacer": [
 	{
 		type: "script",
-		href: "/assets/Spacer.0ef16c41.js"
+		href: "/dolmen/assets/Spacer.b5b0c421.js"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/Group.e2a1de10.js"
+		href: "/dolmen/assets/Group.8dd857b5.js"
 	},
 	{
 		type: "script",
-		href: "/assets/Spacer.ed2a6aaf.js"
+		href: "/dolmen/assets/Spacer.aff46a8e.js"
 	},
 	{
 		type: "script",
-		href: "/assets/mdx.00edb165.js"
+		href: "/dolmen/assets/mdx.1370b2ae.js"
 	},
 	{
 		type: "style",
-		href: "/assets/mdx.9c826d5f.css"
+		href: "/dolmen/assets/mdx.9c826d5f.css"
 	}
 ],
 	"/components/Stack": [
 	{
 		type: "script",
-		href: "/assets/Stack.67fdf6f2.js"
+		href: "/dolmen/assets/Stack.07ecbbb4.js"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/Stack.1415a2e9.js"
+		href: "/dolmen/assets/Stack.78e65729.js"
 	},
 	{
 		type: "script",
-		href: "/assets/mdx.00edb165.js"
+		href: "/dolmen/assets/mdx.1370b2ae.js"
 	},
 	{
 		type: "style",
-		href: "/assets/mdx.9c826d5f.css"
+		href: "/dolmen/assets/mdx.9c826d5f.css"
 	}
 ],
 	"/components/*404": [
 	{
 		type: "script",
-		href: "/assets/_...404_.a1605aa7.js"
+		href: "/dolmen/assets/_...404_.3e659607.js"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	}
 ],
 	"/docs": [
 	{
 		type: "script",
-		href: "/assets/docs.6a19f5bf.js"
+		href: "/dolmen/assets/docs.dada1305.js"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	}
 ],
 	"/": [
 	{
 		type: "script",
-		href: "/assets/index.9ee2530d.js"
+		href: "/dolmen/assets/index.78888f3f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/AppBar.048ac8e2.js"
+		href: "/dolmen/assets/AppBar.d60a1b5c.js"
 	},
 	{
 		type: "script",
-		href: "/assets/Spacer.ed2a6aaf.js"
+		href: "/dolmen/assets/Spacer.aff46a8e.js"
 	},
 	{
 		type: "script",
-		href: "/assets/LightMode.17e7ee86.js"
+		href: "/dolmen/assets/LightMode.0db679b1.js"
 	}
 ],
 	"/start": [
 	{
 		type: "script",
-		href: "/assets/start.bc31c038.js"
+		href: "/dolmen/assets/start.3af2673d.js"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/AppBar.048ac8e2.js"
+		href: "/dolmen/assets/AppBar.d60a1b5c.js"
 	},
 	{
 		type: "script",
-		href: "/assets/Spacer.ed2a6aaf.js"
+		href: "/dolmen/assets/Spacer.aff46a8e.js"
 	},
 	{
 		type: "script",
-		href: "/assets/LightMode.17e7ee86.js"
+		href: "/dolmen/assets/LightMode.0db679b1.js"
 	},
 	{
 		type: "script",
-		href: "/assets/styles.module.dcf73ee8.js"
+		href: "/dolmen/assets/styles.module.89c7188e.js"
 	},
 	{
 		type: "script",
-		href: "/assets/Aside.51638252.js"
+		href: "/dolmen/assets/Aside.8103f41d.js"
 	},
 	{
 		type: "style",
-		href: "/assets/styles.f3569e65.css"
+		href: "/dolmen/assets/styles.f3569e65.css"
 	}
 ],
 	"/start/philosophy": [
 	{
 		type: "script",
-		href: "/assets/philosophy.7ae75537.js"
+		href: "/dolmen/assets/philosophy.c533e6df.js"
 	},
 	{
 		type: "script",
-		href: "/assets/index.851bda99.js"
+		href: "/dolmen/assets/index.afa9dd74.js"
 	},
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	},
 	{
 		type: "script",
-		href: "/assets/mdx.00edb165.js"
+		href: "/dolmen/assets/mdx.1370b2ae.js"
 	},
 	{
 		type: "script",
-		href: "/assets/SplitPane.abdc1c79.js"
+		href: "/dolmen/assets/SplitPane.75581b8f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/mdx.9c826d5f.css"
+		href: "/dolmen/assets/mdx.9c826d5f.css"
 	}
 ],
 	"entry-client": [
 	{
 		type: "script",
-		href: "/assets/entry-client.0e18877c.js"
+		href: "/dolmen/assets/entry-client.0af9de6f.js"
 	},
 	{
 		type: "style",
-		href: "/assets/entry-client.d7cc840e.css"
+		href: "/dolmen/assets/entry-client.d7cc840e.css"
 	}
 ],
 	"index.html": [

@@ -1,1 +1,0 @@
-import{s as r,g as l,b as c,m as n,r as o,t as p}from"./entry-client.0e18877c.js";const i=p("<div></div>"),d=e=>{const[s,a]=r(e,["class","classList"]);return(()=>{const t=l(i);return c(t,n(a,{get classList(){return{...s.classList,[s.class]:!!s.class,"dm-spacer":!0}}}),!1,!1),o(),t})()};export{d as S};

@@ -1,4 +1,4 @@
-import{M as a}from"./index.851bda99.js";import{H as i}from"./mdx.00edb165.js";import{c as t,m as s}from"./entry-client.0e18877c.js";import"./SplitPane.abdc1c79.js";function o(n){const e=Object.assign({h1:"h1",p:"p",h2:"h2",a:"a",em:"em",code:"code"},a(),n.components);return[t(e.h1,{children:"Dolmen Design Philosophy"}),`
+import{M as a}from"./index.afa9dd74.js";import{H as i}from"./mdx.1370b2ae.js";import{c as t,m as s}from"./entry-client.0af9de6f.js";import"./SplitPane.75581b8f.js";function o(n){const e=Object.assign({h1:"h1",p:"p",h2:"h2",a:"a",em:"em",code:"code"},a(),n.components);return[t(e.h1,{children:"Dolmen Design Philosophy"}),`
 `,t(e.p,{children:`Dolmen is intended to be a UI component library that is both lightweight and easy to use.
 Unfortunate, these goals sometimes come into conflict, so the next section will describe
 some of the design trade-offs that have shaped the library.`}),`
