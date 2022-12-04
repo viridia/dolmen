@@ -1,0 +1,1 @@
+import{s as r,g as l,b as o,m as c,r as i,t as n}from"./entry-client.0e18877c.js";import{f as m,a as p}from"./SplitPane.abdc1c79.js";const d=n("<aside></aside>"),g=t=>{const[s,a]=r(t,["class","classList",...m]);return(()=>{const e=l(d);return o(e,c(a,{get classList(){return{...s.classList,...p(s),[s.class]:!!s.class,"dm-aside":!0}}}),!1,!1),i(),e})()};export{g as A};

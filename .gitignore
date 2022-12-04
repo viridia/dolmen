@@ -1,5 +1,6 @@
+/packages/*/dist
+/dist
 
-dist
 .solid
 .output
 .vercel

@@ -1,8 +1,10 @@
 {
   "name": "solid-dolmen",
   "scripts": {
+    "clean": "rimraf dist",
     "dev": "solid-start dev",
     "build": "solid-start build",
+    "build:doc": "npm run build -w sites/dolmen",
     "build:svg": "svgr --template ./node_modules/dolmen/scripts/svg-template.cjs --typescript iconsrc/ -d src/icons/",
     "start": "solid-start start",
     "test": "run-p test:*",
