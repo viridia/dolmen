@@ -15,7 +15,7 @@ export default defineConfig({
     solid({
       extensions: ['.mdx', '.md'],
       adapter: staticAdapter(),
-      ssr: false,
+      // ssr: false,
     }),
   ],
   css: {

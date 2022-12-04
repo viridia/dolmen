@@ -154,15 +154,17 @@ export const NavPanel = () => {
               </li>
               <li>
                 <header>Text</header>
-                <NavItem href="/components/Code" disabled>
-                  Code
-                </NavItem>
-                <NavItem href="/components/Header" disabled>
-                  Header
-                </NavItem>
-                <NavItem href="/components/TextSpan" disabled>
-                  TextSpan
-                </NavItem>
+                <ul class={styles.linkList}>
+                  <NavItem href="/components/Code" disabled>
+                    Code
+                  </NavItem>
+                  <NavItem href="/components/Header" disabled>
+                    Header
+                  </NavItem>
+                  <NavItem href="/components/TextSpan" disabled>
+                    TextSpan
+                  </NavItem>
+                </ul>
               </li>
             </ul>
           </li>
