@@ -1,0 +1,35 @@
+import { Table, Card } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# Card
+
+A `Card` displays a section of content.
+
+<DemoSection>
+  <Card>
+    <Card.Content>
+      This is a card
+    </Card.Content>
+  </Card>
+</DemoSection>
+<SourceCode>
+```tsx
+<Card>
+  <Card.Content>
+    This is a card
+  </Card.Content>
+</Card>
+```
+</SourceCode>
+
+The `Card` component by itself has no padding. This means you can insert a divider that extends
+all the way to the edge of the card.
+
+To get the correct padding, use the `Card.Content` component inside the card.
+
+### Properties
+
+The `Card` and `Card.Content` components have no special properties of their own. However, like all
+layout components, they accept both the standard Dolmen 'flex props' properies as well as the
+standard HTML element properties.

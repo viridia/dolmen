@@ -1,5 +1,5 @@
 import { Table, Group, DiscloseButton } from 'dolmen';
-import { DemoSection, SourceCode, PropsTable, PropsItem } from '../../components/mdx';
+import { DemoSection, SourceCode, PropsTable, PropsItem, HTMLTag } from '../../components/mdx';
 import { createSignal } from 'solid-js';
 
 # DiscloseButton
@@ -25,5 +25,5 @@ return (<DiscloseButton open={expand()} onClick={() => setExpand(v => !v)} />);
   <PropsItem name="open" description="Open or close state of the button." type="boolean" />
 </PropsTable>
 
-In addition, the `DiscloseButton` element accepts all of the standard attributes of the HTML `&lt;button&gt;`
-element.
+In addition, the `DiscloseButton` element accepts all of the standard attributes of the HTML
+<HTMLTag>button</HTMLTag> element.

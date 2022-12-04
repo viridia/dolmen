@@ -1,0 +1,52 @@
+import { Table, Page, Aside, Group } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# Aside
+
+The `Aside` component displays a sidebar.
+
+<DemoSection>
+  <PageOutline>
+    <Page style={{ position: 'relative' }}>
+      <Page.Header>
+        <Page.Title>
+          Header
+        </Page.Title>
+      </Page.Header>
+      <Group style={{ 'min-height': '5rem' }} alignItems="stretch">
+        <Aside>
+          Aside content
+        </Aside>
+        <Page.Content>
+          Page content goes here
+        </Page.Content>
+      </Group>
+    </Page>
+  </PageOutline>
+</DemoSection>
+<SourceCode>
+```tsx
+<Page style={{ position: 'relative' }}>
+  <Page.Header>
+    <Page.Title>
+      Header
+    </Page.Title>
+  </Page.Header>
+  <Group style={{ 'min-height': '5rem' }} alignItems="stretch">
+    <Aside>
+      Aside content
+    </Aside>
+    <Page.Content>
+      Page content goes here
+    </Page.Content>
+  </Group>
+</Page>
+```
+</SourceCode>
+
+### Properties
+
+The `Aside` component has no special properties of its own. However, like all layout components,
+it accepts both the standard Dolmen 'flex props' properies as well as the standard HTML element
+properties.

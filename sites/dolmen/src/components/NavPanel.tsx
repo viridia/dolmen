@@ -124,12 +124,8 @@ export const NavPanel = () => {
               <li>
                 <header>Layout</header>
                 <ul class={styles.linkList}>
-                  <NavItem href="/components/Aside" disabled>
-                    Aside
-                  </NavItem>
-                  <NavItem href="/components/Card" disabled>
-                    Card
-                  </NavItem>
+                  <NavItem href="/components/Aside">Aside</NavItem>
+                  <NavItem href="/components/Card">Card</NavItem>
                   <NavItem href="/components/Drawer" disabled>
                     Drawer
                   </NavItem>
