@@ -1,5 +1,5 @@
 import { Table, Group, Button } from 'dolmen';
-import { DemoSection, SourceCode, PropsTable } from '../../components/mdx';
+import { DemoSection, SourceCode, PropsTable, PropsItem } from '../../components/mdx';
 import { Tune } from '../../icons';
 
 # Button
@@ -126,61 +126,48 @@ icon color from the button.
 ## Button properties
 
 <PropsTable>
-  <Table.Row>
-    <Table.Cell>color</Table.Cell>
-    <Table.Cell>Button color scheme</Table.Cell>
-    <Table.Cell>
+  <PropsItem
+    name="color"
+    description="Button color scheme."
+    type={
       <ul>
         <li>`default`</li>
         <li>`primary`</li>
         <li>`danger`</li>
         <li>`subtle`</li>
       </ul>
-    </Table.Cell>
-  </Table.Row>
-  <Table.Row>
-    <Table.Cell>size</Table.Cell>
-    <Table.Cell>Button size</Table.Cell>
-    <Table.Cell>
+    }
+  />
+  <PropsItem
+    name="size"
+    description="Button size."
+    type={
       <ul>
         <li>`xl`</li>
         <li>`lg`</li>
         <li>`md`</li>
         <li>`sm`</li>
-        <li>`xl`</li>
         <li>`xs`</li>
         <li>`xxs`</li>
         <li>`xxxs`</li>
       </ul>
-    </Table.Cell>
-  </Table.Row>
-  <Table.Row>
-    <Table.Cell>selected</Table.Cell>
-    <Table.Cell>
-      Whether the button should be rendered in a selected or "toggled" state.
-    </Table.Cell>
-    <Table.Cell>
-      boolean
-    </Table.Cell>
-  </Table.Row>
-  <Table.Row>
-    <Table.Cell>round</Table.Cell>
-    <Table.Cell>
-      If true, render the button as a circle or pill shape.
-    </Table.Cell>
-    <Table.Cell>
-      boolean
-    </Table.Cell>
-  </Table.Row>
-  <Table.Row>
-    <Table.Cell>icon</Table.Cell>
-    <Table.Cell>
-      If true, removes the button padding and ensures the width is the same as the height.
-    </Table.Cell>
-    <Table.Cell>
-      boolean
-    </Table.Cell>
-  </Table.Row>
+    }
+  />
+  <PropsItem
+    name="selected"
+    description="Whether the button should be rendered in a selected or 'toggled' state."
+    type="boolean"
+  />
+  <PropsItem
+    name="round"
+    description="If true, render the button as a circle or pill shape."
+    type="boolean"
+  />
+  <PropsItem
+    name="icon"
+    description="If true, removes the button padding and ensures the width is the same as the height."
+    type="boolean"
+  />
 </PropsTable>
 
 In addition, the `Button` element accepts all of the standard attributes of the HTML &lt;button&gt;

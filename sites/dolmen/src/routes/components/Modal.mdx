@@ -1,0 +1,132 @@
+import { Table, Modal, Group, Button } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem } from '../../components/mdx';
+import { Tune } from '../../icons';
+import { createSignal } from 'solid-js';
+
+# Modal
+
+The `Modal` component represents a modal dialog box.
+
+The `open` attribute determines whether the modal dialog is displayed or not. Changing this
+property triggers the dialog's open and close animations. This means that when `open` changes
+from `true` to `false`, the dialog remains on the screen for up to 300ms while the closing
+animation runs.
+
+Modals are controlled components, meaning that they only open and close in response to changes
+in the `open` property - it will not close by itself. It is the application's responsibility to
+update the `open` property in response to a close event (using the `onClose` callback).
+
+The `Modal.Header`, `Modal.Body`, and `Modal.Footer` components represent the header, central
+body, and footer of the dialog respectively. These are considered flex layout components and
+support Dolmen flex props as well as the standard HTML attributes.
+
+<DemoSection>
+  <Group gap="md">
+    {() => {
+      const [open, setOpen] = createSignal(false);
+      return (
+        <>
+          <Button onClick={() => setOpen(true)}>Open Dialog</Button>
+          <Modal
+            size="md"
+            open={open()}
+            onClose={() => {
+              setOpen(false);
+            }}
+            withClose
+          >
+            <Modal.Header>Modal Example</Modal.Header>
+            <Modal.Body>
+              <p>
+                Content of the dialog goes here.
+              </p>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={() => setOpen(false)}>Cancel</Button>
+              <Button onClick={() => setOpen(false)} color="primary" autofocus>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </>
+      );
+    }}
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+const [open, setOpen] = createSignal(false);
+return (
+  <>
+    <Button onClick={() => setOpen(true)}>Open Dialog</Button>
+    <Modal
+      size="md"
+      open={open()}
+      onClose={() => {
+        setOpen(false);
+      }}
+      withClose
+    >
+      <Modal.Header>Modal Example</Modal.Header>
+      <Modal.Body>
+        <p>
+          Content of the dialog goes here.
+        </p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={() => setOpen(false)}>Cancel</Button>
+        <Button onClick={() => setOpen(false)} color="primary" autofocus>
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  </>
+);
+```
+</SourceCode>
+
+## Modal vs Modal.Dialog
+
+The `Modal.Dialog` component can be used in place of `Modal` you want more control over the
+dialog's animation. It accepts a `state` property which is one of the standard CSS transition
+states (`entering`, `entered`, and so on.).
+
+## Modal properties
+
+<PropsTable>
+  <PropsItem
+    name="open"
+    description="Whether the dialog should be displayed as open."
+    type="boolean"
+  />
+  <PropsItem
+    name="size"
+    description="Determines how wide the dialog should be. (The height of the dialog is determined by content.)"
+    type={
+      <ul>
+        <li>`xl` - 60rem width</li>
+        <li>`lg` - 50rem width</li>
+        <li>`md` - 40rem width</li>
+        <li>`sm` - 32rem width</li>
+        <li>`xs` - 26rem width</li>
+        <li>`xxs` - 22rem width</li>
+        <li>`xxxs` - 18rem width</li>
+      </ul>
+    }
+  />
+  <PropsItem
+    name="withClose"
+    description="Whether modal header element should include a close button."
+    type="boolean"
+  />
+  <PropsItem
+    name="onClose"
+    description="Callback which is called when the dialog wants to close (due to the user clicking on the backdrop or hitting the escape key)."
+    type="() => void"
+  />
+  <PropsItem
+    name="onExited"
+    description="Callback which is called when the dialog has completely closed, in other words its closing animation is finished."
+    type="() => void"
+  />
+</PropsTable>

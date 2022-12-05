@@ -46,13 +46,9 @@ export const NavPanel = () => {
                   <NavItem href="/components/Button">Button</NavItem>
                   <NavItem href="/components/ButtonGroup">ButtonGroup</NavItem>
                   <NavItem href="/components/DiscloseButton">DiscloseButton</NavItem>
-                  <NavItem href="/components/Menu" disabled>
-                    Menu
-                  </NavItem>
-                  <NavItem href="/components/Menu" disabled>
-                    Modal
-                  </NavItem>
-                  <NavItem href="/components/Menu" disabled>
+                  <NavItem href="/components/Menu">Menu</NavItem>
+                  <NavItem href="/components/Modal">Modal</NavItem>
+                  <NavItem href="/components/Slider" disabled>
                     Slider
                   </NavItem>
                 </ul>

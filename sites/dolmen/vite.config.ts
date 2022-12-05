@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 import staticAdapter from 'solid-start-static';
 
 export default defineConfig({
-  base: '/dolmen/',
+  // base: '/dolmen/',
   plugins: [
     {
       ...(await import('@mdx-js/rollup')).default({
@@ -22,4 +22,7 @@ export default defineConfig({
   css: {
     devSourcemap: true,
   },
+  build: {
+    minify: false,
+  }
 });

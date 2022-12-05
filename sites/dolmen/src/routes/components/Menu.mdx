@@ -1,0 +1,188 @@
+import { Table, Group, Menu } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem } from '../../components/mdx';
+import { Tune } from '../../icons';
+
+# Menu
+
+Dropdown menus display a list of actions or selectable options. The menu button, when triggered,
+displays a floating overlay element containing a list of available choices. Choosing an option
+should ideally commit the option and close the menu.
+
+Menus generally represent "actions" or "states" - that is, choosing the menu performs the action
+or applies the specified state. Menus should not be used to select between a mutually exclusive
+set of items - instead, use the `Select` component for that.
+
+Menus are designed to support keyboard navigation. Arrow keys can be used to open the menu
+if the menu button has focus, and can be used to navigate between the items once opened.
+
+<DemoSection>
+  <Menu>
+    <Menu.Button>Menu Button</Menu.Button>
+    <Menu.List>
+      <Menu.Item>Alpha Wolf</Menu.Item>
+      <Menu.Item>Beta Test</Menu.Item>
+      <Menu.Item>Delta Dawn</Menu.Item>
+      <Menu.Item>Gamma Ray</Menu.Item>
+      <Menu.Divider />
+      <Menu.Item>Omega Man</Menu.Item>
+    </Menu.List>
+  </Menu>
+</DemoSection>
+<SourceCode>
+```tsx
+<Menu>
+  <Menu.Button>Menu Button</Menu.Button>
+  <Menu.List>
+    <Menu.Item>Alpha Wolf</Menu.Item>
+    <Menu.Item>Beta Test</Menu.Item>
+    <Menu.Item>Delta Dawn</Menu.Item>
+    <Menu.Item>Gamma Ray</Menu.Item>
+    <Menu.Divider />
+    <Menu.Item>Omega Man</Menu.Item>
+  </Menu.List>
+</Menu>
+```
+</SourceCode>
+
+## Menu elements
+
+A Menu contains several elements:
+
+* A `Menu.Button` which opens the menu.
+* A `Menu.List` which contains one or more items. This is the list of items that will be displayed
+  insude the menu.
+
+Menu lists can contain one or more of the following:
+
+* `Menu.Item` - a clickable item.
+* `Menu.ItemCheckBox` - a clickable item, with a checkmark, that toggles between two states.
+* `Menu.ItemRadio` - selectable item which is part of a mutually exclusive set.
+* `Menu.Divider` - a separator which puts a dividing line between items.
+
+## Menu properties
+
+<PropsTable>
+  <PropsItem
+    name="onClose"
+    description="An optional callback which is called when the menu closes."
+    type="() => void"
+  />
+</PropsTable>
+
+## Menu.Button properties
+
+<PropsTable>
+  <PropsItem
+    name="color"
+    description="Button color scheme."
+    type={
+      <ul>
+        <li>`default`</li>
+        <li>`primary`</li>
+        <li>`danger`</li>
+        <li>`subtle`</li>
+      </ul>
+    }
+  />
+  <PropsItem
+    name="size"
+    description="Button size."
+    type={
+      <ul>
+        <li>`xl`</li>
+        <li>`lg`</li>
+        <li>`md`</li>
+        <li>`sm`</li>
+        <li>`xs`</li>
+        <li>`xxs`</li>
+        <li>`xxxs`</li>
+      </ul>
+    }
+  />
+  <PropsItem
+    name="caret"
+    description="Whether to display a downward-pointing arrow after the button caption (default true)."
+    type="boolean"
+  />
+  <PropsItem
+    name="round"
+    description="If true, render the button as a circle or pill shape."
+    type="boolean"
+  />
+  <PropsItem
+    name="icon"
+    description="If true, removes the button padding and ensures the width is the same as the height."
+    type="boolean"
+  />
+</PropsTable>
+
+## Menu.List properties
+
+<PropsTable>
+  <PropsItem
+    name="inset"
+    description="If true, causes all child menu items to be indented to make room for icons or checkmarks. This option should be set if any items have icons or checkmarks."
+    type="boolean"
+  />
+  <PropsItem
+    name="placement"
+    description="Specifies how the popup menu should be placed relative to the Menu.Button."
+    type={
+      <ul>
+        <li>top</li>
+        <li>top-start</li>
+        <li>top-end</li>
+        <li>bottom</li>
+        <li>bottom-start</li>
+        <li>bottom-end</li>
+        <li>right</li>
+        <li>right-start</li>
+        <li>right-end</li>
+        <li>left</li>
+        <li>left-start</li>
+        <li>left-end</li>
+      </ul>
+    }
+  />
+  <PropsItem
+    name="anchor"
+    description="A reference to an anchor element used to position the menu. This property should only be used if you are using the Menu.List as a standalone component (not part of a Menu)."
+    type="boolean"
+  />
+  <PropsItem
+    name="onClose"
+    description="Callback which is called when the menu is closed. Should only be used when the Menu.List is being used as a standalone component."
+    type="boolean"
+  />
+</PropsTable>
+
+## Menu.Item properties
+
+<PropsTable>
+  <PropsItem
+    name="disabled"
+    description={
+      <span>
+        Whether to render the item in a disabled state. Disabled items cannot be clicked.
+        Note that disabled menus can still be focused, as this allows users of screen readers
+        to discover the menu description.
+      </span>
+    }
+    type="boolean"
+  />
+  <PropsItem
+    name="checked"
+    description="Whether to render a checkmark next to the item."
+    type="boolean"
+  />
+  <PropsItem
+    name="onClick"
+    description="A callback which is called whenever the item is chosen."
+    type="(event: MouseEvent) => void"
+  />
+  <PropsItem
+    name="icon"
+    description="An icon to be placed before the menu item text."
+    type="JSX.Element"
+  />
+</PropsTable>
