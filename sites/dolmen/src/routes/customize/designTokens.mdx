@@ -1,0 +1,49 @@
+import { For } from 'solid-js';
+import styles from './designTokens.module.scss';
+import { designTokens, ColorSwatch } from 'dolmen';
+
+# Design Tokens
+
+Design tokens in Dolmen are implemted as CSS variables with the prefix `--dm-`.
+
+## Color tokens
+
+<div class={styles.colors}>
+  <span class={styles.header}>Color</span>
+  <span class={styles.header}>Light Theme</span>
+  <span class={styles.header}>Dark Theme</span>
+  <For each={Object.keys(designTokens.color)}>
+    {key => {
+      const token = designTokens.color[key];
+      return (
+        <>
+          <span class={styles.tokenName}>
+            <code>{token.var}</code>
+          </span>
+          <span classList={{ 'dm-theme-light': true }}>
+            <ColorSwatch color={token.value} h="lg" />
+          </span>
+          <span classList={{ 'dm-theme-dark': true }}>
+            <ColorSwatch color={token.value} h="lg" />
+          </span>
+        </>
+      );
+    }}
+  </For>
+</div>
+
+## Font tokens
+
+<div class={styles.fonts}>
+  <span class={styles.header}>Type Style</span>
+  <span class={styles.header}>Font-Family</span>
+
+  <span class={styles.tokenName}><code>--dm-font-title</code></span>
+  <span style={{ 'font-family': designTokens.font.title.value }}>Title fonts</span>
+
+  <span class={styles.tokenName}><code>--dm-font-body</code></span>
+  <span style={{ 'font-family': designTokens.font.body.value }}>Body fonts</span>
+
+  <span class={styles.tokenName}><code>--dm-font-mono</code></span>
+  <span style={{ 'font-family': designTokens.font.mono.value }}>Monospace fonts</span>
+</div>

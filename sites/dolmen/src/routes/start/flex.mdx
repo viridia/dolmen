@@ -1,0 +1,149 @@
+import { Table, Group, Stack, Button } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, UnionType } from '../../components/mdx';
+
+# Flex Props
+
+Certain Dolmen components support "utility class" properties that allow the component layout
+to be controlled using HTML attributes. This is inspired by
+[styled-system](https://styled-system.com/). These style properties are referred to as
+"flex props" because the components that support them all use `flexbox` layout. This includes
+most of the components in the "layout" category, as well as a few others such as modal dialog
+sections and page headers.
+
+<DemoSection>
+  <Stack gap="xl">
+    <Group gap="xl">
+      <Button>John</Button>
+      <Button>Paul</Button>
+      <Button>George</Button>
+      <Button>Ringo</Button>
+    </Group>
+    <Group gap="md">
+      <Button>John</Button>
+      <Button>Paul</Button>
+      <Button>George</Button>
+      <Button>Ringo</Button>
+    </Group>
+    <Group gap="xs">
+      <Button>John</Button>
+      <Button>Paul</Button>
+      <Button>George</Button>
+      <Button>Ringo</Button>
+    </Group>
+    <Group gap="md" justifyContent="space-between">
+      <Button>John</Button>
+      <Button>Paul</Button>
+      <Button>George</Button>
+      <Button>Ringo</Button>
+    </Group>
+  </Stack>
+</DemoSection>
+<SourceCode>
+```tsx
+<Stack gap="xl">
+  <Group gap="xl">
+    <Button>John</Button>
+    <Button>Paul</Button>
+    <Button>George</Button>
+    <Button>Ringo</Button>
+  </Group>
+  <Group gap="md">
+    <Button>John</Button>
+    <Button>Paul</Button>
+    <Button>George</Button>
+    <Button>Ringo</Button>
+  </Group>
+  <Group gap="xs">
+    <Button>John</Button>
+    <Button>Paul</Button>
+    <Button>George</Button>
+    <Button>Ringo</Button>
+  </Group>
+  <Group gap="md" justifyContent="space-between">
+    <Button>John</Button>
+    <Button>Paul</Button>
+    <Button>George</Button>
+    <Button>Ringo</Button>
+  </Group>
+</Stack>
+```
+</SourceCode>
+
+Flex props are intended to be used to adjust the "internal" layout of a component - that is, the
+placement and spacing of the component's children. They are not used to control the external
+layout. This is why there is a "padding" flex prop, but not a "margin" flex prop. This meshes
+with the Dolmen approach to layout: A component is only responsible for the layout within its
+borders; outside of the border layout is the responsibility of the parent component. So, for
+example, putting a gap between two buttons is done using 'gap' on the parent, rather than
+adding a margin to the buttons.
+
+Of course, you as the user don't have to do it this way, you can add your own classes to Dolmen
+components and lay them out however you want. But this is the way that the Dolmen layout
+comoponents do it.
+
+For properties that represent lengths, like padding or gap, Dolmen only supports named constants
+like `"xl"` and not arbitrary sizes like `"10rem"`. This is because the styling is done using
+pre-generated CSS classes rather than dynamic styles.
+
+Here is the list of available flex props (for now; more may be added later):
+
+<PropsTable>
+  <PropsItem
+    name="gap"
+    description="Gap between items."
+    type={
+      <UnionType values={['xl', 'lg', 'md', 'sm', 'xs', 'none']} />
+    }
+  />
+  <PropsItem
+    name="padding (or p)"
+    description="Element padding."
+    type={
+      <UnionType values={['xl', 'lg', 'md', 'sm', 'xs', 'none']} />
+    }
+  />
+  <PropsItem
+    name="alignItems"
+    description="CSS align-items"
+    type={
+      <UnionType values={['start', 'flex-start', 'flex-end', 'stretch', 'center']} />
+    }
+  />
+  <PropsItem
+    name="justifyContent"
+    description="CSS justify-content"
+    type={
+      <UnionType values={['start', 'end', 'center', 'flex-start', 'flex-end', 'space-around', 'space-between', 'space-evenly']} />
+    }
+  />
+  <PropsItem
+    name="justifyItems"
+    description="CSS justify-items"
+    type={
+      <UnionType values={['start', 'end', 'center', 'flex-start', 'flex-end', 'left', 'right', 'stretch', 'baseline']} />
+    }
+  />
+  <PropsItem
+    name="flexDirection"
+    description="CSS flex-direction"
+    type={
+      <UnionType values={['row', 'row-reverse', 'column', 'column-reverse']} />
+    }
+  />
+  <PropsItem
+    name="flexWrap"
+    description="CSS flex-wrap"
+    type={
+      <UnionType values={['wrap', 'wrapReverse', 'nowrap']} />
+    }
+  />
+</PropsTable>
+
+## Sizing Chart
+
+* `xl`: 12px
+* `lg`: 8px
+* `md`: 4px
+* `sm`: 2px
+* `xs`: 1px
+* `none`: 0

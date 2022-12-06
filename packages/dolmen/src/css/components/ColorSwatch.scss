@@ -29,12 +29,12 @@ $swatchSize: (
   }
 
   .dm-color-swatch-ctrl {
-    appearance: 'none';
-    outline: 'none';
+    appearance: none;
+    outline: none;
     border-width: 0;
-    border-style: 'solid';
-    border-color: 'black';
-    cursor: 'pointer';
+    border-style: solid;
+    border-color: black;
+    cursor: pointer;
     padding: 0;
   }
 }
@@ -56,14 +56,14 @@ $swatchSize: (
 }
 
 @layer ui-states {
-  .dm-color-swatch-ctrl {
+  .dm-color-swatch-ctrl, .dm-color-swatch {
     &:focus:focus-visible {
-      box-shadow: '0 0 1px 3px $colors$focus';
+      box-shadow: 0 0 1px 3px var(--dm-color-focus);
       z-index: defs.$zFocused;
     }
 
-    [aria-selected] {
-      border-width: '2px';
+    &[aria-selected] {
+      border-width: 2px;
     }
   }
 }

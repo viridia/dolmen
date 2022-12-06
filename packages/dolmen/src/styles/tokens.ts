@@ -85,6 +85,12 @@ export const designTokens = {
     tooltipBg: token('--dm-color-tooltip-bg'),
     tooltipText: token('--dm-color-tooltip-text'),
   },
+
+  font: {
+    title: token('--dm-font-title'),
+    body: token('--dm-font-body'),
+    mono: token('--dm-font-mono'),
+  }
 };
 
 export type DesignTokens = typeof designTokens;

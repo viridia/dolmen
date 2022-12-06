@@ -1,0 +1,62 @@
+import { Stack, CheckBox, createCssTransition } from 'dolmen';
+import { DemoSection, SourceCode } from '../../components/mdx';
+import { TransitionDemo } from '../../components/demos/TransitionDemo';
+import { createSignal, createEffect } from 'solid-js';
+
+# createCssTransition()
+
+The `createCssTransition()` hook creates a small state machine that can be used to drive
+simple CSS animations. The state transition can be used for a variety of animated components,
+such as modal dialog open/close, popup menus, toast enter and exit and so on. Simple CSS
+transitions typically won't work for these kinds of components, because the DOM doesn't
+exist when the component is closed, so there is nothing to transition *from*.
+
+The `createCssTransition()` hook does not do any animation itself, it simply produces a
+time-sequence of class names which can then be used to drive a CSS transition or animation. The
+hook guarantees that there will be at least one frame where the 'outgoing' state is present
+before transitioning to the 'incoming' state. So for example, when opening a modal dialog,
+there will be one frame where the class name will be `enter-start` before transitioning to
+`entering` and finally `entered`. This ensures that the CSS transitions driven by that class
+name will work as expected.
+
+<TransitionDemo />
+<SourceCode>
+```tsx
+const [entered, setEntered] = createSignal(false);
+const state = createCssTransition({ in: entered, delay: 500 });
+
+return (
+  <Stack>
+    <div>state="{state()}"</div>
+    <CheckBox checked={entered()} onChange={() => setEntered(prev => !prev)}>In</CheckBox>
+  </Stack>
+);
+```
+</SourceCode>
+
+The function takes a single argument, a parameter object with the following properties:
+
+* **in** is the only required parameter. It is a reactive function that produces a boolean,
+  and determines whether the animation state machine should transition to an "entered" or "exited"
+  state.
+* **delay** specifies, in milliseconds, the duration of transition. The same delay is used
+  for both enter and exit transition, unless the `exitDelay` property is present.
+* **exitDelay** allows the exit animation duration to be specified separately from the enter
+  animation.
+* **onExited** is a callback which is called when the exit animation has completed. This can
+  be used to clean up any resources, or to remove elements from the DOM that are no longer
+  needed.
+
+The return value of the function is a reactive state function, which returns one of the following
+values:
+
+  `enter-start` | `entering` | `entered` | `exit-start` | `exiting` | `exited`
+
+The initial state is either `enter-start` or `exit-start`, depending on the initial value of `in`.
+
+When `in` changes from false to true, state will transition to `enter-start` for one animation
+frame. This immediately transitions to `entering`, which lasts for `delay` milliseconds. After that,
+the state changes to `entered` and stays there for as long as `in` remains true.
+
+A similar transition occurs when `in` changes from true to false, cycling from
+`exit-start` --> `exiting` --> `exited`.

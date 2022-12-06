@@ -5,6 +5,19 @@
   padding: 12px;
 }
 
+.shell {
+  background-color: var(--dm-color-elevation-0);
+  border-radius: 4px;
+  box-shadow: 0 0 2px var(--dm-color-shadow);
+  font-size: 0.9rem;
+  padding: 4px 12px;
+  margin: 0;
+  > code {
+    padding: 0 !important;
+    background-color: transparent;
+  }
+}
+
 .source {
   // box-shadow: 0 0 2px var(--dm-color-shadow);
   background-color: black;
@@ -18,6 +31,7 @@
 
     > code {
       padding: 0 !important;
+      background-color: transparent;
     }
   }
 }
@@ -26,4 +40,8 @@
   display: flex;
   flex-direction: column;
   border: 1px dashed var(--dm-color-field-border-slight);
+}
+
+.propsTable {
+  margin-bottom: 1rem;
 }

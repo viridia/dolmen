@@ -1,10 +1,16 @@
-import { createEffect, createSignal, JSX, ParentComponent, VoidComponent } from 'solid-js';
+import { createEffect, createSignal, JSX, ParentComponent, VoidComponent, For } from 'solid-js';
 import { Table } from 'dolmen';
 import css from './mdx.module.scss';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/hybrid.css';
 
 export const DemoSection: ParentComponent = props => <div class={css.demo}>{props.children}</div>;
+
+export const ShellExample: ParentComponent = props => (
+  <pre class={css.shell}>
+    <code>{props.children}</code>
+  </pre>
+);
 
 export const SourceCode: ParentComponent = props => {
   const [ref, setRef] = createSignal<HTMLElement>();
@@ -28,7 +34,7 @@ export const PageOutline: ParentComponent = props => (
 );
 
 export const PropsTable: ParentComponent = props => (
-  <Table>
+  <Table class={css.propsTable}>
     <Table.Head>
       <Table.Row>
         <Table.Cell>Name</Table.Cell>
@@ -52,4 +58,16 @@ export const PropsItem: VoidComponent<{
   </Table.Row>
 );
 
-export const HTMLTag: ParentComponent = props => (<code>&lt;{props.children}&gt;</code>)
+export const HTMLTag: ParentComponent = props => <code>&lt;{props.children}&gt;</code>;
+
+export const UnionType: VoidComponent<{ values: string[] }> = props => (
+  <ul>
+    <For each={props.values}>
+      {value => (
+        <li>
+          <code>{value}</code>
+        </li>
+      )}
+    </For>
+  </ul>
+);

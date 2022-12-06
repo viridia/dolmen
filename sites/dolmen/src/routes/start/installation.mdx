@@ -1,0 +1,74 @@
+import { Table, Group, Stack, Button } from 'dolmen';
+import { ShellExample, SourceCode, PropsTable, PropsItem, UnionType } from '../../components/mdx';
+
+# Installation
+
+To add Dolmen to your project, add the `dolmen` package using your preferred package manager.
+
+<ShellExample>
+&gt; npm install dolmen
+</ShellExample>
+
+Next, you'll need to import the Dolmen stylesheets into your app. If you want to import all
+of the Dolmen styles, using the following import command:
+
+<SourceCode>
+```tsx
+import 'dolmen/css/styles.css';
+```
+</SourceCode>
+
+Alternatively, if you want to minimize the CSS bundle size, you can import just the styles you
+actually need, based on which components you are using. You'll need to import the "common" styles,
+along with the stylesheet for each component type:
+
+<SourceCode>
+```tsx
+import 'dolmen/css/common.css';
+import 'dolmen/css/components/Button.css';
+import 'dolmen/css/components/Modal.css';
+import 'dolmen/css/components/Page.css';
+import 'dolmen/css/components/Slider.css';
+```
+</SourceCode>
+
+You will also need to import at least one theme. Dolmen comes with two built-in themes,
+which are a light theme and a dark theme.
+
+<SourceCode>
+```tsx
+import 'dolmen/css/theme/light.css';
+import 'dolmen/css/theme/dark.css';
+```
+</SourceCode>
+
+To activate a theme, add it's class name to the root of your app. Which element you put it
+on doesn't really matter so long as that element surrounds all of the Dolmen components:
+
+<SourceCode>
+```html
+<html>
+  <head></head>
+  <body class="dm-theme-light">
+    <div id="main" />
+  </body>
+</html>
+```
+</SourceCode>
+
+At this point, you can now use the Dolmen components in your Solid.js app:
+
+<SourceCode>
+```tsx
+import { Button, Group } from 'dolmen';
+import { VoidComponent } from 'solid-js';
+
+const App: VoidComponent = () => {
+  <Group gap="xl">
+    <Button>Make</Button>
+    <Button>It</Button>
+    <Button>So!</Button>
+  </Group>
+}
+```
+</SourceCode>

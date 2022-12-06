@@ -1,0 +1,116 @@
+import { Button, Group, ColorSwatch } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, UnionType } from '../../components/mdx';
+import { Tune } from '../../icons';
+
+# ColorSwatch
+
+A `ColorSwatch` displays a sample of a color. The color can be specified as any valid CSS
+color expression.
+
+<DemoSection>
+  <Group gap="md">
+    <ColorSwatch color="red" />
+    <ColorSwatch color="rgb(1, 200, 250)" />
+    <ColorSwatch color="#070" />
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <ColorSwatch color="red" />
+  <ColorSwatch color="rgb(1, 200, 250)" />
+  <ColorSwatch color="#070" />
+</>
+```
+</SourceCode>
+
+## Swatch sizing
+
+Color swatches can be rendered in different sizes:
+
+<DemoSection>
+  <Group gap="md">
+    <ColorSwatch color="#ff0000" size="xs" />
+    <ColorSwatch color="#ff2200" size="sm" />
+    <ColorSwatch color="#ff4400" size="md" />
+    <ColorSwatch color="#ff6600" size="lg" />
+    <ColorSwatch color="#ff8800" size="xl" />
+    <ColorSwatch color="#ffaa00" w="xs" h="xl" />
+    <ColorSwatch color="#ffcc00" w="sm" h="xl" />
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <ColorSwatch color="#ff0000" size="xs" />
+  <ColorSwatch color="#ff2200" size="sm" />
+  <ColorSwatch color="#ff4400" size="md" />
+  <ColorSwatch color="#ff6600" size="lg" />
+  <ColorSwatch color="#ff8800" size="xl" />
+  <ColorSwatch color="#ffaa00" w="xs" h="xl" />
+  <ColorSwatch color="#ffcc00" w="sm" h="xl" />
+</>
+```
+</SourceCode>
+
+## ColorSwatch interaction
+
+The `ColorSwatch` supports click events, which could potentially be used to bring up a color
+picker. Color swatches also support a "selected" state.
+
+<DemoSection>
+  <Group gap="md">
+    <ColorSwatch color="#ff00ff" onClick={() => {}} selected />
+    <ColorSwatch color="#ff22ff" onClick={() => {}} />
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <ColorSwatch color="#ff00ff" onClick={...} selected />
+  <ColorSwatch color="#ff22ff" onClick={...} />
+</>
+```
+</SourceCode>
+
+## ColorSwatch properties
+
+
+<PropsTable>
+  <PropsItem
+    name="color"
+    description="Swatch color."
+    type="string"
+  />
+  <PropsItem
+    name="size"
+    description="Size of the swatch (sets both width and height)."
+    type={
+      <UnionType values={['xl', 'lg', 'md', 'sm', 'xs']} />
+    }
+  />
+  <PropsItem
+    name="width"
+    description="Width of the swatch."
+    type={
+      <UnionType values={['xl', 'lg', 'md', 'sm', 'xs']} />
+    }
+  />
+  <PropsItem
+    name="height"
+    description="Height of the swatch."
+    type={
+      <UnionType values={['xl', 'lg', 'md', 'sm', 'xs']} />
+    }
+  />
+  <PropsItem
+    name="selected"
+    description="Whether the swatch be rendered in a selected state."
+    type="boolean"
+  />
+  <PropsItem
+    name="onClick"
+    description="Event handler which is called when the swatch is clicked."
+    type="boolean"
+  />
+</PropsTable>

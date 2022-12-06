@@ -1,0 +1,30 @@
+import { SourceCode } from '../../components/mdx';
+import { createSignal, createEffect } from 'solid-js';
+
+# createElementSize()
+
+The `createElementSize()` function is a simple hook which reacts when an element's size has
+changed. Interally, it uses a `ResizeObserver`.
+
+<SourceCode>
+```tsx
+const [size, sizeRef] = createElementSize();
+
+createEffect(() => {
+  const { width, height } = size();
+  console.log('Element size changed:', width, height);
+});
+
+return (
+  <div ref={sizeRef}>
+    // etc...
+  </div>
+);
+```
+</SourceCode>
+
+The function takes no arguments. It returns a tuple of two values:
+
+* A size accessor, which returns an object with `width` and `height` properties. Note that
+  these will be 0 before the first render.
+* A 'setRef' function, which should be passed to the element's `ref` attribute.

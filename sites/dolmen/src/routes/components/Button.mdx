@@ -1,5 +1,5 @@
 import { Table, Group, Button } from 'dolmen';
-import { DemoSection, SourceCode, PropsTable, PropsItem } from '../../components/mdx';
+import { DemoSection, SourceCode, PropsTable, PropsItem, UnionType } from '../../components/mdx';
 import { Tune } from '../../icons';
 
 # Button
@@ -130,27 +130,14 @@ icon color from the button.
     name="color"
     description="Button color scheme."
     type={
-      <ul>
-        <li>`default`</li>
-        <li>`primary`</li>
-        <li>`danger`</li>
-        <li>`subtle`</li>
-      </ul>
+      <UnionType values={['default', 'primary', 'danger', 'subtle']} />
     }
   />
   <PropsItem
     name="size"
     description="Button size."
     type={
-      <ul>
-        <li>`xl`</li>
-        <li>`lg`</li>
-        <li>`md`</li>
-        <li>`sm`</li>
-        <li>`xs`</li>
-        <li>`xxs`</li>
-        <li>`xxxs`</li>
-      </ul>
+      <UnionType values={['xl', 'lg', 'md', 'sm', 'xs', 'xxs', 'xxxs']} />
     }
   />
   <PropsItem

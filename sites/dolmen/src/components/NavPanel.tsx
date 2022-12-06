@@ -25,15 +25,14 @@ export const NavPanel = () => {
               <NavItem href="/start/overview" disabled>
                 Overview
               </NavItem>
-              <NavItem href="/start/installation" disabled>
-                Installation
-              </NavItem>
+              <NavItem href="/start/installation">Installation</NavItem>
               <NavItem href="/start/philosophy">Philosophy</NavItem>
               <NavItem href="/start/themes" disabled>
                 Themes
               </NavItem>
-              <NavItem href="/start/flexprops" disabled>
-                Flex Props
+              <NavItem href="/start/flex">Flex Props</NavItem>
+              <NavItem href="/start/roadmap" disabled>
+                Roadmap
               </NavItem>
             </ul>
           </li>
@@ -60,15 +59,11 @@ export const NavPanel = () => {
                     Avatar
                   </NavItem>
                   <NavItem href="/components/Badge">Badge</NavItem>
-                  <NavItem href="/components/Callout" disabled>
-                    Callout
-                  </NavItem>
+                  <NavItem href="/components/Callout">Callout</NavItem>
                   <NavItem href="/components/ColorGrid" disabled>
                     ColorGrid
                   </NavItem>
-                  <NavItem href="/components/ColorSwatch" disabled>
-                    ColorSwatch
-                  </NavItem>
+                  <NavItem href="/components/ColorSwatch">ColorSwatch</NavItem>
                   <NavItem href="/components/List" disabled>
                     List
                   </NavItem>
@@ -167,18 +162,12 @@ export const NavPanel = () => {
           <li>
             <header>Hooks</header>
             <ul class={styles.linkList}>
-              <NavItem href="/hooks/createCssTransition" disabled>
-                createCssTransition
-              </NavItem>
+              <NavItem href="/hooks/createCssTransition">createCssTransition</NavItem>
               <NavItem href="/hooks/createDialogState" disabled>
                 createDialogState
               </NavItem>
-              <NavItem href="/hooks/createElementState" disabled>
-                createElementState
-              </NavItem>
-              <NavItem href="/hooks/createFocusTrap" disabled>
-                createFocusTrap
-              </NavItem>
+              <NavItem href="/hooks/createElementSize">createElementSize</NavItem>
+              <NavItem href="/hooks/createFocusTrap">createFocusTrap</NavItem>
               <NavItem href="/hooks/createFormValidation" disabled>
                 createFormValidation
               </NavItem>
@@ -190,9 +179,7 @@ export const NavPanel = () => {
           <li>
             <header>Customization</header>
             <ul class={styles.linkList}>
-              <NavItem href="/customization/tokens" disabled>
-                Design Tokens
-              </NavItem>
+              <NavItem href="/customize/designTokens">Design Tokens</NavItem>
             </ul>
           </li>
           <li>

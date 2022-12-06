@@ -1,5 +1,5 @@
-import { Table, Group, Badge } from 'dolmen';
-import { DemoSection, SourceCode, PropsTable } from '../../components/mdx';
+import { Group, Badge } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, UnionType } from '../../components/mdx';
 
 # Badge
 
@@ -84,43 +84,25 @@ converts the badge into a pill shape.
 ## Badge properties
 
 <PropsTable>
-  <Table.Row>
-    <Table.Cell>color</Table.Cell>
-    <Table.Cell>Color of the badge</Table.Cell>
-    <Table.Cell>
-      CSS color expression
-    </Table.Cell>
-  </Table.Row>
-  <Table.Row>
-    <Table.Cell>size</Table.Cell>
-    <Table.Cell>Badge size</Table.Cell>
-    <Table.Cell>
-      <ul>
-        <li>`xl`</li>
-        <li>`lg`</li>
-        <li>`md`</li>
-        <li>`sm`</li>
-        <li>`xl`</li>
-        <li>`xs`</li>
-      </ul>
-    </Table.Cell>
-  </Table.Row>
-  <Table.Row>
-    <Table.Cell>radius</Table.Cell>
-    <Table.Cell>
-      Indicates how 'rounded' the badge should appear,
-    </Table.Cell>
-    <Table.Cell>
-      <ul>
-        <li>`xl`</li>
-        <li>`lg`</li>
-        <li>`md`</li>
-        <li>`sm`</li>
-        <li>`xl`</li>
-        <li>`xs`</li>
-      </ul>
-    </Table.Cell>
-  </Table.Row>
+  <PropsItem
+    name="color"
+    description="Color of the badge."
+    type="CSS color expression"
+  />
+  <PropsItem
+    name="size"
+    description="Badge size."
+    type={
+      <UnionType values={['xl', 'lg', 'md', 'sm', 'xs']} />
+    }
+  />
+  <PropsItem
+    name="radius"
+    description="Indicates how 'rounded' the badge should appear."
+    type={
+      <UnionType values={['xl', 'lg', 'md', 'sm', 'xs']} />
+    }
+  />
 </PropsTable>
 
 `Badge` also accepts all of the standard attributes for a `div` element.

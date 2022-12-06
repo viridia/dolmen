@@ -1,0 +1,36 @@
+import { SourceCode } from '../../components/mdx';
+import { createSignal, createEffect } from 'solid-js';
+
+# createFocusTrap()
+
+The `createFocusTrap()` prevents TAB and Shift-TAB keys from moving the keyboard focus outside
+of a specified container element. This is used by modal dialogs and other modal components.
+
+The hook implements 'wraparound' behavior, so for example if the focus is set to the last
+focusable field within the dialog, pressing TAB will move focus to the first focusable field.
+
+Typical usage:
+
+<SourceCode>
+```tsx
+const { focusProps } = createFocusTrap();
+
+return (
+  <dialog
+    {...focusProps}
+    role="dialog"
+    open
+  />
+);
+```
+</SourceCode>
+
+The function takes a single argument, which is an options object. There is currently only one
+option:
+
+* **onKeyDown** - a callback used to handle keyboard events. The focus trap listens for keyboard
+  events, specifically the tab key. Any keys that it doesn't recognize are forwarded through
+  this callback. So for example if you wanted to listen for the escape key and close the dialog,
+  you could use this callback.
+
+The return result of the hook is a set of attributes to be forwarded to the container element.

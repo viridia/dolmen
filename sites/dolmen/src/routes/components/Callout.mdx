@@ -1,0 +1,62 @@
+import { Button, Callout, Group, Stack, Header } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, UnionType } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# Callout
+
+A `Callout` is a small floating element that points to another element and contains information
+about that element. It is typically used for tutorials or "what's new" displays.
+
+<DemoSection>
+{() => {
+  const [anchor, setAnchor] = createSignal(null);
+  return (
+    <Stack>
+      <Group gap="md" style={{ padding: 'xl' }}>
+        <Callout anchor={anchor()} placement="right">
+          <Header>Note</Header>
+          This is a callout.
+        </Callout>
+        <Button ref={setAnchor} data-tooltip="Tooltip One">
+          One
+        </Button>
+      </Group>
+    </Stack>
+  );
+}}
+</DemoSection>
+<SourceCode>
+```tsx
+const [anchor, setAnchor] = createSignal<HTMLElement | null>(null);
+return (
+  <Stack>
+    <Group gap="md" style={{ padding: 'xl' }}>
+      <Callout anchor={anchor()} placement="right">
+        <Header>Note</Header>
+        This is a callout.
+      </Callout>
+      <Button ref={setAnchor} data-tooltip="Tooltip One">
+        One
+      </Button>
+    </Group>
+  </Stack>
+);
+```
+</SourceCode>
+
+## Callout properties
+
+<PropsTable>
+  <PropsItem
+    name="anchor"
+    description="Element that the callout should point to. The callout will only be displayed when the anchor is non-null."
+    type="HTMLElement | null"
+  />
+  <PropsItem
+    name="placement"
+    description="Where the callout should be placed relative to the anchor."
+    type={
+      <UnionType values={['top', 'bottom', 'left', 'right']} />
+    }
+  />
+</PropsTable>

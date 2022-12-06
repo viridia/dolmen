@@ -6,6 +6,7 @@
   padding: 0 12px;
   overflow-y: scroll;
   background-color: var(--dm-color-elevation-1);
+  padding-bottom: 2rem;
 
   h1, h2, h3, p {
     margin-top: 0.5em;
@@ -28,5 +29,6 @@
 
   code {
     font-family: var(--dm-font-mono);
+    background-color: var(--dm-color-elevation-0);
   }
 }

@@ -44,7 +44,9 @@ export const ColorSwatch: VoidComponent<Props> = props => {
         'dm-color-swatch': true,
         [`dm-w-${props.w ?? props.size}`]: Boolean(props.w ?? props.size),
         [`dm-h-${props.h ?? props.size}`]: Boolean(props.h ?? props.size),
+        selected: props.selected,
       }}
+      aria-selected={props.selected || undefined}
     />
   );
 };
