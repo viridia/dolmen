@@ -107,9 +107,7 @@ export const NavPanel = () => {
                   <NavItem href="/components/TextArea" disabled>
                     TextArea
                   </NavItem>
-                  <NavItem href="/components/ToggleSwitch" disabled>
-                    ToggleSwitch
-                  </NavItem>
+                  <NavItem href="/components/ToggleSwitch">ToggleSwitch</NavItem>
                 </ul>
               </li>
               <li>
@@ -122,9 +120,7 @@ export const NavPanel = () => {
                   </NavItem>
                   <NavItem href="/components/Group">Group</NavItem>
                   <NavItem href="/components/Page">Page</NavItem>
-                  <NavItem href="/components/ScrollArea" disabled>
-                    ScrollArea
-                  </NavItem>
+                  <NavItem href="/components/ScrollArea">ScrollArea</NavItem>
                   <NavItem href="/components/Spacer">Spacer</NavItem>
                   <NavItem href="/components/SplitPane" disabled>
                     SplitPane

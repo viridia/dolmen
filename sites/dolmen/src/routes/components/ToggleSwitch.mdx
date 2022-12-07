@@ -1,0 +1,30 @@
+import { Table, Group, ToggleSwitch } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# ToggleSwitch
+
+Toggle switches can be used to turn an option on or off.
+
+<DemoSection>
+  {() => {
+    const [checked, setChecked] = createSignal(false);
+    return (
+      <ToggleSwitch checked={checked()} onClick={() => setChecked(v => !v)} >
+        I like Chocolate!
+      </ToggleSwitch>
+    );
+  }}
+</DemoSection>
+<SourceCode>
+```tsx
+const [checked, setChecked] = createSignal(false); return{' '}
+<ToggleSwitch checked={checked()} onClick={() => setChecked(v => !v)} >
+  I like Chocolate!
+</ToggleSwitch>
+```
+</SourceCode>
+
+## ToggleSwitch properties
+
+Toggle switches accept all of the standard properties for an HTML checkbox element.

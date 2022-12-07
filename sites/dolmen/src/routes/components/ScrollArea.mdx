@@ -1,0 +1,49 @@
+import { ScrollArea } from 'dolmen';
+import { DemoSection, SourceCode } from '../../components/mdx';
+import { A } from 'solid-start';
+
+# ScrollArea
+
+A `ScrollArea` is a layout component arranges its child elements verticall and allows them
+to be scrolled.
+
+<DemoSection>
+  <ScrollArea style={{ width: '10rem', height: '10rem' }}>
+    <div>
+      tlhaq DaQapmoH DeS lIj qoSDaq yaH roj waq muS 'etlh DIS qengneS 'uQ muQaghrup bIng qabDaq
+      vIQIj SoS vIjegh wIgh pIH rav 'eng chav pagh
+    </div>
+    <p>
+      mughoS tup tI'neS 'eng mubachqangbej qamHom DeS DaQID HalwI' ngor po SojHomvo' leng qep
+      ngerDaq ngach 'etlh tuj qama'Hom SIH qorDu' Say'choH 'etlh
+    </p>
+    <p>
+      ngev Qe' wuq 'ebwI'vo' Sov muyapmoH ngoQ loDHom ngab yIH qetchuq tlhegh yIH'a''e' Hon vIchup
+      Hop qul wanI' rojchoHlaH loDnal
+    </p>
+  </ScrollArea>
+</DemoSection>
+<SourceCode>
+```tsx
+<ScrollArea style={{ width: '10rem', height: '10rem' }}>
+  <div>
+    tlhaq DaQapmoH DeS lIj qoSDaq yaH roj waq muS 'etlh DIS qengneS 'uQ muQaghrup bIng qabDaq
+    vIQIj SoS vIjegh wIgh pIH rav 'eng chav pagh
+  </div>
+  <p>
+    mughoS tup tI'neS 'eng mubachqangbej qamHom DeS DaQID HalwI' ngor po SojHomvo' leng qep
+    ngerDaq ngach 'etlh tuj qama'Hom SIH qorDu' Say'choH 'etlh
+  </p>
+  <p>
+    ngev Qe' wuq 'ebwI'vo' Sov muyapmoH ngoQ loDHom ngab yIH qetchuq tlhegh yIH'a''e' Hon vIchup
+    Hop qul wanI' rojchoHlaH loDnal
+  </p>
+</ScrollArea>
+```
+</SourceCode>
+
+### Properties
+
+The `ScrollArea` component has no special properties of its own. However, like all layout components,
+it accepts both the standard Dolmen <A href="../../start/flex">flex props</A> as well
+as the standard HTML element properties.
