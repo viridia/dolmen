@@ -6,25 +6,15 @@ import {
   VoidComponent,
   For,
   Show,
+  createMemo,
 } from 'solid-js';
 import { Group, Spacer, Table } from 'dolmen';
 import css from './mdx.module.scss';
 import hljs from 'highlight.js';
-import { A } from 'solid-start';
 import 'highlight.js/styles/hybrid.css';
-
-// TODO: finish this?
-export const DocNav: VoidComponent<{ prev?: string; next: string }> = props => (
-  <Group>
-    <Show when={props.prev} keyed>
-      {link => <A href={link}></A>}
-    </Show>
-    <Spacer />
-    <Show when={props.next}>
-      <A href={props.next}></A>
-    </Show>
-  </Group>
-);
+import { pageIndexFlat } from './pageIndex';
+import { A } from 'solid-start';
+import { useLocation } from '@solidjs/router';
 
 export const DemoSection: ParentComponent = props => <div class={css.demo}>{props.children}</div>;
 
@@ -93,3 +83,25 @@ export const UnionType: VoidComponent<{ values: string[] }> = props => (
     </For>
   </ul>
 );
+
+export const DocNav: VoidComponent = () => {
+  const location = useLocation();
+
+  const nav = createMemo(() => {
+    const index = pageIndexFlat.findIndex(page => page.href === location.pathname);
+    const prev = index > 0 ? pageIndexFlat[index - 1] : null;
+    const next = index >= 0 && index < pageIndexFlat.length - 1 ? pageIndexFlat[index + 1] : null;
+    return { next, prev };
+  });
+  return (
+    <Group class={css.docNav}>
+      <Show when={nav().prev} keyed>
+        {page => <A class={css.docLink} href={page.href} noScroll={false}>&laquo; {page.title}</A>}
+      </Show>
+      <Spacer />
+      <Show when={nav().next} keyed>
+        {page => <A class={css.docLink} href={page.href} noScroll={false}>{page.title} &raquo;</A>}
+      </Show>
+    </Group>
+  );
+};

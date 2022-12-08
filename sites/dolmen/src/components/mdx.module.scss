@@ -45,3 +45,16 @@
 .propsTable {
   margin-bottom: 1rem;
 }
+
+.docNav {
+  margin-top: 2rem;
+}
+
+.docLink {
+  text-decoration: none;
+  color: var(--dm-color-text);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

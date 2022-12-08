@@ -67,7 +67,7 @@
   align-self: stretch;
   padding: 3px 8px;
 
-  &:hover {
+  &:hover:not([aria-current]) {
     text-decoration: underline;
   }
 
