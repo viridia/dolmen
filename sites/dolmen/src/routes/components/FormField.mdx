@@ -1,0 +1,102 @@
+import { FormField, Input, Stack } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline } from '../../components/mdx';
+
+# FormField
+
+The `FormField` component wraps a form input, such as a text input field, and adds support for
+validation messages and additional decorations.
+
+The `error` message and other status messages are intended to display field validation errors
+and other messages that pertain to the content of an individual field. For errors which concern
+the entire form (such as a server error response), it is better to use an `Alert`.
+
+<DemoSection>
+  <Stack gap="md" style={{ width: '20rem' }}>
+    <FormField title="With Title">
+      <Input value="default" />
+    </FormField>
+    <FormField title="With Title" description="And also with a description">
+      <Input value="default" />
+    </FormField>
+    <FormField>
+      <Input value="default" />
+    </FormField>
+    <FormField warning="Warning">
+      <Input value="default" />
+    </FormField>
+    <FormField info="info">
+      <Input value="default" />
+    </FormField>
+    <FormField success="success">
+      <Input value="default" />
+    </FormField>
+    <FormField error="Error - a very long error message that should wrap to the next line.">
+      <Input value="default" />
+    </FormField>
+  </Stack>
+</DemoSection>
+<SourceCode>
+```tsx
+<Stack gap="md" style={{ width: '20rem' }}>
+  <FormField title="With Title">
+    <Input value="default" />
+  </FormField>
+  <FormField title="With Title" description="And also with a description">
+    <Input value="default" />
+  </FormField>
+  <FormField>
+    <Input value="default" />
+  </FormField>
+  <FormField warning="Warning">
+    <Input value="default" />
+  </FormField>
+  <FormField info="info">
+    <Input value="default" />
+  </FormField>
+  <FormField success="success">
+    <Input value="default" />
+  </FormField>
+  <FormField error="Error - a very long error message that should wrap to the next line.">
+    <Input value="default" />
+  </FormField>
+</Stack>
+```
+</SourceCode>
+
+### Properties
+
+Note that the properties `error`, `warning`, `info`, and `success` are exclusive - only a single
+message can be displayed.
+
+<PropsTable>
+  <PropsItem
+    name="title"
+    description="Title of the form field"
+    type="string"
+  />
+  <PropsItem
+    name="description"
+    description="Description for the form field"
+    type="string"
+  />
+  <PropsItem
+    name="error"
+    description="An error message to display for this field."
+    type="string"
+  />
+  <PropsItem
+    name="warning"
+    description="A warning message to display for this field."
+    type="string"
+  />
+  <PropsItem
+    name="info"
+    description="An info message to display for this field."
+    type="string"
+  />
+  <PropsItem
+    name="success"
+    description="A success message to display for this field."
+    type="string"
+  />
+</PropsTable>

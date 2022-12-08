@@ -1,0 +1,109 @@
+import { Stack, Input } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline, HTMLTag, UnionType } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+import { LightMode } from '../../icons'
+
+# Input
+
+The `Input` component renders an HTML <HTMLTag>input</HTMLTag> element. It has a frw additional
+features, such as the ability to add icons (called "adornments") inside the field box.
+
+<DemoSection>
+  <Stack gap="md" style={{ width: '20rem' }}>
+    <Input value="default" />
+    <Input round value="round" />
+    <Input disabled value="disabled" />
+    <Input readOnly value="readonly" />
+    <Input placeholder="placeholder" />
+  </Stack>
+</DemoSection>
+<SourceCode>
+```tsx
+<Stack gap="md" style={{ width: '20rem' }}>
+  <Input value="default" />
+  <Input round value="round" />
+  <Input disabled value="disabled" />
+  <Input readOnly value="readonly" />
+  <Input placeholder="placeholder" />
+</Stack>
+```
+</SourceCode>
+
+### Input Sixes
+
+<DemoSection>
+  <Stack gap="md" style={{ width: '20rem' }}>
+    <Input size="xl" value="X-Large" />
+    <Input size="lg" value="Large" />
+    <Input size="md" value="Medium" />
+    <Input size="sm" value="Small" />
+    <Input size="xs" value="X-Small" />
+  </Stack>
+</DemoSection>
+<SourceCode>
+```tsx
+<Stack gap="md" style={{ width: '20rem' }}>
+  <Input size="xl" value="X-Large" />
+  <Input size="lg" value="Large" />
+  <Input size="md" value="Medium" />
+  <Input size="sm" value="Small" />
+  <Input size="xs" value="X-Small" />
+</Stack>
+```
+</SourceCode>
+
+### Input Adornments
+
+<DemoSection>
+  <Stack gap="md" style={{ width: '20rem' }}>
+    <Input value="Adorn Left" adornLeft={<LightMode />} />
+    <Input value="Adorn Right" adornRight={<LightMode />} />
+  </Stack>
+</DemoSection>
+<SourceCode>
+```tsx
+<Stack gap="md" style={{ width: '20rem' }}>
+  <Input value="Adorn Left" adornLeft={<LightMode />} />
+  <Input value="Adorn Right" adornRight={<LightMode />} />
+</Stack>
+```
+</SourceCode>
+
+### Properties
+
+<PropsTable>
+  <PropsItem
+    name="adornLeft"
+    description="Adornments to place on the left side of the input field"
+    type="JSX.Element"
+  />
+  <PropsItem
+    name="adornRight"
+    description="Adornments to place on the right side of the input field"
+    type="JSX.Element"
+  />
+  <PropsItem
+    name="innerClass"
+    description="CSS class to add to the inner 'input' element. This is in contrast to 'class', which is applied to the outer wrapper."
+    type="string"
+  />
+  <PropsItem
+    name="innerClassList"
+    description="CSS classList to add to the inner 'input' element. This is in contrast to 'classList', which is applied to the outer wrapper."
+    type="object"
+  />
+  <PropsItem
+    name="size"
+    description="Controls the height of the component."
+    type={
+      <UnionType values={['xl', 'lg', 'md', 'sm', 'xs']} />
+    }
+  />
+  <PropsItem
+    name="round"
+    description="Whether the field should have rounded corners."
+    type="boolean"
+  />
+</PropsTable>
+
+In addition, `Input` accepts the standard HTML attributes for an <HTMLTag>input</HTMLTag> element.

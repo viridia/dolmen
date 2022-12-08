@@ -1,12 +1,13 @@
 import solid from 'solid-start/vite';
 import { defineConfig } from 'vite';
+import mdx from '@mdx-js/rollup';
 import staticAdapter from 'solid-start-static';
 
 export default defineConfig({
   // base: '/dolmen/',
   plugins: [
     {
-      ...(await import('@mdx-js/rollup')).default({
+      ...mdx({
         jsx: true,
         jsxImportSource: 'solid-js',
         providerImportSource: 'solid-mdx',

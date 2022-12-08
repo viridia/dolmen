@@ -95,5 +95,9 @@
         font-size: map.get(defs.$fontSize, $sz) * 1rem;
       }
     }
+
+    &.dm-round {
+      border-radius: 500px;
+    }
   }
 }

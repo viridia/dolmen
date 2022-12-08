@@ -1,8 +1,30 @@
-import { createEffect, createSignal, JSX, ParentComponent, VoidComponent, For } from 'solid-js';
-import { Table } from 'dolmen';
+import {
+  createEffect,
+  createSignal,
+  JSX,
+  ParentComponent,
+  VoidComponent,
+  For,
+  Show,
+} from 'solid-js';
+import { Group, Spacer, Table } from 'dolmen';
 import css from './mdx.module.scss';
 import hljs from 'highlight.js';
+import { A } from 'solid-start';
 import 'highlight.js/styles/hybrid.css';
+
+// TODO: finish this?
+export const DocNav: VoidComponent<{ prev?: string; next: string }> = props => (
+  <Group>
+    <Show when={props.prev} keyed>
+      {link => <A href={link}></A>}
+    </Show>
+    <Spacer />
+    <Show when={props.next}>
+      <A href={props.next}></A>
+    </Show>
+  </Group>
+);
 
 export const DemoSection: ParentComponent = props => <div class={css.demo}>{props.children}</div>;
 

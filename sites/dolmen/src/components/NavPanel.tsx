@@ -22,9 +22,7 @@ export const NavPanel = () => {
           <li>
             <header>Getting Started</header>
             <ul class={styles.linkList}>
-              <NavItem href="/start/overview" disabled>
-                Overview
-              </NavItem>
+              <NavItem href="/start/overview">Overview</NavItem>
               <NavItem href="/start/installation">Installation</NavItem>
               <NavItem href="/start/philosophy">Philosophy</NavItem>
               <NavItem href="/start/themes" disabled>
@@ -60,13 +58,9 @@ export const NavPanel = () => {
                   </NavItem>
                   <NavItem href="/components/Badge">Badge</NavItem>
                   <NavItem href="/components/Callout">Callout</NavItem>
-                  <NavItem href="/components/ColorGrid" disabled>
-                    ColorGrid
-                  </NavItem>
+                  <NavItem href="/components/ColorGrid">ColorGrid</NavItem>
                   <NavItem href="/components/ColorSwatch">ColorSwatch</NavItem>
-                  <NavItem href="/components/List" disabled>
-                    List
-                  </NavItem>
+                  <NavItem href="/components/List">List</NavItem>
                   <NavItem href="/components/Table" disabled>
                     Table
                   </NavItem>
@@ -89,24 +83,16 @@ export const NavPanel = () => {
                 <header>Forms</header>
                 <ul class={styles.linkList}>
                   <NavItem href="/components/CheckBox">CheckBox</NavItem>
-                  <NavItem href="/components/FormField" disabled>
-                    FormField
-                  </NavItem>
-                  <NavItem href="/components/Input" disabled>
-                    Input
-                  </NavItem>
-                  <NavItem href="/components/Label" disabled>
-                    Label
-                  </NavItem>
+                  <NavItem href="/components/FormField">FormField</NavItem>
+                  <NavItem href="/components/Input">Input</NavItem>
+                  <NavItem href="/components/Label">Label</NavItem>
                   <NavItem href="/components/RadioButton" disabled>
                     RadioButton [planned]
                   </NavItem>
                   <NavItem href="/components/Select" disabled>
                     Select
                   </NavItem>
-                  <NavItem href="/components/TextArea" disabled>
-                    TextArea
-                  </NavItem>
+                  <NavItem href="/components/TextArea">TextArea</NavItem>
                   <NavItem href="/components/ToggleSwitch">ToggleSwitch</NavItem>
                 </ul>
               </li>
@@ -164,9 +150,7 @@ export const NavPanel = () => {
               </NavItem>
               <NavItem href="/hooks/createElementSize">createElementSize</NavItem>
               <NavItem href="/hooks/createFocusTrap">createFocusTrap</NavItem>
-              <NavItem href="/hooks/createFormValidation" disabled>
-                createFormValidation
-              </NavItem>
+              <NavItem href="/hooks/createFormValidation">createFormValidation</NavItem>
               <NavItem href="/hooks/createTooltipWatcher" disabled>
                 createTooltipWatcher
               </NavItem>

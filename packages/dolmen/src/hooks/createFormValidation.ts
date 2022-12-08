@@ -3,12 +3,17 @@ import { createStore, produce } from 'solid-js/store';
 
 type FormTypeBase = Record<string, FormDataEntryValue>;
 
-type ValidationPred = (fieldData: FormDataEntryValue, fieldName: string) => boolean;
-type ValidationFn = (fieldData: FormDataEntryValue, fieldName: string) => string;
-type FieldValidation = ValidationFn | { [errorCode: string]: ValidationPred };
+type ValidationPred<T extends FormDataEntryValue> = (fieldData: T, fieldName: string) => boolean;
+type ValidationFn<T extends FormDataEntryValue> = (
+  fieldData: T,
+  fieldName: string
+) => string | null | undefined;
+type FieldValidation<T extends FormDataEntryValue> =
+  | ValidationFn<T>
+  | { [errorCode: string]: ValidationPred<T> };
 
 export type ValidationSchema<FormType extends FormTypeBase> = {
-  [name in keyof FormType]?: FieldValidation;
+  [name in keyof FormType]?: FieldValidation<FormType[name]>;
 };
 
 export type ValidationResult<FormType extends FormTypeBase> = {
@@ -105,16 +110,16 @@ export function createFormValidation<FormType extends FormTypeBase>(
     if (fieldData === undefined || fieldData === null) {
       return 'no-such-field';
     }
-    const validator = schema[fieldName];
+    const validator = schema[fieldName as keyof FormType];
     if (typeof validator === 'object') {
       for (const errorCode in validator) {
         const vfn = validator[errorCode];
-        if (typeof vfn === 'function' && !vfn(fieldData, fieldName)) {
+        if (typeof vfn === 'function' && !vfn(fieldData as FormType[keyof FormType], fieldName)) {
           return errorCode;
         }
       }
     } else if (typeof validator === 'function') {
-      const errorCode = validator(fieldData, fieldName);
+      const errorCode = validator(fieldData as FormType[keyof FormType], fieldName);
       if (typeof errorCode === 'string') {
         return errorCode;
       }

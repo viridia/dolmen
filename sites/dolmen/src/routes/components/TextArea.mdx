@@ -1,0 +1,41 @@
+import { Stack, TextArea } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline, HTMLTag, UnionType } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+import { LightMode } from '../../icons'
+
+# TextArea
+
+The `TextArea` component renders an HTML <HTMLTag>textarea</HTMLTag> element.
+
+<DemoSection>
+  <Stack gap="md" style={{ width: '20rem' }}>
+    <TextArea style={{ height: '5rem' }} value="normal" />
+    <TextArea style={{ height: '5rem' }} disabled value="disabled" />
+    <TextArea style={{ height: '5rem' }} readonly value="readonly" />
+    <TextArea style={{ height: '5rem' }} placeholder="placeholder" value="" />
+  </Stack>
+</DemoSection>
+<SourceCode>
+```tsx
+<Stack gap="md" style={{ width: '20rem' }}>
+  <TextArea style={{ height: '5rem' }} value="normal" />
+  <TextArea style={{ height: '5rem' }} disabled value="disabled" />
+  <TextArea style={{ height: '5rem' }} readonly value="readonly" />
+  <TextArea style={{ height: '5rem' }} placeholder="placeholder" value="" />
+</Stack>
+```
+</SourceCode>
+
+### Properties
+
+<PropsTable>
+  <PropsItem
+    name="size"
+    description="Controls the height of the component."
+    type={
+      <UnionType values={['xl', 'lg', 'md', 'sm', 'xs']} />
+    }
+  />
+</PropsTable>
+
+In addition, `TextArea` accepts the standard HTML attributes for an <HTMLTag>textarea</HTMLTag> element.

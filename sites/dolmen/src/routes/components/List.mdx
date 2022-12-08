@@ -1,0 +1,46 @@
+import { List, Button } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# List
+
+A `List` represents a list of items which can be selected.
+
+<DemoSection>
+  <List style={{ width: '10rem', height: '7rem' }}>
+    <List.Item>Alpha Wolf</List.Item>
+    <List.Item>Beta Test</List.Item>
+    <List.Item selected>Delta Dawn</List.Item>
+    <List.Item>Gamma Ray</List.Item>
+    <List.Item>Omega Man</List.Item>
+  </List>
+</DemoSection>
+<SourceCode>
+```tsx
+<List style={{ width: '10rem', height: '7rem' }}>
+  <List.Item>Alpha Wolf</List.Item>
+  <List.Item>Beta Test</List.Item>
+  <List.Item selected>Delta Dawn</List.Item>
+  <List.Item>Gamma Ray</List.Item>
+  <List.Item>Omega Man</List.Item>
+</List>
+```
+</SourceCode>
+
+### Properties
+
+`List` has not special properties beyond the standard HTML attributes, but `List.Item` has
+two additional properties:
+
+<PropsTable>
+  <PropsItem
+    name="selected"
+    description="Whether to render this item as selected."
+    type="boolean"
+  />
+  <PropsItem
+    name="disabled"
+    description="Whether to render this item as disabled."
+    type="boolean"
+  />
+</PropsTable>

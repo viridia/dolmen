@@ -1,0 +1,179 @@
+import { Button, Group, ColorSwatch, ColorGrid } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, UnionType } from '../../components/mdx';
+import { colors } from '../../components/colors';
+import { Tune } from '../../icons';
+import { createSignal } from 'solid-js';
+
+# ColorGrid
+
+The `ColorGrid` displays a grid of selectable color swatches.
+
+Color grids can be used as fields within forms. The value of the field is the current selected
+color.
+
+<DemoSection>
+  <Group>
+  {() => {
+    const [selected, setSelected] = createSignal('#fff');
+    return <ColorGrid
+      style={{ width: '10rem' }}
+      colors={colors}
+      value={selected()}
+      onChange={setSelected}
+      name="nogap"
+    />
+  }}
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+const [selected, setSelected] = createSignal('#fff');
+<ColorGrid
+  style={{ width: '10rem' }}
+  colors={colors}
+  value={selected()}
+  onChange={setSelected}
+  name="nogap"
+/>
+```
+</SourceCode>
+
+## Gap attribute
+
+The 'gap' attribute can be used to add a gap between color swatches.
+
+<DemoSection>
+  <Group>
+  {() => {
+    const [selected, setSelected] = createSignal('#fff');
+    return <ColorGrid
+      style={{ width: '10rem' }}
+      colors={colors}
+      value={selected()}
+      onChange={setSelected}
+      name="smgap"
+      gap="sm"
+    />
+  }}
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+const [selected, setSelected] = createSignal('#fff');
+<ColorGrid
+  style={{ width: '10rem' }}
+  colors={colors}
+  value={selected()}
+  onChange={setSelected}
+  name="smgap"
+  gap="sm"
+/>
+```
+</SourceCode>
+
+## Columns
+
+You change change the number of columnes with the `columns` attribute:
+
+<DemoSection>
+  <Group>
+  {() => {
+    const [selected, setSelected] = createSignal('#fff');
+    return <ColorGrid
+      style={{ width: '10rem' }}
+      colors={colors}
+      value={selected()}
+      onChange={setSelected}
+      columns={5}
+      name="col5"
+      gap="sm"
+    />
+  }}
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+const [selected, setSelected] = createSignal('#fff');
+<ColorGrid
+  style={{ width: '10rem' }}
+  colors={colors}
+  value={selected()}
+  onChange={setSelected}
+  columns={5}
+  name="col5"
+  gap="sm"
+/>
+```
+</SourceCode>
+
+## Row vs Column order
+
+The default is row-major order, but you can change it to column-major order:
+
+<DemoSection>
+  <Group>
+  {() => {
+    const [selected, setSelected] = createSignal('#fff');
+    return <ColorGrid
+      style={{ width: '10rem' }}
+      colors={colors}
+      value={selected()}
+      onChange={setSelected}
+      columnMajor
+      name="cmo"
+      gap="sm"
+    />
+  }}
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+const [selected, setSelected] = createSignal('#fff');
+<ColorGrid
+  style={{ width: '10rem' }}
+  colors={colors}
+  value={selected()}
+  onChange={setSelected}
+  columnMajor
+  name="cmo"
+  gap="sm"
+/>
+```
+</SourceCode>
+
+## ColorSwatch properties
+
+<PropsTable>
+  <PropsItem name="colors" description="The array of colors to display." type="string[]" />
+  <PropsItem name="name" description="The form field name. This determines the value of the field when the form is submitted." type="string" />
+  <PropsItem
+    name="gap"
+    description="Gap between rows and columns."
+    type={<UnionType values={['xl', 'lg', 'md', 'sm', 'xs']} />}
+  />
+  <PropsItem
+    name="value"
+    description="Current selected color."
+    type="string"
+  />
+  <PropsItem
+    name="onChange"
+    description="Callback which is called when a swatch is clicked."
+    type="(color: string) => void"
+  />
+  <PropsItem
+    name="columns"
+    description="The number of columns to display. If the grid is column-major, then the number of columns is determined automatically."
+    type="number"
+  />
+  <PropsItem
+    name="rows"
+    description="The number of rows to display. If the grid is row-major, then the number of rows is determined automatically."
+    type="number"
+  />
+  <PropsItem
+    name="columnMajor"
+    description="Whether the colors should be displayed in column-major order. If false, then they are displayed in row-major order."
+    type="boolean"
+  />
+</PropsTable>

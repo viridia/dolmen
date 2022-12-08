@@ -1,0 +1,31 @@
+import { Stack, Label, Input } from 'dolmen';
+import { DemoSection, SourceCode, HTMLTag } from '../../components/mdx';
+import { A } from 'solid-start';
+
+# Label
+
+The `Label` component simply creates an HTML <HTMLTag>label</HTMLTag>. The only different from
+a plain label is that it supports Dolmen <A href="../../start/flex">flex props</A>.
+
+In most cases, a `FormField` component will be a better choice for associating a label with
+a form input. However, there may be cases
+where you want to associated a label with a form input component that is not a text input.
+
+<DemoSection>
+  <Stack gap="md">
+    <Label gap="md">
+      <input type="color" />
+      Pick Color
+    </Label>
+  </Stack>
+</DemoSection>
+<SourceCode>
+```tsx
+<Stack gap="md">
+  <Label gap="lg">
+    <input type="color" />
+    Pick Color
+  </Label>
+</Stack>
+```
+</SourceCode>

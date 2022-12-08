@@ -1,0 +1,170 @@
+import { DemoSection, SourceCode } from '../../components/mdx';
+import { FormValidationDemo } from '../../components/demos/FormValidationDemo';
+import { createSignal, createEffect } from 'solid-js';
+
+# createFormValidation()
+
+The `createFormValidation()` hook creates a basic reactive form validator.
+
+Demo (try hitting 'save' without typing anything in the input fields).
+
+<DemoSection>
+  <FormValidationDemo />
+</DemoSection>
+<SourceCode>
+```tsx
+const { errors, formProps } = createFormValidation<{
+  channelName: string;
+  description: string;
+}>({
+  channelName: {
+    required: (data: string) => data.length > 0,
+  },
+});
+
+return (
+  <form {...formProps}>
+    <Stack gap="xl">
+      <FormField title="Channel Name" error={getErrorMessage(errors.channelName)}>
+        <Input name="channelName" max={24} autofocus />
+      </FormField>
+      <FormField title="Channel Description">
+        <TextArea name="description" />
+      </FormField>
+      <Group gap="md" justifyContent="end">
+        <Button type="button">Cancel</Button>
+        <Button color="primary" type="submit">
+          Save
+        </Button>
+      </Group>
+    </Stack>
+  </form>
+);
+```
+</SourceCode>
+
+## Design Principles
+
+The `createFormValidation()` hook has as specific design philosophy. In fact, part of the motivation
+for creating this hook is that there are so many validators out there that don't support these
+design principles:
+
+* **No replacment of the `Form` component.** Many form validation libraries work by supplying their
+  own `Form` component. This won't work with [solid-start](https://start.solidjs.com/) and other
+  frameworks which also supply a custom form. Instead, `createFormValidation()` overrides
+  the `onSubmit` event handler, so you can use whatever form component you like.
+* **The application, not the library, should be responsible for localization of error messages.**
+  Some validation libraries provide a limited support for localization: they have a preset
+  collection of error messages, and these messages have been translated into a fixed set of
+  languages. This creates several problems:
+    * Some applications support over 200 languages, others may only support a dozen languages or
+      fewer. It is important that the form validator support the same set of languages as the
+      application, which is impossible for an open-source library to manage.
+    * The fixed set of error messages cannot encompass every possible error, so it is always
+      going to be the case where some error messages are application-specific.
+* **Error messages should only be generated after an error occurs.** Many validators require the
+  app to supply the set of all possible error messages up-front, before validation begins.
+  This makes it impossible for error messages to contain dynamic fields. It's also inefficient
+  if the error messages are being looked up from a translation catalog.
+* **The validator should return error codes, not error messages.** Many validators try to make
+  life simpler for the developer by returning error messages; this is a mistake. It should be
+  up to the application to translate the error code into the appropriate localized string. One
+  reason is that this allows the application to supply additional context information to help
+  the user recover from the error.
+  * A common example of bad UI is a generic error message like "too short", when it should be
+    something more like "Username must be at least 3 characters".
+
+## Recovery Mode
+
+The recommended practice for form handling UI requires that a form validator have two "modes": the
+initial mode does *not* validate as the user is typing, as this would be a distraction. Once the
+user attempts to submit the form, however, if there are any validation errors then these errors are
+displayed, and the validator goes into "recovery mode". In this mode, validation occurs
+continuously as the user is typing.
+
+## Parameters
+
+The `createFormValidation()` hook is a generic function which takes a single type argument:
+the type of the form data. This should be an object that has one field definition for each
+field that is to be validated, where the field key is the same as the input field's `name`
+property. The type of the field should be the same as the `value` attribute of the HTML element
+for that field.
+
+The function takes two parameters:
+
+* **schema** - this is the validation schema. It should be an object whose keys are the names
+  of the fields to be validated, and whose values are validators (see next section).
+* **onSubmit** - this is an optional callback which will be called when the form is submitted,
+  but only if there were no validation errors.
+
+### Writing validators
+
+Validators can be written in two ways. The first is simply a function that returns an error
+code, or returns null if the validation was successful:
+
+<SourceCode>
+```tsx
+const { errors, formProps } = createFormValidation<{
+  username: string;
+}>({
+  username: (value) => value.length > 0 ? null : 'required',
+});
+```
+</SourceCode>
+
+The other way to write a validator is an object with one key per error code. The values of
+this object are functions which each return a boolean. A `true` result means validation was
+successful. A false result means that validation failed, and the corresponding error code is
+applied to the field's validation status.
+
+<SourceCode>
+```tsx
+const { errors, formProps } = createFormValidation<{
+  username: string;
+}>({
+  username: {
+    required: (data: string) => data.length > 0,
+    tooLong: (data: string) => data.length < 64,
+  },
+});
+```
+</SourceCode>
+
+### Return values
+
+The return value from `createFormValidation()` is an object with the following fields:
+
+* **formProps** - An object containing properties which should be spread into the form element.
+* **errors** - A reactive object containing all of the validation errors. The keys of this
+  object are the input field names, and the value is an error code.
+* **recovery** - A boolean which indicates whether we are in recovery mode. While in recovery
+  mode, validation is performed as the user types.
+* **setRecovery(enabled: boolean)** - A function which allows you to force recovery mode on or off.
+* **validate()** - A function which can be used to instantly trigger a validation.
+
+### Use with schema validation libraries
+
+There are many JavaScript schema validation libraries such as Yup, Zod and so on. It is possible
+to use these libraries as validators for `createFormValidation()`. However, some care must be
+taken when using these packages:
+
+* Schema validators tend to generate readable messages rather than error codes. This is a problem
+  for localization - it's unlikely that the validator library supports the same set of locales
+  as your application.
+* Similarly, the messages produced by these validation libraries tend to be very generic, which
+  may confuse the user.
+* Also, many of these libraries support regex patterns for validation. The problem with using regex
+  patterns is that these patterns often test for multiple kinds of failure, and there's no way to
+  explain to the user what they did wrong. Most users don't know regular expressions, and so
+  simply saying "input did not match pattern" is not helpful.
+  * One way to overcome this is to use multiple patterns, where each pattern only tests for
+    a single type of mistake ("no special characters", etc.)
+
+The best way to use schema validator libraries is to override their built-in error messages with
+your app's own error codes, and then to look up those error codes in your app's translation
+catalogs. These messages can be context-specific, that is, the messages are authored for a specific
+form and contain advice that is pertinent to that form.
+
+## See Also
+
+* [A Few Good Errors](https://medium.com/machine-words/a-few-good-errors-7d74efc42ca1)
