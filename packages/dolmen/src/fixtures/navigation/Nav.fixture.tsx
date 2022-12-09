@@ -1,7 +1,6 @@
 import { ParentComponent } from 'solid-js';
 import { JSX } from 'solid-js/jsx-runtime';
-import { Card, Stack } from '../../components';
-import { Nav } from '../../components/navigation';
+import { Card, Nav, Stack } from '../../components';
 import { Cancel, Close, Success } from '../../icons';
 
 export const $category = 'navigation';

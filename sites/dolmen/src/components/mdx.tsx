@@ -8,7 +8,7 @@ import {
   Show,
   createMemo,
 } from 'solid-js';
-import { Group, Spacer, Table } from 'dolmen';
+import { Group, Nav, Spacer, Table } from 'dolmen';
 import css from './mdx.module.scss';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/hybrid.css';
@@ -96,11 +96,19 @@ export const DocNav: VoidComponent = () => {
   return (
     <Group class={css.docNav}>
       <Show when={nav().prev} keyed>
-        {page => <A class={css.docLink} href={page.href} noScroll={false}>&laquo; {page.title}</A>}
+        {page => (
+          <Nav.Link as={A} href={page.href} end>
+            {page.title}
+          </Nav.Link>
+        )}
       </Show>
       <Spacer />
       <Show when={nav().next} keyed>
-        {page => <A class={css.docLink} href={page.href} noScroll={false}>{page.title} &raquo;</A>}
+        {page => (
+          <A class={css.docLink} href={page.href} noScroll={false}>
+            {page.title} &raquo;
+          </A>
+        )}
       </Show>
     </Group>
   );

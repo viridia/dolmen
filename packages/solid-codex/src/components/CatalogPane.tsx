@@ -1,5 +1,5 @@
 import { Aside, DiscloseButton } from 'dolmen';
-import { For, Show, useContext } from 'solid-js';
+import { createSignal, For, onMount, Show, useContext } from 'solid-js';
 import { VoidComponent } from 'solid-js';
 import {
   catalogEntryStyle,
@@ -28,7 +28,7 @@ const CatalogItem: VoidComponent<ItemProps> = props => {
 
   const expansionId = `${props.node.category.join('-')}`.toLowerCase().replace(' ', '-');
   const isExpanded = () =>
-    Boolean((props.node.children && expansion.isExpanded(expansionId)) ?? true);
+    Boolean((props.node.children && expansion.isExpanded(expansionId)) ?? false);
   // console.log(expansionId, isExpanded());
   return (
     <li classList={{ [catalogEntryStyle]: true }}>
@@ -90,11 +90,17 @@ interface CatalogProps {
 
 export const CatalogPane: VoidComponent<CatalogProps> = props => {
   const expansion = createExpansionStateStore('catalog-view');
+  const [mounted, setMounted] = createSignal(false);
+
+  onMount(() => setMounted(true));
+
   return (
-    <TreeExpansionContext.Provider value={expansion}>
-      <Aside classList={{ 'dm-theme-dark': true, [catalogPaneCss]: true }}>
-        <CatalogGroup root nodes={props.tree.children ?? []} />
-      </Aside>
-    </TreeExpansionContext.Provider>
+    <Aside classList={{ 'dm-theme-dark': true, [catalogPaneCss]: true }}>
+      <Show when={mounted()}>
+        <TreeExpansionContext.Provider value={expansion}>
+          <CatalogGroup root nodes={props.tree.children ?? []} />
+        </TreeExpansionContext.Provider>
+      </Show>
+    </Aside>
   );
 };

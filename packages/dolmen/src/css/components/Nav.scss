@@ -4,7 +4,9 @@
   .dm-nav-item,
   .dm-nav-link,
   .dm-nav-group,
-  .dm-nav-subgroup {
+  .dm-nav-subgroup,
+  .dm-nav-prev,
+  .dm-nav-next {
     align-items: center;
     display: flex;
     justify-content: start;
@@ -13,7 +15,9 @@
     outline: none;
   }
 
-  .dm-nav-link {
+  .dm-nav-link,
+  .dm-nav-prev,
+  .dm-nav-next {
     font-size: defs.fontSize('sm');
     color: var(--dm-color-text);
     text-decoration: none;

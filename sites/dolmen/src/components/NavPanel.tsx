@@ -7,15 +7,6 @@ import { pageIndex } from './pageIndex';
 const NavItem: ParentComponent<{ href: string; disabled?: boolean }> = props => (
   <Nav.Link as={A} {...props} end />
 );
-// props.disabled ? (
-//   <li class={styles.disabled}>{props.children}</li>
-// ) : (
-//   <li>
-//     <A class={styles.link} href={props.href} end>
-//       {props.children}
-//     </A>
-//   </li>
-// );
 
 export const NavPanel = () => {
   return (

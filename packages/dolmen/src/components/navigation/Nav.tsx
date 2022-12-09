@@ -1,6 +1,6 @@
 import { ParentComponent, JSX, splitProps, Show, ParentProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
-import { ChevronRight } from '../../icons';
+import { ChevronLeft, ChevronRight } from '../../icons';
 
 interface NavLinkProps {
   href: string;
@@ -32,7 +32,6 @@ function NavLink<
         ...local.classList,
         [local.class as string]: !!local.class,
         'dm-nav-link': true,
-        active: local.current,
       }}
     >
       <Show when={local.icon}>
@@ -40,6 +39,66 @@ function NavLink<
       </Show>
       <span class="dm-nav-link-title">{local.children}</span>
       <ChevronRight class="dm-nav-arrow" />
+    </Dynamic>
+  );
+}
+
+function NavNext<
+  T extends ParentComponent<JSX.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }>,
+  P = T extends ParentComponent<infer Props> ? Props : never
+>(props: ParentProps<JSX.AnchorHTMLAttributes<HTMLAnchorElement> & NavLinkProps & P & { as?: T }>) {
+  const [local, rest] = splitProps(props, [
+    'class',
+    'classList',
+    'as',
+    'current',
+    'disabled',
+    'children',
+  ]);
+  return (
+    <Dynamic
+      component={local.as ?? 'a'}
+      {...rest}
+      aria-disabled={local.disabled ?? undefined}
+      aria-current={local.current ? 'page' : undefined}
+      classList={{
+        ...local.classList,
+        [local.class as string]: !!local.class,
+        'dm-nav-next': true,
+      }}
+    >
+      <span class="dm-nav-link-title">{local.children}</span>
+      <ChevronRight class="dm-nav-arrow" />
+    </Dynamic>
+  );
+}
+
+function NavPrev<
+  T extends ParentComponent<JSX.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }>,
+  P = T extends ParentComponent<infer Props> ? Props : never
+>(props: ParentProps<JSX.AnchorHTMLAttributes<HTMLAnchorElement> & NavLinkProps & P & { as?: T }>) {
+  const [local, rest] = splitProps(props, [
+    'class',
+    'classList',
+    'as',
+    'current',
+    'disabled',
+    'children',
+  ]);
+  return (
+    <Dynamic
+      component={local.as ?? 'a'}
+      {...rest}
+      aria-disabled={local.disabled ?? undefined}
+      aria-current={local.current ? 'page' : undefined}
+      classList={{
+        ...local.classList,
+        [local.class as string]: !!local.class,
+        'dm-nav-prev': true,
+      }}
+    >
+      <ChevronLeft class="dm-nav-arrow" />
+      <span class="dm-nav-link-title">{local.children}</span>
     </Dynamic>
   );
 }
@@ -76,6 +135,8 @@ export const Nav: ParentComponent<JSX.HTMLAttributes<HTMLElement>> & {
   Link: typeof NavLink;
   Group: typeof NavGroup;
   Subgroup: typeof NavSubgroup;
+  Prev: typeof NavPrev;
+  Next: typeof NavNext;
 } = props => {
   const [local, rest] = splitProps(props, ['class', 'classList']);
 
@@ -94,3 +155,5 @@ export const Nav: ParentComponent<JSX.HTMLAttributes<HTMLElement>> & {
 Nav.Link = NavLink;
 Nav.Group = NavGroup;
 Nav.Subgroup = NavSubgroup;
+Nav.Prev = NavPrev;
+Nav.Next = NavNext;
