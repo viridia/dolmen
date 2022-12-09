@@ -3,15 +3,6 @@
 Dolmen is a themeable UI component library designed to work with Solid.js and optimized for SSR
 (Server-side rendering). It provides a broad selection of UI components with minimal overhead.
 
-## Themes
-
-Themes are implemented using CSS variables. Once a theme has been defined, you can add it to
-any element (and it's descendants) by adding the theme's class to that element. There is no
-need for a theme provider or context.
-
-Multiple themes are supported, so you can have (for example) a sidebar with a different color
-scheme than the main page.
-
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:

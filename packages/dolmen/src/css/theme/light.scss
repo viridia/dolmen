@@ -40,7 +40,7 @@ $grayBase: #8c8c8c;
   --dm-color-error-bg: #eed5d5;
 
   // Colors for selected items (menus, list rows)
-  --dm-color-item-hover-bg: #{palette.$gray100};
+  --dm-color-item-hover-bg: #{color.change(palette.$black, $alpha: 0.07)};
   --dm-color-item-focus-bg: #{palette.$gray100};
   --dm-color-item-selected-text: #{palette.$white};
   --dm-color-item-selected-bg: #{color.adjust($primaryColor, $lightness: -15%, $saturation: -60%)};

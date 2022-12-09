@@ -88,6 +88,7 @@ export const pageIndex: IDocGroup[] = [
         title: 'Navigation',
         pages: [
           { href: '/components/Breadcrumbs', title: 'Breadcrumbs', disabled: true },
+          { href: '/components/Link', title: 'Link', disabled: true },
           { href: '/components/Nav', title: 'Nav', disabled: true },
         ],
       },

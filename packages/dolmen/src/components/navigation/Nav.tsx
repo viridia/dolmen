@@ -1,23 +1,23 @@
-import { ParentComponent, JSX, splitProps, Show } from 'solid-js';
+import { ParentComponent, JSX, splitProps, Show, ParentProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 import { ChevronRight } from '../../icons';
 
 interface NavLinkProps {
-  as?: ParentComponent<JSX.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }>;
   href: string;
-  active?: boolean;
+  current?: boolean;
   disabled?: boolean;
   icon?: JSX.Element;
 }
 
-const NavLink: ParentComponent<
-  NavLinkProps & JSX.AnchorHTMLAttributes<HTMLAnchorElement>
-> = props => {
+function NavLink<
+  T extends ParentComponent<JSX.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }>,
+  P = T extends ParentComponent<infer Props> ? Props : never
+>(props: ParentProps<JSX.AnchorHTMLAttributes<HTMLAnchorElement> & NavLinkProps & P & { as?: T }>) {
   const [local, rest] = splitProps(props, [
     'class',
     'classList',
     'as',
-    'active',
+    'current',
     'icon',
     'disabled',
     'children',
@@ -27,12 +27,12 @@ const NavLink: ParentComponent<
       component={local.as ?? 'a'}
       {...rest}
       aria-disabled={local.disabled ?? undefined}
-      aria-current={local.active ? 'page' : undefined}
+      aria-current={local.current ? 'page' : undefined}
       classList={{
         ...local.classList,
         [local.class as string]: !!local.class,
         'dm-nav-link': true,
-        active: local.active,
+        active: local.current,
       }}
     >
       <Show when={local.icon}>
@@ -42,17 +42,31 @@ const NavLink: ParentComponent<
       <ChevronRight class="dm-nav-arrow" />
     </Dynamic>
   );
-};
+}
 
-const NavTitle: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = props => {
+const NavGroup: ParentComponent<JSX.HTMLAttributes<HTMLElement>> = props => {
   const [local, rest] = splitProps(props, ['class', 'classList']);
   return (
-    <div
+    <header
       {...rest}
       classList={{
         ...local.classList,
         [local.class as string]: !!local.class,
-        'dm-nav-title': true,
+        'dm-nav-group': true,
+      }}
+    />
+  );
+};
+
+const NavSubgroup: ParentComponent<JSX.HTMLAttributes<HTMLElement>> = props => {
+  const [local, rest] = splitProps(props, ['class', 'classList']);
+  return (
+    <header
+      {...rest}
+      classList={{
+        ...local.classList,
+        [local.class as string]: !!local.class,
+        'dm-nav-subgroup': true,
       }}
     />
   );
@@ -60,7 +74,8 @@ const NavTitle: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = props => {
 
 export const Nav: ParentComponent<JSX.HTMLAttributes<HTMLElement>> & {
   Link: typeof NavLink;
-  Title: typeof NavTitle;
+  Group: typeof NavGroup;
+  Subgroup: typeof NavSubgroup;
 } = props => {
   const [local, rest] = splitProps(props, ['class', 'classList']);
 
@@ -77,4 +92,5 @@ export const Nav: ParentComponent<JSX.HTMLAttributes<HTMLElement>> & {
 };
 
 Nav.Link = NavLink;
-Nav.Title = NavTitle;
+Nav.Group = NavGroup;
+Nav.Subgroup = NavSubgroup;

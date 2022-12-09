@@ -1,0 +1,28 @@
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-link {
+    align-items: center;
+    display: inline;
+    justify-content: start;
+    margin: 0;
+    outline: none;
+    height: defs.size('md') * 2;
+    color: var(--dm-color-text-link);
+    text-decoration: underline;
+    --icon-color: var(--dm-color-text-link);
+
+    &:hover:not([aria-disabled]) {
+      background-color: var(--dm-color-item-hover-bg);
+    }
+
+    &:focus:focus-visible {
+      box-shadow: 0 0 1px 3px var(--dm-color-focus);
+      z-index: defs.$zFocused;
+    }
+
+    &[aria-disabled] {
+      opacity: 0.6;
+    }
+  }
+}
