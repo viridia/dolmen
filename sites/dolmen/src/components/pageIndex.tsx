@@ -33,7 +33,7 @@ export const pageIndex: IDocGroup[] = [
           { href: '/components/DiscloseButton', title: 'DiscloseButton' },
           { href: '/components/Menu', title: 'Menu' },
           { href: '/components/Modal', title: 'Modal' },
-          { href: '/components/Slider', title: 'Slider', disabled: true },
+          { href: '/components/Slider', title: 'Slider' },
         ],
       },
       {

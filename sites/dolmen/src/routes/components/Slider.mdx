@@ -1,0 +1,199 @@
+import { Table, Group, Slider, CheckBox, Stack } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, UnionType } from '../../components/mdx';
+import { createSignal, For } from 'solid-js';
+
+# Slider
+
+A slider allows for control of a numeric quantity, constrained to be within a minimum and
+maximum value.
+
+<DemoSection>
+  {() => {
+    const [value, setValue] = createSignal(0);
+    return (
+      <Stack style={{ width: '15rem' }} gap="lg">
+        <Slider
+          value={value()}
+          min={0}
+          max={100}
+          step={1}
+          onChange={value => setValue(value)}
+          valueLabelDisplay="auto"
+        />
+      </Stack>
+    );
+  }}
+</DemoSection>
+<SourceCode>
+```tsx
+const [value, setValue] = createSignal(0);
+return (
+    <Slider
+      value={value()}
+      min={0}
+      max={100}
+      step={1}
+      onChange={value => setValue(value)}
+      valueLabelDisplay="auto"
+    />
+);
+```
+</SourceCode>
+
+## Slider sizes
+
+<DemoSection>
+  <Stack style={{ width: '15rem' }} gap="lg">
+    <For each={['xl', 'lg', 'md', 'sm', 'xs']}>
+    {sz => {
+      const [value, setValue] = createSignal(0);
+      return (
+        <Slider
+          value={value()}
+          min={0}
+          max={100}
+          step={1}
+          onChange={value => setValue(value)}
+          valueLabelDisplay="auto"
+          size={sz}
+        />
+      );
+    }}
+    </For>
+  </Stack>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <Slider size="xl" value={value()} onChange={value => setValue(value)} />
+  <Slider size="lg" value={value()} onChange={value => setValue(value)} />
+  <Slider size="md" value={value()} onChange={value => setValue(value)} />
+  <Slider size="sm" value={value()} onChange={value => setValue(value)} />
+  <Slider size="xs" value={value()} onChange={value => setValue(value)} />
+</>
+```
+</SourceCode>
+
+## Custom Labels
+
+<DemoSection>
+  {() => {
+    const [value, setValue] = createSignal(50);
+    return (
+      <Stack style={{ width: '15rem' }} gap="lg">
+        <Slider
+          value={value()}
+          valueLabelDisplay="on"
+          valueLabelFormat={value => `${value.toFixed(0)}%`}
+          onChange={value => setValue(value)}
+        />
+      </Stack>
+    );
+  }}
+</DemoSection>
+<SourceCode>
+```tsx
+<Slider
+  value={value()}
+  valueLabelDisplay="on"
+  valueLabelFormat={value => `${value.toFixed(0)}%`}
+  onChange={value => setValue(value)}
+/>
+```
+</SourceCode>
+
+## Marks
+
+<DemoSection>
+  {() => {
+    const [value, setValue] = createSignal(50);
+    return (
+      <Stack style={{ width: '15rem' }} gap="lg">
+        <Slider
+          value={value()}
+          valueLabelDisplay="auto"
+          step={5}
+          size="xl"
+          marks
+          onChange={value => setValue(value)}
+        />
+      </Stack>
+    );
+  }}
+</DemoSection>
+<SourceCode>
+```tsx
+<Slider
+  value={value()}
+  valueLabelDisplay="auto"
+  step={5}
+  size="xl"
+  marks
+  onChange={value => setValue(value)}
+/>
+```
+</SourceCode>
+
+## Slider properties
+
+<PropsTable>
+  <PropsItem
+    name="value"
+    description="Current value of the slider."
+    type="number"
+  />
+  <PropsItem
+    name="min"
+    description="Minimum value of the slider (default 0)."
+    type="number"
+  />
+  <PropsItem
+    name="value"
+    description="Current value of the slider."
+    type="number"
+  />
+  <PropsItem
+    name="step"
+    description="Step size (default 1)."
+    type="number"
+  />
+  <PropsItem
+    name="precision"
+    description="Number of digits to display after the decimal point in the value label (default 0)."
+    type="number"
+  />
+  <PropsItem
+    name="onChange"
+    description="Event handler called when slider value is changed."
+    type="(value: number) => void"
+  />
+  <PropsItem
+    name="name"
+    description="Input field name, for when the slider is used inside of a form."
+    type="number"
+  />
+  <PropsItem
+    name="size"
+    description="Slider vertical size"
+    type={
+      <UnionType values={['xl', 'lg', 'md', 'sm', 'xs']} />
+    }
+  />
+  <PropsItem
+    name="valueLabelDisplay"
+    description="Whether to display the value label. 'auto' means only display when hovering or dragging. 'on' means always display, 'off' means never display."
+    type={
+      <UnionType values={['auto', 'on', 'off']} />
+    }
+  />
+  <PropsItem
+    name="valueLabelFunction"
+    description="Custom formatting function for value label."
+    type="(value: number) => string"
+  />
+  <PropsItem
+    name="marks"
+    description="Whether to display marks. Set to true to automatically display based on step size. Otherwise, pass in an array of SliderMark objects"
+    type="SliderMark[] | true"
+  />
+</PropsTable>
