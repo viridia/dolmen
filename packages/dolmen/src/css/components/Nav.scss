@@ -1,7 +1,14 @@
 @use '../defs.scss';
 
 @layer ui-base {
-  .dm-nav-item,
+  .dm-nav {
+    align-items: stretch;
+    color: var(--dm-color-text);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
   .dm-nav-link,
   .dm-nav-group,
   .dm-nav-subgroup,
@@ -11,19 +18,40 @@
     display: flex;
     justify-content: start;
     margin: 0;
-    padding: 0 4px 0 12px;
-    outline: none;
   }
 
   .dm-nav-link,
   .dm-nav-prev,
   .dm-nav-next {
-    font-size: defs.fontSize('sm');
+    --icon-color: var(--dm-color-text-dim);
     color: var(--dm-color-text);
     text-decoration: none;
-    --icon-color: var(--dm-color-text-dim);
-    padding-left: 20px;
+  }
+
+  .dm-nav-link {
     height: defs.size('md') * 2;
+    outline: none;
+    padding: 0 4px 0 20px;
+    position: relative;
+    font-size: defs.fontSize('sm');
+
+    .dm-nav-inset > & {
+      padding-left: 32px;
+    }
+  }
+
+  .dm-nav-prev,
+  .dm-nav-next {
+    height: defs.size('md') * 2;
+    border-radius: 4px;
+  }
+
+  .dm-nav-prev {
+    padding-right: 8px;
+  }
+
+  .dm-nav-next {
+    padding-left: 8px;
   }
 
   .dm-nav-link-title {
@@ -33,17 +61,21 @@
   .dm-nav-arrow {
     width: 16;
     height: 16;
-    visibility: hidden;
     --icon-color: var(--dm-color-text-dim);
+
+    .dm-nav-link > & {
+      visibility: hidden;
+    }
   }
 
   .dm-nav-icon-container {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 24;
     height: 24;
-    margin-right: 4px;
+    left: 8px;
   }
 
   .dm-nav-group {
@@ -58,21 +90,16 @@
     font-size: defs.fontSize('sm');
     color: var(--dm-color-text-dim);
     text-transform: uppercase;
+    padding: 0 4px 0 12px;
     margin-top: 8px;
     margin-bottom: 4px;
-  }
-
-  .dm-nav {
-    align-items: stretch;
-    color: var(--dm-color-text);
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
   }
 }
 
 @layer ui-states {
-  .dm-nav-link {
+  .dm-nav-link,
+  .dm-nav-prev,
+  .dm-nav-next {
     &:hover:not([aria-disabled]):not([aria-current]) {
       background-color: var(--dm-color-item-hover-bg);
 
@@ -96,6 +123,7 @@
 
     &[aria-disabled] {
       opacity: 0.6;
+      cursor: not-allowed;
     }
   }
 }

@@ -24,7 +24,7 @@ function NavLink<
   ]);
   return (
     <Dynamic
-      component={local.as ?? 'a'}
+      component={local.disabled ? 'div' : local.as ?? 'a'}
       {...rest}
       aria-disabled={local.disabled ?? undefined}
       aria-current={local.current ? 'page' : undefined}
@@ -43,24 +43,21 @@ function NavLink<
   );
 }
 
+interface NavDirProps {
+  href: string;
+  disabled?: boolean;
+}
+
 function NavNext<
   T extends ParentComponent<JSX.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }>,
   P = T extends ParentComponent<infer Props> ? Props : never
->(props: ParentProps<JSX.AnchorHTMLAttributes<HTMLAnchorElement> & NavLinkProps & P & { as?: T }>) {
-  const [local, rest] = splitProps(props, [
-    'class',
-    'classList',
-    'as',
-    'current',
-    'disabled',
-    'children',
-  ]);
+>(props: ParentProps<JSX.AnchorHTMLAttributes<HTMLAnchorElement> & NavDirProps & P & { as?: T }>) {
+  const [local, rest] = splitProps(props, ['class', 'classList', 'as', 'disabled', 'children']);
   return (
     <Dynamic
-      component={local.as ?? 'a'}
+      component={local.disabled ? 'div' : local.as ?? 'a'}
       {...rest}
       aria-disabled={local.disabled ?? undefined}
-      aria-current={local.current ? 'page' : undefined}
       classList={{
         ...local.classList,
         [local.class as string]: !!local.class,
@@ -76,21 +73,13 @@ function NavNext<
 function NavPrev<
   T extends ParentComponent<JSX.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }>,
   P = T extends ParentComponent<infer Props> ? Props : never
->(props: ParentProps<JSX.AnchorHTMLAttributes<HTMLAnchorElement> & NavLinkProps & P & { as?: T }>) {
-  const [local, rest] = splitProps(props, [
-    'class',
-    'classList',
-    'as',
-    'current',
-    'disabled',
-    'children',
-  ]);
+>(props: ParentProps<JSX.AnchorHTMLAttributes<HTMLAnchorElement> & NavDirProps & P & { as?: T }>) {
+  const [local, rest] = splitProps(props, ['class', 'classList', 'as', 'disabled', 'children']);
   return (
     <Dynamic
-      component={local.as ?? 'a'}
+      component={local.disabled ? 'div' : local.as ?? 'a'}
       {...rest}
       aria-disabled={local.disabled ?? undefined}
-      aria-current={local.current ? 'page' : undefined}
       classList={{
         ...local.classList,
         [local.class as string]: !!local.class,
@@ -131,14 +120,18 @@ const NavSubgroup: ParentComponent<JSX.HTMLAttributes<HTMLElement>> = props => {
   );
 };
 
-export const Nav: ParentComponent<JSX.HTMLAttributes<HTMLElement>> & {
+interface NavProps {
+  inset?: boolean;
+}
+
+export const Nav: ParentComponent<JSX.HTMLAttributes<HTMLElement> & NavProps> & {
   Link: typeof NavLink;
   Group: typeof NavGroup;
   Subgroup: typeof NavSubgroup;
   Prev: typeof NavPrev;
   Next: typeof NavNext;
 } = props => {
-  const [local, rest] = splitProps(props, ['class', 'classList']);
+  const [local, rest] = splitProps(props, ['class', 'classList', 'inset']);
 
   return (
     <nav
@@ -147,6 +140,7 @@ export const Nav: ParentComponent<JSX.HTMLAttributes<HTMLElement>> & {
         ...local.classList,
         [local.class as string]: !!local.class,
         'dm-nav': true,
+        'dm-nav-inset': local.inset,
       }}
     />
   );

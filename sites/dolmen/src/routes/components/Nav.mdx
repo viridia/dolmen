@@ -1,0 +1,211 @@
+import { Table, Group, Nav, Card, Spacer } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, HTMLTag } from '../../components/mdx';
+import { Tune, DarkMode, LightMode } from '../../icons';
+
+# Nav
+
+The `Nav` component is used to display the primary navigation for the application,
+usually in a sidebar. It contains links that allow users to move between different
+views within the application.
+
+<DemoSection>
+  <Card style={{ width: '15rem' }}>
+    <Nav>
+      <Nav.Group>Overview</Nav.Group>
+      <Nav.Link href="./Nav">Installation</Nav.Link>
+      <Nav.Link href="./Nav" current>Getting Started</Nav.Link>
+      <Nav.Link href="./Nav">Settings</Nav.Link>
+      <Nav.Link href="./Nav" disabled>Disabled Item</Nav.Link>
+    </Nav>
+  </Card>
+</DemoSection>
+<SourceCode>
+```tsx
+<Nav>
+  <Nav.Group>Overview</Nav.Group>
+  <Nav.Link href="./install">Installation</Nav.Link>
+  <Nav.Link href="./start" current>Getting Started</Nav.Link>
+  <Nav.Link href="./settings">Settings</Nav.Link>
+  <Nav.Link href="./disabled" disabled>Disabled Item</Nav.Link>
+</Nav>
+```
+</SourceCode>
+
+## Nav structure
+
+The `Nav` component contains a list of items and group headings:
+
+* `Nav.Group` represents the heading for a group of items.
+* `Nav.Subroup` represents the heading for a nested subgroup of items.
+* `Nav.Item` represents a navigation link.
+
+<DemoSection>
+  <Card style={{ width: '15rem' }}>
+    <Nav>
+      <Nav.Group>Documentation</Nav.Group>
+      <Nav.Subgroup>Overview</Nav.Subgroup>
+      <Nav.Link href="./Nav">Installation</Nav.Link>
+      <Nav.Link href="./Nav">Getting Started</Nav.Link>
+      <Nav.Link href="./Nav">Settings</Nav.Link>
+      <Nav.Subgroup aria-label="admin">API</Nav.Subgroup>
+      <Nav.Link href="./Nav">Window</Nav.Link>
+      <Nav.Link href="./Nav">Button</Nav.Link>
+    </Nav>
+  </Card>
+</DemoSection>
+<SourceCode>
+```tsx
+<Nav>
+  <Nav.Group>Documentation</Nav.Group>
+  <Nav.Subgroup>Overview</Nav.Subgroup>
+  <Nav.Link href="./install">Installation</Nav.Link>
+  <Nav.Link href="./start">Getting Started</Nav.Link>
+  <Nav.Link href="./settings">Settings</Nav.Link>
+  <Nav.Subgroup aria-label="admin">API</Nav.Subgroup>
+  <Nav.Link href="./window">Window</Nav.Link>
+  <Nav.Link href="./button">Button</Nav.Link>
+</Nav>
+```
+</SourceCode>
+
+## Client-side Navigation / Integration with Routers
+
+By default, the `Nav.Item` component renders an anchor (`a`) element. However, you can pass
+in a custom link component using the `as` property. This is useful for supporting routers
+with client-side navigation. The link component must accept an `href` property and must
+generally act like an anchor tag.
+
+For example, if you are using [solid-router](https://github.com/solidjs/solid-router),
+you can directly pass in the `A` component:
+
+<SourceCode>
+```tsx
+import { A } from 'solid-router';
+
+<Nav.Link as={A} href="./Nav">Installation</Nav.Link>
+```
+</SourceCode>
+
+## Link States
+
+The `disabled` property causes the link to be rendered as disabled.
+
+The `current` property adds the `aria-current` attribute to the link, which causes it to be
+displayed as selected. Note that many routers (such as solid-router) will automatically add the
+`aria-current` attribute for you, so you don't need to bother with `current`.
+
+## Icons
+
+If you want to place icons next to the navigation items, use the `inset` property to
+add extra space for them:
+
+<DemoSection>
+  <Card style={{ width: '15rem' }}>
+    <Nav inset>
+      <Nav.Group>Overview</Nav.Group>
+      <Nav.Link href="./Nav" icon={<LightMode width={18} />}>Installation</Nav.Link>
+      <Nav.Link href="./Nav" icon={<LightMode width={18} />} current>Getting Started</Nav.Link>
+      <Nav.Link href="./Nav" icon={<LightMode width={18} />}>Settings</Nav.Link>
+      <Nav.Link href="./Nav" icon={<LightMode width={18} />} disabled>Disabled Item</Nav.Link>
+    </Nav>
+  </Card>
+</DemoSection>
+<SourceCode>
+```tsx
+<Nav inset>
+  <Nav.Group>Overview</Nav.Group>
+  <Nav.Link href="./install" icon={<LightMode width={18} />}>Installation</Nav.Link>
+  <Nav.Link href="./start" icon={<LightMode width={18} />} current>Getting Started</Nav.Link>
+  <Nav.Link href="./settings" icon={<LightMode width={18} />}>Settings</Nav.Link>
+  <Nav.Link href="./disabled" icon={<LightMode width={18} />} disabled>Disabled Item</Nav.Link>
+</Nav>
+```
+</SourceCode>
+
+## Next / Prev
+
+The `Nav.Prev` and `Nav.Next` components can be used to navigate to the previous or next page:
+
+<DemoSection>
+  <Group>
+    <Nav.Prev href="./Nav">
+      <span>Site</span>
+    </Nav.Prev>
+    <Spacer />
+    <Nav.Next href="./Nav">
+      <span>Channels</span>
+    </Nav.Next>
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+  <Group>
+    <Nav.Prev href="/">
+      <span>Site</span>
+    </Nav.Prev>
+    <Spacer />
+    <Nav.Next href="/">
+      <span>Channels</span>
+    </Nav.Next>
+  </Group>
+```
+</SourceCode>
+
+## Nav properties
+
+<PropsTable>
+  <PropsItem
+    name="inset"
+    description="If true, adds additional padding on the link items to make room for icons."
+    type="boolean"
+  />
+</PropsTable>
+
+## Nav.Item properties
+
+`Nav.Item` accepts all of the standard properties for an anchor element, including `href`.
+Unlike a native anchor, the `href` is a required property.
+
+In addition, it supports the following properties:
+
+<PropsTable>
+  <PropsItem
+    name="as"
+    description="Used to override how the link's DOM element is rendered."
+    type="Component"
+  />
+  <PropsItem
+    name="current"
+    description={
+      <span>
+        Whether to render the link as the current link.
+        This adds <code>aria-current</code> to the rendered element.
+      </span>
+    }
+    type="boolean"
+  />
+  <PropsItem
+    name="disabled"
+    description="Whether the link should be disabled. Disabled links will do nothing if clicked."
+    type="boolean"
+  />
+  <PropsItem
+    name="icon"
+    description="An icon to display next to the link"
+    type="JSX.Element"
+  />
+</PropsTable>
+
+## Nav.Group, Nav.Subgroup properties
+
+These components have the same properties as a <HTMLTag>heading</HTMLTag> element.
+
+## Nav.Prev, Nav.Next properties
+
+<PropsTable>
+  <PropsItem
+    name="as"
+    description="Used to override how the link's DOM element is rendered."
+    type="Component"
+  />
+</PropsTable>

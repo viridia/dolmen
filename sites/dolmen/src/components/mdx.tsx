@@ -97,17 +97,17 @@ export const DocNav: VoidComponent = () => {
     <Group class={css.docNav}>
       <Show when={nav().prev} keyed>
         {page => (
-          <Nav.Link as={A} href={page.href} end>
+          <Nav.Prev as={A} href={page.href} end>
             {page.title}
-          </Nav.Link>
+          </Nav.Prev>
         )}
       </Show>
       <Spacer />
       <Show when={nav().next} keyed>
         {page => (
-          <A class={css.docLink} href={page.href} noScroll={false}>
-            {page.title} &raquo;
-          </A>
+          <Nav.Next as={A} href={page.href} end>
+            {page.title}
+          </Nav.Next>
         )}
       </Show>
     </Group>
