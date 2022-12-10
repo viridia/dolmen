@@ -10,8 +10,6 @@
 
 @layer ui-variants {
   .dm-text {
-    @include defs.fontSizeVariants();
-
     &.dm-dim {
       color: var(--dm-color-text-dim);
     }
@@ -22,6 +20,12 @@
 
     &.dm-strong {
       font-weight: bold;
+    }
+
+    @each $sz, $value in defs.$size {
+      &.dm-size-#{$sz} {
+        font-size: $value * 1rem;
+      }
     }
   }
 }

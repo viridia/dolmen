@@ -19,7 +19,6 @@ export const pageIndex: IDocGroup[] = [
       { href: '/start/philosophy', title: 'Philosophy' },
       { href: '/start/themes', title: 'Themes', disabled: true },
       { href: '/start/flex', title: 'Flex Props' },
-      { href: '/start/roadmap', title: 'Roadmap', disabled: true },
     ],
   },
   {
@@ -39,7 +38,7 @@ export const pageIndex: IDocGroup[] = [
       {
         title: 'Data Display',
         pages: [
-          { href: '/components/Avatar', title: 'Avatar', disabled: true },
+          { href: '/components/Avatar', title: 'Avatar' },
           { href: '/components/Badge', title: 'Badge' },
           { href: '/components/Callout', title: 'Callout' },
           { href: '/components/ColorGrid', title: 'ColorGrid' },
@@ -80,7 +79,7 @@ export const pageIndex: IDocGroup[] = [
           { href: '/components/Page', title: 'Page' },
           { href: '/components/ScrollArea', title: 'ScrollArea' },
           { href: '/components/Spacer', title: 'Spacer' },
-          { href: '/components/SplitPane', title: 'SplitPane', disabled: true },
+          { href: '/components/SplitPane', title: 'SplitPane' },
           { href: '/components/Stack', title: 'Stack' },
         ],
       },
@@ -97,7 +96,7 @@ export const pageIndex: IDocGroup[] = [
         pages: [
           { href: '/components/Code', title: 'Code', disabled: true },
           { href: '/components/Header', title: 'Header', disabled: true },
-          { href: '/components/TextSpan', title: 'TextSpan', disabled: true },
+          { href: '/components/TextSpan', title: 'TextSpan' },
         ],
       },
     ],

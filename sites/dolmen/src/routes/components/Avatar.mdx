@@ -1,0 +1,166 @@
+import { Group, Badge, Avatar } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, UnionType } from '../../components/mdx';
+import avtest from '../../images/avtest.jpg';
+
+# Avatar
+
+`Avatar` displays a small image that identifies a user or entity.
+
+<DemoSection>
+  <Group gap="lg">
+    <Avatar size="xs" src={avtest} />
+    <Avatar size="sm" src={avtest} />
+    <Avatar size="md" src={avtest} />
+    <Avatar size="lg" src={avtest} />
+    <Avatar size="xl" src={avtest} />
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <Avatar size="xs" src={avtest} />
+  <Avatar size="sm" src={avtest} />
+  <Avatar size="md" src={avtest} />
+  <Avatar size="lg" src={avtest} />
+  <Avatar size="xl" src={avtest} />
+</>
+```
+</SourceCode>
+
+## Avatar Sizes and Colors
+
+If no image is assigned to the `Avatar`, then it will show text initials on a solid color
+background.
+
+<DemoSection>
+  <Group gap="lg">
+    <Avatar size="xs" color="#ff0000">xs</Avatar>
+    <Avatar size="sm" color="#cc0044">sm</Avatar>
+    <Avatar size="md" color="#880066">md</Avatar>
+    <Avatar size="lg" color="#880088">lg</Avatar>
+    <Avatar size="xl" color="#4400cc">xl</Avatar>
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <Avatar size="xs" color="#ff0000">xs</Avatar>
+  <Avatar size="sm" color="#cc0044">sm</Avatar>
+  <Avatar size="md" color="#880066">md</Avatar>
+  <Avatar size="lg" color="#880088">lg</Avatar>
+  <Avatar size="xl" color="#4400cc">xl</Avatar>
+</>
+```
+</SourceCode>
+
+You can also have the `Avatar` component choose a random color based on a string hash, using
+the `colorHash` property:
+
+<DemoSection>
+  <Group gap="lg">
+    <Avatar colorHash="One">abc</Avatar>
+    <Avatar colorHash="Two">abc</Avatar>
+    <Avatar colorHash="Three">abc</Avatar>
+    <Avatar colorHash="Four">abc</Avatar>
+    <Avatar colorHash="Five">abc</Avatar>
+    <Avatar colorHash="Six">abc</Avatar>
+    <Avatar colorHash="Seven">abc</Avatar>
+    <Avatar colorHash="Eight">abc</Avatar>
+    <Avatar colorHash="Nine">abc</Avatar>
+    <Avatar colorHash="Ten">abc</Avatar>
+    <Avatar colorHash="Eleven">abc</Avatar>
+    <Avatar colorHash="Twelve">abc</Avatar>
+    <Avatar colorHash="Thirteen">abc</Avatar>
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <Avatar colorHash="One">abc</Avatar>
+  <Avatar colorHash="Two">abc</Avatar>
+  <Avatar colorHash="Three">abc</Avatar>
+  <Avatar colorHash="Four">abc</Avatar>
+  <Avatar colorHash="Five">abc</Avatar>
+  <Avatar colorHash="Six">abc</Avatar>
+  <Avatar colorHash="Seven">abc</Avatar>
+  <Avatar colorHash="Eight">abc</Avatar>
+  <Avatar colorHash="Nine">abc</Avatar>
+  <Avatar colorHash="Ten">abc</Avatar>
+  <Avatar colorHash="Eleven">abc</Avatar>
+  <Avatar colorHash="Twelve">abc</Avatar>
+  <Avatar colorHash="Thirteen">abc</Avatar>
+</>
+```
+</SourceCode>
+
+## Avatar Radius
+
+The `radius` property determines the roundness of the avatar corners. Setting the radius to `xl`
+makes the avatar circular.
+
+<DemoSection>
+  <Group gap="md">
+    <Avatar radius="xs" color="#00ff88">xs</Avatar>
+    <Avatar radius="sm" color="#00cc88">sm</Avatar>
+    <Avatar radius="md" color="#008888">md</Avatar>
+    <Avatar radius="lg" color="#004488">lg</Avatar>
+    <Avatar radius="xl" color="#0044cc">xl</Avatar>
+  </Group>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+  <Avatar radius="xs" color="#00ff88">xs</Avatar>
+  <Avatar radius="sm" color="#00cc88">sm</Avatar>
+  <Avatar radius="md" color="#008888">md</Avatar>
+  <Avatar radius="lg" color="#004488">lg</Avatar>
+  <Avatar radius="xl" color="#0044cc">xl</Avatar>
+</>
+```
+</SourceCode>
+
+## Avatar properties
+
+<PropsTable>
+  <PropsItem
+    name="src"
+    description="Image URL."
+    type="string"
+  />
+  <PropsItem
+    name="crossOrigin"
+    description="Cross-origin attribute to add to the image element."
+    type="JSX.HTMLCrossorigin"
+  />
+  <PropsItem
+    name="title"
+    description="Image 'title' property."
+    type="string"
+  />
+  <PropsItem
+    name="color"
+    description="Fill color of the avatar (when no image is displayed)."
+    type="CSS color expression"
+  />
+  <PropsItem
+    name="colorHash"
+    description="String used to generate a random color (when no image is displayed)."
+    type="string"
+  />
+  <PropsItem
+    name="size"
+    description="Avatar size."
+    type={
+      <UnionType values={['xl', 'lg', 'md', 'sm', 'xs']} />
+    }
+  />
+  <PropsItem
+    name="radius"
+    description="Indicates how 'rounded' the avatar should appear."
+    type={
+      <UnionType values={['xl', 'lg', 'md', 'sm', 'xs']} />
+    }
+  />
+</PropsTable>
+
+`Avatar` also accepts all of the standard attributes for a `div` element.

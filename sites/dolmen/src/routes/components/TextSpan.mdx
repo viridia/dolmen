@@ -1,0 +1,121 @@
+import { Stack, TextSpan } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline, UnionType } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# TextSpanSpan
+
+`TextSpanSpan` simply renders a span of text in a paricular style.
+
+## TextSpan sizes
+
+<DemoSection>
+  <Stack gap="xl">
+    <TextSpan>Default size</TextSpan>
+    <TextSpan size="xs">size="xs"</TextSpan>
+    <TextSpan size="sm">size="sm"</TextSpan>
+    <TextSpan size="md">size="md"</TextSpan>
+    <TextSpan size="lg">size="lg"</TextSpan>
+    <TextSpan size="xl">size="xl"</TextSpan>
+  </Stack>
+</DemoSection>
+<SourceCode>
+```tsx
+<TextSpan>Default size</TextSpan>
+<TextSpan size="xs">size="xs"</TextSpan>
+<TextSpan size="sm">size="sm"</TextSpan>
+<TextSpan size="md">size="md"</TextSpan>
+<TextSpan size="lg">size="lg"</TextSpan>
+<TextSpan size="xl">size="xl"</TextSpan>
+```
+</SourceCode>
+
+## TextSpan styles
+
+<DemoSection>
+  <Stack gap="xl">
+    <TextSpan>Default style</TextSpan>
+    <TextSpan dim>Dim text</TextSpan>
+    <TextSpan em>Emphasis</TextSpan>
+    <TextSpan strong>Strong</TextSpan>
+  </Stack>
+</DemoSection>
+<SourceCode>
+```tsx
+<TextSpan>Default style</TextSpan>
+<TextSpan dim>Dim text</TextSpan>
+<TextSpan em>Emphasis</TextSpan>
+<TextSpan strong>Strong</TextSpan>
+```
+</SourceCode>
+
+## Element type
+
+The `as` property allows the text span to be rendered as different element types:
+
+<DemoSection>
+  Text with<TextSpan as="sup">superscript</TextSpan> and <TextSpan as="sub">subscript</TextSpan>
+</DemoSection>
+<SourceCode>
+```tsx
+  Text with<TextSpan as="sup">superscript</TextSpan> and <TextSpan as="sub">subscript</TextSpan>
+```
+</SourceCode>
+
+## Properties
+
+<PropsTable>
+  <PropsItem
+    name="as"
+    description="Element to render for the span (default 'span')."
+    type={
+      <UnionType
+        values={[
+          'span',
+          'p',
+          'abbr',
+          'acronym',
+          'b',
+          'bdo',
+          'cite',
+          'dfn',
+          'div',
+          'em',
+          'i',
+          'kbd',
+          'label',
+          'samp',
+          'strong',
+          'sub',
+          'sup',
+          'time',
+          'tt',
+          'var',
+        ]}
+      />
+    }
+  />
+  <PropsItem
+    name="dim"
+    description="Render text in a dim color."
+    type="boolean"
+  />
+  <PropsItem
+    name="em"
+    description="Surround text with <em>."
+    type="boolean"
+  />
+  <PropsItem
+    name="strong"
+    description="Surround text with <strong>."
+    type="boolean"
+  />
+  <PropsItem
+    name="size"
+    description="Font size of text span."
+    type={
+      <UnionType values={['xl', 'lg', 'md', 'sm', 'xs']} />
+    }
+  />
+</PropsTable>
+
+`TextSpan` also accepts all of the standard attributes for a `span` element.

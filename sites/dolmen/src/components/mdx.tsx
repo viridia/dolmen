@@ -42,7 +42,7 @@ export const SourceCode: ParentComponent = props => {
 };
 
 export const PageOutline: ParentComponent = props => (
-  <div class={css.pageOutline}>{props.children}</div>
+  <div {...props} class={css.pageOutline}>{props.children}</div>
 );
 
 export const PropsTable: ParentComponent = props => (

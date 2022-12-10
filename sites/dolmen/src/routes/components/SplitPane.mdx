@@ -1,0 +1,95 @@
+import { SplitPane } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline, UnionType } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# SplitPane
+
+`SplitPane` creates a split panel with multiple draggable dividers.
+
+The number of splits is one less than the number of child elements. Each child element is separated
+by a splitter bar.
+
+<DemoSection>
+  <PageOutline style={{ 'flex-direction': 'row', height: '15rem' }}>
+    <SplitPane direction="horizontal">
+      <div>First Child</div><div>Second Child</div><div>Third Child</div>
+    </SplitPane>
+  </PageOutline>
+</DemoSection>
+<SourceCode>
+```tsx
+<SplitPane direction="horizontal">
+  <div>First Child</div>
+  <div>Second Child</div>
+  <div>Third Child</div>
+</SplitPane>
+```
+</SourceCode>
+
+Split panes can also split vertically. (Direction can be somewhat confusing: "vertical" refers to
+the direction in which the children are arranged, not the orientation of the splitter bar.)
+
+<DemoSection>
+  <PageOutline style={{ 'flex-direction': 'row', height: '15rem' }}>
+    <SplitPane direction="vertical">
+      <div>First Child</div><div>Second Child</div>
+    </SplitPane>
+  </PageOutline>
+</DemoSection>
+<SourceCode>
+```tsx
+<SplitPane direction="vertical">
+  <div>First Child</div>
+  <div>Second Child</div>
+</SplitPane>
+```
+</SourceCode>
+
+### Properties
+
+<PropsTable>
+  <PropsItem
+    name="direction"
+    description="Direction of the split."
+    type={
+      <UnionType values={['horizontal', 'vertical']} />
+    }
+  />
+</PropsTable>
+
+## SplitPane.Controlled
+
+The normal `SplitPane` component is uncontrolled, meaning that the split positions are kept
+internal to the component and are not externally accessible.
+
+Sometimes, you may want more control over the split positions. For example, you might want
+to be able to initialize the default split widths so that some panels are larger than others.
+You may also want to persist the split positions in local storage so that they are preserved
+across page reloads.
+
+For this, you can use the controlled variant `SplitPane.Controlled`. It accepts an array of
+numbers representing split positions. Each entry represents a proportion (from 0..1) of
+where the corresponding split bar should be placed. So for example, if there are 4 children
+and you want to give them equal widths, then the `positions` property would be `[.25, .5, .75]`.
+
+### Properties
+
+<PropsTable>
+  <PropsItem
+    name="direction"
+    description="Direction of the split."
+    type={
+      <UnionType values={['horizontal', 'vertical']} />
+    }
+  />
+  <PropsItem
+    name="positions"
+    description="Array of split positions."
+    type="number[]"
+  />
+  <PropsItem
+    name="setPositions"
+    description="Function which is called when positions are dragged."
+    type="(positions: number[]) => void"
+  />
+</PropsTable>
