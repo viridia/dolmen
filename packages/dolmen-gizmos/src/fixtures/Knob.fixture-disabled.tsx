@@ -1,5 +1,5 @@
 import { createSignal } from 'solid-js';
-import { Stack, Title, Group } from 'dolmen';
+import { Stack, Header, Group } from 'dolmen';
 import { Knob } from '../index';
 
 export const $category = 'gizmos';
@@ -8,7 +8,7 @@ export default () => {
   const [value, setValue] = createSignal(0);
   return (
     <Stack gap="xl">
-      <Title>Sizes</Title>
+      <Header>Sizes</Header>
       <Group gap="md">
         <Knob
           value={value()}
@@ -51,7 +51,7 @@ export default () => {
           size="xs"
         />
       </Group>
-      <Title>Variations</Title>
+      <Header>Variations</Header>
       <Group gap="md">
         <Knob value={value()} onChange={setValue} max={100} majorTick={10} minorTick={2} />
         <Knob value={value()} onChange={setValue} max={100} majorTick={20} minorTick={5} />

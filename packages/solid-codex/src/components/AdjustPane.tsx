@@ -1,4 +1,4 @@
-import { Drawer, Title, ScrollArea, CodeBlock } from 'dolmen';
+import { Drawer, Header, ScrollArea, CodeBlock } from 'dolmen';
 import { useCodex } from 'solid-codex-api';
 import { createEffect, createSignal, Show, VoidComponent } from 'solid-js';
 import { unstable_clientOnly } from 'solid-start';
@@ -36,13 +36,13 @@ export const AdjustPane: VoidComponent = () => {
     >
       <Show when={isClient()}>
         <Drawer.Header>
-          <Title>Adjust Parameters</Title>
+          <Header>Adjust Parameters</Header>
         </Drawer.Header>
         <Drawer.Content class={adjustPaneParamsSection}>
           <ParamsEditorClient />
         </Drawer.Content>
         <Drawer.Content class={adjustPaneLogSection}>
-          <Title>Event Log</Title>
+          <Header>Event Log</Header>
           <ScrollArea class={adjustPaneEventLog}>
             <CodeBlock size="xs">{codex.logs().join('\n')}</CodeBlock>
           </ScrollArea>

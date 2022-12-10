@@ -94,8 +94,8 @@ export const pageIndex: IDocGroup[] = [
       {
         title: 'Text',
         pages: [
-          { href: '/components/Code', title: 'Code', disabled: true },
-          { href: '/components/Header', title: 'Header', disabled: true },
+          { href: '/components/Code', title: 'Code' },
+          { href: '/components/Header', title: 'Header' },
           { href: '/components/TextSpan', title: 'TextSpan' },
         ],
       },

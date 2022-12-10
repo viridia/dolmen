@@ -7,3 +7,25 @@
     margin-bottom: 0.3em;
   }
 }
+
+@layer ui-variants {
+  h1.dm-header {
+    font-size: 2rem;
+  }
+
+  h2.dm-header {
+    font-size: 1.4rem;
+  }
+
+  h3.dm-header {
+    font-size: 1.2rem;
+  }
+
+  h4.dm-header {
+    font-size: 1rem;
+  }
+
+  h5.dm-header {
+    font-size: 0.9rem;
+  }
+}

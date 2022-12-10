@@ -1,0 +1,79 @@
+import { Stack, Code } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline, UnionType, HTMLTag } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# Code
+
+`Code` renders a <HTMLTag>code</HTMLTag> element.
+
+<DemoSection>
+  <Code>const [selected, setSelected] = createSignal(false);</Code>
+</DemoSection>
+<SourceCode>
+```tsx
+<Code>const [selected, setSelected] = createSignal(false);</Code>
+```
+</SourceCode>
+
+`Code` by itself does not do syntax highlighting, as this would require adding a dependency
+on [prism.js](https://prismjs.com/) or [highlight.js](https://highlightjs.org/). However, it's
+fairly easy for the application to add syntax highlighting using these libraries.
+
+## Code.Block
+
+To render a block of code, use `Code.Block`. This wraps the <HTMLTag>code</HTMLTag> element in
+a <HTMLTag>pre</HTMLTag> element.
+
+<DemoSection>
+  <Code.Block>
+    const [selected, setSelected] = createSignal(false);
+
+    return selected();
+  </Code.Block>
+</DemoSection>
+<SourceCode>
+```tsx
+<Code.Block>
+  const [selected, setSelected] = createSignal(false);
+  return selected();
+</Code.Block>
+```
+</SourceCode>
+
+
+## Code sizes
+
+<DemoSection>
+  <Stack gap="xl">
+    <Code>Default size</Code>
+    <Code size="xs">size="xs"</Code>
+    <Code size="sm">size="sm"</Code>
+    <Code size="md">size="md"</Code>
+    <Code size="lg">size="lg"</Code>
+    <Code size="xl">size="xl"</Code>
+  </Stack>
+</DemoSection>
+<SourceCode>
+```tsx
+<Code>Default size</Code>
+<Code size="xs">size="xs"</Code>
+<Code size="sm">size="sm"</Code>
+<Code size="md">size="md"</Code>
+<Code size="lg">size="lg"</Code>
+<Code size="xl">size="xl"</Code>
+```
+</SourceCode>
+
+## Properties
+
+<PropsTable>
+  <PropsItem
+    name="size"
+    description="Font size of code snippet."
+    type={
+      <UnionType values={['xl', 'lg', 'md', 'sm', 'xs']} />
+    }
+  />
+</PropsTable>
+
+`Code` also accepts all of the standard attributes for a `code` element.

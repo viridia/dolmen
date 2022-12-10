@@ -25,7 +25,7 @@ export default function Root() {
     <UserSettingsContext.Provider value={userSettings}>
       <Html lang="en">
         <Head>
-          <Title>SolidStart - With MDX</Title>
+          <Title>Dolmen</Title>
           <Meta charset="utf-8" />
           <Meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>

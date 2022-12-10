@@ -22,7 +22,7 @@ export function App(props: { fixtures: Record<string, () => Promise<unknown>> })
         <Html lang="en" class={rootCss}>
           <Head>
             <Meta charset="utf-8" />
-            <Title>SolidStart - With MDX</Title>
+            <Title>Codex</Title>
             <Meta name="viewport" content="width=device-width, initial-scale=1" />
             <style innerHTML={styles} />
             <style innerHTML={lightTheme} />

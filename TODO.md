@@ -1,8 +1,6 @@
 # Bugs / Issues
 
 * Shortcuts prevent dialog-Escape key from working.
-* TextSpan 'size' not working
-* TextSpan options for margins, etc.
 * Firefox drawer bugs
 * Need docs
 
@@ -63,6 +61,7 @@
 
 # Other
 
+* Mobile testing
 * Fixture for createFocusTrap
 * Fixture for createFormValidation
   * Async validation
@@ -107,7 +106,6 @@ letterSpacing
 
 * Client-only rendering:
   * properties panel
-  * tree expansion state
   * SSR in general makes design hard
 
 

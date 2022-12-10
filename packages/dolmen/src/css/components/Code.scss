@@ -7,14 +7,16 @@
   }
 
   pre.dm-code {
-    font-size: 0.8rem;
-    line-height: 1.1rem;
     margin: 0;
   }
 }
 
 @layer ui-variants {
   .dm-code {
-    @include defs.fontSizeVariants();
+    @each $sz, $value in defs.$size {
+      &.dm-size-#{$sz} {
+        font-size: $value * 1rem;
+      }
+    }
   }
 }

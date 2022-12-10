@@ -1,0 +1,42 @@
+import { Stack, Code, Header } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline, UnionType, HTMLTag } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# Header
+
+`Header` renders an HTML heading element. The main reason for using `Header` as opposed to
+a plain HTML header element is control over size. Dolmen stylesheets don't define styles
+for vanilla HTML elements, but only for Dolmen components.
+
+<DemoSection>
+  <Header>default header style</Header>
+  <Header as="h1">h1</Header>
+  <Header as="h2">h2</Header>
+  <Header as="h3">h3</Header>
+  <Header as="h4">h4</Header>
+  <Header as="h5">h5</Header>
+</DemoSection>
+<SourceCode>
+```tsx
+<Header>default header style</Header>
+<Header as="h1">h1</Header>
+<Header as="h2">h2</Header>
+<Header as="h3">h3</Header>
+<Header as="h4">h4</Header>
+<Header as="h5">h5</Header>
+```
+</SourceCode>
+
+## Properties
+
+<PropsTable>
+  <PropsItem
+    name="as"
+    description="Type of element to render (default 'header')."
+    type={
+      <UnionType values={['header', 'h1', 'h2', 'h3', 'h4', 'h5']} />
+    }
+  />
+</PropsTable>
+
+`Header` also accepts all of the standard HTML attributes for a header element.

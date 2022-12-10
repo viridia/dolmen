@@ -30,14 +30,6 @@ $fontSize: map.set(map.set($size, 'xxs', 0.8), 'xxxs', 0.75);
   @return map.get($fontSize, $sz) * 1rem;
 }
 
-@mixin fontSizeVariants() {
-  @each $sz, $value in $size {
-    &*.dm-#{$sz} {
-      font-size: $value;
-    }
-  }
-}
-
 $space: (
   xl: 12px,
   lg: 8px,
