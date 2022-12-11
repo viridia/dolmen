@@ -20,7 +20,7 @@ $grayBase: #8c8c8c;
 
   // Text colors
   --dm-color-text: #{palette.$gray800};
-  --dm-color-text-dim: #{palette.$gray500};
+  --dm-color-text-dim: #{palette.$gray600};
   --dm-color-text-selection: #{palette.$gray900};
   --dm-color-text-selection-bg: #{$textHighlight};
   --dm-color-text-link: #{color.adjust($primaryColor, $lightness: -20%, $saturation: -30%)};

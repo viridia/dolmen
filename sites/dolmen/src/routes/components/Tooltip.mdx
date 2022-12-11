@@ -6,7 +6,11 @@ import { A } from 'solid-start';
 # Tooltip
 
 A tooltip displays additional information about an element when the user hovers over it. Tooltips
-can be added to any element by wrapping that element with the `Tooltip` component:
+can be added to any element by wrapping that element with the `Tooltip` component.
+
+**Note**: A much easier way to create tooltips is to initialize a global
+<A href="../../hooks/createTooltipWatcher">tooltip watcher</A>. The `Tooltip` component is
+primarily meant for cases where you need precise control over the content and style of a tooltip.
 
 <DemoSection>
   <Tooltip
@@ -36,12 +40,6 @@ can be added to any element by wrapping that element with the `Tooltip` componen
 </SourceCode>
 
 The content of a tooltip can be either plain text or JSX elements.
-
-It's cumbersome to have to individually wrap each control with a tooltip. A much easier way
-is to create a global <A href="../../hooks/createTooltipWatcher">tooltip watcher</A>, which
-can add a tooltip to any element that has a `data-tooltip` attribute. However, the tooltip watcher
-only supports plain text tooltips, so if you need a fancy tooltip then the `Tooltip` component
-is the right answer.
 
 ## Properties
 

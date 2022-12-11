@@ -15,7 +15,7 @@ import { Portal } from 'solid-js/web';
 import { createCssTransition } from '../../hooks';
 import { Info, Success, Warning, Error } from '../../icons';
 
-const defaultTimeout = 30000;
+const defaultTimeout = 10000;
 
 type ToastPlacement = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 

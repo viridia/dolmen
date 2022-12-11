@@ -1,0 +1,94 @@
+import { Stack, Badge, Avatar, AvatarGroup } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, UnionType } from '../../components/mdx';
+import avtest from '../../images/avtest.jpg';
+
+# AvatarGroup
+
+`AvatarGroup` displays multiple avatars in a way that conserves screen space.
+
+<DemoSection>
+  <Stack gap="xl">
+    <AvatarGroup style={{ width: '10rem' }}>
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+    </AvatarGroup>
+    <AvatarGroup style={{ width: '10rem' }}>
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+    </AvatarGroup>
+    <AvatarGroup style={{ width: '10rem' }}>
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+      <Avatar src={avtest} />
+    </AvatarGroup>
+    <AvatarGroup style={{ width: '10rem' }}>
+      <Avatar color="#ff0000">ab</Avatar>
+      <Avatar color="#cc0044">cd</Avatar>
+      <Avatar color="#880066">ef</Avatar>
+      <Avatar color="#880088">gh</Avatar>
+      <Avatar color="#4400cc">ij</Avatar>
+      <Avatar color="#00ff88">kl</Avatar>
+      <Avatar color="#00cc88">mn</Avatar>
+      <Avatar color="#008888">op</Avatar>
+    </AvatarGroup>
+  </Stack>
+</DemoSection>
+<SourceCode>
+```tsx
+<Stack gap="xl">
+  <AvatarGroup style={{ width: '10rem' }}>
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+  </AvatarGroup>
+  <AvatarGroup style={{ width: '10rem' }}>
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+  </AvatarGroup>
+  <AvatarGroup style={{ width: '10rem' }}>
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+    <Avatar src={avtest} />
+  </AvatarGroup>
+  <AvatarGroup style={{ width: '10rem' }}>
+    <Avatar color="#ff0000">abc</Avatar>
+    <Avatar color="#cc0044">abc</Avatar>
+    <Avatar color="#880066">abc</Avatar>
+    <Avatar color="#880088">abc</Avatar>
+    <Avatar color="#4400cc">abc</Avatar>
+    <Avatar color="#00ff88">abc</Avatar>
+    <Avatar color="#00cc88">abc</Avatar>
+    <Avatar color="#008888">abc</Avatar>
+  </AvatarGroup>
+</Stack>
+```
+</SourceCode>
+
+## AvatarGroup properties
+
+`AvatarGroup` accepts the standard attributes for a `div` element.

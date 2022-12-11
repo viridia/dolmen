@@ -1,11 +1,11 @@
 .main {
   overflow: hidden;
+  background-color: var(--dm-color-elevation-1);
 }
 
 .docs {
   padding: 0 12px;
   overflow-y: scroll;
-  background-color: var(--dm-color-elevation-1);
   padding-bottom: 2rem;
 
   h1, h2, h3, p {
@@ -35,4 +35,8 @@
     font-family: var(--dm-font-mono);
     background-color: var(--dm-color-elevation-0);
   }
+}
+
+.docsContent {
+  max-width: 50rem;
 }

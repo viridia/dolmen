@@ -7,13 +7,14 @@ export const AvatarGroup: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = 
   return (
     <div
       {...rest}
+      dir="rtl"
       classList={{
         ...local.classList,
         [local.class as string]: !!local.class,
         'dm-avatar-group': true,
       }}
     >
-      <For each={avatars.toArray().reverse()}>{av => <div class="dm-item">{av}</div>}</For>
+      <For each={avatars.toArray()}>{av => <div class="dm-item">{av}</div>}</For>
     </div>
   );
 };

@@ -1,0 +1,109 @@
+import { DemoSection, SourceCode, PropsTable, PropsItem } from '../../components/mdx';
+import { SelectDemo } from '../../components/demos/SelectDemo';
+
+# Select
+
+`Select` allows a user to select one option from a list of options.
+
+The Select component is generic - the type argument is the type of option value, which can
+be a number, string, enumeration value, or any value that is comparable via `===`.
+
+<DemoSection>
+  <SelectDemo />
+</DemoSection>
+<SourceCode>
+```tsx
+const [selected, setSelected] = createSignal(-1);
+
+return (
+  <Select
+    selected={selected()}
+    onSelect={setSelected}
+    placeholder="Select a number..."
+    options={[
+      {
+        value: 1,
+        label: 'One',
+      },
+      {
+        value: 2,
+        label: 'Two',
+      },
+      {
+        value: 3,
+        label: 'Three',
+      },
+      {
+        value: 4,
+        label: 'Four',
+      },
+      {
+        value: 5,
+        label: 'Five',
+      },
+      {
+        value: 100,
+        label: 'A gigantic googleplex of infinite multitudes',
+      },
+    ]}
+  />
+);
+```
+</SourceCode>
+
+## Option objects
+
+The `Select` component takes a list of options, which have the following type:
+
+<SourceCode>
+```tsx
+interface Option<T> {
+  /** The value of the option */
+  value: T;
+
+  /** Label to be displayed in the menu. */
+  label: JSX.Element;
+
+  /** Whether the option should be displayed as disabled. */
+  disabled?: boolean;
+}
+```
+</SourceCode>
+
+
+{/*
+
+interface SelectProps<T> {
+  name?: string;
+  placeholder?: JSX.Element;
+} */}
+
+## Select properties
+
+<PropsTable>
+  <PropsItem
+    name="options"
+    description="List of options."
+    type="Option[]"
+  />
+  <PropsItem
+    name="selected"
+    description="Value of the selected option. If there is no option with that value, then the placeholder will be shown."
+    type="T"
+  />
+  <PropsItem
+    name="setSelected"
+    description="Handler which is called when the user selects an option."
+    type="(value: T) => void"
+  />
+  <PropsItem
+    name="name"
+    description="Field name to use when the component is being used as a form input."
+    type="boolean"
+  />
+  <PropsItem
+    name="placeholder"
+    description="Text to display when no option has been chosen."
+    type="JSX.Element"
+  />
+</PropsTable>

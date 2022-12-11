@@ -7,7 +7,6 @@ function SelectDemo() {
   const [selected, setSelected] = createSignal(-1);
   return (
     <Stack gap="xl" style={{ width: '20rem' }}>
-      <Card style={{ height: '20rem' }}>
         <Card.Content style={{ padding: '1rem' }}>
           <Select
             selected={selected()}
@@ -41,7 +40,6 @@ function SelectDemo() {
             ]}
           />
         </Card.Content>
-      </Card>
     </Stack>
   );
 }

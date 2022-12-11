@@ -16,9 +16,9 @@ export const pageIndex: IDocGroup[] = [
     pages: [
       { href: '/start/overview', title: 'Overview' },
       { href: '/start/installation', title: 'Installation' },
-      { href: '/start/philosophy', title: 'Philosophy' },
-      { href: '/start/themes', title: 'Themes', disabled: true },
       { href: '/start/flex', title: 'Flex Props' },
+      { href: '/start/themes', title: 'Themes', disabled: true },
+      { href: '/start/philosophy', title: 'Philosophy' },
     ],
   },
   {
@@ -39,6 +39,7 @@ export const pageIndex: IDocGroup[] = [
         title: 'Data Display',
         pages: [
           { href: '/components/Avatar', title: 'Avatar' },
+          { href: '/components/AvatarGroup', title: 'AvatarGroup' },
           { href: '/components/Badge', title: 'Badge' },
           { href: '/components/Callout', title: 'Callout' },
           { href: '/components/ColorGrid', title: 'ColorGrid' },
@@ -53,7 +54,7 @@ export const pageIndex: IDocGroup[] = [
         pages: [
           { href: '/components/Alert', title: 'Alert' },
           { href: '/components/EmptyResult', title: 'EmptyResult' },
-          { href: '/components/Toast', title: 'Toast', disabled: true },
+          { href: '/components/Toast', title: 'Toast' },
         ],
       },
       {
@@ -63,8 +64,8 @@ export const pageIndex: IDocGroup[] = [
           { href: '/components/FormField', title: 'FormField' },
           { href: '/components/Input', title: 'Input' },
           { href: '/components/Label', title: 'Label' },
-          { href: '/components/RadioButton', title: 'RadioButton [planned]', disabled: true },
-          { href: '/components/Select', title: 'Select', disabled: true },
+          // { href: '/components/RadioButton', title: 'RadioButton [planned]', disabled: true },
+          { href: '/components/Select', title: 'Select' },
           { href: '/components/TextArea', title: 'TextArea' },
           { href: '/components/ToggleSwitch', title: 'ToggleSwitch' },
         ],

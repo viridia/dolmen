@@ -33,14 +33,14 @@ function AvatarAvatarGroupDemo() {
         <Avatar src={avtest} />
       </AvatarGroup>
       <AvatarGroup style={{ width: '10rem' }}>
-        <Avatar color="#ff0000">abc</Avatar>
-        <Avatar color="#cc0044">abc</Avatar>
-        <Avatar color="#880066">abc</Avatar>
-        <Avatar color="#880088">abc</Avatar>
-        <Avatar color="#4400cc">abc</Avatar>
-        <Avatar color="#00ff88">abc</Avatar>
-        <Avatar color="#00cc88">abc</Avatar>
-        <Avatar color="#008888">abc</Avatar>
+        <Avatar color="#ff0000">ab</Avatar>
+        <Avatar color="#cc0044">cd</Avatar>
+        <Avatar color="#880066">ef</Avatar>
+        <Avatar color="#880088">gh</Avatar>
+        <Avatar color="#4400cc">ij</Avatar>
+        <Avatar color="#00ff88">kl</Avatar>
+        <Avatar color="#00cc88">mn</Avatar>
+        <Avatar color="#008888">op</Avatar>
       </AvatarGroup>
     </Stack>
   );

@@ -27,8 +27,10 @@ export const DocPage: VoidComponent = () => {
       <Page.Content class={styles.main} as="main" flexDirection="row" p="none">
         <NavPanel />
         <Page.Content class={styles.docs} ref={setDocElt}>
-          <Outlet />
-          <DocNav />
+          <div class={styles.docsContent}>
+            <Outlet />
+            <DocNav />
+          </div>
         </Page.Content>
       </Page.Content>
     </Page>

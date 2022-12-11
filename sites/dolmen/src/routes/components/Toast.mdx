@@ -1,0 +1,287 @@
+import { Stack, Group, Button, ToastFrame, toast } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, UnionType } from '../../components/mdx';
+import { Tune } from '../../icons';
+
+# Toast
+
+Toasts are pop-up messages that appear in the interface to provide brief feedback on the
+outcome of an action.
+
+Because toasts automatically expire after a few seconds (default 10s, but can be customized),
+they should not be used for detailed error information. For example, if the user makes a
+mistake when submitting a form, they will want the error information to persist so that they
+can refer to it when correcting their error.
+
+One good use for toasts is feedback on single-click actions, such as "following" or "deleting".
+
+In order to display a toast, the `ToastFrame` component should be rendered somewhere in your
+application, generally at the highest level. This creates an invisible element which overlays
+the window and provides a place for the toasts to be rendered.
+
+To create a plain toast, call the `toast()` function. To create an error, success, warning,
+or info toast, use `toast.<severity>()`, for example `toast.error()`.
+
+<DemoSection>
+  <>
+    <ToastFrame />
+    <Group gap="md">
+      <Button onClick={() => {
+          toast({
+            title: 'Hello',
+            body: 'World',
+          });
+        }}
+      >
+        Plain Toast
+      </Button>
+      <Button onClick={() => {
+          toast.success({
+            title: 'Hello',
+            body: 'World',
+          });
+        }}
+      >
+        Success Toast
+      </Button>
+      <Button onClick={() => {
+          toast.info({
+            title: 'Hello',
+            body: 'World',
+          });
+        }}
+      >
+        Info Toast
+      </Button>
+      <Button onClick={() => {
+          toast.warning({
+            title: 'Hello',
+            body: 'World',
+          });
+        }}
+      >
+        Warning Toast
+      </Button>
+      <Button onClick={() => {
+          toast.error({
+            title: 'Fatal Error',
+            body: 'A toast with a very long error message that really ought to wrap to the next line.',
+          });
+        }}
+      >
+        Error Toast
+      </Button>
+    </Group>
+  </>
+</DemoSection>
+<SourceCode>
+```tsx
+<>
+<ToastFrame />
+<Group gap="md">
+  <Button onClick={() => {
+      toast({
+        title: 'Hello',
+        body: 'World',
+      });
+    }}
+  >
+    Plain Toast
+  </Button>
+  <Button onClick={() => {
+      toast.success({
+        title: 'Hello',
+        body: 'World',
+      });
+    }}
+  >
+    Success Toast
+  </Button>
+  <Button onClick={() => {
+      toast.info({
+        title: 'Hello',
+        body: 'World',
+      });
+    }}
+  >
+    Info Toast
+  </Button>
+  <Button onClick={() => {
+      toast.warning({
+        title: 'Hello',
+        body: 'World',
+      });
+    }}
+  >
+    Warning Toast
+  </Button>
+  <Button onClick={() => {
+      toast.error({
+        title: 'Fatal Error',
+        body: 'A toast with a very long error message that really ought to wrap to the next line.',
+      });
+    }}
+  >
+    Error Toast
+  </Button>
+</Group>
+</>
+```
+</SourceCode>
+
+## Toast positioning
+
+Toasts can be positioned in any of the 4 corners of the window, using the 'placement'
+parameter:
+
+<DemoSection>
+  <>
+    <Group gap="md">
+      <Button onClick={() => {
+          toast({
+            title: 'Hello',
+            body: 'World',
+            placement: 'top-left',
+          });
+        }}
+      >
+        Top Left
+      </Button>
+      <Button onClick={() => {
+          toast({
+            title: 'Hello',
+            body: 'World',
+            placement: 'top-right',
+          });
+        }}
+      >
+        Top Right
+      </Button>
+      <Button onClick={() => {
+          toast({
+            title: 'Hello',
+            body: 'World',
+            placement: 'bottom-left',
+          });
+        }}
+      >
+        Bottom Left
+      </Button>
+      <Button onClick={() => {
+          toast({
+            title: 'Hello',
+            body: 'World',
+            placement: 'bottom-right',
+          });
+        }}
+      >
+        Bottom Right
+      </Button>
+    </Group>
+    <ToastFrame />
+  </>
+</DemoSection>
+<SourceCode>
+```tsx
+<Group gap="md">
+  <Button onClick={() => {
+      toast({
+        title: 'Hello',
+        body: 'World',
+        placement: 'top-left',
+      });
+    }}
+  >
+    Top Left
+  </Button>
+  <Button onClick={() => {
+      toast({
+        title: 'Hello',
+        body: 'World',
+        placement: 'top-right',
+      });
+    }}
+  >
+    Top Right
+  </Button>
+  <Button onClick={() => {
+      toast({
+        title: 'Hello',
+        body: 'World',
+        placement: 'bottom-left',
+      });
+    }}
+  >
+    Bottom Left
+  </Button>
+  <Button onClick={() => {
+      toast({
+        title: 'Hello',
+        body: 'World',
+        placement: 'bottom-right',
+      });
+    }}
+  >
+    Bottom Right
+  </Button>
+</Group>
+<ToastFrame />
+```
+</SourceCode>
+
+## toast() parameters
+
+The `toast()` function (and its variants) take a single argument, which is an options object
+containing the following properties:
+
+<PropsTable>
+  <PropsItem
+    name="severity"
+    description="Severity of the toast."
+    type={
+      <UnionType values={['success', 'info', 'warning', 'error']} />
+    }
+  />
+  <PropsItem
+    name="title"
+    description="The title of the toast message."
+    type="JSX.Element"
+  />
+  <PropsItem
+    name="body"
+    description="The body of the toast message"
+    type="JSX.Element"
+  />
+  <PropsItem
+    name="timeout"
+    description="How long the toast should remain on the screen in milliseconds (default 10000)."
+    type="number"
+  />
+  <PropsItem
+    name="placement"
+    description="Where the toast should be positioned."
+    type={
+      <UnionType values={['top-left', 'top-right', 'bottom-left', 'bottom-right']} />
+    }
+  />
+</PropsTable>
+
+## toast.configure(options)
+
+`toast.configure()` provides a way to set the default placement and timeout for all toasts.
+It takes a configuration object with 'placement' and 'timeout' parameters.
+
+## ToastFrame parameters
+
+<PropsTable>
+  <PropsItem
+    name="mount"
+    description={
+      <div>
+        If this argument is present, the toast frame will create a portal and mount it as a child of the specified element.
+
+        Otherwise, the toast frame will just create a div with fixed position at the current location in the DOM (without a portal).
+      </div>
+    }
+    type="Element"
+  />
+</PropsTable>
