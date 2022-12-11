@@ -1,0 +1,66 @@
+import { Button, Stack, Header, Tooltip } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline, UnionType } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+import { A } from 'solid-start';
+
+# Tooltip
+
+A tooltip displays additional information about an element when the user hovers over it. Tooltips
+can be added to any element by wrapping that element with the `Tooltip` component:
+
+<DemoSection>
+  <Tooltip
+    content={
+      <Stack>
+        <Header>Tip Title</Header>
+        <div>Once upon a time, in a land very far away, there lived a young man.</div>
+      </Stack>
+    }
+  >
+    <Button>Tooltip Example</Button>
+  </Tooltip>
+</DemoSection>
+<SourceCode>
+```tsx
+<Tooltip
+  content={
+    <Stack>
+      <Header>Tip Title</Header>
+      <div>Once upon a time, in a land very far away, there lived a young man.</div>
+    </Stack>
+  }
+>
+  <Button>Tooltip Example</Button>
+</Tooltip>
+```
+</SourceCode>
+
+The content of a tooltip can be either plain text or JSX elements.
+
+It's cumbersome to have to individually wrap each control with a tooltip. A much easier way
+is to create a global <A href="../../hooks/createTooltipWatcher">tooltip watcher</A>, which
+can add a tooltip to any element that has a `data-tooltip` attribute. However, the tooltip watcher
+only supports plain text tooltips, so if you need a fancy tooltip then the `Tooltip` component
+is the right answer.
+
+## Properties
+
+<PropsTable>
+  <PropsItem
+    name="content"
+    description="The content of the tooltip."
+    type="JSX.Element"
+  />
+  <PropsItem
+    name="delay"
+    description="How long to wait before displaying the tooltip, in milliseconds."
+    type="number"
+  />
+  <PropsItem
+    name="placement"
+    description="Specifies how the popup menu should be placed relative to the Menu.Button."
+    type={
+      <UnionType values={['top', 'bottom', 'left', 'right']} />
+    }
+  />
+</PropsTable>

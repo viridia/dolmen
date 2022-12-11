@@ -3,6 +3,8 @@
 * Shortcuts prevent dialog-Escape key from working.
 * Firefox drawer bugs
 * Need docs
+* Make Breadcrumbs and Link type-safe when passing 'A'.
+* Make Breadcrumb links and Links same color.
 
 # Components
 

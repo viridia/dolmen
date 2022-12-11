@@ -1,0 +1,65 @@
+import { Group, Callout, Button, createTooltipWatcher } from 'dolmen';
+import { DemoSection, SourceCode } from '../../components/mdx';
+import { TransitionDemo } from '../../components/demos/TransitionDemo';
+import { createSignal, createEffect } from 'solid-js';
+
+# createTooltipWatcher()
+
+The `createTooltipWatcher()` hook creates an event listener which senses when the mouse is
+hovering over an element. If that element has a `data-tooltip` attribute, then the watcher
+can trigger the display of a tooltip for that item.
+
+The watcher does not, by itself, display the tooltip, as it only returns signals that indicate
+when and where a tooltip should be shown. In most cases you would use a `Callout` component
+to render the actual tooltip.
+
+Hover over the buttons below to see the tooltips:
+
+<DemoSection>
+  {() => {
+    const [listenProps, anchor, content, shown] = createTooltipWatcher();
+
+    return (
+      <Group {...listenProps} gap="md">
+        <Callout anchor={shown() ? anchor() : null}>{content}</Callout>
+        <Button data-tooltip="Tooltip One">One</Button>
+        <Button data-tooltip="Tooltip Two">Two</Button>
+        <Button data-tooltip="Tooltip Three">Three</Button>
+        <Button data-tooltip="Tooltip Four">Four</Button>
+      </Group>
+    )
+  }}
+</DemoSection>
+<SourceCode>
+```tsx
+const [listenProps, anchor, content, shown] = createTooltipWatcher();
+
+return (
+  <Group {...listenProps} gap="md">
+    <Callout anchor={shown() ? anchor() : null}>{content}</Callout>
+    <Button data-tooltip="Tooltip One">One</Button>
+    <Button data-tooltip="Tooltip Two">Two</Button>
+    <Button data-tooltip="Tooltip Three">Three</Button>
+    <Button data-tooltip="Tooltip Four">Four</Button>
+  </Group>
+)
+```
+</SourceCode>
+
+The tooltip watcher has some limitations. Because the tooltip text is stored in an HTML
+attribute, it must be plain text and not markup. If you need fancy styling, you can use
+the `Tooltip` component for those elements that need it. Both the watcher and the `Tooltip`
+component can be used together in the same app, but they should not be used on the same element.
+
+Also, the tooltip watcher doesn't allow control over placement - the tooltip is automatically
+placed where it best fits.
+
+## API
+
+The `createTooltipWatcher()` hook takes no arguments and returns a tuple of 4 elements:
+
+* **listenProps** - An object containing properties which should be spread into the root element of
+  your application. This sets up the mouse movement listener.
+* **anchor** - A reactive signal containing the element that is being hovered.
+* **content** - A reactive signal containing the text that should be displayed in the tooltip.
+* **shown** - A reactive signal indicating whether the tooltip should be visible.

@@ -1,0 +1,91 @@
+import { Stack, Button, Breadcrumbs } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+import { A } from 'solid-start';
+
+# Breadcrumbs
+
+Breadcrumbs are navigational elements that help the user to locate themselves within the
+hiearchical structure of an application. Each breadcumb represents one level of the hierarchy.
+
+<DemoSection>
+  <Breadcrumbs>
+    <Breadcrumbs.Item>Here</Breadcrumbs.Item><Breadcrumbs.Item>There</Breadcrumbs.Item><Breadcrumbs.Item>Everywhere</Breadcrumbs.Item>
+  </Breadcrumbs>
+</DemoSection>
+<SourceCode>
+```tsx
+<Breadcrumbs>
+  <Breadcrumbs.Item>Here</Breadcrumbs.Item>
+  <Breadcrumbs.Item>There</Breadcrumbs.Item>
+  <Breadcrumbs.Item>Everywhere</Breadcrumbs.Item>
+</Breadcrumbs>
+```
+</SourceCode>
+
+## Breadcrumb Links
+
+Individual breadcrumbs can be links. Clicking on a link navigates the user to the corresponding
+location or level within the hierarchy:
+
+<DemoSection>
+  <Breadcrumbs>
+    <Breadcrumbs.Link href="./Breadcrumbs">Here</Breadcrumbs.Link><Breadcrumbs.Link href="./Breadcrumbs">There</Breadcrumbs.Link><Breadcrumbs.Item>Everywhere</Breadcrumbs.Item>
+  </Breadcrumbs>
+</DemoSection>
+<SourceCode>
+```tsx
+<Breadcrumbs>
+  <Breadcrumbs.Link href="/">Here</Breadcrumbs.Link>
+  <Breadcrumbs.Link href=".">There</Breadcrumbs.Link>
+  <Breadcrumbs.Item>Everywhere</Breadcrumbs.Item>
+</Breadcrumbs>
+```
+</SourceCode>
+
+## Integration with client-side routers
+
+By default, the `Breadcrumbs.Link` component renders an anchor (`a`) element. However, you can
+pass in a custom link component using the `as` property. This is useful for supporting routers
+with client-side navigation. The link component must accept an `href` property and must
+generally act like an anchor tag.
+
+For example, if you are using [solid-router](https://github.com/solidjs/solid-router),
+you can directly pass in the `A` component:
+
+<SourceCode>
+```tsx
+import { A } from 'solid-router';
+
+<Breadcrumbs>
+  <Breadcrumbs.Link as={A} href="/">Here</Breadcrumbs.Link>
+  <Breadcrumbs.Link as={A} href=".">There</Breadcrumbs.Link>
+  <Breadcrumbs.Item>Everywhere</Breadcrumbs.Item>
+</Breadcrumbs>
+```
+</SourceCode>
+
+## Breadcrumbs Properties
+
+<PropsTable>
+  <PropsItem
+    name="separator"
+    description="A custom separator to be inserted between adjacent breadcrumbs."
+    type="JSX.Element"
+  />
+</PropsTable>
+
+## Breadcrumbs.Link Properties
+
+<PropsTable>
+  <PropsItem
+    name="as"
+    description="Custom link component, used to render the anchor element."
+    type="Component"
+  />
+  <PropsItem
+    name="href"
+    description="Target location to navigate to when clicked."
+    type="string"
+  />
+</PropsTable>

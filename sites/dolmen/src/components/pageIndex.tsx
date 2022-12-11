@@ -45,7 +45,7 @@ export const pageIndex: IDocGroup[] = [
           { href: '/components/ColorSwatch', title: 'ColorSwatch' },
           { href: '/components/List', title: 'List' },
           { href: '/components/Table', title: 'Table', disabled: true },
-          { href: '/components/Tooltip', title: 'Tooltip', disabled: true },
+          { href: '/components/Tooltip', title: 'Tooltip' },
         ],
       },
       {
@@ -86,7 +86,7 @@ export const pageIndex: IDocGroup[] = [
       {
         title: 'Navigation',
         pages: [
-          { href: '/components/Breadcrumbs', title: 'Breadcrumbs', disabled: true },
+          { href: '/components/Breadcrumbs', title: 'Breadcrumbs' },
           { href: '/components/Link', title: 'Link', disabled: true },
           { href: '/components/Nav', title: 'Nav' },
         ],
@@ -109,12 +109,15 @@ export const pageIndex: IDocGroup[] = [
       { href: '/hooks/createElementSize', title: 'createElementSize' },
       { href: '/hooks/createFocusTrap', title: 'createFocusTrap' },
       { href: '/hooks/createFormValidation', title: 'createFormValidation' },
-      { href: '/hooks/createTooltipWatcher', title: 'createTooltipWatcher', disabled: true },
+      { href: '/hooks/createTooltipWatcher', title: 'createTooltipWatcher' },
     ],
   },
   {
     title: 'Customization',
-    pages: [{ href: '/customize/designTokens', title: 'Design Tokens' }],
+    pages: [
+      { href: '/customize/designTokens', title: 'Design Tokens' },
+      { href: '/customize/customStyle', title: 'Custom Styling' },
+    ],
   },
   {
     title: 'Packages',

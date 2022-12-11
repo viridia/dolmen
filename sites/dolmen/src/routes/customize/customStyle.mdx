@@ -1,0 +1,34 @@
+import { Stack, Button } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, PageOutline } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# Custom Styling
+
+Using Dolmen's design tokens, you can override the default styles for an individual component.
+
+<DemoSection>
+  <Stack gap="md" style={{ width: '15rem' }}>
+    <Button color="primary" style={{ '--dm-color-btn-primary': '#484848' }}>
+      Login with <b>GitHub</b>
+    </Button>
+    <Button color="primary" style={{ '--dm-color-btn-primary': '#5865F2' }}>
+      Login with <b>Discord</b>
+    </Button>
+    <Button color="primary" style={{ '--dm-color-btn-primary': '#bd2c00' }}>
+      Login with <b>Google</b>
+    </Button>
+  </Stack>
+</DemoSection>
+<SourceCode>
+```tsx
+<Button color="primary" style={{ '--dm-color-btn-primary': '#484848' }}>
+  Login with <b>GitHub</b>
+</Button>
+<Button color="primary" style={{ '--dm-color-btn-primary': '#5865F2' }}>
+  Login with <b>Discord</b>
+</Button>
+<Button color="primary" style={{ '--dm-color-btn-primary': '#bd2c00' }}>
+  Login with <b>Google</b>
+</Button>
+```
+</SourceCode>
