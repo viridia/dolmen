@@ -2,7 +2,6 @@
 
 * Shortcuts prevent dialog-Escape key from working.
 * Firefox drawer bugs
-* Need docs
 * Make Breadcrumbs and Link type-safe when passing 'A'.
 * Make Breadcrumb links and Links same color.
 
@@ -69,7 +68,6 @@
   * Async validation
 * Move Knob to its own package.
   * Figure out how we are going to handle theming in that case.
-* Highligher support
 * Tree view collapse
 * Tree view highlight
 * Tree view expand
@@ -87,29 +85,7 @@
   * Fixture for minWidth
   * Firefox bugs
 
-## Style props to do
-
-lineHeight
-
-top
-right
-bottom
-left
-
-gridTemplateColumns
-gridTemplateRows
-gridGap
-
-inset
-
-letterSpacing
-
 # Unresolved issues with Solid
 
 * Client-only rendering:
   * properties panel
-  * SSR in general makes design hard
-
-
-([a-z])([A-Z])
-$1-\L$2

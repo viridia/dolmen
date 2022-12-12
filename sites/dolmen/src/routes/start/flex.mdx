@@ -70,12 +70,14 @@ sections and page headers.
 </SourceCode>
 
 Flex props are intended to be used to adjust the "internal" layout of a component - that is, the
-placement and spacing of the component's children. They are not used to control the external
-layout. This is why there is a "padding" flex prop, but not a "margin" flex prop. This meshes
-with the Dolmen approach to layout: A component is only responsible for the layout within its
-borders; outside of the border layout is the responsibility of the parent component. So, for
-example, putting a gap between two buttons is done using 'gap' on the parent, rather than
-adding a margin to the buttons.
+placement and spacing of the component's children. They are not used to control the
+layout outside of the component's borders. This is why there is a "padding" flex prop, but not
+a "margin" flex prop.
+
+This restriction meshes with the Dolmen approach to layout: A component is only responsible for
+the layout within its borders; outside of the border layout is the responsibility of it's parent.
+So, for example, putting a gap between two buttons is done using 'gap' on the parent, rather
+than adding a margin to the buttons.
 
 Of course, you as the user don't have to do it this way, you can add your own classes to Dolmen
 components and lay them out however you want. But this is the way that the Dolmen layout

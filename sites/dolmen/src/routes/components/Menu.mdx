@@ -1,5 +1,5 @@
 import { Table, Group, Menu } from 'dolmen';
-import { DemoSection, SourceCode, PropsTable, PropsItem } from '../../components/mdx';
+import { DemoSection, SourceCode, PropsTable, PropsItem, UnionType } from '../../components/mdx';
 import { Tune } from '../../icons';
 
 # Menu
@@ -76,27 +76,27 @@ Menu lists can contain one or more of the following:
     name="color"
     description="Button color scheme."
     type={
-      <ul>
-        <li>`default`</li>
-        <li>`primary`</li>
-        <li>`danger`</li>
-        <li>`subtle`</li>
-      </ul>
+      <UnionType values={[
+        'default',
+        'primary',
+        'danger',
+        'subtle',
+      ]} />
     }
   />
   <PropsItem
     name="size"
     description="Button size."
     type={
-      <ul>
-        <li>`xl`</li>
-        <li>`lg`</li>
-        <li>`md`</li>
-        <li>`sm`</li>
-        <li>`xs`</li>
-        <li>`xxs`</li>
-        <li>`xxxs`</li>
-      </ul>
+      <UnionType values={[
+        'xl',
+        'lg',
+        'md',
+        'sm',
+        'xs',
+        'xxs',
+        'xxxs',
+      ]} />
     }
   />
   <PropsItem
@@ -128,20 +128,20 @@ Menu lists can contain one or more of the following:
     name="placement"
     description="Specifies how the popup menu should be placed relative to the Menu.Button."
     type={
-      <ul>
-        <li>top</li>
-        <li>top-start</li>
-        <li>top-end</li>
-        <li>bottom</li>
-        <li>bottom-start</li>
-        <li>bottom-end</li>
-        <li>right</li>
-        <li>right-start</li>
-        <li>right-end</li>
-        <li>left</li>
-        <li>left-start</li>
-        <li>left-end</li>
-      </ul>
+      <UnionType values={[
+        'top',
+        'top-start',
+        'top-end',
+        'bottom',
+        'bottom-start',
+        'bottom-end',
+        'right',
+        'right-start',
+        'right-end',
+        'left',
+        'left-start',
+        'left-end',
+      ]} />
     }
   />
   <PropsItem

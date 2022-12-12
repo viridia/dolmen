@@ -16,8 +16,9 @@ export const pageIndex: IDocGroup[] = [
     pages: [
       { href: '/start/overview', title: 'Overview' },
       { href: '/start/installation', title: 'Installation' },
+      { href: '/start/usage', title: 'Usage' },
       { href: '/start/flex', title: 'Flex Props' },
-      { href: '/start/themes', title: 'Themes', disabled: true },
+      // { href: '/start/themes', title: 'Themes', disabled: true },
       { href: '/start/philosophy', title: 'Philosophy' },
     ],
   },

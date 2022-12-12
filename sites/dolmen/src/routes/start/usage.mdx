@@ -1,0 +1,66 @@
+import { SourceCode } from '../../components/mdx';
+import { A } from 'solid-start';
+
+# Usage
+
+Dolmen doesn't require any globally scoped styles or context providers. However, there are
+a couple of items that you may want to initialize at the top level of your application:
+
+* If you are using toasts, you will want to install a `ToastFrame`.
+* If you are using tooltips, you may want to install a
+  <A href="../../hooks/createTooltipWatcher">tooltip watcher</A>.
+
+## Page layout
+
+If your app has a relatively standard layout, with a title bar and a scrolling body, you can
+use the `Page` component to define your overall layout.
+
+<SourceCode>
+```tsx
+<Page>
+  <Page.Header>
+    <Page.Title>
+      Page Header
+    </Page.Title>
+  </Page.Header>
+  <Page.Content>
+    Page content
+  </Page.Content>
+</Page>
+```
+</SourceCode>
+
+## Theme selection
+
+A lot of sites offer the choice of a "dark mode" or "light mode" theme selector. Dolmen doesn't
+provide this out of the box, because the implementation will be different depending on how you
+want to persist user settings. However, such a feature is relatively easy to add.
+
+If you are using Dolmen in an SSR context, where you are doing both client-side and server-side
+rendering, then you will need to store the user's preference somewhere that is accessible on both
+the client and the server. The obvious way to do this is with a cookie. The cookie value is read by
+both the client and the server code, but it's only written on the client, in response to the user
+clicking on the theme mode button.
+
+Once you have the cookie value, you can use it select either the light or dark theme by adding
+the appropriate CSS class name to the top level of your app. If you are using solid-start, then
+your top level might look something like this:
+
+<SourceCode>
+```tsx
+<Body
+  classList={{
+    [userSettings.theme === 'dark' ? 'dm-theme-dark' : 'dm-theme-light']: true,
+  }}
+>
+  <ErrorBoundary>
+    <Suspense>
+      <Routes>
+        <FileRoutes />
+      </Routes>
+    </Suspense>
+  </ErrorBoundary>
+  <Scripts />
+</Body>
+```
+</SourceCode>

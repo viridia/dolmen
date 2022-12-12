@@ -46,6 +46,14 @@
   margin-bottom: 1rem;
 }
 
+.propsTableName {
+  min-width: 7rem;
+}
+
+.propsTableType {
+  min-width: 8rem;
+}
+
 .docNav {
   margin-top: 2rem;
 }
@@ -56,5 +64,14 @@
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+.unionMember {
+  list-style: '| ';
+  white-space: nowrap;
+
+  &:first-child {
+    list-style: '  ';
   }
 }

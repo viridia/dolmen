@@ -42,16 +42,18 @@ export const SourceCode: ParentComponent = props => {
 };
 
 export const PageOutline: ParentComponent = props => (
-  <div {...props} class={css.pageOutline}>{props.children}</div>
+  <div {...props} class={css.pageOutline}>
+    {props.children}
+  </div>
 );
 
 export const PropsTable: ParentComponent = props => (
   <Table class={css.propsTable}>
     <Table.Head>
       <Table.Row>
-        <Table.Cell>Name</Table.Cell>
+        <Table.Cell class={css.propsTableName}>Name</Table.Cell>
+        <Table.Cell class={css.propsTableType}>Type</Table.Cell>
         <Table.Cell>Description</Table.Cell>
-        <Table.Cell>Type</Table.Cell>
       </Table.Row>
     </Table.Head>
     <Table.Body>{props.children}</Table.Body>
@@ -65,8 +67,8 @@ export const PropsItem: VoidComponent<{
 }> = props => (
   <Table.Row>
     <Table.Cell>{props.name}</Table.Cell>
-    <Table.Cell>{props.description}</Table.Cell>
     <Table.Cell>{props.type}</Table.Cell>
+    <Table.Cell>{props.description}</Table.Cell>
   </Table.Row>
 );
 
@@ -76,8 +78,8 @@ export const UnionType: VoidComponent<{ values: string[] }> = props => (
   <ul>
     <For each={props.values}>
       {value => (
-        <li>
-          <code>{value}</code>
+        <li class={css.unionMember}>
+          <code>'{value}'</code>
         </li>
       )}
     </For>
