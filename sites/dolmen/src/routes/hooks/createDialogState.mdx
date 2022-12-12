@@ -1,0 +1,77 @@
+import { Stack, CheckBox, createCssTransition } from 'dolmen';
+import { DemoSection, SourceCode } from '../../components/mdx';
+import { TransitionDemo } from '../../components/demos/TransitionDemo';
+import { createSignal, createEffect } from 'solid-js';
+
+# createDialogState()
+
+The `createDialogState()` hooks is a wrapper around `createCssTransition()` that can be used
+for managing the state of a `Modal.Dialog`.
+
+In most cases, you won't need this, as the top-level `Modal` component already contains this
+functionality. However, there may be cases where you want more precise control over the
+opening and closing animation.
+
+The hook takes a single parameter which is an options object:
+
+<SourceCode>
+```tsx
+interface IDialogStateOptions {
+  /** Duration of the dialog opening animation, in milliseconds. */
+  delay?: number;
+
+  /** Duration of the dialog closing animation, in milliseconds. */
+  exitDelay?: number;
+
+  /** Callback which is called when the dialog is fully closed, that is when the closing
+      animation has completed. */
+  onExited?: () => void;
+}
+```
+</SourceCode>
+
+The hook returns an object with the following properties:
+
+<SourceCode>
+```tsx
+interface IDialogState {
+  /** Reactive signal if the dialog is 'visible'. This will be true if the dialog is open,
+      or if the dialog's closing animation is not finished. */
+  visible: boolean;
+
+  /** Accessor which returns true if the dialog is open. */
+  open: Accessor<boolean>;
+
+  /** Setter which controls the open/closed state of the dialog. Changing the value of this property
+      will trigger the dialog's opening or closing animation. */
+  setOpen: Setter<boolean>;
+
+  /** A set of properties to spread into the Modal.Dialog component. */
+  modalProps: {
+    state: CssTransitionState;
+    onClose: () => void;
+  };
+}
+```
+</SourceCode>
+
+Typical usage:
+
+<SourceCode>
+```tsx
+const dialogState = createDialogState();
+
+return (
+  <>
+    <Button onClick={() => { dialogState.setOpen(true); }}>Open</Button>
+    <Modal.Dialog {...dialogState.modalProps}>
+      <Modal.Body>Dialog Content</Modal.Dialog>
+      <Modal.Footer>
+        <Button onClick={() => { dialogState.setOpen(false); }}>Close</Button>
+      </Modal.Footer>
+    </Modal.Dialog>
+  </>
+)
+
+```
+</SourceCode>

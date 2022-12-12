@@ -106,7 +106,7 @@ export const pageIndex: IDocGroup[] = [
     title: 'Hooks',
     pages: [
       { href: '/hooks/createCssTransition', title: 'createCssTransition' },
-      { href: '/hooks/createDialogState', title: 'createDialogState', disabled: true },
+      { href: '/hooks/createDialogState', title: 'createDialogState' },
       { href: '/hooks/createElementSize', title: 'createElementSize' },
       { href: '/hooks/createFocusTrap', title: 'createFocusTrap' },
       { href: '/hooks/createFormValidation', title: 'createFormValidation' },
