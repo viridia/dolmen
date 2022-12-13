@@ -1,0 +1,51 @@
+import { Stack, Group, RadioButton } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem } from '../../components/mdx';
+import { createSignal } from 'solid-js';
+
+# RadioButton
+
+"Radio Buttons" represent a mutually exclusive set of options - only one option within the
+set can be chosen at a time.
+
+<DemoSection>
+  <Stack gap="md">
+    <RadioButton name="state" value="solid">Solid</RadioButton>
+    <RadioButton name="state" value="liquid">Liquid</RadioButton>
+    <RadioButton name="state" value="gas">Gas</RadioButton>
+  </Stack>
+</DemoSection>
+<SourceCode>
+```tsx
+<RadioButton name="state" value="solid">Solid</RadioButton>
+<RadioButton name="state" value="liquid">Liquid</RadioButton>
+<RadioButton name="state" value="gas">Gas</RadioButton>
+```
+</SourceCode>
+
+## Handling mutual exclusion
+
+Radio buttons are meant to be part of a group, such that at most one element of the group can
+be in the 'checked' state. Setting any radio button to checked causes all other buttons in the
+group to become unchecked. (It is possible to be in a state where none are checked.)
+
+There are two ways to handle this, depending on whether the radio buttons are controlled or
+uncontrolled.
+
+For uncontrolled radio buttons, the built-in browser behavior can be used: all of the radio
+buttons within a given group should have the same `name` property, but different `value` properties.
+(The `name` property represents the field name that would be submitted as part of a form).
+The browser will then handle exclusion automatically. This works even if the buttons are not
+inside a form.
+
+For controlled radio buttons, it will typically be the case that each radio button represents
+a specific option or value, and the `checked` property set to true only if the currently selected
+value (which is presumably reactive) matches the value associated with that button.
+
+**Note**: Even for controlled buttons, it's recommended to set the `name` and `value` properties as
+you would for uncontrolled buttons. This will cause the browser to handle keyboard navigation in a
+way that conforms to accessibility best practices: arrow keys navigate within the group, and the
+TAB and shift-TAB keys navigate between groups.
+
+## RadioButton properties
+
+Checkboxes accept all of the standard properties for an HTML radio input element.

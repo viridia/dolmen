@@ -1,13 +1,11 @@
 # Bugs / Issues
 
 * Shortcuts prevent dialog-Escape key from working.
-* Firefox drawer bugs
 * Make Breadcrumbs and Link type-safe when passing 'A'.
 * Make Breadcrumb links and Links same color.
 
 # Components
 
-* Radio / RadioGroup
 * Divided button
 * Kbd
 * Chip
@@ -79,13 +77,7 @@
   * Input
 * Button busy state.
 
-## Drawer
-
-  * Leave sliver
-  * Fixture for minWidth
-  * Firefox bugs
-
-# Unresolved issues with Solid
+# Unresolved issues with Solid-Start
 
 * Client-only rendering:
   * properties panel

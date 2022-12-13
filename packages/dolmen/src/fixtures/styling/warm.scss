@@ -72,13 +72,11 @@ $textHighlight: #81665566;
   --dm-color-slider-fill: #{palette.$warmgray750};
 
   // Toggle switches
-  --dm-color-toggle-fill: #{palette.$warmgray700};
+  --dm-color-toggle-fill: #{palette.$warmgray600};
   --dm-color-toggle-fill-checked: #118811;
-  --dm-color-toggle-slide-fill: linear-gradient(
-    to bottom,
-    #{palette.$warmgray100} 0%,
-    #{palette.$warmgray300} 100%
-  );
+  --dm-color-toggle-slide: #{palette.$warmgray400};
+
+  --dm-color-radio-fill: #{color.adjust($primaryColor, $lightness: 10%)};
 
   // Tooltips have their own color scheme, also used by callouts.
   --dm-color-tooltip-bg: #{palette.$black};

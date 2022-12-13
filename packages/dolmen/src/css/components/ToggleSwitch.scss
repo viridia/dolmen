@@ -46,7 +46,7 @@
     }
 
     &::after {
-      background: var(--dm-color-toggle-slide-fill);
+      background-color: var(--dm-color-toggle-slide);
       box-shadow: 0 0.5px 2px 1px var(--dm-color-shadow);
       border-radius: 50%;
       content: '';

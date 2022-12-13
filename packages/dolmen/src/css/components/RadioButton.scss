@@ -1,0 +1,57 @@
+@use '../defs.scss';
+
+@layer ui-base {
+  .dm-radio-label {
+    color: var(--dm-color-text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    outline: none;
+    font-family: var(--dm-font-body);
+    font-size: defs.fontSize('md');
+    gap: 6px;
+  }
+
+  .dm-radio-ctrl {
+    appearance: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--dm-color-field-border);
+    border-radius: 50%;
+    cursor: inherit;
+    height: 16px;
+    font-size: inherit;
+    margin: 0;
+    outline: none;
+    position: relative;
+    width: 16px;
+  }
+}
+
+@layer ui-states {
+  .dm-radio-label {
+    &[aria-disabled] {
+      cursor: default;
+      opacity: 0.5;
+    }
+  }
+
+  .dm-radio-ctrl {
+    &:focus-within:focus-visible {
+      box-shadow: 0 0 1px 3px var(--dm-color-focus);
+      z-index: defs.$zFocused;
+    }
+
+    &:checked::after {
+      background-color: var(--dm-color-radio-fill);
+      border-radius: 50%;
+      content: '';
+      height: 8px;
+      left: 3px;
+      position: absolute;
+      top: 3px;
+      width: 8px;
+    }
+  }
+}

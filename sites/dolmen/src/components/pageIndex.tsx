@@ -65,7 +65,7 @@ export const pageIndex: IDocGroup[] = [
           { href: '/components/FormField', title: 'FormField' },
           { href: '/components/Input', title: 'Input' },
           { href: '/components/Label', title: 'Label' },
-          // { href: '/components/RadioButton', title: 'RadioButton [planned]', disabled: true },
+          { href: '/components/RadioButton', title: 'RadioButton' },
           { href: '/components/Select', title: 'Select' },
           { href: '/components/TextArea', title: 'TextArea' },
           { href: '/components/ToggleSwitch', title: 'ToggleSwitch' },

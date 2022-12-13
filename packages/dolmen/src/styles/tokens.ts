@@ -12,18 +12,18 @@ export const designTokens = {
     elevation1: token('--dm-color-elevation-1'),
     elevation2: token('--dm-color-elevation-2'),
 
-    // "Wells" are interactive regions such as input, list box, etc.
-    fieldBg: token('--dm-color-field-bg'),
-    fieldBorder: token('--dm-color-field-border'),
-    fieldBorderSlight: token('--dm-color-field-border-slight'),
-    fieldHoverBorder: token('--dm-color-field-hover-border'),
-
     // Text colors
     text: token('--dm-color-text'),
     textDim: token('--dm-color-text-dim'),
     textSelection: token('--dm-color-text-selection'),
     textSelectionBg: token('--dm-color-text-selection-bg'),
     textLink: token('--dm-color-text-link'),
+
+    // "Wells" are interactive regions such as input, list box, etc.
+    fieldBg: token('--dm-color-field-bg'),
+    fieldBorder: token('--dm-color-field-border'),
+    fieldBorderSlight: token('--dm-color-field-border-slight'),
+    fieldHoverBorder: token('--dm-color-field-hover-border'),
 
     // Severities
     successText: token('--dm-color-success-text'),
@@ -75,11 +75,9 @@ export const designTokens = {
     // Toggle switches
     toggleFill: token('--dm-color-toggle-fill'),
     toggleFillChecked: token('--dm-color-toggle-fill-checked'),
-    // toggleSlideFill: linear-gradient(
-    //   to bottom,
-    //   #{palette.$gray50} 0%,
-    //   #{palette.$gray200} 100%
-    // );
+    toggleSlide: token('--dm-color-toggle-slide'),
+
+    radioFill: token('--dm-color-radio-fill'),
 
     // Tooltips have their own color scheme, also used by callouts.
     tooltipBg: token('--dm-color-tooltip-bg'),

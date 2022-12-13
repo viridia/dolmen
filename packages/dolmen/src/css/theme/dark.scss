@@ -11,18 +11,18 @@ $textHighlight: #6f6fcf66;
   --dm-color-elevation-1: #{palette.$coolgray850};
   --dm-color-elevation-2: #{palette.$coolgray800};
 
-  // "Wells" are interactive regions such as input, list box, etc.
-  --dm-color-field-bg: #{palette.$coolgray800};
-  --dm-color-field-border: #{palette.$coolgray600};
-  --dm-color-field-border-slight: #{palette.$coolgray700};
-  --dm-color-field-hover-border: #{palette.$coolgray600};
-
   // Text colors
   --dm-color-text: #{palette.$coolgray200};
   --dm-color-text-dim: #{palette.$coolgray500};
   --dm-color-text-selection: #{palette.$white};
   --dm-color-text-selection-bg: #{$textHighlight};
   --dm-color-text-link: #{color.adjust($primaryColor, $lightness: 15%, $saturation: -10%)};
+
+  // "Wells" are interactive regions such as input, list box, etc.
+  --dm-color-field-bg: #{palette.$coolgray800};
+  --dm-color-field-border: #{palette.$coolgray600};
+  --dm-color-field-border-slight: #{palette.$coolgray700};
+  --dm-color-field-hover-border: #{palette.$coolgray600};
 
   // Severities
   --dm-color-success-text: #aea;
@@ -72,13 +72,11 @@ $textHighlight: #6f6fcf66;
   --dm-color-slider-fill: #{palette.$coolgray750};
 
   // Toggle switches
-  --dm-color-toggle-fill: #{palette.$coolgray700};
+  --dm-color-toggle-fill: #{palette.$coolgray600};
   --dm-color-toggle-fill-checked: #118811;
-  --dm-color-toggle-slide-fill: linear-gradient(
-    to bottom,
-    #{palette.$coolgray100} 0%,
-    #{palette.$coolgray300} 100%
-  );
+  --dm-color-toggle-slide: #{palette.$coolgray400};
+
+  --dm-color-radio-fill: #{color.adjust($primaryColor, $lightness: 10%)};
 
   // Tooltips have their own color scheme, also used by callouts.
   --dm-color-tooltip-bg: #{palette.$black};

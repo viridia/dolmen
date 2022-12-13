@@ -75,11 +75,9 @@ $grayBase: #8c8c8c;
   // Toggle switches
   --dm-color-toggle-fill: #{palette.$gray150};
   --dm-color-toggle-fill-checked: #77dd77;
-  --dm-color-toggle-slide-fill: linear-gradient(
-    to bottom,
-    #{palette.$gray50} 0%,
-    #{palette.$gray200} 100%
-  );
+  --dm-color-toggle-slide: #{palette.$coolgray100};
+
+  --dm-color-radio-fill: #{$primaryColor};
 
   // Tooltips have their own color scheme, also used by callouts.
   --dm-color-tooltip-bg: #{palette.$gray700};
