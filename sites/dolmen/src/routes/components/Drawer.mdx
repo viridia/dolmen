@@ -1,0 +1,258 @@
+import { Table, Group, Drawer } from 'dolmen';
+import { DemoSection, SourceCode, PropsTable, PropsItem, UnionType, PageOutline } from '../../components/mdx';
+import { ModalDrawerDemo } from '../../components/demos/ModalDrawerDemo';
+import { CoplanarDrawerDemo, CoplanarDrawerDemoMinSize } from '../../components/demos/CoplanarDrawerDemo';
+import { Tune } from '../../icons';
+
+# Drawer
+
+A `Drawer` is an expanding sidebar which is initially hidden but slides out when opened.
+
+There are two kinds of drawers: *modal* and *coplanar*.
+
+Modal drawers exist on a layer that floats above the page content. When opened, they obscure
+the content beneath them. In addition, they block interaction with the rest of the page,
+similar to the way a modal dialog works. This type of drawer is best used when the drawer
+represents a discrete "mode" (for example user preferences). It is also the best choice when
+screen space is at a premium (such as on a mobile device), since the amount of space left over
+will be too narrow for the user to be able to interact easily.
+
+Coplanar drawers exist at the same level as the other page content, and will cause that content
+to shrink when the drawer is opened - essentially pushing that content aside. This type of drawer
+is best used when there is a need to interact with the drawer and the rest of the page content
+simultaneously. For example, the drawer might contain a palette of options to apply to the
+selected content in the main panel.
+
+## Modal Drawer
+
+Modal drawers are absolutely-positioned, so they will attach themselves to the nearest positioned
+ancestor element. Drawers can be attached to any side of the page (top, left, bottom, right),
+or they can be attached to 'start' or 'end', which will either be left or right depending on
+the current writing direction (RTL vs LTR).
+
+<DemoSection>
+  <ModalDrawerDemo />
+</DemoSection>
+<SourceCode>
+```tsx
+<Group>
+  <Drawer
+    side="start"
+    size="300px"
+    open={open()}
+    mode="modal"
+    onClose={() => setOpen(false)}
+  >
+    Drawer Panel
+  </Drawer>
+  <div
+    style={{
+      flex: 1,
+      display: 'flex',
+      'align-self': 'center',
+      'justify-content': 'center',
+    }}
+  >
+    <CheckBox
+      checked={open()}
+      onClick={() => {
+        setOpen(checked => !checked);
+      }}
+    >
+      Open Drawer
+    </CheckBox>
+  </div>
+</Group>
+```
+</SourceCode>
+
+## Coplanar Drawer
+
+Coplanar drawers should be placed inside of a flex or grid container, so that the expanded size
+of the drawer can force the rest of the content to compress in size.
+
+In addition, the layout direction of the flex container must match the side that the drawer
+is attached to. Special attention must be taken for drawers which are 'left' or 'right': when
+the writing direction of the page is changed (RTL instead of LTR), flex boxes will be flipped
+left-to-right, so you will need to detect this and change the flex direction
+from `row` to `row-reverse`.
+
+Drawers which are placed at 'start' and 'end' (instead of 'left' and 'right') will flip along
+with the flexbox, so no special handling is required for those cases. Similarly, drawers which
+are placed at 'top' or 'bottom' are not affected by writing direction, since column layout doesn't
+flip.
+
+**Note**: you can detect the current writing direction using `getComputedStyle(element).direction`.
+
+<DemoSection>
+  <CoplanarDrawerDemo />
+</DemoSection>
+<SourceCode>
+```tsx
+<Group>
+  <Drawer
+    side="start"
+    size="300px"
+    open={open()}
+    mode="coplanar"
+    onClose={() => setOpen(false)}
+  >
+    Drawer Panel
+  </Drawer>
+  <div
+    style={{
+      flex: 1,
+      display: 'flex',
+      'align-self': 'center',
+      'justify-content': 'center',
+    }}
+  >
+    <CheckBox
+      checked={open()}
+      onClick={() => {
+        setOpen(checked => !checked);
+      }}
+    >
+      Open Drawer
+    </CheckBox>
+  </div>
+</Group>
+```
+</SourceCode>
+
+## Drawer minSize
+
+The `minSize` property can be used to create a drawer which never completely closes, but instead
+leaves a narrow toolbar.
+
+Note that the drawer element doesn't actually change size. When the drawer is in the 'closed'
+position, the content is clipped, with the largest part being off-screen. It's up to the application
+to render narrow or wide content depending on the drawer state.
+
+<DemoSection>
+  <CoplanarDrawerDemoMinSize />
+</DemoSection>
+<SourceCode>
+```tsx
+<Group>
+  <Drawer
+    side="start"
+    size="300px"
+    minSize="40px"
+    open={open()}
+    mode="coplanar"
+    onClose={() => setOpen(false)}
+  >
+    Drawer Panel
+  </Drawer>
+  <div
+    style={{
+      flex: 1,
+      display: 'flex',
+      'align-self': 'center',
+      'justify-content': 'center',
+    }}
+  >
+    <CheckBox
+      checked={open()}
+      onClick={() => {
+        setOpen(checked => !checked);
+      }}
+    >
+      Open Drawer
+    </CheckBox>
+  </div>
+</Group>
+```
+</SourceCode>
+
+## Drawer.Header and Drawer.Content
+
+`Drawer.Inner` and `Drawer.Content` are layout components that can be used to style the content
+of the drawer.
+
+<DemoSection>
+  <PageOutline style={{ height: '20rem', position: 'relative' }}>
+    <Drawer
+      side="start"
+      size="300px"
+      open
+      mode="modal"
+      onClose={() => {}}
+    >
+      <Drawer.Header>Header</Drawer.Header>
+      <Drawer.Content>Content</Drawer.Content>
+    </Drawer>
+    <div
+      style={{
+        flex: 1,
+        display: 'flex',
+        'align-self': 'center',
+        'justify-content': 'center',
+      }}
+    />
+  </PageOutline>
+</DemoSection>
+<SourceCode>
+```tsx
+<Drawer
+  side="start"
+  size="300px"
+  open
+  mode="modal"
+  onClose={() => {}}
+>
+  <Drawer.Header>Header</Drawer.Header>
+  <Drawer.Content>Content</Drawer.Content>
+</Drawer>
+```
+</SourceCode>
+
+## Drawer properties
+
+<PropsTable>
+  <PropsItem
+    name="mode"
+    description="Drawer mode."
+    type={
+      <UnionType values={[
+        'modal',
+        'coplanar',
+      ]} />
+    }
+  />
+  <PropsItem
+    name="open"
+    description="Whether the drawer should be open or closed."
+    type="boolean"
+  />
+  <PropsItem
+    name="onClose"
+    description="Callback called when drawer wants to close (background click, etc.)"
+    type="() => void"
+  />
+  <PropsItem
+    name="side"
+    description="Which side the drawer is attached to."
+    type={
+      <UnionType values={[
+        'top',
+        'bottom',
+        'left',
+        'right',
+        'start',
+        'end',
+      ]} />
+    }
+  />
+  <PropsItem
+    name="size"
+    description="Drawer size (width for horizontal drawers, height for vertical) in pixels"
+    type="string | number"
+  />
+  <PropsItem
+    name="minSize"
+    description="Size of drawer when closed (default 0)."
+    type="string | number"
+  />
+</PropsTable>

@@ -76,7 +76,7 @@ export const pageIndex: IDocGroup[] = [
         pages: [
           { href: '/components/Aside', title: 'Aside' },
           { href: '/components/Card', title: 'Card' },
-          { href: '/components/Drawer', title: 'Drawer', disabled: true },
+          { href: '/components/Drawer', title: 'Drawer' },
           { href: '/components/Group', title: 'Group' },
           { href: '/components/Page', title: 'Page' },
           { href: '/components/ScrollArea', title: 'ScrollArea' },

@@ -127,7 +127,7 @@ export const Drawer: ParentComponent<JSX.HTMLAttributes<HTMLElement> & DrawerPro
   );
 
   return (
-    <Show when={state() !== 'exited'}>
+    <Show when={state() !== 'exited' || local.minSize !== undefined}>
       <div
         ref={containerElt!}
         classList={{

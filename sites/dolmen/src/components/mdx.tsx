@@ -41,7 +41,7 @@ export const SourceCode: ParentComponent = props => {
   );
 };
 
-export const PageOutline: ParentComponent = props => (
+export const PageOutline: ParentComponent<JSX.HTMLAttributes<HTMLDivElement>> = props => (
   <div {...props} class={css.pageOutline}>
     {props.children}
   </div>

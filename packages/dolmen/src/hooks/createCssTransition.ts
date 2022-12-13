@@ -56,13 +56,14 @@ export const createCssTransition = (props: Props): Accessor<CssTransitionState> 
 
       onCleanup(() => window.clearTimeout(timer));
     } else if (st === 'enter-start') {
-      window.requestAnimationFrame(() => {
+      // This used to be RAF but doesn't produce the effect we want on Firefox.
+      window.setTimeout(() => {
         setState('entering');
-      });
+      }, 1);
     } else if (st === 'exit-start') {
-      window.requestAnimationFrame(() => {
+      window.setTimeout(() => {
         setState('exiting');
-      });
+      }, 1);
     }
   });
 
