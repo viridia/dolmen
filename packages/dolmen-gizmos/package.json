@@ -13,12 +13,14 @@
   "homepage": "https://github.com/viridia/dolmen#readme",
   "description": "Dolmen knob widget",
   "scripts": {
-    "build": "npm run build:mjs && npm run build:cjs",
+    "build": "run-s build:sass build:mjs build:cjs",
     "build:cjs": "tsc --project tsconfig.src.json --outDir ./dist/cjs --module CommonJS",
     "build:mjs": "tsc --project tsconfig.src.json --outDir ./dist/mjs --module ESNext",
+    "build:sass": "sass --style=compressed src/css/:css/",
     "clean": "rimraf ./dist",
     "format": "prettier --write .",
     "prepublishOnly": "npm run build",
+    "sass:watch": "sass src/css/:css/ --watch",
     "test:compile": "tsc --noEmit --project ./tsconfig.json"
   },
   "type": "module",

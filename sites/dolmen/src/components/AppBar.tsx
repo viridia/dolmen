@@ -1,13 +1,13 @@
 import { Button, Page, Spacer } from 'dolmen';
 import { Show } from 'solid-js';
-import { DarkMode, LightMode } from '../icons';
+import { DarkMode, GithubMark, LightMode } from '../icons';
 import { useUserSettings } from '../settings';
 
 export default () => {
   const [settings, setSettings] = useUserSettings();
 
   return (
-    <Page.Header>
+    <Page.Header gap="md">
       <Page.Title>Dolmen</Page.Title>
       <Spacer />
       <Button
@@ -22,6 +22,9 @@ export default () => {
           <DarkMode />
         </Show>
       </Button>
+      <Button.Link icon color="subtle" target="new" href="https://github.com/viridia/dolmen">
+        <GithubMark width={24} />
+      </Button.Link>
     </Page.Header>
   );
 };

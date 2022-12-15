@@ -123,6 +123,10 @@ export const pageIndex: IDocGroup[] = [
   },
   {
     title: 'Packages',
+    pages: [
+      { href: '/packages/dolmen-gizmos', title: 'dolmen-gizmos', disabled: true },
+      { href: '/packages/dolmen-keys', title: 'dolmen-keys', disabled: true },
+    ],
   },
 ];
 
@@ -130,7 +134,7 @@ export const pageIndexFlat: IDocPage[] = pageIndex
   .map(page => {
     const walk: (group: IDocGroup) => IDocPage[] = (group: IDocGroup) => {
       if (group.pages) {
-        return group.pages;
+        return group.pages.filter(page => !page.disabled);
       } else if (group.groups) {
         return group.groups.map(walk).flat();
       } else {

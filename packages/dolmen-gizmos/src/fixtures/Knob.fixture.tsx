@@ -1,6 +1,9 @@
 import { createSignal } from 'solid-js';
 import { Stack, Header, Group } from 'dolmen';
 import { Knob } from '../index';
+import '../css/styles.scss';
+import '../css/theme/dark.scss';
+import '../css/theme/light.scss';
 
 export const $category = 'gizmos';
 
@@ -55,10 +58,31 @@ export default () => {
       <Group gap="md">
         <Knob value={value()} onChange={setValue} max={100} majorTick={10} minorTick={2} />
         <Knob value={value()} onChange={setValue} max={100} majorTick={20} minorTick={5} />
-        <Knob value={value()} onChange={setValue} max={100} majorTick={50} minorTick={10} arc="out" />
-        <Knob value={value()} onChange={setValue} max={100} majorTick={50} minorTick={10} arc="in" />
+        <Knob
+          value={value()}
+          onChange={setValue}
+          max={100}
+          majorTick={50}
+          minorTick={10}
+          arc="out"
+        />
+        <Knob
+          value={value()}
+          onChange={setValue}
+          max={100}
+          majorTick={50}
+          minorTick={10}
+          arc="in"
+        />
         <Knob value={value()} onChange={setValue} max={100} majorTick={10} minorTick={2} arc="in" />
-        <Knob value={value()} onChange={setValue} max={100} majorTick={10} minorTick={2} arc="none" />
+        <Knob
+          value={value()}
+          onChange={setValue}
+          max={100}
+          majorTick={10}
+          minorTick={2}
+          arc="none"
+        />
       </Group>
     </Stack>
   );

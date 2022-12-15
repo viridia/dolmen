@@ -1,0 +1,22 @@
+@use 'sass:color';
+@use '../../../../dolmen/src/css/palette.scss';
+
+.dm-theme-dark {
+  --dm-color-knob-rim-top: #{color.adjust(palette.$coolgray800, $lightness: 10%)};
+  --dm-color-knob-rim-bottom:  #{color.adjust(palette.$coolgray800, $lightness: -10%)};
+
+  --dm-color-knob-center-top: #{color.adjust(palette.$coolgray800, $lightness: 3%)};
+  --dm-color-knob-center-bottom: #{color.adjust(palette.$coolgray800, $lightness: -3%)};
+
+  //     knobRim: `linear-gradient(
+//       to bottom,
+//       ${colord(palette.coolgray800).lighten(0.1).toHex()} 0,
+//       ${colord(palette.coolgray800).darken(0.1).toHex()}
+//     )`,
+//     knobCenter: `linear-gradient(
+//       to bottom,
+//       ${colord(palette.coolgray800).lighten(0.03).toHex()} 0,
+//       ${colord(palette.coolgray800).darken(0.03).toHex()}
+//     )`,
+
+}

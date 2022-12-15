@@ -1,0 +1,108 @@
+@layer ui-base {
+  .dm-knob {
+    position: relative;
+    padding: 16px;
+    margin: 4px 0;
+    user-select: none;
+  }
+  .dm-knob-arc {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid var(--dm-color-field-border-slight);
+    border-radius: 50%;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 50%, 0 100%);
+  }
+  .dm-knob-tick {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 1px;
+    bottom: 50%;
+    border-top-color: var(--dm-color-field-border-slight);
+    border-top-style: solid;
+    border-top-width: 10px;
+    transform: rotate(var(--rotation));
+    transform-origin: 0 100%;
+  }
+  .dm-knob-tick-small {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 1px;
+    bottom: 50%;
+    border-top-color: var(--dm-color-field-border-slight);
+    border-top-style: solid;
+    border-top-width: 6px;
+    transform: rotate(var(--rotation));
+    transform-origin: 0 100%;
+  }
+  .dm-knob-pot-rim {
+    border: 1px solid var(--dm-color-knob-rim);
+    border-radius: 50%;
+    background: linear-gradient(to bottom, var(--dm-color-knob-rim-top) 0, var(--dm-color-knob-rim-bottom));
+    box-shadow: 0 2px 8px var(--dm-color-shadow);
+    cursor: pointer;
+    height: 48px;
+    position: relative;
+    width: 48px;
+  }
+  .dm-knob-pot-center {
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    background: linear-gradient(to bottom, var(--dm-color-knob-center-top) 0, var(--dm-color-knob-center-bottom));
+    border-radius: 50%;
+  }
+  .dm-knob-rotator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transform: rotate(var(--rotation));
+  }
+  .dm-knob-pot-mark {
+    background-color: var(--dm-color-text-dim);
+    border-radius: 1px;
+    width: 3px;
+    height: 20%;
+    position: absolute;
+    left: calc(50% - 1.5px);
+    top: 2px;
+  }
+}
+@layer ui-variants {
+  .dm-knob-arc.dm-knob-arc-in {
+    left: 9px;
+    top: 9px;
+    right: 9px;
+    bottom: 9px;
+  }
+  .dm-knob-pot-rim.dm-size-xl {
+    height: 64px;
+    width: 64px;
+  }
+  .dm-knob-pot-rim.dm-size-lg {
+    height: 48px;
+    width: 48px;
+  }
+  .dm-knob-pot-rim.dm-size-md {
+    height: 40px;
+    width: 40px;
+  }
+  .dm-knob-pot-rim.dm-size-sm {
+    height: 32px;
+    width: 32px;
+  }
+  .dm-knob-pot-rim.dm-size-xs {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

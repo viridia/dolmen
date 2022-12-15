@@ -1,0 +1,10 @@
+@use 'sass:color';
+@use '../../../../dolmen/src/css/palette.scss';
+
+.dm-theme-light {
+  --dm-color-knob-rim-top: #{color.adjust(palette.$gray100, $lightness: 10%)};
+  --dm-color-knob-rim-bottom:  #{color.adjust(palette.$gray100, $lightness: -10%)};
+
+  --dm-color-knob-center-top: #{color.adjust(palette.$gray100, $lightness: 3%)};
+  --dm-color-knob-center-bottom: #{color.adjust(palette.$gray100, $lightness: -3%)};
+}
