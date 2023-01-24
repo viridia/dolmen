@@ -64,8 +64,6 @@
 * Fixture for createFocusTrap
 * Fixture for createFormValidation
   * Async validation
-* Move Knob to its own package.
-  * Figure out how we are going to handle theming in that case.
 * Tree view collapse
 * Tree view highlight
 * Tree view expand
